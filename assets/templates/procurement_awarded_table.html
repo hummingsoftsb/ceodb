@@ -1,0 +1,1191 @@
+<div class="header bg-doscurve-item-30 excel-normal">
+    <!-- <img src="./img/icons/line_chart-26.png" style="float: left;margin-right: 13px;">  -->
+    <h2><%=data.title%></h2> <% console.log(data) %>
+</div>
+<div class="content procurement" style="background: none;">
+    <style type="text/css">
+		div.content1 li {
+			margin: 0 -2px;
+		}
+		div.content1 span.title2inline > span.title2extrawidth1,
+		div.content1 span.title2inline > span.title2extrawidth1_v2 {
+			margin: 0 -7px;
+			border-left: 1px solid #333;
+		}
+		div.content1 span.title2inline > span.title2extrawidth2,
+		div.content1 span.title2inline > span.title2extrawidth2_v2,
+		div.content1 span.title2inline > span.title2extrawidth3 {
+			margin: 0 7px;
+			border-left: 1px solid #333;
+		}
+		div.content1 span.title1, div.content1 span.title2, div.content1 span.title3 {
+			padding: 0 0 0 5px;
+		}
+		
+		div.content1 div.content2:first-child {
+			font-size: 12px;
+			background: #111;
+			padding: 10px 20px 10px 0px;
+		}
+			div.content1 div.content2:first-child > div.datatop {
+				background: none;
+			}
+			div.content1 div.content2:first-child ul {
+				/*border: 1px solid #333;*/
+			}
+			div.content1 div.content2:first-child ul li {
+				/*border: 1px solid #333;*/
+			}
+			div.content1 span.header_title2inline {
+				margin: 0;
+				padding: 0;
+			}
+			div.content1 span.header_title2inline > span {
+				display: inline-block;
+				border-left: 1px solid #2a2a2a;
+			}
+				div.content1 span.header_title2inline > span:nth-child(1) {
+					margin-left: -2px;
+				}
+				div.content1 span.header_title2inline > span:nth-child(2) {
+					margin-left: 23px;
+				}
+				div.content1 span.header_title2inline > span._v2:nth-child(2) {
+					margin-left: 188px;
+				}
+				div.content1 span.header_title2inline > span._v2:nth-child(3) {
+					width: 220px;
+				}
+				.data_head_5d_specialwidth {
+					width: 126px;
+				}
+				
+				div.content1 span.header_title2inline._v2 > span:nth-child(1) {
+					margin-left: -2px;
+				}
+				div.content1 span.header_title2inline._v2 > span:nth-child(2) {
+					margin-left: 94px;
+				}
+			div.content1 #data_head_1,
+			div.content1 #data_head_2,
+			div.content1 #data_head_3,
+			div.content1 #data_head_4,
+			div.content1 #data_head_5,
+			div.content1 #data_head_6 {
+				border-left: 2px solid rgba(0,153,255,.5);
+				border-top: 1px solid rgba(0,153,255,.5);
+			}
+			div.content1 div.content2:first-child span.title1 {color: rgba(255,255,255,1);}
+			div.content1 div.content2:first-child span.title2 {color: rgba(255,255,255,.7);}
+			div.content1 div.content2:first-child span.title3 {color: rgba(255,255,255,.4);}
+			div.content1 div.content2:first-child ul li {
+				border-left: 1px solid #2a2a2a;
+				padding: 0 5px 0 0;
+			}
+			div.content1 div.content2:first-child a.up {
+				
+			}
+			div.content1 div.content2:first-child .datatop .inline_block1,
+			div.content1 div.content2:first-child .databottom .inline_block1 {
+				padding: 0 0 0 10px;
+			}
+		
+		/*js*/
+		div.content1 .highlight {
+			background: rgba(255,255,255,.1);
+		}
+		div.content1 .highlight2 {
+			background: rgba(0,153,255,.05);
+		}
+		
+		/*structure*/
+		
+		span.spangap1 {
+			display: block;
+			height: 35px;
+		}
+		span.spangap2 {
+			display: block;
+			height: 17px;
+		}
+		
+		div.content1 ul.datagroup1, div.content1 ul.datagroup2, div.content1 ul.datagroup3, div.content1 ul.datagroup4, div.content1 ul.datagroup5, div.content1 ul.datagroup6 {
+			padding: 0 10px 5px;
+		}
+		div.content1 span {
+			padding: 0 5px;
+		}
+		div.content1 .plategap {
+			margin: 3px;
+		}
+		div.content1 div.databottom ul,
+		div.content1 ul.inline_block1 li,
+		div.content1 span.title2inline > span {
+			display: inline-block;
+		}
+		div.content1 span {
+			display: block;
+		}
+		div.content1 .content2 {
+			margin-top: 15px;
+			border-top: 3px solid #111;
+			border-left: 3px solid #111;
+			/*background: #000;*/
+		}
+		div.content1 .datatop {
+			padding: 0 0 0 10px;
+			background: #1a1a1a;
+		}
+		div.content1 .databottom {
+			padding: 0 0 0 10px;
+			/*background: #1e1e1e;*/
+		}
+		
+		div.content1 .datatop {
+			color: #fff;
+		}
+		div.content1 .databottom {
+			color: #fff;
+		}
+		
+		div.content1 .title1, div.content1 .title2, div.content1 .title3 {font-size: 13px;}
+		div.content1 .title1 { padding: 5px 0 0;}
+		div.content1 ul.datagroup1 span.title1 {color: #999;}
+		div.content1 ul.datagroup1 span.title2 {color: #999;}
+		div.content1 ul.datagroup1 span.title3 {color: #999;}
+		
+		div.content1 ul.datagroup2 span.title1 {color: rgba(51,195,204,1);}
+		div.content1 ul.datagroup2 span.title2 {color: rgba(51,195,204,.7);}
+		div.content1 ul.datagroup2 span.title3 {color: rgba(51,195,204,.4);}
+		
+		div.content1 ul.datagroup3 span.title1 {color: rgba(255,102,0,1);}
+		div.content1 ul.datagroup3 span.title2 {color: rgba(255,102,0,.7);}
+		div.content1 ul.datagroup3 span.title3 {color: rgba(255,102,0,.4);}
+		
+		div.content1 ul.datagroup4 span.title1 {color: rgba(255,102,0,1);}
+		div.content1 ul.datagroup4 span.title2 {color: rgba(255,102,0,.7);}
+		div.content1 ul.datagroup4 span.title3 {color: rgba(255,102,0,.4);}
+		
+		div.content1 ul.datagroup5 span.title1 {color: rgba(153,204,51,1);}
+		div.content1 ul.datagroup5 span.title2 {color: rgba(153,204,51,.8);}
+		div.content1 ul.datagroup5 span.title3 {color: rgba(153,204,51,.7);}
+		
+		div.content1 ul.datagroup6 span.title1 {color: rgba(255,255,0,1);}
+		div.content1 ul.datagroup6 span.title2 {color: rgba(255,255,0,.7);}
+		div.content1 ul.datagroup6 span.title3 {color: rgba(255,255,0,.4);}
+		
+		div.content1 ul.datagroup2 > li,
+		div.content1 ul.datagroup3 > li,
+		div.content1 ul.datagroup4 > li,
+		div.content1 ul.datagroup5 > li,
+		div.content1 ul.datagroup6 > li {
+			border-left: 1px solid #333;
+		}
+		
+		.databottom .title1_v2 {
+			background: rgba(0,0,0,.2);
+			font-style: italic;
+		}
+		.databottom .title2_v2 {
+			font-style: normal;
+		}
+		.databottom .title3_v2 {
+			font-weight: bolder;
+		}
+		
+		div.content1 .datagroup1 {
+			min-width: 600px;
+			overflow: hidden;
+		}
+			div.content1 .datagroup1 span.data {
+				color: #fff;
+			}
+			div.content1 .datagroup1 > li:first-child {
+				padding: 0 15px 3px;
+				height: 45px;
+				vertical-align: top;
+				text-align: center;
+				background: #111;
+				color: #fff;
+			}
+			div.content1 .datagroup1 > li:nth-child(2) {
+				padding: 0 10px;
+			}
+			#data_1b {
+				width: 80%;
+			}
+			div.content1 .datagroup1 li span:nth-child(2) {
+				font-size: 20px;
+			}
+		div.content1 .datagroup2 {
+			border-left: 3px solid rgba(51,195,204,.2);
+			border-top: 1px solid rgba(51,195,204,.2);
+		}
+			div.content1 .datagroup2 span.data {
+				color: #bffbff;
+			}
+			#data_2a{
+				width: 350px;
+			}
+			div.content1 .datagroup2 .typeofworks {
+			}
+			#data_2b {
+				width: 200px;
+			}
+			div.content1 .datagroup2 li {
+				vertical-align: top;
+			}
+			#data_2c {
+				width: 150px;
+			}
+			#data_2d {
+				width: 150px;
+			}
+		div.content1 .datagroup3 {
+			border-left: 3px solid rgba(255,102,0,.2);
+			border-top: 1px solid rgba(255,102,0,.2);
+		}
+			div.content1 .datagroup3 span.data {
+				color: #ffddbf;
+			}
+			div.content1 .datagroup3 li {
+				width: 85px;
+				vertical-align: top;
+			}
+			#title2extrawidth1_v2 {
+				width: 286px;
+				margin-left: -7px;
+			}
+			#title2extrawidth2_v2 {
+				width: 300px;
+			}
+			#data_3a {
+				width: 120px;
+			}
+			#data_3d {
+				width: 120px;
+			}
+		/*div.content1 .datagroup4 {
+			border-left: 3px solid rgba(255,102,0,.2);
+			border-top: 1px solid rgba(255,102,0,.2);
+		}
+			div.content1 .datagroup4 span.data {
+				color: #ffddbf;
+			}
+			div.content1 .datagroup4 li {
+				width: 150px;
+				vertical-align: top;
+			}*/
+		div.content1 .datagroup5 {
+			border-left: 3px solid rgba(153,204,51,.2);
+			border-top: 1px solid rgba(153,204,51,.2);
+		}
+			div.content1 .datagroup5 span.data {
+				color: #eaffbf;
+			}
+			div.content1 span.title2extrawidth1 {
+			}
+			div.content1 span.title2extrawidth2 {
+			}
+			div.content1 .datagroup5 .bumi {
+			}
+			div.content1 .datagroup5 li {
+				width: 150px;
+				vertical-align: top;
+			}
+			
+			#title2extrawidth1 {
+				width: 360px;
+				margin-left: -7px;
+				border-left: 1px solid rgba(255,255,255,.4);
+			}
+			#title2extrawidth2 {
+				width: 296px;
+				margin-left: -7px;
+				border-left: 1px solid rgba(255,255,255,.4);
+			}
+			#title2extrawidth3 {
+				width: 200px;
+				margin-left: -7px;
+				border-left: 1px solid rgba(255,255,255,.4);
+			}
+				li.extrabrightborder, .extrabrightborder {
+					border-left: 1px solid rgba(255,255,255,.4) !important;
+				}
+				
+			#data_head_5a {
+				width: 81px;
+			}
+			#data_head_5c {
+				width: 89px;
+			}
+			#data_head_5f {
+				/*width: 100px;*/
+			}
+			
+			#data_5a {
+				width: 100px;
+			}
+			#data_5b {
+				width: 100px;
+			}
+			
+		div.content1 .datagroup6 {
+			border-left: 3px solid rgba(255,255,0,.2);
+			border-top: 1px solid rgba(255,255,0,.2);
+		}
+			div.content1 .datagroup6 span.data {
+				color: #ffffbf;
+			}
+			div.content1 .datagroup6 li {
+				width: 150px;
+				vertical-align: top;
+			}
+	</style>
+	<script type="text/javascript">
+		function sortup_txt(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+			   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+			})
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		function sortdown_txt(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+			   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+			})
+			listitems.reverse();
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		function sortup_int(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+				var aaaa = parseFloat($(a).text().split(',').join(''));
+				var bbbb = parseFloat($(b).text().split(',').join(''));
+				return aaaa > bbbb ? 1 : -1;
+				return 0;
+			})
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		function sortdown_int(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+				var aaaa = parseFloat($(a).text().split(',').join(''));
+				var bbbb = parseFloat($(b).text().split(',').join(''));
+				return aaaa < bbbb ? 1 : -1;
+				return 0;
+			})
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		function sortup_date(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+				return (new Date($(a).text())) > (new Date($(b).text())) ? 1 : -1;
+			})
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		function sortdown_date(x,y,caller){
+			var origin_order = $(caller).parents('.content1');
+			$(".highlight").removeClass("highlight");
+			$(".highlight2").removeClass("highlight2");
+			$(x).addClass("highlight");
+			$(y).addClass("highlight2");
+			var gosort1 = $(x);
+			var listitems = origin_order.children('.content2').children('div').children('ul').children('li'+x).children('span.data').get();
+			listitems.sort(function(a, b) {
+				return (new Date($(a).text())) < (new Date($(b).text())) ? 1 : -1;
+			})
+			$.each(listitems, function(idx, itm) { 
+				var mycontent1 = $(itm).parents('.content1');
+				var mycontent2 = $(itm).parents('.content2');
+				mycontent2.appendTo(origin_order); });
+		}
+		
+		function toggleAwardedContractSum1() {
+			visible('.title2.title2extrawidth1.title2_v2, .data_5a, .data_5b, .data_5h');
+		}
+		function toggleAwardedContractSum2() {
+			visible('.title2.title2extrawidth2.title2_v2, .data_5c, .data_5d');
+		}
+		function toggleAwardedContractSum3() {
+			visible('.title2.title2extrawidth3.title2_v2, .data_5f, .data_5g');
+		}
+
+		visible('.data_3');
+		visible('.data_4');
+		toggleAwardedContractSum1();
+		toggleAwardedContractSum2();
+		
+		function visible(x){
+			$(x).toggle("slow");
+		}
+		
+	</script>
+	
+	<div class="container">
+        <div class="row" style="">
+            <div class="col-xs-12">
+            	
+				<%if(data.type === "procurement_yetcalled_table") { %>
+					<!-- Accordion Start-->
+					<div class="panel-group" id="accordion">
+						<% var raw = data.data; for (var i = 0; i < raw.length; i++) { %>
+						<% var row = raw[i]; if (typeof row == "string") { %> 
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title" style="color: #FFFF66">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+											<%=row%>
+										</a>
+									</h4>
+								</div>
+								<div id="collapse<%=i%>" class="panel-collapse collapse">
+									<div class="panel-body">
+										<table class="procurement-table table table-bordered table-condensed  table-striped table-hover">
+											<thead>
+												<tr>
+													<th>No</th>
+													<th>Contract Name</th>
+													<th>Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<% var found = 0; %>
+												<% for (var j = 0; j < raw.length; j++) { %>
+												<% var inner = raw[j]; %>
+												<% if (row == inner) {found=1;} else if(found==1 && typeof inner != "string") {%>
+												<tr>
+													<td style="width:5%"><%=inner[0]%></td>
+													<td style="width:35%"><%=inner[1]%></td>
+													<td style="width:20%"><%=inner[2]%></td>
+												</tr>
+												<% } else if(found == 1 && typeof inner == "string") {found=999} } %>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						<% } } %>
+					</div>		
+					<!-- Accordion Ends-->
+				<%}%>
+				
+				<%if(data.type === "procurement_called_table") { %>
+					<!-- Accordion Start-->
+					<div class="panel-group" id="accordion">
+						<% var raw = data.data; 
+							var isV2 = (($.isArray(raw[1])) && (raw[1].length == 3));
+						if (!isV2) { for (var i = 0; i < raw.length; i++) { %>
+						<% var row = raw[i]; if (typeof row == "string") { %> 
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title" style="color: #FFFF66">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+											<%=row%>
+										</a>
+									</h4>
+								</div>
+								<div id="collapse<%=i%>" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<table class="procurement-table table table-bordered table-condensed  table-striped table-hover">
+											<thead>
+												<tr>
+													<th>Code</th>
+													<th>Tender</th>
+													<th>Status</th>
+													<th>Calling Date</th>
+													<th>Closing Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<% var found = 0; %>
+												<% for (var j = 0; j < raw.length; j++) { %>
+												<% var inner = raw[j]; %>
+												<% if (row == inner) {found=1;} else if(found==1 && typeof inner != "string") {%>
+												<tr>
+													<td style="width:5%"><%=inner[0]%></td>
+													<td style="width:35%"><%=inner[1]%></td>
+													<td style="width:20%"><%=inner[2]%></td>
+													<td style="width:20%"><%=inner[3]%></td>
+													<td style="width:20%"><%=inner[4]%></td>
+												</tr>
+												<% } else if(found == 1 && typeof inner == "string") {found=999} } %>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						<% } } } else { %>
+						<!-- This is v2 -->
+						<% for (var i = 0; i < raw.length; i++) { %>
+						<% var row = raw[i]; if (typeof row == "string") { %> 
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title" style="color: #FFFF66">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+											<%=row%>
+										</a>
+									</h4>
+								</div>
+								<div id="collapse<%=i%>" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<table class="procurement-table table table-bordered table-condensed  table-striped table-hover">
+											<thead>
+												<tr>
+													<th>No</th>
+													<th>Job Title</th>
+													<th>Type of Works</th>
+													<th>Target Award</th>
+												</tr>
+											</thead>
+											<tbody>
+												<% var found = 0; %>
+												<% for (var j = 0; j < raw.length; j++) { %>
+												<% var inner = raw[j]; %>
+												<% if (row == inner) {found=1;} else if(found==1 && typeof inner != "string") {%>
+												<tr>
+													<td style="width:5%"><%=j%></td>
+													<td style="width:35%"><%=inner[0]%></td>
+													<td style="width:20%"><%=inner[1]%></td>
+													<td style="width:20%"><%=inner[2]%></td>
+												</tr>
+												<% } else if(found == 1 && typeof inner == "string") {found=999} } %>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						<% } } } %>
+					</div>		
+					<!-- Accordion Ends-->
+				<%}%>
+				
+				<%if(data.type === "procurement_awarded_table") { %>
+					<!-- Accordion Start-->
+					<div class="panel-group" id="accordion">
+						<% var raw = data.data; for (var i = 0; i < raw.length; i++) { %>
+						<% var row = raw[i]; if (typeof row == "string") { %> 
+							<div class="panel panel-default">
+								<!-- ------------------ -->
+								<div class="panel-heading">
+									<h4 class="panel-title" style="color: #FFFF66">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+											<%=row%>
+										</a>
+									</h4>
+								</div>
+								<!-- ------------------ -->
+								<div id="collapse<%=i%>" class="panel-collapse collapse">
+									<div class="panel-body">
+									<!-- ------------------ -->
+										<div class="content1">
+											<div class="content2">
+												<div class="datatop">
+													<ul id="data_head_1" class="inline_block1">
+														<li id="data_head_1a">
+															<span class="title1">No.</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_1a','.datagroup1',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_1a','.datagroup1',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_1b">
+															<span class="title1">Job Title</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_txt('.data_1b','.datagroup1',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_txt('.data_1b','.datagroup1',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul>
+												</div>
+												<div class="databottom inline_block1">
+													<ul id="data_head_2" class="inline_block1">
+														<span></span>
+														<span class="spangap1"></span>
+														<li id="data_head_2a" class="contractor">
+															<span class="title1 title1_v2">Contractor</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_txt('.data_2a','.datagroup2',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_txt('.data_2a','.datagroup2',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_2b">
+															<span class="title1 title1_v2">Date of Award</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_date('.data_2b','.datagroup2',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_date('.data_2b','.datagroup2',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<!-- <li id="data_head_2c" class="typeofworks">
+															<span class="title1 title1_v2">Type of Works</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_txt('.data_2c','.datagroup2',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_txt('.data_2c','.datagroup2',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li> -->
+														<!-- <li id="data_head_2d">
+															<span class="title1">Contract Sum</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_2d','.datagroup2',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_2d','.datagroup2',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li> -->
+													</ul>
+													<ul id="data_head_3" class="inline_block1">
+														<span></span>
+														<span class="spangap2"></span>
+														<span class="title1">
+																<a href="javascript:void(0)" title="Visibility" onclick="visible('.data_6')"><img src="../assets/img/visible.png"></a>
+																Contract Sum
+															</span>
+														<li id="data_head_6a">
+															<span class="title2 title1_v2">Original / Awarded</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_6a','.datagroup6',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_6a','.datagroup6',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_6b">
+															<span class="title2 title1_v2">Adjusted</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_6b','.datagroup6',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_6b','.datagroup6',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul>
+													<ul id="data_head_5" class="inline_block1">
+														<span class="title1">
+															<a href="javascript:void(0)" title="Visibility" onclick="visible('.data_5')"><img src="../assets/img/visible.png"></a>
+															Breakdown of Bumiputera
+														</span>
+														<span class="title2 header_title2inline">
+															<span class="extrabrightborder title2"><a href="javascript:void(0)" title="Visibility" onclick="toggleAwardedContractSum1()"><img src="../assets/img/visible.png"></a> Percentage</span>
+															<span class="extrabrightborder title2 _v2"><a href="javascript:void(0)" title="Visibility" onclick="toggleAwardedContractSum2()"><img src="../assets/img/visible.png"></a> Based on Awarded Contract Sum</span>
+															<span class="extrabrightborder title2 _v2"><a href="javascript:void(0)" title="Visibility" onclick="toggleAwardedContractSum3()"><img src="../assets/img/visible.png"></a> Based on Adjusted Contract Sum</span>
+														</span>
+														<li id="data_head_5a" class="bumi extrabrightborder">
+															<span class="title3 title1_v2">Bumi (%)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5a','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5a','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_5b" class="bumi">
+															<span class="title3 title1_v2">Non Bumi (%)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5b','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5b','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_5h">
+															<span class="title3 title1_v2">Bumi / Non Bumi</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_txt('.data_5h','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_txt('.data_5h','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_5c" class="extrabrightborder">
+															<span class="title3 title1_v2">Bumi (RM)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5c','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5c','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_5d">
+															<span class="title3 title1_v2 data_head_5d_specialwidth">Non Bumi (RM)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5d','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5d','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<!-- <li id="data_head_5e">
+															<span class="title3">Bumi / Non Bumi</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_txt('.data_5e','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_txt('.data_5e','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li> -->
+														<li id="data_head_5f" class="extrabrightborder">
+															<span class="title3 title1_v2">Bumi (RM)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5f','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5f','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_5g">
+															<span class="title3">Non Bumi (RM)</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_5g','.datagroup5',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_5g','.datagroup5',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul>
+													<!-- <ul id="data_head_3" class="inline_block1">
+														<span></span>
+														<span class="title1">
+															<a href="javascript:void(0)" title="Visibility" onclick="visible('.data_3')"><img src="../assets/img/visible.png"></a>
+															Breakdown By Number
+														</span>
+														<li id="data_head_3a">
+															<span class="title2">Local</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3a','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3a','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3b">
+															<span class="title2">Asean</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3b','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3b','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3c">
+															<span class="title2">International</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3c','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3c','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul>
+													<ul id="data_head_4" class="inline_block1">
+														<span></span>
+														<span class="title1">
+															<a href="javascript:void(0)" title="Visibility" onclick="visible('.data_4')"><img src="../assets/img/visible.png"></a>
+															Breakdown By Value
+														</span>
+														<li id="data_head_4a">
+															<span class="title2">Local</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_4a','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_4a','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_4b">
+															<span class="title2">Asean</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_4b','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_4b','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_4c">
+															<span class="title2">International</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_4c','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_4c','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul> -->
+													<!-- -- -->
+													<ul id="data_head_3" class="inline_block1">
+														<span class="title1">
+															<a href="javascript:void(0)" title="Visibility" onclick="visible('.data_3')"><img src="../assets/img/visible.png"></a>
+															Breakdown by Country
+														</span>
+														<span class="title2 header_title2inline _v2">
+															<span class="title2">Percentage</span>
+															<span class="title2">Value</span>
+														</span>
+														<li id="data_head_3a">
+															<span class="title3 title1_v2">Local</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3a','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3a','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3b">
+															<span class="title3 title1_v2">Asean</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3b','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3b','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3c">
+															<span class="title3 title1_v2">International</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3c','.datagroup3',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3c','.datagroup3',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3d">
+															<span class="title3 title1_v2">Local</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3d','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3d','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3e">
+															<span class="title3 title1_v2">Asean</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3e','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3e','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+														<li id="data_head_3f">
+															<span class="title3 title1_v2">International</span>
+															<span>
+																<a href="javascript:void(0)" title="Ascending" onclick="sortup_int('.data_3f','.datagroup4',this)"><img src="../assets/img/sortup.png"></a>
+																<a href="javascript:void(0)" title="Decending" onclick="sortdown_int('.data_3f','.datagroup4',this)"><img src="../assets/img/sortdown.png"></a>
+															</span>
+														</li>
+													</ul>
+													<!-- -- -->
+												</div>
+											</div>
+											
+									<!-- ------------------ -->
+												<% var found = 0; %>
+												<% for (var j = 0; j < raw.length; j++) { %>
+												<% var inner = raw[j]; %>
+												<% if (row == inner) {found=1;} else if(found==1 && typeof inner != "string") {%>
+												<div class="content2">													
+													<div class="datatop">
+														<ul id="data_1" class="datagroup1 inline_block1">
+															<li id="data_1a" class="data_1a">
+																<span class="title1 title1_v2">No.</span>
+																<span class="data excel-d1"><%=inner[0]%></span>
+															</li>
+															<li id="data_1b" class="data_1b">
+																<span class="title1 title1_v2">Job Title</span>
+																<span class="data excel-d2"><%=inner[1]%></span>
+															</li>
+														</ul>
+													</div>
+													<div class="databottom inline_block1">
+														<ul id="data_2" class="datagroup2 inline_block1 plategap">
+															<span class="spangap1"></span>
+															<li id="data_2a" class="data_2a contractor">
+																<span class="title1 title1_v2">Contractor</span>
+																<span class="data excel-d3"><%=inner[2]%></span>
+															</li>
+															<li id="data_2b" class="data_2b">
+																<span class="title1 title1_v2">Date of Award</span>
+																<span class="data excel-d4"><%=inner[3]%></span>
+															</li>
+															<!-- <li id="data_2c" class="data_2c" class="typeofworks">
+																<span class="title1 title1_v2">Type of Works</span>
+																<span class="data excel-d5"><%=inner[4]%></span>
+															</li> -->
+															<!-- <li id="data_2d" class="data_2d">
+																<span class="title1">Contract Sum</span>
+																<span class="data excel-d6"><%=inner[5]%></span>
+															</li> -->
+														</ul>
+														<ul id="data_6" class="data_6 datagroup6 inline_block1 plategap">
+															<span class="spangap2"></span>
+															<span class="title1">Contract Sum</span>
+															<li id="data_6a" class="data_6a">
+																<span class="title2 title1_v2">Original / Awarded</span>
+																<span class="data excel-d6"><%=inner[5]%></span>
+															</li>
+															<li id="data_6b" class="data_6b">
+																<span class="title2 title1_v2">Adjusted</span>
+																<span class="data excel-d21"><%=inner[20]%></span>
+															</li>
+														</ul>
+														<ul id="data_5" class="data_5 datagroup5 inline_block1 plategap">
+															<span class="title1 title3_v2">Breakdown of Bumiputera</span>
+															<span class="title2inline">
+																<span id="title2extrawidth1" class="title2 title2extrawidth1 title2_v2">Percentage</span>
+																<span id="title2extrawidth2" class="title2 title2extrawidth2 title2_v2">Based on Awarded Contract Sum</span>
+																<span id="title2extrawidth3" class="title2 title2extrawidth3 title2_v2">Based on Adjusted Contract Sum</span>
+															</span>
+															<li id="data_5a" class="data_5a extrabrightborder bumi">
+																<span class="title3 title1_v2">Bumi (%)</span>
+																<span class="data excel-d13"><%=inner[12]%></span>
+															</li>
+															<li id="data_5b" class="data_5b bumi">
+																<span class="title3 title1_v2">Non Bumi (%)</span>
+																<span class="data excel-d14"><%=inner[13]%></span>
+															</li>
+															<li id="data_5h" class="data_5h">
+																<span class="title3 title1_v2">Bumi / Non Bumi</span>
+																<span class="data excel-d20"><%=inner[19]%></span>
+															</li>
+															<li id="data_5c" class="data_5c extrabrightborder">
+																<span class="title3 title1_v2">Bumi (RM)</span>
+																<span class="data excel-d15"><%=inner[14]%></span>
+															</li>
+															<li id="data_5d" class="data_5d">
+																<span class="title3 title1_v2">Non Bumi (RM)</span>
+																<span class="data excel-d16"><%=inner[15]%></span>
+															</li>
+															<!-- <li id="data_5e" class="data_5e">
+																<span class="title3">Bumi / Non Bumi</span>
+																<span class="data excel-d17"><%=inner[16]%></span>
+															</li> -->
+															<li id="data_5f" class="data_5f extrabrightborder">
+																<span class="title3 title1_v2">Bumi (RM)</span>
+																<span class="data excel-d18"><%=inner[17]%></span>
+															</li>
+															<li id="data_5g" class="data_5g">
+																<span class="title3 title1_v2">Non Bumi (RM)</span>
+																<span class="data excel-d19"><%=inner[18]%></span>
+															</li>
+														</ul>
+														<!-- -- --><!-- 
+														<ul id="data_3" class="data_3 datagroup3 inline_block1 plategap">
+															<span class="spangap2"></span>
+															<span class="title1">Breakdown By Number</span>
+															<li id="data_3a" class="data_3a">
+																<span class="title2">Local</span>
+																<span class="data excel-d7"><%=inner[6]%></span>
+															</li>
+															<li id="data_3b" class="data_3b">
+																<span class="title2">Asean</span>
+																<span class="data excel-d8"><%=inner[7]%></span>
+															</li>
+															<li id="data_3c" class="data_3c">
+																<span class="title2">International</span>
+																<span class="data excel-d9"><%=inner[8]%></span>
+															</li>
+														</ul>
+														<ul id="data_4" class="data_4 datagroup4 inline_block1 plategap">
+															<span class="spangap2"></span>
+															<span class="title1">Breakdown By Value</span>
+															<li id="data_4a" class="data_4a">
+																<span class="title2">Local</span>
+																<span class="data excel-d10"><%=inner[9]%></span>
+															</li>
+															<li id="data_4b" class="data_4b">
+																<span class="title2">Asean</span>
+																<span class="data excel-d11"><%=inner[10]%></span>
+															</li>
+															<li id="data_4c" class="data_4c">
+																<span class="title2">International</span>
+																<span class="data excel-d12"><%=inner[11]%></span>
+															</li>
+														</ul>
+														 --><!-- -- -->
+														<ul id="data_3" class="data_3 datagroup3 inline_block1 plategap">
+															<span class="title1 title3_v2">Breakdown by Country</span>
+															<span class="title2inline">
+																<span id="title2extrawidth1_v2" class="title2 title2extrawidth1_v2 title2_v2">Percentage</span>
+																<span id="title2extrawidth2_v2" class="title2 title2extrawidth2_v2 title2_v2">Value</span>
+															</span>
+															<li id="data_3a" class="data_3a">
+																<span class="title2 title1_v2">Local</span>
+																<span class="data excel-d7"><%=inner[6]%></span>
+															</li>
+															<li id="data_3b" class="data_3b">
+																<span class="title2 title1_v2">Asean</span>
+																<span class="data excel-d8"><%=inner[7]%></span>
+															</li>
+															<li id="data_3c" class="data_3c">
+																<span class="title2 title1_v2">International</span>
+																<span class="data excel-d9"><%=inner[8]%></span>
+															</li>
+															<li id="data_3d" class="data_3d">
+																<span class="title2 title1_v2">Local</span>
+																<span class="data excel-d10"><%=inner[9]%></span>
+															</li>
+															<li id="data_3e" class="data_3e">
+																<span class="title2 title1_v2">Asean</span>
+																<span class="data excel-d11"><%=inner[10]%></span>
+															</li>
+															<li id="data_3f" class="data_3f">
+																<span class="title2 title1_v2">International</span>
+																<span class="data excel-d12"><%=inner[11]%></span>
+															</li>
+														</ul>
+														<!-- -- -->
+													</div>
+												</div>
+												<% } else if(found == 1 && typeof inner == "string") {found=999} } %>
+									<!-- ------------------ -->
+										</div>
+									<!-- ------------------ -->
+									</div>
+								</div>
+								<!-- ------------------ -->
+
+							</div>
+						<% } } %>
+					</div>		
+					<!-- Accordion Ends-->
+				<%}%>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ----------------- -->
+	
+	<div class="container" style="visibility:hidden;position:absolute;">
+        <div class="row" style="">
+            <div class="col-xs-12">
+				<%if(data.type === "procurement_awarded_table") { %>
+					<!-- Accordion Start-->
+					<div class="panel-group" id="accordion">
+						<% var raw = data.data; for (var i = 0; i < raw.length; i++) { %>
+						<% var row = raw[i]; if (typeof row == "string") { %> 
+							<div class="panel panel-default">
+								<!-- ------------------ -->
+								<div class="panel-heading">
+									<h4 class="panel-title" style="color: #FFFF66">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+											<%=row%>
+										</a>
+									</h4>
+								</div>
+								<!-- ------------------ -->
+								<div id="collapse<%=i%>" class="panel-collapse collapse">
+									<div class="panel-body">
+									<!-- ------------------ -->
+										<div class="content1">
+											<table style="visibility: hidden; position:absolute;">
+													<tr style="background:#000;">
+														<td></td>
+														<td><h3><%=row%></h3></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td style="color:#000;background:#999;">No.</td>
+														<td style="color:#000;background:#999;">Job Title</td>
+														<td style="color:#000;background:rgb(51,195,204);">Contractor</td>
+														<td style="color:#000;background:rgb(51,195,204);">Date of Award</td>
+														<td style="color:#000;background:rgb(51,195,204);">Type of Works</td>
+														<td style="color:#000;background:rgb(51,195,204);">Contract Sum</td>
+														<td style="color:#000;background:#ff80cc;">Breakdown By Number - Local</td>
+														<td style="color:#000;background:#ff80cc;">Breakdown By Number - Asean</td>
+														<td style="color:#000;background:#ff80cc;">Breakdown By Number - International</td>
+														<td style="color:#000;background:rgb(255,102,0);">Breakdown By Value - Local</td>
+														<td style="color:#000;background:rgb(255,102,0);">Breakdown By Value - Asean</td>
+														<td style="color:#000;background:rgb(255,102,0);">Breakdown By Value - International</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Adjusted Contract Sum - Bumi (%)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Adjusted Contract Sum - Non Bumi (%)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Adjusted Contract Sum - Bumi (RM)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Contract Sum - Non Bumi (RM)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Contract Sum - Bumi / Non Bumi</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Contract Sum - Bumi (RM)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Contract Sum - Non Bumi (RM)</td>
+														<td style="color:#000;background:rgb(153,204,51);">Breakdown of Bumiputera : Based on Contract Sum - Bumi / Non Bumi</td>
+														<td style="color:#000;background:rgb(255,255,0);">Adjusted Contract Sum</td>
+													</tr>
+												<% var found = 0; %>
+												<% for (var j = 0; j < raw.length; j++) { %>
+												<% var inner = raw[j]; %>
+												<% if (row == inner) {found=1;} else if(found==1 && typeof inner != "string") {%>
+													<tr>
+														<td style="color:#fff;"><%=inner[0]%></td>
+														<td style="color:#fff;"><%=inner[1]%></td>
+														<td style="color:rgb(51,195,204);"><%=inner[2]%></td>
+														<td style="color:rgb(51,195,204);"><%=inner[3]%></td>
+														<td style="color:rgb(51,195,204);"><%=inner[4]%></td>
+														<td style="color:rgb(51,195,204);"><%=inner[5]%></td>
+														<td style="color:#ff80cc;"><%=inner[6]%></td>
+														<td style="color:#ff80cc;"><%=inner[7]%></td>
+														<td style="color:#ff80cc;"><%=inner[8]%></td>
+														<td style="color:rgb(255,102,0);"><%=inner[9]%></td>
+														<td style="color:rgb(255,102,0);"><%=inner[10]%></td>
+														<td style="color:rgb(255,102,0);"><%=inner[11]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[12]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[13]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[14]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[15]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[16]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[17]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[18]%></td>
+														<td style="color:rgb(153,204,51);"><%=inner[19]%></td>
+														<td style="color:rgb(255,255,0);"><%=inner[20]%></td>
+													</tr>
+												<% } else if(found == 1 && typeof inner == "string") {found=999} } %>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+											</table>
+									<!-- ------------------ -->
+										</div>
+									<!-- ------------------ -->
+									</div>
+								</div>
+								<!-- ------------------ -->
+
+							</div>
+						<% } } %>
+					</div>		
+					<!-- Accordion Ends-->
+				<%}%>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,224 @@
+<div class="header bg-dot30 excel-normal">
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+
+
+    <!--<p><a style="color: #15A6E9; font-size: 14px;font-weight: 800" onclick="loadPage('ug/tunnel');" href="javascript:void(0);">Tunnel <i class="loadpage fa fa-link"></i></a></p>-->
+	
+	<!-- Nav tab -->
+    <ul class="nav nav-tabs" role="tablist" id="mytab">
+        <li class="active"><a href="#rings" role="tab" data-toggle="tab">Rings</a></li>
+        <li><a href="#trackbed" role="tab" data-toggle="tab">Trackbed</a></li>
+        <li><a href="#bracket" role="tab" data-toggle="tab">Bracket</a></li>
+		<li><a href="#es1" role="tab" data-toggle="tab">ES1</a></li>
+        <li><a href="#es3" role="tab" data-toggle="tab">ES3</a></li>
+        <li><a href="#ivs1" role="tab" data-toggle="tab">IVS1</a></li>
+		<li><a href="#ivs2" role="tab" data-toggle="tab">IVS2</a></li>
+    </ul>
+	
+	<div class="tab-content tab-style">
+		<div class="tab-pane active" id="rings">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;" >Rings</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">Item</th>
+								<th style="color: #FFAF78;text-align: center;">Progress (%)</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.rings.progress) {
+							var row = data.data.rings.progress[i];%>	
+							<tr>
+								<td style="text-align: left;"><%=row[0]%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="trackbed">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;" >Trackbed</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78"><%=data.data.as_of%></th>
+								<th style="color: #FFAF78;text-align: center;">Wk 1</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 2</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 3</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 4</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>
+							<% for (var i in data.data.trackbed.progress) {
+							var row = data.data.trackbed.progress[i];%>		
+							<tr>
+								<td style=""><%=row[0]%></td> 
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[2])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[3])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[4])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="bracket">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;">Bracket</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">October/15</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 1</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 2</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 3</th>
+								<th style="color: #FFAF78;text-align: center;">Wk 4</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.bracket.progress) {
+							var row = data.data.bracket.progress[i];%>		
+							<tr>
+								<td style=""><%=row[0]%></td> 
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[2])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[3])%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[4])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="es1">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;">Escape Shaft 1</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">Item</th>
+								<th style="color: #FFAF78;text-align: center;">Progress (%)</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.es1.progress) {
+							var row = data.data.es1.progress[i];%>	
+							<tr>
+								<td style="text-align: left;"><%=row[0]%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="es3">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;">Escape Shaft 3</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">Item</th>
+								<th style="color: #FFAF78;text-align: center;">Progress (%)</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.es3.progress) {
+							var row = data.data.es3.progress[i];%>	
+							<tr>
+								<td style="text-align: left;"><%=row[0]%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="ivs1">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;">Intervention Ventilation Shaft 1</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">Item</th>
+								<th style="color: #FFAF78;text-align: center;">Progress (%)</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.ivs1.progress) {
+							var row = data.data.ivs1.progress[i];%>	
+							<tr>
+								<td style="text-align: left;"><%=row[0]%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="ivs2">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title" style="color:#FFFF66;">Intervention Ventilation Shaft 2</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-condensed table-hover" style="">
+							<thead>
+								<th style="text-align: center;color: #FFAF78">Item</th>
+								<th style="color: #FFAF78;text-align: center;">Progress (%)</th>
+								<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+								<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+							</thead>	
+							<% for (var i in data.data.ivs2.progress) {
+							var row = data.data.ivs2.progress[i];%>	
+							<tr>
+								<td style="text-align: left;"><%=row[0]%></td>
+								<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+							</tr>
+							<%}%>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

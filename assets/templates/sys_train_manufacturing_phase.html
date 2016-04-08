@@ -1,0 +1,92 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	<h4 class="color-beige">Number of Fully Completed Train: <a class="manufacturing-link link" href="#modal_phase" data-toggle="modal" style="font-weight:bold">04 <i class="loadpage fa fa-link"></i></a></h4>
+	<h4 class="color-beige">Project Completion Countdown:</h4>
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<tr>
+	<th class="color-beige" style="text-align: center">Project Phase</th>
+	<th class="color-beige" colspan="2" style="text-align: center">SAT</th>
+	<th class="color-beige" colspan="2" style="text-align: center">SIT</th>
+	<th class="color-beige" colspan="2" style="text-align: center">Trial Run</th>
+	</tr>
+	</thead>
+	<%
+	/* Faking it */
+	data.data = [["Phase 1","22-Mar-16","27-Jun-16","25-Sep-16"],["Phase 2","18-Oct-16","30-Oct-16","28-Apr-17"]]
+	
+	if (data.data.length == 0) {%>
+		<tr><td colspan="6" style="text-align: center;">Nil</td></tr>
+	<%}%>
+	<%for (var i in data.data) { if(Object.prototype.toString.call(data.data[i]) == "[object Object]") { /*Do nothing*/} else {%>
+	<%
+		var satdate = data.data[i][1];
+		var sitdate = data.data[i][2];
+		var trialdate = data.data[i][3];
+		
+		var satleft = compareDate(satdate);
+		var sitleft = compareDate(sitdate);
+		var trialleft = compareDate(trialdate);
+		
+		
+		
+	%>
+	
+	 <tr style="text-align: center">
+		<td rowspan="2"><%=data.data[i][0]%></td>
+		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%>"><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>
+		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>"><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>
+		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>"><%=((trialleft < 1) ? 0 : trialleft)%></h2> <span class="numbers-text">Days left</span></td>
+	</tr>
+	
+	<tr style="text-align: center">
+		<td style="color: #ffd461">Start Date</td>
+		<td><%=data.data[i][1]%></td>
+		<td style="color: #ffd461">Start Date</td>
+		<td><%=data.data[i][2]%></td>
+		<td style="color: #ffd461">Start Date</td>
+		<td><%=data.data[i][3]%></td>
+	</tr>
+		
+	<%}}%>
+	</table>
+	
+	<div class="modal" id="modal_phase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:300px">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title">Fully completed trains</h4>
+			</div>
+			<div class="modal-body clearfix">
+				<table class="table table-bordered table-condensed table-hover" style="">
+				<thead>
+				<tr>
+				<th style="text-align: center">Completed trains</th>
+				</tr>
+				</thead>
+				<tbody style="text-align: center">
+					<tr><td>Train 01</td></tr>
+					<tr><td>Train 02</td></tr>
+					<tr><td>Train 03</td></tr>
+					<tr><td>Train 04</td></tr>
+				</tbody>
+				</table>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

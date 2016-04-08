@@ -1,0 +1,25 @@
+<div class="header bg-doscurve-item-30">
+	<!-- <img src="./img/icons/line_chart-26.png" style="float: left;margin-right: 13px;">  -->
+	<% if (typeof(data.data[0].data.procurement.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].data.procurement.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+</div>
+<div class="content" style=" background: none;/*#1d2a34*/ ">
+	<div class="container">
+	<div class="row" style="">
+		<div class="col-xs-12">
+			<div style="height:auto; width:auto;position:relative;margin:auto;">
+			<div class="chart" id="chart_<%=data.id%>"></div>
+			<!--div style="position:absolute;top:32%;left:41%;text-align:center;">
+				<h1 style="font-size:64pt;margin-bottom:0;font-weight: bold; color:#fff">86</h1>
+				<h4 style="font-size:12pt;">PACKAGES</h4>
+			</div-->
+			<div><p class="pull-left">Tips: Click on chart to view the list of packages</p><!--<p class="pull-right">Data as of 17 October 2014</p>--></div>
+			</div>
+			
+	</div>
+	</div>
+</div>
+	

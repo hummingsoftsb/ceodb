@@ -1,0 +1,58 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table id="1" class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Depot Material</th><th style="color: #FFAF78">Total quantity required</th><th style="color: #009e8c;">Current manufacturing status</th><th style="color: #009e8c;">% Complete</th>
+	</thead>
+	<%for (var i in data.data[0]) {%>
+	<%
+		var dm1 = data.data[0][i][0];
+		var t1 = data.data[0][i][1];
+		var cms1 = data.data[0][i][2];
+		var c1 = data.data[0][i][3];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((dm1 != "") && (t1 == "") && (cms1 == "") && (c1 == "")) { %><td style="" colspan="4"><%=dm1%></td> <% } else { %>
+		<td style=""><%=dm1%></td>
+		<td style="color: #FFAF78;"><%=t1%></td>
+		<td style="color: #009e8c;"><%=cms1%></td>
+		<td style="color: #009e8c;"><%=c1%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+	
+	<br>
+	
+	<table id="2" class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Mainline Material</th><th style="color: #FFAF78">Total quantity required</th><th style="color: #009e8c;">Current manufacturing status</th><th style="color: #009e8c;">% Complete</th>
+	</thead>
+	<%for (var i in data.data[1]) {%>
+	<%
+		var dm2 = data.data[1][i][0];
+		var t2 = data.data[1][i][1];
+		var cms2 = data.data[1][i][2];
+		var c2 = data.data[1][i][3];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((dm2 != "") && (t2 == "") && (cms2 == "") && (c2 == "")) { %><td style="" colspan="4"><%=dm2%></td> <% } else { %>
+		<td style=""><%=dm2%></td>
+		<td style="color: #FFAF78;"><%=t2%></td>
+		<td style="color: #009e8c;"><%=cms2%></td>
+		<td style="color: #009e8c;"><%=c2%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+</div>

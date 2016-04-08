@@ -1,0 +1,39 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+<h5 style=" line-height: 27px; margin-top:-5px;"><%=data.data%></h5>
+	<!--h2>Header h2</h2-->
+	<!--
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>Design Stage</th><th style="color: #ffd461;text-align: center;">Total Submission</th><th style="white-space: nowrap;color: #FFAF78;text-align: right;">Code 1</th><th style="white-space: nowrap;color: #FFAF78;text-align: right;">Code 2</th><th style="white-space: nowrap;color: #FFAF78;text-align: right;">Code 3</th><th style="text-align:center">Under Review</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+		var title = data.data[i][0];
+		var total = parseInt(data.data[i][1]);
+		var code1 = parseInt(data.data[i][2]);
+		var code2 = parseInt(data.data[i][3]);
+		var code3 = parseInt(data.data[i][4]);
+		var review = parseInt(data.data[i][5]);
+		var code1p = ((code1/total)*100).toFixed(1);
+		var code2p = ((code2/total)*100).toFixed(1);
+		var code3p = ((code3/total)*100).toFixed(1);
+		var reviewp = ((review/total)*100).toFixed(1);
+	%>
+	 <tr>
+		<td style=""><%=title%></td>
+		<td style="color: #ffd461; text-align:center"><%=total%></td>
+		<td style="color: #FFAF78;text-align:center"><%=code1%><br/>(<%=code1p%>%)</td>
+		<td style="color: #FFAF78;text-align:center"><%=code2%><br/>(<%=code2p%>%)</td>
+		<td style="color: #FFAF78;text-align:center"><%=code3%><br/>(<%=code3p%>%)</td>
+		<td style="text-align:center"><%=review%><br/>(<%=review%>%)</td>
+	
+	</tr>
+	<%}%>
+	</table>
+	<h6 style="margin-top:10px; color:#fff"><span style="color:#f55">*</span> Code 1 - Accepted, Code 2 - Accepted with comments, Code 3 - Rejected</h6>-->
+</div>

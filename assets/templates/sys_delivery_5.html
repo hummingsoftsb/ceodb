@@ -1,0 +1,39 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th>
+	<th style="">Category</th>
+	<th style="color: #8BA1CF">Deliverables</th>
+	<th style="color: #FFAF78">Quantity</th>
+	<th style="color: #ffd461">Train 1 to Train 2</th>
+	<th style="color: #009e8c">Train 3 to Train 19</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+		var cat = data.data[i][0];
+		var deliverables = data.data[i][1];
+		var quantity = data.data[i][2];
+		var t1 = data.data[i][3];
+		var t2 = data.data[i][4];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((cat != "") && (deliverables == "") && (quantity == "") && (t1 == "")&& (t2 == "")) { %><td style="" colspan="4"><%=cat%></td> <% } else { %>
+		<td style=""><%=cat%></td>
+		<td style="color: #8BA1CF"><%=deliverables%></td>
+		<td style="color: #FFAF78;"><%=quantity%></td>
+		<td style="color: #ffd461"><%=t1%></td>
+		<td style="color: #009e8c;"><%=t2%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+</div>

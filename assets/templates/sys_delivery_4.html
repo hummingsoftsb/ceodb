@@ -1,0 +1,43 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th rowspan="2">No</th>
+    <th rowspan="2">Material</th>
+    <th colspan="2" style="text-align:center;">Depot</th>
+    <th colspan="2" style="text-align:center;">Mainline</th>
+	<tr>
+    <td style="text-align:center;">Quantity Delivered</td>
+    <td style="text-align:center;">Quantity Installed</td>
+    <td style="text-align:center;">Quantity Installed</td>
+    <td style="text-align:center;">Quantity Installed</td>
+    </tr>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+		var material = data.data[i][0];
+		var depotDel = data.data[i][1];
+		var depotIns = data.data[i][2];
+		var mainDel = data.data[i][3];
+		var mainIns = data.data[i][4];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((material != "") && (depotDel == "") && (depotIns == "") && (mainDel == "") && (mainIns == "")) { %><td style="" colspan="4"><%=power%></td> <% } else { %>
+		<td style=""><%=material%></td>
+		<td style="color: #8BA1CF; text-align:center;"><%=depotDel%></td>
+		<td style="color: #ffd461; text-align:center;"><%=depotIns%></td>
+		<td style="color: #8BA1CF; text-align:center;"><%=mainDel%></td>
+		<td style="color: #ffd461; text-align:center;"><%=mainIns%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+</div>

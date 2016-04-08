@@ -1,0 +1,74 @@
+<div class="header bg-dot30 excel-kad-2">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+   <% if (typeof(data.data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-calendar-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <%
+	for (var i in data.data) {
+	if(i=="date"){}
+	else {
+	%>
+    <h4 style="text-align: justify;"><%=i%></h4>
+    <%
+
+    var row = data.data[i];
+
+    for (var j in row) {
+
+        var hasCompletedInfoA3 = (typeof row[j][3] != "undefined") && ((row[j][3] == "completed") || (row[j][3] == "Completed") || (row[j][3] == "Not Completed"))
+        var hasDatedInfoA3 = (typeof row[j][3] != "undefined") && ((row[j][3] != "completed") || (row[j][3] != "Completed") || (row[j][3] != "Not Completed"))
+        var checkdata1 = (row[j][1] != "") && (row[j][1] != "-");
+        var checkdata2 = (row[j][2] != "") && (row[j][2] != "-");
+        var tbacheckdata1 = (row[j][1] == "tba") || (row[j][1] == "Tba") || (row[j][1] == "TBA");
+        var tbacheckdata2 = (row[j][2] == "tba") || (row[j][2] == "Tba") || (row[j][2] == "TBA");
+        var displaydata1 = "none";
+        var displaydata2 = "none";
+        if ((checkdata1 == false)&&(tbacheckdata1==false)){displaydata1 = "N/A";}else if((checkdata1 == true)&&(tbacheckdata1==true)){displaydata1 = "TBA";}else{displaydata1 = row[j][1];};
+        if ((checkdata2 == false)&&(tbacheckdata2==false)){displaydata2 = "N/A";}else if((checkdata2 == true)&&(tbacheckdata2==true)){displaydata2 = "TBA";}else{displaydata2 = row[j][2];}; 
+        
+        if ((checkdata1 == true) && (checkdata2 == true) && (tbacheckdata1 == false) && (tbacheckdata2 == false)) {
+            var daysleft = compareDate(row[j][1]);
+            var variance = Math.round(compareDates(row[j][1],row[j][2]));
+            if(variance > 0) { variance = 0 };
+        } else {
+            var daysleft = 0;
+            var variance = 0;
+        };
+    %>
+
+    <table class="table-kad table table-bordered table-condensed table-hover">
+        <thead style="background: rgba(0, 140, 158, 0.2); color: #FFFFFF; border: 1px solid rgba(0,0,0,0)"><th class="excel-d1" colspan="3"><%=row[j][0]%></th></thead>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <%if((row[j][3] == "completed") || (row[j][3] == "Completed")){%>
+                    <h2 class="excel-d2" class="numbers" style="font-size: 250%; color: #00ffcc; margin-top: 10px; margin: 0 auto; padding: 15px 25px;">Completed</h2>
+                <%}else if((daysleft == 0)){%>
+                    <h2 class="numbers excel-d2" style="font-size: 250%;">N/A</h2> <span class="numbers-text">Days left</span>
+                <%}else{%>
+                    <h2 class="excel-d2" class="numbers" style="font-size: 250%;<%=((daysleft < 1) ? "color: #ff3333" : "")%>"><%=((daysleft < 1) ? 0 : daysleft)%></h2> <span class="numbers-text">Days left</span>
+                <%}%>
+            </td>
+            <!--td style="text-align: center">
+                    <div style="text-align: center">
+                            <h2 class="numbers"><%=variance%></h2>
+                            <span class="numbers-text">Weeks</span>
+                            <div>Variance</div>
+                    </div>
+            </td-->
+        </tr>
+        <tr style="color: #ffd461"><td>Forecast</td><td>Contract</td><td>Variance</td></tr>
+        <tr>
+            <td class="excel-d4"><%=displaydata1%></td>
+            <td class="excel-d5"><%=displaydata2%></td>
+            <td class="excel-d3"><h2 class="numbers" style="<%=((variance < 0) ? "color: #ff3333" : "")%>"><%=variance%></h2></td>
+        </tr>
+    </table>
+    <br>
+    <% } } }%>
+
+</div>

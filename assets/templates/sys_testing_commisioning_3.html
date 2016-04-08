@@ -1,0 +1,30 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Date</th><th style="color: #FFAF78">Test</th><th style="color: #009e8c;">Status</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+		var tarikh = data.data[i][0];
+		var test = data.data[i][1];
+		var status = data.data[i][2];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((tarikh != "") && (test == "") && (status == "")) { %><td style="" colspan="4"><%=tarikh%></td> <% } else { %>
+		<td style=""><%=tarikh%></td>
+		<td style="color: #FFAF78;"><%=test%></td>
+		<td style="color: #009e8c;"><%=status%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+</div>

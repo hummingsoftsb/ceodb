@@ -1,0 +1,102 @@
+<style>
+    .numbers-1 {
+        font-size: 200%;
+    }
+</style>
+<!--script>
+var el = $(".blink");
+	setInterval(function() {
+	el.toggle();
+	}, 1000);
+</script-->
+<div class="header bg-dot30 excel-scorecard">
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/ ">
+    <!--h2><%=data.data%></h2-->
+    <!--<div class="table-responsive">-->
+    <table style="text-align: center; font-size: 100%" class="table table-bordered table-condensed  table-hover">
+        <tr style="font-size: 150%; background: rgba(0, 140, 158, 0.2); color: #FFD461"><td>Package</td><td colspan="3">Percentage, %</td><td colspan="2">Weeks</td><td>Trend</td></tr>
+        <tr style="font-weight: bold;"><td></td><td style="color: #009e8c">Early Planned</td><td style="color: #64D5FF">Late Planned</td><td style="color: #C9743A;">Actual Progress</td><td>Variance Early</td><td style="color: #FF7474;">Variance Late</td><td></td></tr>
+        <%_.each(data.data, function(row) {%>
+            <%if(_.size(row)==8){
+                var numColor = "num-green";
+                var blinker = "";
+                //console.log(parseFloat(row.varianceLate));
+                if(row.varianceLate < 0  && row.varianceLate >= -4) { 
+                    numColor = "num-yellow";
+                }
+                else if(row.varianceLate < -4  && row.varianceLate > -8) { 
+                    numColor = "num-red";
+                }
+                else if(row.varianceLate <= -8) { 
+                    blinker = "blink";
+                    numColor = "num-red";
+                }
+                %>
+                <tr class="excel-dx">
+                    <td class="numbers-1 excel-d1"><a class="" href="javascript:void(0);" onclick="loadPage('<%=row.url%>')"><%=row.item%><i class="loadpage fa fa-link"></i></a></td>
+                    <td class="numbers-1 excel-d2" style="color: #009e8c;"><%=row.early%></td>
+                    <td class="numbers-1 excel-d3" style="color: #64D5FF;"><%=row.late%></td>
+                    <td class="numbers-1 excel-d4" style="color: #C9743A;"><%=row.actual%></td>
+                    <td class="numbers-1 excel-d5" style="color: #7DB96A;"><%=row.varianceEarly%></td>
+                    <td class="numbers-1 excel-d6" style="color: #FF7474;"><span class="<%=blinker%> <%=numColor%>"><%=row.varianceLate%></span></td>
+        			<%if(row.trend.toLowerCase() =="down") {%>
+        				<td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-down"></i><p style="display:none;">Down</p></td>
+        			<%} else if(row.trend.toLowerCase() =="up") { %>
+        				<td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-up"></i><p style="display:none;">Up</p></td>
+        			<%} else if((row.trend.toLowerCase()=="same") || row.trend.toLowerCase()=="right") {%>
+        				<td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-right"></i><p style="display:none;">></p></td>
+        			<% } %>
+                </tr>
+            <%}else if(_.size(row)==9){
+                var numColor = "num-green";
+                var blinker = "";
+                //console.log(parseFloat(row.varianceLate));
+                if(row.varianceLate < 0  && row.varianceLate >= -4) { 
+                    numColor = "num-yellow";
+                }
+                else if(row.varianceLate < -4  && row.varianceLate > -8) { 
+                    numColor = "num-red";
+                }
+                else if(row.varianceLate <= -8) { 
+                    blinker = "blink";
+                    numColor = "num-red";
+                }
+                %>
+                <tr class="excel-dx">
+                    <td class="numbers-1 excel-d1">
+                        <a class="" href="javascript:void(0);" onclick="loadPage('<%=row.url%>')"><%=row.item%><i class="loadpage fa fa-link"></i></a>
+                        <br><p style="font-size: 12px;"><%=row.name%></p>
+                    </td>
+                    <td class="numbers-1 excel-d2" style="color: #009e8c;"><%=row.early%></td>
+                    <td class="numbers-1 excel-d3" style="color: #64D5FF;"><%=row.late%></td>
+                    <td class="numbers-1 excel-d4" style="color: #C9743A;"><%=row.actual%></td>
+                    <td class="numbers-1 excel-d5" style="color: #7DB96A;"><%=row.varianceEarly%></td>
+                    <td class="numbers-1 excel-d6" style="color: #FF7474;"><span class="<%=blinker%> <%=numColor%>"><%=row.varianceLate%></span></td>
+                    <%if(row.trend.toLowerCase() =="down") {%>
+                        <td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-down"></i><p style="display:none;">Down</p></td>
+                    <%} else if(row.trend.toLowerCase() =="up") { %>
+                        <td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-up"></i><p style="display:none;">Up</p></td>
+                    <%} else if((row.trend.toLowerCase()=="same") || row.trend.toLowerCase()=="right") {%>
+                        <td class="numbers-1 excel-d7" style="color: #00B050;"><i class="fa fa-chevron-right"></i><p style="display:none;">></p></td>
+                    <% } %>
+                </tr>
+            <%}%>
+        <%});%>
+    </table>
+    <!--</div>-->
+</div>
+
+<!--
+Developer notes
+
+trend, 3 status : up,down,stay
+
+
+
+-->

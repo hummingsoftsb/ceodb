@@ -1,0 +1,60 @@
+<div class="header bg-doscurve-item-30 excel-scurve-1">
+    <!-- <img src="./img/icons/line_chart-26.png" style="float: left;margin-right: 13px;">  -->
+    <% if (typeof(data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+	<i class="header-icon fa fa-line-chart"></i>
+</div>
+<div class="content" style=" background: none;/*#1d2a34*/ ">
+    <div class="container">
+
+        <div class="row" style="background: #222; color: #000">
+            <div class="col-xs-3">
+                <div style="margin-left: 0" class="row util-padtop10">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Early</div></div>
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right scurve-background-green excel-d1"><%=data.currentEarly%></div></div>
+
+                </div>
+
+                <div style="margin-left: 0" class="row" style="padding-top:2px">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Late</div></div>
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right scurve-background-blue excel-d3"><%=data.currentLate%></div></div>
+
+                </div>
+                <div style="margin-left: 0" class="row" style="padding-top:2px">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Actual</div></div>
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right scurve-background-red excel-d2"><%=data.currentActual%></div></div>
+
+                </div>
+                <div style="margin-left: 0" class="row" style="padding-top:2px">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Var Early</div></div>
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right scurve-background-green excel-d4"><%=data.varEarly%></div></div>
+
+                </div>
+                <div style="margin-left: 0" class="row" style="padding-top:2px">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Var Late</div></div>
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right scurve-background-blue excel-d5"><%=data.varLate%></div></div>
+
+                </div>
+                <div style="margin-left: 0" class="row" style="padding-top:2px">
+
+                    <div class="col-xs-7" style="padding-right:0px"><div class="scurve-2-item scurve-2-item-left">Trend</div></div><!-- something wrong with the newer jQuery with contents(). returns empty array -->
+
+                    <div class="col-xs-5" style="padding-left:5px"><div class="scurve-2-item scurve-2-item-right"><object data="<%=baseURL%>assets/img/<%=data.arrowDirection%>arrow_20x20.svg" class="svg-arrow-down" type="image/svg+xml" onLoad="a = $(this);
+                                $(this).contents().find('#path14').css('fill', '<%=data.trendColor%>')"></object></div></div>
+
+                </div>
+
+            </div>
+            <div class="col-xs-9"><div class="chart chart-scurve2" id="chart_<%=data.id%>"></div>
+            </div>		
+        </div>		
+    </div>
+</div>

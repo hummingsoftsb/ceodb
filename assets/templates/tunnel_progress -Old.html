@@ -1,0 +1,32 @@
+<div class="header bg-dot30 excel-normal">
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+
+
+    <p><a style="color: #15A6E9; font-size: 14px;font-weight: 800" onclick="loadPage('ug/tunnel');" href="javascript:void(0);">Tunnel <i class="loadpage fa fa-link"></i></a></p>
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+				<thead>
+					<th style="text-align: center;color: #FFAF78"><%=data.data.as_of%></th>
+					<th style="color: #FFAF78;text-align: center;">Wk 1</th>
+					<th style="color: #FFAF78;text-align: center;">Wk 2</th>
+					<th style="color: #FFAF78;text-align: center;">Wk 3</th>
+					<th style="color: #FFAF78;text-align: center;">Wk 4</th>
+					<!--<th style="color: #FFAF78;text-align: center;">5<sup>th</sup></th>-->
+					<!--<th style="color: #FFAF78;text-align: center;">5</th>-->
+				</thead>
+				<% for (var i in data.data.progress) {
+				var row = data.data.progress[i];%>		
+				<tr>
+					<td style=""><%=row[0]%></td>
+					<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[1])%></td>
+					<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[2])%></td>
+					<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[3])%></td>
+					<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(row[4])%></td>
+				</tr>
+				<%}%>
+			</table>
+
+</div>

@@ -1,0 +1,3 @@
+Data capture semi intellignet - check logic
+line 2 dont need gatekeeper, straight push to the dashboard. need to teach the user.
+ACL

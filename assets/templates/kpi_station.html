@@ -1,0 +1,25 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>Activity</th><th style="color: #ffd461;text-align: right;">Accumulated</th><th style="color: #FFAF78;text-align: right;">Current Week</th><th colspan="2" style="text-align: center;">Total Progress</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+	%>
+	 <tr>
+		<td style=""><%=data.data[i][0]%></td>
+		<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][1])%></td>
+		<td style="color: #FFAF78; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][2])%></td>
+		<td style="color: #009e8c; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][3])%>%</td>
+		<td style="color: #009e8c; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][4])%>%</td>
+	</tr>
+	<%}%>
+	</table>
+</div>

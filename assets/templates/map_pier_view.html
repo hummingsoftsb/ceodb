@@ -1,0 +1,27 @@
+<div class="header bg-doscurve-item-30 excel-scurve-1">
+    <!-- <img src="./img/icons/line_chart-26.png" style="float: left;margin-right: 13px;">  -->
+    <h2><%=data.title%></h2>
+	<i class="header-icon fa fa-line-chart"></i>
+</div>
+<div class="content" style=" background: none;/*#1d2a34*/ ">
+    <div class="container">
+        <div class="row">
+         <div id='map' style='height:95%' class='giscontainer'> 
+
+		</div>
+		</div>
+	</div>		
+</div>
+
+
+<script>
+function getItsColor(p) {
+	//if (p >= 70) return "hsl(134, 82%, 30%)";
+	//if (p >= 40) return "rgb(255, 170, 66)";
+	//if (p > 0) return "hsl(0, 100%, 43%)";
+	if (p >= 100) return "rgb(90, 255, 92)"
+			if (p > 0) return "rgb(255, 198, 53)"
+			return "#CCCCCC";
+}
+
+</script>

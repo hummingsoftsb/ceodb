@@ -1,0 +1,29 @@
+<div class="header bg-dot30">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-line-chart"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/ ">
+	<!--div style="text-align: center;font-weight: bold; font-size:60px;"><%=data.data.currentActual%></div-->
+	<div style="text-align: center;">
+	<div style="max-width: 300px; max-height: 300px; margin-left: auto; margin-right: auto; margin-bottom: 25px;" id="chart_<%=data.id%>_progress"></div>
+	<h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>
+	<div id="train_progress_container" style="margin-bottom: 25px;">
+	</div>
+	<!--<h1 style="padding-left: 15px"><%=data.data.currentActual%></h1>-->
+	</div>
+	
+	
+	<div class="scurve-container"></div>
+	<%
+	d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) { 
+	if (error) throw error 
+		document.getElementById('train_progress_container').appendChild(xml.documentElement);
+		d3.select('#progress stop').attr('offset','6.9%');
+	}); 
+	%>		
+</div>

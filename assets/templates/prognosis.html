@@ -1,0 +1,11 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--h2>Header h2</h2-->
+	<% if(typeof(data.data)==="string") %>
+    <h6><%=data.data%></h6>
+	<% else %>
+	<h6>Nil</h6>
+</div>

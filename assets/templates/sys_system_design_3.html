@@ -1,0 +1,33 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Design Stage</th>
+	<th style="color: #ffd461">Total Submission</th>
+	<th style="color: #FFAF78">Code 1</th>
+	</thead>
+	<%aaaa = data; for (var i in data.data) {%>
+	<%
+		var designS = data.data[i][0];
+		var totalSub = data.data[i][1];
+		var code1 = data.data[i][2];		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((designS != "") && (totalSub == "") && (code1 == "")) { %><td style="" colspan="4"><%=designS%></td> <% } else { %>
+		<td style=""><%=designS%></td>
+		<td style="color: #ffd461;"><%=totalSub%></td>
+		<td style="color: #FFAF78;"><%=code1%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+	<br>
+	<div style="color: #EB95B0"> <b>Note : </b>Code 1- Accepted</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="header bg-dot30 excel-normal">
+    <% if (typeof(data.data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th style="text-align: center;">Station</th><th style="color: #FFAF78;text-align: center;">Actual Progress</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+	var row = data.data[i];
+	if(i==="date") { /*Do nothing*/} else {
+	%>
+	 <tr>
+		<td style=""><a style="color: #9EDD2E" href="javascript:void(0);" onClick="loadPage('<%=String.prototype.toSlug(i)%>/index')"><%=i%> <i class="loadpage fa fa-link"></i></a></td>
+		<td style="color: #ffd461; text-align: right;"><%=row.progress.toFixed(1)%>%</td>
+	</tr>
+	<%}}%>
+	</table>
+</div>

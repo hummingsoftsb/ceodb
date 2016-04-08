@@ -1,0 +1,45 @@
+[ ]		barchart_workpackage
+[ ]		delivery_1
+[ ]		delivery_2
+[ ]		delivery_3
+[ ]		delivery_4
+[ ]		delivery_5
+[ ]		double_pier_view
+[ ]		gallery
+[ ]		hsse
+[ ]		installation_2
+[ ]		installation_3
+[ ]		kad
+[ ]		kad2
+[ ]		kpi
+[ ]		map_pier_view
+[ ]		page_info
+[x]		page_info_station
+[x]		page_info_system
+[ ]		piechart_workpackage
+[ ]		procurement_awarded_table
+[ ]		procurement_called_table
+[ ]		procurement_manufacturing_1
+[ ]		procurement_manufacturing_2
+[ ]		procurement_manufacturing_3
+[ ]		procurement_manufacturing_4
+[ ]		procurement_manufacturing_5
+[ ]		procurement_yetcalled_table
+[ ]		progress
+[X]		scorecard
+[ ]		scurve
+[ ]		single_pier_view
+[ ]		slider
+[ ]		syspackage
+[ ]		system_design_1
+[ ]		system_design_2
+[ ]		system_design_3
+[ ]		tbm_progress
+[ ]		testing_commisioning_1
+[ ]		testing_commisioning_2
+[ ]		testing_commisioning_3
+[ ]		testing_commisioning_4
+[ ]		tunnel_progress
+[ ]		ug_station_activity
+[ ]		ug_station_progress
+[ ]		viaduct_pier_view

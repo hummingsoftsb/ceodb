@@ -1,0 +1,47 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th>
+	<th style="">Doc</th>
+	<th style="color: #8BA1CF">Design Stage</th>
+	<th style="color: #ffd461">Total Submission</th>
+	<th style="color: #FFAF78">Code 1</th>
+	<th style="color: #FFAF78;">Code 2</th>
+	<th style="color: #FFAF78">Code 3</th>
+	<th style="color: #FFAF78">Under Review</th>
+	</thead>
+	<%for (var i in data.data) {%>
+	<%
+		var doc = data.data[i][0];
+		var designS = data.data[i][1];
+		var totalSub = data.data[i][2];
+		var code1 = data.data[i][3];
+		var code2 = data.data[i][4];
+		var code3 = data.data[i][5];
+		var under = data.data[i][6];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((doc != "") && (designS == "") && (totalSub == "") && (code1 == "") && (code2 == "") && (code3 == "") && (under == "")) { %><td style="" colspan="4"><%=doc%></td> <% } else { %>
+		<td style=""><%=doc%></td>
+		<td style="color: #8BA1CF"><%=designS%></td>
+		<td style="color: #ffd461;"><%=totalSub%></td>
+		<td style="color: #FFAF78;"><%=code1%></td>
+		<td style="color: #FFAF78;"><%=code2%></td>
+		<td style="color: #FFAF78;"><%=code3%></td>
+		<td style="color: #FFAF78;"><%=under%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+	<br>
+	<div style="color: #EB95B0"> <b>Note : </b>Code 1- Accepted, Code 2- Accepted with Comments, Code 3- Rejected</div>
+</div>

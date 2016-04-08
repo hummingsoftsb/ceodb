@@ -1,0 +1,13 @@
+<div class="header bg-dot30">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-line-chart"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/ ">
+	<!--div style="text-align: center;font-weight: bold; font-size:60px;"><%=data.data.currentActual%></div-->
+	<div style="height: 90%;" id="chart_<%=data.id%>">></div>
+</div>

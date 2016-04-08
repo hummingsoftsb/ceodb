@@ -1,0 +1,40 @@
+<div class="header bg-doscurve-item-30 excel-scurve-1">
+    <!-- <img src="./img/icons/line_chart-26.png" style="float: left;margin-right: 13px;">  -->
+    <% if (typeof(data.date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+	<i class="header-icon fa fa-line-chart"></i>
+</div>
+<div class="content" style=" background: none;/*#1d2a34*/ ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="scurve-1-item scurve-1-item-5 scurve-background-green" style=""><span class="scurve-1-item-data scurve-1-data-color excel-d1"><%=data.currentEarly%></span><span class="scurve-1-item-title">% Early</span></div>
+                <div class="scurve-1-item scurve-1-item-5 scurve-background-red" style=""><span class="scurve-1-item-data scurve-1-data-color excel-d2"><%=data.currentActual%></span><span class="scurve-1-item-title">% Actual</span> </div>
+                <div class="scurve-1-item scurve-1-item-5 scurve-background-blue" style=""><span class="scurve-1-item-data scurve-1-data-color excel-d3"><%=data.currentLate%></span><span class="scurve-1-item-title">% Late</span></div>
+                
+                <div class="scurve-1-item scurve-1-item-6"><span style="color: #ffd461">Variance</span><br/>
+                    <table style="width:100%; text-align:center; font-size: 100%;">
+                        <tbody>
+                            <!--<tr><td style="padding-bottom:10px">Early</td><td style="padding-bottom:10px">Late</td></tr>-->
+                            <tr><td class="scurve-1-table-data scurve-font-green excel-d4"><strong><%=data.varEarly%></strong> <span style="font-size: 10px;color: #FFF;">E</span></td><td class="scurve-1-table-data scurve-font-blue excel-d5"><strong><%=data.varLate%></strong> <span style="font-size: 10px;color: #FFF">L</span></td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+             
+                <div class="scurve-1-item scurve-1-item-5" style="width:10%; border-left: 1px solid rgba(128, 128, 128, 0.5);"><object style="margin: 8px 0px" data="<%=baseURL%>assets/img/<%=data.arrowDirection%>arrow_20x20.svg" class="svg-arrow-down" type="image/svg+xml" onLoad="$(this).contents().find('#path14').css('fill', '<%=data.trendColor%>')"></object></div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12"><div class="chart chart-scurve" id="chart_<%=data.id%>"></div>
+            </div>		
+        </div>		
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<% console.log(data.data); var d = data.data; %>
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+		<!--<h3 style="text-align:center"><%=data.data.text%></h3>-->
+		<table class="table table-bordered table-condensed table-hover">
+		<thead><tr>
+		<td>No</td>
+		<td>Equipment / Vehicle</td>
+		<td>Cat</td>
+		<td>Test</td>
+		<td>Status</td>
+		</tr></thead>
+		<tbody>
+		<% for (var i = 0; i < d.length; i++) { 
+			var i1 = d[i][0];
+			var i2 = d[i][1];
+			var i3 = d[i][2];
+			var i4 = d[i][3];
+		%>
+		<tr>
+		<td><%=i+1%></td>
+		<% if ((i1 != "") && (i2 == "") && (i3 == "") && (i4 == "")) { %> <td colspan="4"><%=i1%></td><% } else {  %>
+
+		<td><%=i1%></td>
+		<td><%=i2%></td>
+		<td><%=i3%></td>
+		<td><%=i4%></td>
+		<% } %>
+		</tr>
+		<% } %>
+		</tbody></table>
+</div>

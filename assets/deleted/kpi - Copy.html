@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Taurus</title>
+        <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+        <link rel=icon type=image/ico href="favicon.html"/>
+        <link href=css/stylesheets.css rel=stylesheet type=text/css />
+        <script type=text/javascript src=js/plugins/jquery/jquery.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/jquery-ui.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/jquery-migrate.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/globalize.js></script>
+        <script type=text/javascript src=js/plugins/bootstrap/bootstrap.min.js></script>
+        <script type=text/javascript src=js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js></script>
+        <script type=text/javascript src=js/plugins/uniform/jquery.uniform.min.js></script>
+        <script type=text/javascript src=js/plugins/knob/jquery.knob.js></script>
+        <script type=text/javascript src=js/plugins/sparkline/jquery.sparkline.min.js></script>
+        <script type=text/javascript src=js/plugins/flot/jquery.flot.js></script>
+        <script type=text/javascript src=js/plugins/flot/jquery.flot.resize.js></script>
+        <script type=text/javascript src=js/js.js></script>
+        <script type=text/javascript src=js/settings.js></script>
+        <script type=text/javascript src=js/settings.js></script>
+
+        <style>
+            #a {
+                position: relative;
+            }
+
+            #b {
+                position: absolute; 
+                top: 10px;
+                left: 10px;
+            }
+        </style>
+    </head>
+    <body class=bg-img-num1>
+        <div class="container container-fixed">
+            <div class=row>
+                <div class=col-md-12>
+                    <nav class="navbar brb" role=navigation>
+                        <div class=navbar-header>
+                            <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-ex1-collapse> <span class=sr-only>Toggle navigation</span> <span class=icon-reorder></span> </button>
+                            <a class=navbar-brand href=index.html><img src="img/logo.png"/></a> </div>
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class=active> <a href=index.html> <span class=icon-home></span> Home </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-windows></span> Package </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-legal></span> Construction </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-exchange></span> Procument </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-money></span> Financial </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-h-sign></span> Safety </a> </li>
+                            </ul>
+                            <!--                            <form class="navbar-form navbar-right" role=search>
+                                                            <div class=form-group>
+                                                                <input type=text class=form-control placeholder="search..."/>
+                                                            </div>
+                                                        </form>-->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <ol class="breadcrumb"> 
+                        <li><a href="#">Home</a></li> 
+                        <li><a href="#">Packages</a></li> 
+                        <li>Package - V5</li> 
+                        <li class="active">KPI</li> 
+                    </ol>
+                </div>
+            </div>
+            <div class=row>
+                <div class=col-md-12>
+                    <div class=col-md-6>
+                        <div class="block block-drop-shadow">
+                            <div class="head bg-dot30" style="420px" >
+                                <h2 style="font-size: 110%">Weekly Key Performance Indicator (KPI)</h2>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th> KPI Target  </th>
+                                                <th> KPI Target Month </th>
+                                                <th> Current Status </th>
+                                                <th> Unit</th>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Mobile launching gantry </td>
+                                                <td> May 2013 </td>
+                                                <td> <div id="prog1" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td> 100% </td> 
+                                            </tr>
+
+                                            <tr>
+                                                <td> Testing and Commissioning</td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog2" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td> Piles </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete 44 Pilecaps </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog3" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td> Pilecaps </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete 33 Piers </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog4" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td>Piers</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete launching 3 Spans </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog5" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td> Nos </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td> Increase number of piling rigs to 11</td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog6" style="height: 60px; width: 100px;" >
+                                                    </div></td>
+                                                <td>Rigs</td>
+                                            </tr>
+
+
+
+
+                                        </tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=col-md-6>
+                        <div class="block block-drop-shadow">
+                            <div class="head bg-dot30" id="chart1" style="height: 420px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-md-12>
+                    <div class="col-md-6">
+                        <!-- Map portion -->
+                        <div class="block block-drop-shadow">
+                            <div class="head bg-dot20">
+                                <img src="img/guideways-portion.png" class="col-md-12 img-rounded"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Piers -->
+                        <div class="block block-drop-shadow">
+                            <div class="head bg-default bg-light-ltr">
+
+                                <h2>Pier Structure</h2> <br/>
+                                <div id = "a">
+                                    <img src="img/example/piers.png" class="col-md-12" style="height: 500px;"/>
+                                    <div id = "b">
+                                        <div class="row">
+                                            <div class="col-sm-12"> Pier Head
+                                                <div class="head-panel nm tac" style=line-height:0>
+                                                    <div class=knob style="width: 70px;">
+                                                        <input type=text data-fgColor=#3F97FE data-min=0 data-max=100 data-width=70 data-height=70 value=4.5 data-readOnly="true"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12"> Pier
+                                                <div class="head-panel nm tac" style=line-height:0>
+                                                    <div class=knob style="width: 70px;">
+                                                        <input type=text data-fgColor=#3F97FE data-min=0 data-max=100 data-width=70 data-height=70 value=4.5 data-readOnly="true"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12"> Pile Cap
+                                                <div class="head-panel nm tac" style=line-height:0>
+                                                    <div class=knob style="width: 70px;">
+                                                        <input type=text data-fgColor=#3F97FE data-min=0 data-max=100 data-width=70 data-height=70 value=4.5 data-readOnly="true"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12"> Spun Piles
+                                                <div class="head-panel nm tac" style=line-height:0>
+                                                    <div class=knob style="width: 70px;">
+                                                        <input type=text data-fgColor=#3F97FE data-min=0 data-max=100 data-width=70 data-height=70 value=4.5 data-readOnly="true"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12"> Bored Piles
+                                                <div class="head-panel nm tac" style=line-height:0>
+                                                    <div class=knob style="width: 70px;">
+                                                        <input type=text data-fgColor=#3F97FE data-min=0 data-max=100 data-width=70 data-height=70 value=4.5 data-readOnly="true"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=row>
+                <div class=page-footer>
+                    <div class=page-footer-wrap>
+                        <div class="side pull-left"> Copyirght &COPY; YourCompany 2013. All rights reserved. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type=text/javascript src=js/jquery.min.js></script>
+        <script>
+            var $i = jQuery.noConflict();
+        </script> 
+        <script type=text/javascript src=highcharts/js/highcharts.js></script>
+        <script type=text/javascript src=highcharts/js/modules/exporting.js></script>
+        <script type=text/javascript src=highcharts/js/dark-highcharts.js></script>
+        <script>
+
+            $i(function() {
+                $i('#chart1').highcharts({
+                    credits: false,
+                    chart: {
+                        type: 'spline',
+                    },
+                    title: {
+                        text: 'Performance Index (2013)'
+                    },
+                    subtitle: {
+                        text: 'Current and Targeted'
+                    },
+                    xAxis: {
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    yAxis: {
+                        title: {
+                            text: '% Completed'
+                        },
+                        labels: {
+                            //                            formatter: function() {
+                            //                                return this.value + '°';
+                            //                            }
+                        },
+                        lineWidth: 2
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    tooltip: {
+                        valueSuffix: '%'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    plotOptions: {
+                        spline: {
+                            marker: {
+                                enable: false
+                            }
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [1, 10, 18, 25, 35, 40, 44, 58, 62, 70, 80, 90]
+                        },
+                        {
+                            name: 'Target',
+                            data: [1, 17, 28, 33, 47],
+                        }
+                    ]
+                });
+            });
+
+
+        </script>
+        <script>
+            $i(function() {
+                $i('#prog1').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar',
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['Percentage']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 100,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        },
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [100]
+                        }, {
+                            name: 'Incomplete',
+                            data: [100]
+                        }]
+                });
+            });
+        </script>
+
+        <script>
+            $i(function() {
+                $i('#prog2').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['Piles']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 328,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [222]
+                        }, {
+                            name: 'Incomplete',
+                            data: [106]
+                        }]
+                });
+            });
+        </script>
+
+        <script>
+            $i(function() {
+                $i('#prog3').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['Pilecaps']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 44,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [25]
+                        }, {
+                            name: 'Incomplete',
+                            data: [19]
+                        }]
+                });
+            });
+        </script>
+
+        <script>
+            $i(function() {
+                $i('#prog4').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['Piers']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 33,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [10]
+                        }, {
+                            name: 'Incomplete',
+                            data: [23]
+                        }]
+                });
+            });
+        </script>
+
+        <script>
+            $i(function() {
+                $i('#prog5').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 0,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: []
+                        }]
+                });
+            });
+        </script>
+
+
+        <script>
+            $i(function() {
+                $i('#prog6').highcharts({
+                    exporting: {
+                        enabled: false
+                    }
+                    ,
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: false,
+                    xAxis: {
+                        labels: {
+                            enabled: false,
+                        },
+                        categories: ['Rigs']
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 11,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                            name: 'Current',
+                            data: [7]
+                        }, {
+                            name: 'Incomplete',
+                            data: [4]
+                        }]
+                });
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--h2>Header h2</h2-->
+    <table class="table table-bordered table-condensed table-hover" style="">
+        <thead>
+        <th style="">Date</th>
+        <th style="color: #FFAF78;text-align: center;">Incident</th>
+        </thead>
+        <%
+		data.data.sort(function(a,b){
+		var x = new Date(a[0])
+		var z = new Date(b[0])
+		return z-x
+		})
+		for (var i in data.data) {
+        var row = data.data[i];%>		
+        <tr>
+            <td style="white-space: nowrap;"><%=row[0]%></td>
+            <td style="color: #ffd461;"><%=row[1]%></td>
+        </tr>
+        <%}%>
+        <%
+        if (data.data.length == 0){        
+        %>
+        <tr>
+            <td colspan="2" style="text-align: center">Nil</td>
+        </tr>
+        <%}%>
+    </table>
+</div>

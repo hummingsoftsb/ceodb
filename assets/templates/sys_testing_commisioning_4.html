@@ -1,0 +1,65 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	<!--
+	<div style="font-weight: 600; font-size: larger; color: #009e8c;">Test dates for gangway movement, gangway endurance test and door endurance tests are still pending , Siemens to advise. </div><p>
+<div>
+• PDP to provide MRTC with Recovery Programmes for all outstanding issues and failed tests.  <p>
+• Climatic Chamber testing on Train No. 3 (T-Car) planned for March 2015, at Vienna. <p>
+• KD1 on ET interface testing with Signaling and Telecommunication trainborne equipment for the first two trains not achieved.  Target to close all open items by 30/11/14. <p>
+• All Static Test Procedures are now approved with Code 1 prior to commencement of testing activities at the SMH Rail. </div>
+<br>-->
+	
+	
+	<table id="1" class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Date</th><th style="color: #FFAF78">Static Test (Train 1)</th><th style="color: #009e8c;">Test status</th>
+	</thead>
+	<%for (var i in data.data[0]) {%>
+	<%
+		var dm1 = data.data[0][i][0];
+		var t1 = data.data[0][i][1];
+		var cms1 = data.data[0][i][2];		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((dm1 != "") && (t1 == "") && (cms1 == "")) { %><td style="" colspan="3"><%=dm1%></td> <% } else { %>
+		<td style=""><%=dm1%></td>
+		<td style="color: #FFAF78;"><%=t1%></td>
+		<td style="color: #009e8c;"><%=cms1%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+	
+	<br>
+	
+	<table id="2" class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th>No.</th><th style="">Date</th><th style="color: #FFAF78">FAT Test</th><th style="color: #009e8c;">Test Procedure Status</th>
+	</thead>
+	<%for (var i in data.data[1]) {%>
+	<%
+		var dm2 = data.data[1][i][0];
+		var t2 = data.data[1][i][1];
+		var cms2 = data.data[1][i][2];
+		
+	%>
+	 <tr>
+		<td style=""><%=parseInt(i)+1%></td>
+		<% if ((dm2 != "") && (t2 == "") && (cms2 == "")) { %><td style="" colspan="3"><%=dm2%></td> <% } else { %>
+		<td style=""><%=dm2%></td>
+		<td style="color: #FFAF78;"><%=t2%></td>
+		<td style="color: #009e8c;"><%=cms2%></td>
+		<% } %>
+	</tr>
+	<%}%>
+	</table>
+		<br>
+	<div style="color: #EB95B0"> <b>Note : </b>Code 1- Accepted , Code 2- Accepted with comments.
+</div>
+</div>

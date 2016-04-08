@@ -1,0 +1,25 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <h2><%=data.title%></h2>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/ ">
+	<!--h2>Header h2</h2-->
+    <!--<div class="table-responsivess">-->
+        <table style="text-align: center; font-size: 100%" class="table table-bordered table-condensed">
+			<!--tr><th>X</th><th>Y</th></tr-->
+			<tr>
+            <%for(var i in data.data) {%>
+            <%=i%3==0 ? "</tr><tr>" : "" %>
+				<!--td style="color: #00B050;"><%=data.data[i].item%></td-->
+				<td style="color: #0070C0;">
+					<a href="javascript: void(0)" onclick="loadPage('<%=data.data[i].url%>');">
+						<h2 class="numbers"><%=data.data[i].item%></h2>
+						<span style="color: #7DB96A"><%=data.data[i].name%></span>
+					</a>
+				</td>
+			
+            <%}%>
+			</tr>
+        </table>
+    <!--</div>-->
+</div>

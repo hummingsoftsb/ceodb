@@ -1,0 +1,69 @@
+
+<style>
+
+.dot circle {
+  fill: lightsteelblue;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.dot circle.dragging {
+  fill: red;
+  stroke: brown;
+}
+
+.axis line {
+  fill: none;
+  stroke: #ddd;
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
+}
+
+.legendimg {
+	width:20px; height:40px; margin: auto 15px;
+}
+</style>
+<script>
+
+</script>
+
+
+
+<div class="header bg-dot30">
+    <h2><%=data.title%></h2>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+<% var isPrint = (typeof getUrlParameter("print") != "undefined"); if (isPrint) { %>
+
+	<div class="pier_legend" style="background:#101010;">
+	<div style="width: 250px; margin:auto; height: 200px; margin-top: 20px; background:#000000; position:relative; padding:20px;">
+	<div style="position:absolute; font-size:26px;">Legend</div>
+	<div style="position:absolute; font-size:18px; top:60px;">
+		<table><tbody>
+		<tr><td><div class="legendimg" style="background:rgb(90, 255, 92)"></div></td><td> Completed</td></tr>
+		<tr><td><div class="legendimg" style="background:rgb(255, 198, 53)"></div></td><td> Under construction</td></tr>
+		<tr><td><div class="legendimg" style="background:#CCCCCC"></div></td><td> Not yet started</td></tr>
+		</tbody></table>
+	</div>
+	
+	</div></div>
+	<div class="piermap" style="width:auto;background:#777777;height:90%;overflow-y:scroll"></div>
+	
+	
+<% } else { %>
+	<div class="pier_legend" style="width:300px;height:90%;background:#101010;float:right;"><div style="width: 250px; margin:auto; height: 200px; margin-top: 20px; background:#000000; position:relative; padding:20px;">
+	<div style="position:absolute; font-size:26px;">Legend</div>
+	<div style="position:absolute; font-size:18px; top:60px;">
+		<table><tbody>
+		<tr><td><div class="legendimg" style="background:rgb(90, 255, 92)"></div></td><td> Completed</td></tr>
+		<tr><td><div class="legendimg" style="background:rgb(255, 198, 53)"></div></td><td> Under construction</td></tr>
+		<tr><td><div class="legendimg" style="background:#CCCCCC"></div></td><td> Not yet started</td></tr>
+		</tbody></table>
+	</div>
+	
+	</div></div>
+	<div class="piermap" style="width:auto;background:#777777;height:90%;overflow-y:scroll"></div>
+	
+<% } %>
+</div>

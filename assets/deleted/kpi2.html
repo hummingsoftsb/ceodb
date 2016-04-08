@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Taurus</title>
+        <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+        <link rel=icon type=image/ico href="favicon.html"/>
+        <link href=css/stylesheets.css rel=stylesheet type=text/css />
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <script type=text/javascript src=js/plugins/jquery/jquery.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/jquery-ui.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/jquery-migrate.min.js></script>
+        <script type=text/javascript src=js/plugins/jquery/globalize.js></script>
+        <script type=text/javascript src=js/plugins/bootstrap/bootstrap.min.js></script>
+        <script type=text/javascript src=js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js></script>
+        <script type=text/javascript src=js/plugins/uniform/jquery.uniform.min.js></script>
+        <script type=text/javascript src=js/plugins/knob/jquery.knob.js></script>
+        <script type=text/javascript src=js/plugins/sparkline/jquery.sparkline.min.js></script>
+        <script type=text/javascript src=js/plugins/flot/jquery.flot.js></script>
+        <script type=text/javascript src=js/plugins/flot/jquery.flot.resize.js></script>
+        <script type=text/javascript src=js/js.js></script>
+        <script type=text/javascript src=js/settings.js></script>
+        <script type=text/javascript src=js/settings.js></script>
+
+        <style>
+            #a {
+                position: relative;
+            }
+
+            #b {
+                position: absolute; 
+                top: 0px;
+                left: 30%;
+                height: 562px;
+                background-color: rgba(0,0,0,0.2);
+                width: 25%;
+            }
+            #c {
+                position: absolute; 
+                top: 0px;
+                left: 55%;
+                height: 562px;
+                background-color: rgba(0,0,0,0);
+                width: 21%;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+            .dialtotal {
+                height: 110px;
+                /*font-weight: bold;*/
+                /*margin-top: 20px;*/
+                /*margin-bottom: 20px;*/ 
+            }
+            .totalcontent {
+                height: 60px; 
+                /*border-left:1px solid #5F676A;*/ 
+                /*border-right:1px solid #5F676A;*/ 
+                /*border-top:1px dashed #5F676A;*/ 
+                border-bottom:1px dashed #5F676A; 
+                margin: 20px 5px;
+                text-align: right;
+            }
+            .totalcontentnumber {
+                font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 35px; 
+                display: block; 
+                padding: 0 5px 0px 5px; 
+                height: 40px;
+            }
+            .totaltype {
+                padding: 0 5px; 
+                font-size: 13px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body class=bg-img-num1>
+        <div class="container container-fixed">
+            <div class=row>
+                <div class=col-md-12>
+                    <nav class="navbar brb" role=navigation>
+                        <div class=navbar-header>
+                            <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-ex1-collapse> <span class=sr-only>Toggle navigation</span> <span class=icon-reorder></span> </button>
+                            <a class=navbar-brand href=index.html><img src="img/logo.png"/></a> </div>
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class=active> <a href=index.html> <span class=icon-home></span> Main </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-legal></span> Construction </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-exchange></span> Procument </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-money></span> Financial </a> </li>
+                                <li class=active> <a href=index.html> <span class=icon-h-sign></span> Safety </a> </li>
+                            </ul>
+                            <!--                            <form class="navbar-form navbar-right" role=search>
+                                                            <div class=form-group>
+                                                                <input type=text class=form-control placeholder="search..."/>
+                                                            </div>
+                                                        </form>-->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <ol class="breadcrumb"> 
+                        <li><a href="#">Main</a></li> 
+                        <li><a href="#">Packages</a></li> 
+                        <li>Package - V5</li> 
+                        <li class="active">KPI</li> 
+                    </ol>
+                </div>
+            </div>
+            <div class=row>
+                <div class=col-md-12>
+                    <div class=col-md-6>
+                        <div class="block block-drop-shadow">
+                            <div class="header bg-dot30" style="margin-bottom: 1px;">
+                                <h2 style="font-size: 15px;">Weekly Key Performance Indicator (KPI)</h2> <br/>
+                            </div>
+                            <div class="content">
+                                <div class="table-responsive">
+                                    <span class="pull-right"  style="height: 40px;">
+                                        <span id="legend" style="height: 40px; width: 140px;"></span>                                            
+                                    </span>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th> KPI Target  </th>
+                                                <th> KPI Target Month </th>
+                                                <th> Current Status </th>
+                                                <th> Unit</th>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Mobile launching gantry </td>
+                                                <td> May 2013 </td>
+                                                <td> <div id="prog1" style="height: 40px; width: 100px;" >
+                                                    </div></td>
+                                                <td> % </td> 
+                                            </tr>
+
+                                            <tr>
+                                                <td> Testing and Commissioning</td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog2" style="height: 40px; width: 100px;" >
+                                                    </div></td>
+                                                <td> Pile </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete 44 Pilecaps </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog3" style="height: 40px; width: 100px;" >
+                                                    </div></td>
+                                                <td> Pilecap </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete 33 Piers </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog4" style="height: 40px; width: 100px;" >
+                                                    </div></td>
+                                                <td>Pier</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Complete launching 3 Spans </td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog5" class="text-center" style="height: 40px; width: 100px;" ></div></td>
+                                                <td> Nos </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td> Increase number of piling rigs to 11</td>
+                                                <td> June 2013 </td>
+                                                <td> <div id="prog6" style="height: 40px; width: 100px;" >
+                                                    </div></td>
+                                                <td>Rig</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=col-md-6>
+                        <div class="block block-drop-shadow">
+                            <div class="header bg-dot30" style="margin-bottom: 1px;">
+                                <h2 style="font-size: 15px;">Viaduct 5 - Performance Index (2013)</h2>
+                            </div>
+                            <div class="content">
+                                <div id="chart1" style="height: 420px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-md-12>
+                    <div class="col-md-6">
+                        <!-- Map portion -->
+                        <div class="block block-drop-shadow">
+                            <div class="header bg-dot30" style="margin-bottom: 1px;">
+                                <h2 style="font-size: 15px;">Viaduct 5</h2>
+                            </div>
+                            <div class="content">
+                                <img src="img/guideways-portion.png" class="col-md-12 img-rounded"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Piers -->
+                        <div class="block block-drop-shadow">
+                            <div class="header bg-dot30" style="margin-bottom: 1px;">
+                                <h2 style="font-size: 15px">Pier Structure</h2>
+                            </div>
+                            <div class="content">
+                                <div id = "a">
+                                    <img src="img/pier.gif" class="col-md-12" style="height: 553px;"/>
+                                    <div id = "b">
+                                        <div class="row mb10">
+                                            <div id="dial1" style="height: 110px;"></div>
+                                        </div>
+                                        <div class="row mb10">
+                                            <div id="dial2" style="height: 110px;"></div>
+                                        </div>
+                                        <div class="row mb10">
+                                            <div id="dial3" style="height: 110px;"></div>
+                                        </div>
+                                        <div class="row mb10">
+                                            <div id="dial4" style="height: 110px;"></div>
+                                        </div>
+                                        <div class="row mb10">
+                                            <div id="dial5" style="height: 110px;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div id = "c">
+                                        <div class="row dialtotal">
+                                            <div class="totalcontent">
+                                                <span class="totalcontentnumber"><span style="color: #C6364D">7</span>/18</span>
+                                                <span class="totaltype">Pier Head</span>
+                                            </div>
+                                        </div>
+                                        <div class="row dialtotal">
+                                            <div class="totalcontent">
+                                                <span class="totalcontentnumber">10/18</span>
+                                                <span class="totaltype">Pier</span>
+                                            </div>
+                                        </div>
+                                        <div class="row dialtotal">
+                                            <div class="totalcontent">
+                                                <span class="totalcontentnumber">25/45</span>
+                                                <span class="totaltype">Pile Cap</span>
+                                            </div>
+                                        </div>
+                                        <div class="row dialtotal">
+                                            <div class="totalcontent">
+                                                <span class="totalcontentnumber">222/341</span>
+                                                <span class="totaltype">Bored Piles</span>
+                                            </div>
+                                        </div>
+                                        <div class="row dialtotal">
+                                            <div class="totalcontent">
+                                                <span class="totalcontentnumber"><span style="color: #C6364D">23</span>/332</span>
+                                                <span class="totaltype">Spun Piles</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=row>
+                <div class=page-footer>
+                    <div class=page-footer-wrap>
+                        <div class="side pull-left"> Copyirght &COPY; YourCompany 2013. All rights reserved. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type=text/javascript src=js/jquery.min.js></script>
+        <script>
+            var $i = jQuery.noConflict();
+        </script> 
+        <script type=text/javascript src=highcharts/js/highcharts.js></script>
+        <script type=text/javascript src=highcharts/js/modules/exporting.js></script>
+        <script type=text/javascript src=highcharts/js/dark-highcharts.js></script>
+        <script type=text/javascript src=js/kpi.js></script>
+        
+    </body>
+</html>
