@@ -342,7 +342,12 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     return "No Train(s) here " ;
                 }
                 else {
-                    return "Train " + trainIndeces[0] + " - " + trainIndeces[trainIndeces.length - 1];
+                    if(trainIndeces.length > 1 ) {
+                        return "Train " + trainIndeces[0] + " - " + trainIndeces[trainIndeces.length - 1];
+                    }
+                    else{
+                        return "Train " + trainIndeces[0];
+                    }
                 }
 			}
 			
@@ -397,13 +402,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				});
 				$manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
 				var $table = generateTable([
-					["Train Num.", "Target Roll-out", "Status"],
-					["37", "12/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["38", "18/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["39", "25/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["40", "29/04/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["41", "06/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["42", "12/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
+					["Train Num.", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
+					["37", "12/04/16","18/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["38", "18/04/16","21/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["39", "25/04/16","27/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["40", "29/04/16","06/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["41", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["42", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
 				]);
 				$manufacturingContainer.find('.table-container').html('').append($table);
 			}
@@ -442,16 +447,26 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				});
 				$assemblyContainer.find('.train-container').html('').append(renderTrainDom(newdata));
 				
+				//var $table = generateTable([
+				//	["Train Num.", "Target Delivery", "Status"],
+				//	["24", "22/12/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["25", "07/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["26", "16/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["27", "26/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["28", "04/02/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["29", "19/02/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["30", "29/02/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+				//	["31", "09/03/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
+				//]);
+
 				var $table = generateTable([
-					["Train Num.", "Target Delivery", "Status"],
-					["24", "22/12/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["25", "07/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["26", "16/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["27", "26/01/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["28", "04/02/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["29", "19/02/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["30", "29/02/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["31", "09/03/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
+					["Train Num.", "Dates acc. to Baseline Rev. 06","Current Forecast Roll Out", "Status"],
+					["33", "14/04/16","23/04/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["34", "23/04/16","03/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["35", "07/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["36", "16/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
 				]);
 				$assemblyContainer.find('.table-container').html('').append($table);
 			}
