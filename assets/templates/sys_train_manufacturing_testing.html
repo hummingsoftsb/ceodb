@@ -45,6 +45,7 @@
 	<!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
 	<!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ]-->
 	<!--];	-->
+    <!--Modified By Sebin-->
         data.tabledata = [
 	[18, 17, 1, 0, 7, 5, 2, 0,   ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
 	[19, 18, 1, 0, 7, 5, 2, 0,   ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
@@ -84,9 +85,15 @@
 	var getPercent = function(totalIndex, passIndex) {
 		var totalArray = _.map(data.tabledata, function(p){ return p[totalIndex];});
 		var passArray = _.map(data.tabledata, function(p){ return p[passIndex];});
-		var total = _.reduce(totalArray, function(memo, num) { return memo + num; });
-		var pass = _.reduce(passArray, function(memo, num) { return memo + num; });
-		return parseFloat((pass/total)*100).toFixed(0);
+
+        <!--var total = _.reduce(totalArray, function(memo, num) { return memo+ num; });-->
+        <!--var pass = _.reduce(passArray, function(memo, num) { return memo + num; });-->
+        <!--return parseFloat((pass/total)*100).toFixed(0);-->
+
+        <!--Modified By Sebin-->
+        var total = _.reduce(totalArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+        var pass = _.reduce(passArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+        return (isNaN(parseFloat((pass/total)*100).toFixed(0))?0:parseFloat((pass/total)*100).toFixed(0));
 	}
 	var statictest = getPercent(0,1);
 	var dynamictest = getPercent(4,5);
@@ -162,10 +169,14 @@
 					<tr>
 						<td>Train<%=i+1%></td>
 						<% for (var j = 0; j < data.tabledata[i].length; j++) { %>
+                        <!--Added else condition to add '-' if there is  no value-->
+                        <!--Modified by Sebin-->
 						<td><% if (typeof data.tabledata[i][j] != 'undefined') 
 						{ %>
 							<%=data.tabledata[i][j]%>
-						<% } %>
+						<% }else{ %>
+                            <%="-"%>
+                            <% } %>
 						</td>
 						<% } %>
 					</tr>
