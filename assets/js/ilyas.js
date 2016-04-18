@@ -704,6 +704,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
 
 mpxd.constructors.train_progress = function(data) {
+    //alert(data.data.currentActual);
 	if (typeof data.data.id == "undefined")
         data.data.id = data.id;
     if (typeof data.data.title == "undefined")
@@ -718,7 +719,6 @@ mpxd.constructors.train_progress = function(data) {
 	elelel = $el;
 	var currentProgress = parseFloat(data.data.currentActual);
 	var remainingProgress = 100 - currentProgress;
-	
 	$el.find('#chart_' + data.id + "_progress").highcharts({
 		chart: {
 			plotBackgroundColor: null,
