@@ -97,6 +97,8 @@ mpxd.datasource = [];
 mpxd.datasourceAss = {};
 
 mpxd.getTemplate = function(t) {
+    console.log('names to identify');
+    console.log(t);
     if (typeof mpxd.templateData[t] == "undefined") {
         /* template not loaded yet or unexistant */
         if (typeof mpxd.templateURLs[t] == "undefined") {
@@ -168,6 +170,8 @@ mpxd.loadTemplateAsync = function(t, callback) {
 mpxd.getJSON = function(url, query, callback) {
     $.getJSON(baseURL + url + query, function(data) {
         callback(data);
+        console.log(data);
+        console.log('getjson.generate');
     }).error(function(){
 		console.log("mpxd.getJSON erred");
 	});
@@ -208,7 +212,6 @@ mpxd.resetDatasource = function() {
 }
 
 mpxd.getportlet = function(slug, page, callback) {
-
 //console.log(arguments.callee.caller.arguments.callee.caller + "HERERERERERERERERE\n\n\n\n\n\n\n");
 	if ((slug == "") || (page == "")) {console.log("Unable to get portlet! URL problem?"); return;}
     mpxd.getJSON('portlet/', slug+"/"+page, function(data) {
@@ -269,7 +272,7 @@ mpxd.getDateList = function(data, callback){
 }
 
 mpxd.generatePortletContent = function (data) {
-	
+
 	/*var lookup = {};
 	$.each(portletArray, function(idx, d) { 
 		lookup[d.id] = portletArray[idx];
