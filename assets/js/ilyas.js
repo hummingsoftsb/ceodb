@@ -940,12 +940,17 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 		};
 		
 		open_item['xAxis']['categories'] = [];
-		for (var i = 1; i < 22; i++) {
+/*		for (var i = 1; i < 22; i++) {
 			open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
-		}
-		
-		var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
-		var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];
+		}*/
+        for (var i = 1; i < 30; i++) {
+            open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
+        }
+/*        var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
+        var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];*/
+
+        var openJobs   = [ , , 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, , 55, 43, 45, 46, 59];
+		var closedJobs = [ , , 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, , 88, 90, 90, 92, 93];
 		
 		var openData = [];
 		var closedData = [];
