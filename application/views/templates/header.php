@@ -23,6 +23,7 @@
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/leaflet.css" />
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/leaflet.awesome-markers.css" />
 		<link media="screen, print" rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/flick/jquery-ui.css" />
+		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/plugin/wb-popover/jquery.webui-popover.css" />
         <!--<link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/css/pushmenu.css">-->
         
 		<script>
@@ -150,6 +151,7 @@
        <!--<script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/packery.pkgd.min.js></script> -->
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/menuzord.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/gridster-bootstrap.js></script>
+        <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/plugin/wb-popover/jquery.webui-popover.min.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/mpxd.js></script>
        
         <!--<script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/tunnel.js></script>-->

@@ -1,5 +1,5 @@
-
 </body>
+
 <!--<script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/js/modernizr.custom.js></script>
 <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/js/classie.js></script>
 <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/js/mlpushmenu.js></script>
@@ -20,4 +20,5 @@
 	// 	myFunction();
 	// }
 </script>
+
 </html>
