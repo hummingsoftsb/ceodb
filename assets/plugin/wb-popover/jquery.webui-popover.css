@@ -124,8 +124,9 @@
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
-  background-color: #000e17;
-  border-bottom: 1px solid #000e17;
+  background-color: #009e8c;
+    color: #ffffff;
+  border-bottom: 1px solid #009e8c;
   border-radius: 5px 5px 0 0;
 }
 .webui-popover-content {
