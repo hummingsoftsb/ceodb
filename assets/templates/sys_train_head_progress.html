@@ -12,7 +12,7 @@
 	<div style="text-align: center;">
 	<div style="max-width: 300px; max-height: 300px; margin-left: auto; margin-right: auto; margin-bottom: 25px;" id="chart_<%=data.id%>_progress"></div>
 	<!--<h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>-->
-	<h4 class="color-beige total_progress" style="padding-left: 15px">Total Progress: <span style="color: #9EDD2E"><%=data.data.currentActual%></span></h4>
+	<h4 class="color-beige total_progress" style="padding-left: 15px">Actual <span class="g_package"></span> Package Progress: <span style="color: #9EDD2E"><%=data.data.currentActual%></span></h4>
 	<div id="train_progress_container" style="margin-bottom: 25px;">
 	</div>
     <h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>
@@ -27,5 +27,8 @@
 		document.getElementById('train_progress_container').appendChild(xml.documentElement);
 		d3.select('#progress stop').attr('offset','6.9%');
 	}); 
-	%>		
+	%>
+    <script>
+        $(".g_package").text($('#page_title').text().split('(',1));
+    </script>
 </div>

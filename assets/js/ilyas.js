@@ -710,7 +710,7 @@ mpxd.constructors.train_progress = function(data) {
     if (typeof data.data.title == "undefined")
         data.data.title = data.title;
     /*var s = mpxd.modules.scurve;
-	
+
     s.initializeScurve(function() {
         s.GenerateScurve(data.data, '.scurve-container');
     });*/
@@ -797,6 +797,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 
 mpxd.constructors.train_manufacturing_testing = function(data) {
 	mpxd.modules.general.GenerateGeneralview(data);
+
 }
 
 mpxd.constructors.train_manufacturing_phase = function(data) {
