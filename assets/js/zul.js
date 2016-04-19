@@ -1325,6 +1325,7 @@ function compareDate(end) {
     var stDate = new Date();
     var enDate = GetDate(end);
     var compDate = enDate - stDate;
+
     var day = parseInt(compDate / 1000 / 60 / 60 / 24);
 
     if (compDate >= 0)
@@ -1340,7 +1341,6 @@ function compareDates(start, end) {
     var enDate = GetDate(end);
     var compDate = enDate - stDate;
     var week = (compDate / 1000 / 60 / 60 / 24 / 7);
-
     if (compDate >= 0)
         return week.toFixed(2);
     else {

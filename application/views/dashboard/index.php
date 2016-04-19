@@ -136,8 +136,8 @@
 						{
 							$("#submitbutton").click();
 						}
-					}); 
-			})
+					});
+            })
 			
 			var succesMsg = '<div class="alert alert-success"> <b>Login Success!</b> Redirecting to the dashboard...</div>';
 			var failedMsg = '<div class="alert alert-danger"> <b>Login Failed!</b> Please check your username/password</div>';

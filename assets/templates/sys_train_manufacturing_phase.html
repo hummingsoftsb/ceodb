@@ -1,3 +1,4 @@
+
 <div class="header bg-dot30 excel-normal">
     <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
 	<% if (typeof(data.data[0].date) !== "undefined") { %>
@@ -43,9 +44,10 @@
 	
 	 <tr style="text-align: center">
 		<td rowspan="2"><%=data.data[i][0]%></td>
-		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%>"><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>
-		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>"><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>
-		<td colspan="2"><h2 class="numbers excel-d2" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>"><%=((trialleft < 1) ? 0 : trialleft)%></h2> <span class="numbers-text">Days left</span></td>
+         <!--Modified by Sebin-->
+         <td colspan="2"><h2 data-value="<%=satleft %>" class="numbers excel-d2 <%=((satleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((satleft)/7)%> Weeks" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%> "><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>
+		<td colspan="2"><h2 class="numbers excel-d2 <%=((sitleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((sitleft)/7)%> Weeks" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>" ><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>
+		<td colspan="2"><h2 class="numbers excel-d2 <%=((trialleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((trialleft)/7)%> Weeks" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>" ><%=((trialleft < 1) ? 0 : trialleft)%></h2> <span class="numbers-text">Days left</span></td>
 	</tr>
 	
 	<tr style="text-align: center">
@@ -90,3 +92,19 @@
 	</div>
 </div>
 </div>
+<script type="text/javascript">
+    //Added By Sebin
+    $(function(){
+        $('.wb-pop').webuiPopover(
+
+                {
+                    trigger: 'hover',
+                    title:'Varience',
+                    placement:'top',
+                    animation:'pop'
+                }
+
+        );
+    });
+
+</script>

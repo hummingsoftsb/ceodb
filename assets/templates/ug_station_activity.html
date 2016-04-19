@@ -76,17 +76,25 @@
 								<th style="text-align: center;width: 50%">Item</th><th style="color: #FFAF78;text-align: center;">Progress</th>
 								</thead>
 								<%for (var j in row) {
-								if(typeof row[j] === 'number') {
+								if(typeof row[j] === 'number' || typeof row[j] === 'string') {
 								%>
 								<tr>
 									<td style="font-size: 15px"><%=j%></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%}
 							   else if(typeof row[j] === "object"){%>
 							   <tr>
 									<td style="font-size: 15px"><a href="#st-<%=String.prototype.toSlug(i)%>-<%=String.prototype.toSlug(j)%>" data-toggle="modal"><%=j%> <small><i class="fa fa-table"></i></small></a></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].progress.toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%} }%>
 							</table>
@@ -119,17 +127,25 @@
 								<th style="text-align: center;width: 50%">Item</th><th style="color: #FFAF78;text-align: center;">Progress</th>
 								</thead>
 								<%for (var j in row) {
-								if(typeof row[j] === 'number') {
+								if(typeof row[j] === 'number' || typeof row[j] === 'string') {
 								%>
 								<tr>
 									<td style="font-size: 15px"><%=j%></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%}
 							   else if(typeof row[j] === "object"){%>
 							   <tr>
 									<td style="font-size: 15px"><a href="#et-<%=String.prototype.toSlug(i)%>-<%=String.prototype.toSlug(j)%>" data-toggle="modal"><%=j%> <small><i class="fa fa-table"></i></small></a></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].progress.toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%} }%>
 							</table>
@@ -162,17 +178,25 @@
 								<th style="text-align: center;width: 50%">Item</th><th style="color: #FFAF78;text-align: center;">Progress</th>
 								</thead>
 								<%for (var j in row) {
-								if(typeof row[j] === "number") {
+								if(typeof row[j] === 'number' || typeof row[j] === 'string') {
 								%>
 								<tr>
 									<td style="font-size: 15px"><%=j%></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%}
 							   else if(typeof row[j] === "object"){%>
 							   <tr>
 									<td style="font-size: 15px"><a href="#vs-<%=String.prototype.toSlug(i)%>-<%=String.prototype.toSlug(j)%>" data-toggle="modal"><%=j%> <small><i class="fa fa-table"></i></small></a></td>
+									<% if(typeof row[j] === "number") {%>
 									<td style="color: #ffd461; text-align: right;"><%=row[j].progress.toFixed(1)%>%</td>
+									<%} else {%>
+									<td style="color: #ffd461; text-align: right;">-%</td>
+									<%}%>
 								</tr>
 							   <%} }%>
 							</table>
