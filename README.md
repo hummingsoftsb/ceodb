@@ -11,4 +11,4 @@ application/config/database.php.bak
 
 Change this value (mpxd.siteurl) in mpxd.js (For image)
 
-Change this value (find) to follow the root folder (eg 'mmpxd') in function getRoute() in ilyas.js
+Change this value (find) to follow the root folder (default: 'mpxd') in function getRoute() in ilyas.js
