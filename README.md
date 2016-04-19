@@ -10,3 +10,5 @@ application/config/database.php.bak
 .htaccess.bak
 
 Change this value (mpxd.siteurl) in mpxd.js (For image)
+
+Change this value (find) to follow the root folder (default: 'mpxd') in function getRoute() in ilyas.js
