@@ -82,8 +82,13 @@
 					<div class="assembly-container">
 						<div class="train-container">
 						</div>
-						<div class="table-container" style="max-width: 500px; text-align: center; margin: auto; padding:20px;">
+						<div class="table-container" style="max-width: 500px; text-align: center; margin: auto;">
 						</div>
+                        <!--Added by Sebin-->
+                        <div style="max-width: 500px; margin: auto; padding:20px;">
+                            <a class="assembly-link" href="#modal_comment" data-toggle="modal" style="font-weight:bold">Add comments <i class="loadpage fa fa-comments"></i></a>
+                        </div>
+                        <!---->
 					</div>
 				</div>
 				<div class="train-box-header">
@@ -109,7 +114,6 @@
 				</div>
 				
 			</div>
-			
 			</div>
 			</div>
 			<div class="modal-footer">
@@ -119,8 +123,41 @@
 	</div>
 </div>
 <!-- MODAL END -->
-
-
+<!--Added by Sebin-->
+    <div class="modal" id="modal_comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"><i class="fa fa-comments"></i> Add Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-container1" style="max-width: 500px; text-align: center; margin: auto; padding:20px;">
+                    <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                    <td>Train No:</td>
+                    <td>
+                    <input type="text" placeholder="Train Number" id="mpxd_train_no" style="border-color: rgba(21, 166, 233, 0.2); " class="form-control">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Comments:</td>
+                    <td>
+                    <textarea cols="3" rows="3" placeholder="Your Comment" id="mpxd_train_no_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td colspan="2"><button type="button" class="btn btn-success pull-right">Submit</button></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
 	
 	
 	
