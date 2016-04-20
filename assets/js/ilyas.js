@@ -402,13 +402,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				});
 				$manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
 				var $table = generateTable([
-					["Train Num.", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
-					["37", "12/04/16","18/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["38", "18/04/16","21/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["39", "25/04/16","27/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
-					["40", "29/04/16","06/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["41", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
-					["42", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
+					["Train Num.", "Target Roll-out", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
+					["37","04/12/16", "12/04/16","18/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["38","11/12/15", "18/04/16","21/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["39","18/12/15", "25/04/16","27/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
+					["40","25/12/15", "29/04/16","06/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["41","02/01/15", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
+					["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
 				]);
 				$manufacturingContainer.find('.table-container').html('').append($table);
 			}
