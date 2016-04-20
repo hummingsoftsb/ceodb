@@ -980,6 +980,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 		
 		for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
 			var total = openJobs[i]+closedJobs[i];
+            //Modified By Sebin
+            //var openPercent = parseInt((openJobs[i]/total)*100);
+            //var closedPercent = parseInt((closedJobs[i]/total)*100);
 			var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
 			var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
 			openData.push({
