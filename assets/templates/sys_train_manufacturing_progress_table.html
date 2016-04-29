@@ -88,6 +88,8 @@
                         <div style="max-width: 500px; margin: auto; padding:20px;">
                             <a class="assembly-link" href="#modal_comment" data-toggle="modal" style="font-weight:bold">Add comments <i class="loadpage fa fa-comments"></i></a>
                         </div>
+                        <div class="comment-container" style="max-width: 500px; text-align: center; margin: auto;">
+                        </div>
                         <!---->
 					</div>
 				</div>
@@ -138,17 +140,17 @@
                     <tr>
                     <td>Train No:</td>
                     <td>
-                    <input type="text" placeholder="Train Number" id="mpxd_train_no" style="border-color: rgba(21, 166, 233, 0.2); " class="form-control">
+                    <input type="text" placeholder="Train Number" id="mpxd_train_no" maxlength="10" style="border-color: rgba(21, 166, 233, 0.2); " class="form-control">
                     </td>
                     </tr>
                     <tr>
                     <td>Comments:</td>
                     <td>
-                    <textarea cols="3" rows="3" placeholder="Your Comment" id="mpxd_train_no_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
+                    <textarea cols="3" rows="3" placeholder="Your Comment" maxlength="50" id="mpxd_train_no_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
                     </td>
                     </tr>
                     <tr>
-                    <td colspan="2"><button type="button" class="btn btn-success pull-right">Submit</button></td>
+                    <td colspan="2"><button type="button" id="cmntonTrain" class="btn btn-success pull-right">Submit</button></td>
                     </tr>
                     </tbody>
                     </table>
@@ -158,7 +160,52 @@
         </div>
     </div>
     <!---->
-	
+	<script>
+        $(function(){
+            $('#cmntonTrain').click(function(){
+                var $f,$m=0;
+                var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
+                    if($('#mpxd_train_no').val()!='') {
+                        $('#mpxd_train_no').css("border-color", "rgba(21, 166, 233, 0.2)");
+                        $('#mpxd_train_no').next('small').remove();
+                        $f=1;
+                    }else{
+                        $('#mpxd_train_no').css("border-color","rgb(194, 67, 71)");
+                        $('#mpxd_train_no').next('small').remove();
+                        $('#mpxd_train_no').after($err);
+                        $f=0;
+                    }
+                    if($('#mpxd_train_no_comment').val()!='') {
+                        $('#mpxd_train_no_comment').css("border-color", "rgba(21, 166, 233, 0.2)");
+                        $('#mpxd_train_no_comment').next('small').remove();
+                        $m=1;
+                    }else{
+                        $('#mpxd_train_no_comment').css("border-color","rgb(194, 67, 71)");
+                        $('#mpxd_train_no_comment').next('small').remove();
+                        $('#mpxd_train_no_comment').after($err);
+                        $m=0;
+                    }
+                    if(($f+$m)>1) {
+                        mpxd.getJSONData("addComment/get?train_no=" + $('#mpxd_train_no').val() + "&comments=" + $('#mpxd_train_no_comment').val(), function (result) {
+                            if (result == 1) {
+                                $("#modal_comment").modal('hide');
+                                $row = "<tr><td>" + $('#mpxd_train_no').val() + "</td><td>" + $('#mpxd_train_no_comment').val() + "</td></tr>";
+                                $n_tab="<table class=\"table table-bordered table-condensed table-hover\"><thead><tr><td>Train Num.</td><td>Comments</td></tr></thead><tbody><tr><td>"+$('#mpxd_train_no').val()+"</td><td>"+$('#mpxd_train_no_comment').val()+"</td></tr></tbody></table>";
+                                if($(".comment-container").children('.table').length){
+                                    $(".comment-container").children('.table').children('tbody').prepend($row);
+                                }else{
+                                    $(".comment-container").append($n_tab);
+                                }
+
+                                $('#mpxd_train_no').val('');
+                                $('#mpxd_train_no_comment').val('');
+                            }
+                        });
+                    }
+            });
+        });
+	</script>
+
 	
 	
 	

@@ -748,5 +748,18 @@ class Dashboard_model extends CI_Model {
 
         return $this->db->insert('news', $data);
     }
+    public function getComment(){
+        $this->db->select('*');
+        $this->db->from('prognosis');
+        $this->db->order_by('timestamp', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function setComment($data){
+        $this->db->insert('prognosis', $data);
+        return $this->db->affected_rows();
+
+    }
+
 
 }

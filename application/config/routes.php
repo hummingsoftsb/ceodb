@@ -41,6 +41,8 @@
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 $route['api/(:any)'] = 'dashboard/api/$1';
+$route['fetchComment'] = 'dashboard/fetchComment';
+$route['addComment/(:any)'] = 'dashboard/addComment/$1';
 $route['setapi/(:any)'] = 'dashboard/setapi/$1';
 $route['portlet/(:any)'] = 'dashboard/portlet/$1';
 $route['draw'] = 'dashboard/draw';

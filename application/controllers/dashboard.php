@@ -50,6 +50,7 @@ class Dashboard extends CI_Controller {
         echo $success;
     }
 
+
     public function toexcel() {
         $post = $this->input->post();
         if ((!$post) || (!isset($post['jsondata'])))
@@ -259,6 +260,16 @@ class Dashboard extends CI_Controller {
             if ($this->input->get("date_list")) {
                 $slug = $this->input->get("date_list");
                 $data['item'] = $this->dashboard_model->get_date_list($slug);
+            }else if($this->input->get("comments")){
+                $result = $this->dashboard_model->getComment();
+                if($result){
+                    $data['status']="success";
+                    $data['comment']= $result;
+                }else{
+                    $data['status']="fail";
+                    $data['comment']= $result;
+                }
+              echo json_encode($data);
             }
             //Default api get portlet content and data.
             else {
@@ -433,6 +444,46 @@ class Dashboard extends CI_Controller {
             }
         }
         return $op;
+    }
+
+//    Author: Sebin
+//    Usage : Fetch Comments
+//    Created: 28/04/2016
+    public function fetchComment(){
+        if ($this->input->get()) {
+                $result = $this->dashboard_model->getComment();
+                if ($result) {
+                    $data['status'] = "success";
+                    $data['item'] = $result;
+                } else {
+                    $data['status'] = "fail";
+                    $data['item'] = $result;
+                }
+        } else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
+    }
+//    Author: Sebin
+//    Usage : Add Comments
+//    Created: 28/04/2016
+    public function addComment(){
+        if ($this->input->get()) {
+            $data = array(
+                'train_no' => $this->input->get('train_no'),
+                'comments' => $this->input->get('comments'),
+                'timestamp' =>date('Y-m-d h:i:s')
+            );
+            $result = $this->dashboard_model->setComment($data);
+            if($result>0){
+                $data['item'] = 1;
+            }else{
+                $data['item'] = 0;
+            }
+        } else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
     }
 
 }

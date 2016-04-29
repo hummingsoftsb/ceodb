@@ -468,7 +468,20 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 					["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
 				]);
-				$assemblyContainer.find('.table-container').html('').append($table);
+                $assemblyContainer.find('.table-container').html('').append($table);
+                //Modified By Sebin (Dynamic Data)
+                //For Comments
+                mpxd.getJSONData("fetchComment", function(result){
+                    if(result.length>0) {
+                        var comments = [];
+                        comments.push(["Train Num.", "Comments"]);
+                        $.each(result, function (idx, i) {
+                            comments.push([i['train_no'], i['comments']]);
+                        });
+                        var $comment = generateTable(comments);
+                        $assemblyContainer.find('.comment-container').html('').append($comment);
+                    }
+                });
 			}
 			
 			var renderTesting = function(data) {

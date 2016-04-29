@@ -270,6 +270,12 @@ mpxd.getDateList = function(data, callback){
         callback(result);
     })
 }
+//Created By Sebin
+mpxd.getJSONData = function(data, callback){
+    $.getJSON(baseURL + data, function(result) {
+        callback(result);
+    })
+}
 
 mpxd.generatePortletContent = function (data) {
 
