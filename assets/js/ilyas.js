@@ -769,7 +769,7 @@ mpxd.constructors.train_progress = function(data) {
 					}
 				},
 				startAngle: 0,
-				endAngle: 360,
+				endAngle: 360
 			}
 		},
 		series: [{
@@ -814,6 +814,8 @@ mpxd.constructors.train_manufacturing_testing = function(data) {
 }
 
 mpxd.constructors.train_manufacturing_phase = function(data) {
+    console.log('train manufact');
+    console.log(data);
 	mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -972,7 +974,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 		major_works['series'][0]['data'] = [7.0, 10, 19.5, 26.5, 44, 55, 66, 78, 82, 94, 100];
 		*/
 		open_item['subtitle'] = {
-				text: 'Outstanding Item Completion Progress'
+				text: 'Overall Progress Per Train'
 		};
 		
 		open_item['xAxis']['categories'] = [];
@@ -1021,7 +1023,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 		})
 		
 		overall_progress['subtitle'] = {
-				text: 'Overall Progress Per Train'
+				text: 'Outstanding Item Completion Progress'
 		};
 		
 		overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});

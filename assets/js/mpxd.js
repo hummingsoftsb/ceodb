@@ -260,7 +260,8 @@ mpxd.getData = function(data, callback) {
 	
 	//console.log(query);
 	mpxd.getJSON('api/', query, function(result) {
-		//console.log(result);
+        console.log("sebin");
+		console.log(result);
 		callback(result);
     });
 }
