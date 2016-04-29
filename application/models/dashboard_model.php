@@ -284,7 +284,6 @@ class Dashboard_model extends CI_Model {
     }
 
     public function get_meta($arr, $itemID = FALSE) {
-
         $this->db->select('items_meta.id, title, type as type_name, items_meta.meta_group_id as meta_group_id, meta_key, pages.item_id as item_id');
         $this->db->from('meta_group');
         $this->db->join('items_meta', 'meta_group.id = items_meta.meta_group_id');
@@ -294,8 +293,11 @@ class Dashboard_model extends CI_Model {
             $this->db->where('pages.item_id', $itemID);
 
 
-        $query = $this->db->get();
 
+        $query = $this->db->get();
+//        echo "here1111";
+//        /*print_r($query->result_array());*/
+//        echo "here2222";
         //$query = $this->db->get_where('items', array('slug' => $item));
         if ($query) return $query->result_array();
     }

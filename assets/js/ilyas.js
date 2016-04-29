@@ -756,7 +756,7 @@ mpxd.constructors.train_progress = function(data) {
 					}
 				},
 				startAngle: 0,
-				endAngle: 360,
+				endAngle: 360
 			}
 		},
 		series: [{
@@ -801,6 +801,8 @@ mpxd.constructors.train_manufacturing_testing = function(data) {
 }
 
 mpxd.constructors.train_manufacturing_phase = function(data) {
+    console.log('train manufact');
+    console.log(data);
 	mpxd.modules.general.GenerateGeneralview(data);
 }
 

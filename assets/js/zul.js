@@ -1210,8 +1210,8 @@ mpxd.constructors.hsse = function(data) {
 }
 
 mpxd.constructors.kpi = function(data) {
-    console.log(data);
-    console.log('here');
+    //console.log(data);
+    //console.log('here');
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
