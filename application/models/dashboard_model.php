@@ -757,6 +757,13 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function getBaselineM(){
+        $this->db->select('*');
+        $this->db->from('tbl_manufacuring_baseline_forecast');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function setComment($data){
         $this->db->insert('prognosis', $data);
         return $this->db->affected_rows();

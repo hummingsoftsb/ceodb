@@ -401,7 +401,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 					});
 				});
 				$manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
-				var $table = generateTable([
+				/*var $table = generateTable([
 					["Train Num.", "Target Roll-out", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
 					["37","04/12/16", "12/04/16","18/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
 					["38","11/12/15", "18/04/16","21/04/16", "<div style='width:100%; height: 10px; background:red; display: inline-block'></div>"],
@@ -409,8 +409,30 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 					["40","25/12/15", "29/04/16","06/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["41","02/01/15", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
-				]);
-				$manufacturingContainer.find('.table-container').html('').append($table);
+				]);*/
+                mpxd.getJSONData("manuBaseline", function(result){
+                    if(result.length>0) {
+                        var $bar;
+                        var $rev;
+                        var $fordate;
+                        var baseline = [];
+                        $.each(result, function (idx, i) {
+                            $rev =  i['REV_INT'];
+                            return;
+                        });
+                        baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
+                        $.each(result, function (idx, i) {
+                            if(i['STATUS']=='completed'){
+                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
+                            }else {
+                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            }
+                            baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
+                        });
+                        var baselines = generateTable(baseline);
+                        $manufacturingContainer.find('.table-container').html('').append(baselines);
+                    }
+                });
 			}
 			
 			var renderAssembly = function(data) {
