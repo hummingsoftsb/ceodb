@@ -486,7 +486,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				//	["31", "09/03/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
 				//]);
 
-				var $table = generateTable([
+				/*var $table = generateTable([
 					["Train Num.", "Dates acc. to Baseline Rev. 06","Current Forecast Roll Out", "Status"],
 					["33", "14/04/16","23/04/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["34", "23/04/16","03/05/16", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
@@ -494,8 +494,31 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 					["36", "16/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
 					["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
-				]);
-                $assemblyContainer.find('.table-container').html('').append($table);
+				]);*/
+                mpxd.getJSONData("AssemblyBaseline", function(result){
+                    if(result.length>0) {
+                        var $bar;
+                        var $rev;
+                        var $fordate;
+                        var assembly = [];
+                        $.each(result, function (idx, i) {
+                            $rev =  i['REV_INT'];
+                            return;
+                        });
+                        assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
+                        $.each(result, function (idx, i) {
+                            if(i['STATUS']=='completed'){
+                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
+                            }else {
+                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            }
+                            assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
+                        });
+                        var assemblys = generateTable(assembly);
+                        $assemblyContainer.find('.table-container').html('').append(assemblys);
+                    }
+                });
+
                 //Modified By Sebin (Dynamic Data)
                 //For Comments
                 mpxd.getJSONData("fetchComment", function(result){

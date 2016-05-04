@@ -485,6 +485,9 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data
+//    Created: 29/04/2016
     public function baseline(){
         if ($this->input->get()) {
             $result = $this->dashboard_model->getBaselineM();
@@ -500,10 +503,31 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
-
+//    Author: Ancy Mathew
+//    Usage : Get Train Data
+//    Created: 04/05/2016
     public function trainDataGet(){
         if ($this->input->get()) {
             $result = $this->dashboard_model->getTrainData();
+            if ($result) {
+                $data['status'] = "success";
+                $data['item'] = $result;
+            } else {
+                $data['status'] = "fail";
+                $data['item'] = $result;
+            }
+        } else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
+    }
+
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data for assembly progress
+//    Created: 04/05/2016
+    public function assemblybaseline(){
+        if ($this->input->get()) {
+            $result = $this->dashboard_model->getBaselineAssembly();
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;

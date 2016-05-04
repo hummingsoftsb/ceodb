@@ -757,6 +757,9 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data
+//    Created: 29/04/2016
     public function getBaselineM(){
         $this->db->select('*');
         $this->db->from('tbl_manufacuring_baseline_forecast');
@@ -764,7 +767,9 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
-
+//    Author: Ancy Mathew
+//    Usage : Get Train Data
+//    Created: 04/05/2016
     public function getTrainData(){
         $rel=array(
             "manufacturing"=>array(),
@@ -808,6 +813,15 @@ class Dashboard_model extends CI_Model {
         return $this->db->affected_rows();
 
     }
-
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data for assembly progress
+//    Created: 29/04/2016
+    public function getBaselineAssembly(){
+        $this->db->select('*');
+        $this->db->from('tbl_assembly_baseline_forecast');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
 }

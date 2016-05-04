@@ -43,6 +43,7 @@ $route['404_override'] = '';
 $route['api/(:any)'] = 'dashboard/api/$1';
 $route['fetchComment'] = 'dashboard/fetchComment';
 $route['manuBaseline'] = 'dashboard/baseline';
+$route['AssemblyBaseline'] = 'dashboard/assemblybaseline';
 $route['gettrainData'] = 'dashboard/trainDataGet';
 $route['addComment/(:any)'] = 'dashboard/addComment/$1';
 $route['setapi/(:any)'] = 'dashboard/setapi/$1';
