@@ -166,24 +166,14 @@
                 var $f,$m=0;
                 var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
                     if($('#mpxd_train_no').val()!='') {
-                        $('#mpxd_train_no').css("border-color", "rgba(21, 166, 233, 0.2)");
-                        $('#mpxd_train_no').next('small').remove();
-                        $f=1;
+                        $('#mpxd_train_no').css("border-color", "rgba(21, 166, 233, 0.2)");$('#mpxd_train_no').next('small').remove();$f=1;
                     }else{
-                        $('#mpxd_train_no').css("border-color","rgb(194, 67, 71)");
-                        $('#mpxd_train_no').next('small').remove();
-                        $('#mpxd_train_no').after($err);
-                        $f=0;
+                        $('#mpxd_train_no').css("border-color","rgb(194, 67, 71)");$('#mpxd_train_no').next('small').remove();$('#mpxd_train_no').after($err);$f=0;
                     }
                     if($('#mpxd_train_no_comment').val()!='') {
-                        $('#mpxd_train_no_comment').css("border-color", "rgba(21, 166, 233, 0.2)");
-                        $('#mpxd_train_no_comment').next('small').remove();
-                        $m=1;
+                        $('#mpxd_train_no_comment').css("border-color", "rgba(21, 166, 233, 0.2)");$('#mpxd_train_no_comment').next('small').remove();$m=1;
                     }else{
-                        $('#mpxd_train_no_comment').css("border-color","rgb(194, 67, 71)");
-                        $('#mpxd_train_no_comment').next('small').remove();
-                        $('#mpxd_train_no_comment').after($err);
-                        $m=0;
+                        $('#mpxd_train_no_comment').css("border-color","rgb(194, 67, 71)");$('#mpxd_train_no_comment').next('small').remove();$('#mpxd_train_no_comment').after($err);$m=0;
                     }
                     if(($f+$m)>1) {
                         mpxd.getJSONData("addComment/get?train_no=" + $('#mpxd_train_no').val() + "&comments=" + $('#mpxd_train_no_comment').val(), function (result) {
@@ -196,7 +186,10 @@
                                 }else{
                                     $(".comment-container").append($n_tab);
                                 }
-
+//                                $('#modal_default_3').animate({
+//                                    scrollTop: $(".comment-container").offset().top
+//                                }, 2000);
+//                                $('.comment-container').scrollTop(0);
                                 $('#mpxd_train_no').val('');
                                 $('#mpxd_train_no_comment').val('');
                             }
