@@ -327,13 +327,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //    "kjd":{"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}}
             //};
 
-			var trainData = {	"manufacturing":{},"assembly":{},"subd":{},"kjd":{}
-			};
-                mpxd.getJSONData("gettrainData", function (result) {
-                    trainData=result;
-
-                });
-            alert(trainData);
 			var getSummary = function(d) {
 				var trains = Object.keys(d);
 				var trainIndeces = _.map(trains, function(t){return parseInt(t.substr(t.indexOf("Train")+6)); })
@@ -360,23 +353,33 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				trainIndeces.sort(function(a,b){return a-b});
 				return parseInt(trainIndeces[trainIndeces.length-1]) - parseInt(trainIndeces[0]) + 1;
 			}
+            //var mfgsummary = getSummary(trainData['manufacturing']);
+            //var asssummary = getSummary(trainData['assembly']);
+            //var subdsummary = getSummary(trainData['subd']);
+            //var kjdsummary = getSummary(trainData['kjd']);
+            //
+            //var subdnumber = getNumberOfTrains(trainData['subd']);
+            //var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
+            //Added by Sebin for Dynamic data Loading
+            var trainData={};
+            mpxd.getJSONData("gettrainData", function (result) {
+                trainData=(JSON.parse(JSON.stringify(result)));
+                var mfgsummary = getSummary(trainData['manufacturing']);
+                var asssummary = getSummary(trainData['assembly']);
+                var subdsummary = getSummary(trainData['subd']);
+                var kjdsummary = getSummary(trainData['kjd']);
 
-			var mfgsummary = getSummary(trainData['manufacturing']);
-			var asssummary = getSummary(trainData['assembly']);
-			var subdsummary = getSummary(trainData['subd']);
-			var kjdsummary = getSummary(trainData['kjd']);
+                var subdnumber = getNumberOfTrains(trainData['subd']);
+                var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
 
-			var subdnumber = getNumberOfTrains(trainData['subd']);
-			var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
+                $('#manufacturing_progress_value').text(mfgsummary);
+                $('#assembly_progress_value').text(asssummary);
+                $('#subd_progress_value').text(subdsummary);
+                $('#kjd_progress_value').text(kjdsummary);
 
-			$('#manufacturing_progress_value').text(mfgsummary);
-			$('#assembly_progress_value').text(asssummary);
-			$('#subd_progress_value').text(subdsummary);
-			$('#kjd_progress_value').text(kjdsummary);
-			
-			$('#subd_number_of_trains').text('Total: ' + subdnumber);
-			$('#kjd_number_of_trains').text('Total: ' + kjdnumber);
-			
+                $('#subd_number_of_trains').text('Total: ' + subdnumber);
+                $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
+            });
 			var renderManufacturing = function(data) {
 				var newdata = [];
 				$.each(data, function(idx, i) {
@@ -581,11 +584,19 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				$kjdContainer.find('.train-container').html('').append(renderTrainDom(newdata));
 				$kjdContainer.find('.table-container').html('');
 			}
-			
-			renderManufacturing(trainData['manufacturing']);
-			renderAssembly(trainData['assembly']);
-			renderTesting(trainData['subd']);
-			renderKJD(trainData['kjd']);
+
+            //renderManufacturing(trainData['manufacturing']);
+            //renderAssembly(trainData['assembly']);
+            //renderTesting(trainData['subd']);
+            //renderKJD(trainData['kjd']);
+            //Modified By Sebin For Dynamic data loading
+            mpxd.getJSONData("gettrainData", function (result) {
+                trainData = (JSON.parse(JSON.stringify(result)));
+                renderManufacturing(trainData['manufacturing']);
+                renderAssembly(trainData['assembly']);
+                renderTesting(trainData['subd']);
+                renderKJD(trainData['kjd']);
+            });
 			
 			that.$el.find('#modal_default_3').on('shown.bs.modal', function() {
 				that.$el.find('.modal-body').css('max-height', $(window).height()-237);
