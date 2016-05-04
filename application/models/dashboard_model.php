@@ -764,6 +764,45 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function getTrainData(){
+        $rel=array(
+            "manufacturing"=>array(),
+            "assembly"=>array(),
+            "subd"=>array(),
+            "kjd"=>array()
+        );
+        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
+        $this->db->from('tbl_puzhen_manufacture');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        $result=$query->result_array();
+        foreach($result as $key=> $val){
+                $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
+                    "cars"=>array(
+                        $val['CAR1_NO']=>array(
+                            "progress"=>$val['CAR1_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR2_NO']=>array(
+                            "progress"=>$val['CAR2_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR3_NO']=>array(
+                            "progress"=>$val['CAR3_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR4_NO']=>array(
+                            "progress"=>$val['CAR4_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        )
+
+                    )
+                );
+        }
+        return $rel;
+//        return
+    }
     public function setComment($data){
         $this->db->insert('prognosis', $data);
         return $this->db->affected_rows();
