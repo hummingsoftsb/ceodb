@@ -782,6 +782,10 @@ class Dashboard_model extends CI_Model {
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
+        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ARRIVED_DATE');
+        $this->db->from('tbl_SMH_Assmbly_Progress');
+        $query = $this->db->get();
+        $result1=$query->result_array();
         foreach($result as $key=> $val){
                 $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
                     "cars"=>array(
@@ -804,6 +808,33 @@ class Dashboard_model extends CI_Model {
 
                     )
                 );
+        }
+        foreach($result1 as $key=> $val1) {
+            $rel["assembly"]["Train " . $val1['TRAIN_NO']] = array(
+                "cars" => array(
+                    $val1['CAR1_NO'] => array(
+                        "progress" => $val1['CAR1_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR2_NO'] => array(
+                        "progress" => $val1['CAR2_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR3_NO'] => array(
+                        "progress" => $val1['CAR3_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR4_NO'] => array(
+                        "progress" => $val1['CAR4_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    )
+
+                )
+            );
         }
         return $rel;
 //        return
