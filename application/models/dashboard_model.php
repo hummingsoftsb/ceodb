@@ -839,6 +839,41 @@ class Dashboard_model extends CI_Model {
         return $rel;
 //        return
     }
+
+    public function getOverallProgress(){
+        $overall = array();
+        $this->db->select('TRAIN_NO,OPEN_JOBS,CLOSED_JOBS');
+        $this->db->from('tbl_overall_progress');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        $result=$query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $overall[$i]["OPEN_JOBS"] =$val['OPEN_JOBS'];
+            $overall[$i]["CLOSED_JOBS"] =$val['CLOSED_JOBS'];
+            $i++;
+        }
+        return $overall;
+//        return
+    }
+
+    public function getOutStandingProgress(){
+        $outstand = array();
+        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
+        $this->db->from('tbl_outstanding_item_progress');
+        $this->db->order_by('OUTSTAND_ID');
+        $query = $this->db->get();
+        $result=$query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $outstand[$i]["JOBS_DONE"] =$val['JOBS_DONE'];
+            $outstand[$i]["TARGET"] =$val['TARGET'];
+            $outstand[$i]["OUT_DATE"] =$val['OUT_DATE'];
+            $i++;
+        }
+        return $outstand;
+//        return
+    }
     public function setComment($data){
         $this->db->insert('prognosis', $data);
         return $this->db->affected_rows();
