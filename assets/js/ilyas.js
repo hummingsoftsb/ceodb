@@ -321,6 +321,36 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 				return $table;
 			}
 
+            var generateDataTable = function(data) {
+                var $table = $('<table>').addClass('table table-condensed table-hover');
+                var $thead = $('<thead>');
+                var $tbody = $('<tbody>');
+
+                var $tr = $('<tr>');
+                for (var i = 0; i < data[0].length; i++) {
+                    var $td = $('<td>');
+                    $td.html(data[0][i]);
+                    $tr.append($td);
+                }
+                $thead.append($tr);
+
+                // Start from 1 since the first is for header
+                for (var i = 1; i < data.length; i++) {
+                    var $tr = $('<tr>');
+                    for (var j = 0; j < data[i].length; j++) {
+                        var d = data[i][j];
+                        var $td = $('<td>');
+                        $td.html(d);
+                        $tr.append($td);
+                    }
+                    $tbody.append($tr);
+                }
+
+                $table.append($thead);
+                $table.append($tbody);
+                return $table;
+            }
+
             //var trainData = {	"manufacturing":{"Train 28":{"delivery":"07-Jan-16","cars":{"M1055":{"progress":"100%","rollout":"12-Dec-15","arrived":"","history":{"manufacturing":"Train 26","assembly":"Train 27"}},"T2055":{"progress":"100%","rollout":"12-Dec-15","arrived":"","history":{"manufacturing":"","assembly":""}},"T2056":{"progress":"100%","rollout":"12-Dec-15","arrived":"","history":{"manufacturing":"","assembly":""}},"M1056":{"progress":"90%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 29":{"delivery":"","cars":{"M1057":{"progress":"100%","rollout":"12-Dec-15","arrived":"","history":{"manufacturing":"","assembly":""}},"T2057":{"progress":"90%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2058":{"progress":"75%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1058":{"progress":"90%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 30":{"delivery":"","cars":{"M1059":{"progress":"60%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2059":{"progress":"60%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2060":{"progress":"60%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1060":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 31":{"delivery":"","cars":{"M1061":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2061":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2062":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1062":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 32":{"delivery":"","cars":{"M1063":{"progress":"10%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2063":{"progress":"30%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2064":{"progress":"15%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1064":{"progress":"10%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}}},
             //    "assembly":{"Train 25":{"delivery":"07-Jan-16","cars":{"M1052":{"progress":"46%","rollout":"","arrived":"","history":{"manufacturing":"Train 26","assembly":"Train 27"}},"T2050":{"progress":"66%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2051":{"progress":"40%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1046":{"progress":"31%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 26":{"delivery":"16-Jan-16","cars":{"M1051":{"progress":"100%","rollout":"","arrived":"21-Dec-15","history":{"manufacturing":"","assembly":""}},"T2035":{"progress":"5%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2052":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"M1037":{"progress":"5%","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}}}},"Train 27":{"delivery":"26-Jan-16","cars":{"M1053":{"progress":"100%","rollout":"","arrived":"21-Dec-15","history":{"manufacturing":"","assembly":""}},"T2053":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"","assembly":""}},"T2054":{"progress":"100%","rollout":"","arrived":"12-Dec-15","history":{"manufacturing":"","assembly":""}},"M1054":{"progress":"100%","rollout":"","arrived":"12-Dec-15","history":{"manufacturing":"","assembly":""}}}}},
             //    "subd":{"Train 1 - 24":{"delivery":"","testingcompleted":"Train 1 - 24 delivered to to SUBD as per agreed SSSC target programme - by 23/12/15, and have completed dynamic test","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 19":{"delivery":"","cars":{"1191":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1192":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1193":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1194":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 20":{"delivery":"","cars":{"1201":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1202":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1203":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1204":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 21":{"delivery":"","cars":{"1211":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1212":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1213":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1214":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 22":{"delivery":"09-Dec-15","cars":{"1221":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1222":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1223":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1224":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 23":{"delivery":"19-Dec-15","cars":{"1231":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1232":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1233":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1234":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 24":{"delivery":"23-Dec-15","cars":{"1241":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1242":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1243":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1244":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}},
@@ -369,7 +399,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 var subdsummary = getSummary(trainData['subd']);
                 var kjdsummary = getSummary(trainData['kjd']);
 
-                var subdnumber = getNumberOfTrains(trainData['subd']);
+                var subdnumber = (isNaN(getNumberOfTrains(trainData['subd'])))?0:getNumberOfTrains(trainData['subd']);
                 var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
 
                 $('#manufacturing_progress_value').text(mfgsummary);
@@ -506,7 +536,21 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             comments.push([i['train_no'], i['comments']]);
                         });
                         var $comment = generateTable(comments);
+                        //$comment.attr("id","dataTab");
+                        //console.log("DataTable");
                         $assemblyContainer.find('.comment-container').html('').append($comment);
+                        //$('#dataTab').tablePaginate({navigateType:'navigator',recordPerPage:10});
+                        //$("#dataTab").DataTable({
+                        //    pagingType: "simple",
+                        //    language: {
+                        //        paginate: {'next': 'Next &rarr;', 'previous': '&larr; Prev'}
+                        //    },
+                        //    bFilter: false
+                        //    //pageLength: 5
+                        //    //bSort:false
+                        //});
+                        //$('#dataTab').removeAttr('style');
+                        //$("#dataTab_length").css("display","none");
                     }
                 });
 			}
