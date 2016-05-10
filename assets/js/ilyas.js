@@ -460,10 +460,14 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='completed'){
-                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
-                            }else {
-                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            if(i['STATUS']=='pro_assem'){
+                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
+                            }else if(i['STATUS']=='ass_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
+                            }else if(i['STATUS']=='pro_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
+                            }else  {
+                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
                             }
                             baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
@@ -540,10 +544,14 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='completed'){
-                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
-                            }else {
-                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            if(i['STATUS']=='pro_assem'){
+                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
+                            }else if(i['STATUS']=='ass_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
+                            }else if(i['STATUS']=='pro_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
+                            }else  {
+                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
                             }
                             assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
@@ -951,13 +959,22 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         that.data.maxJobs = 2500;
+        var date_over=[];
+        mpxd.getJSONData("outStandingProgress", function (result) {
+            outstanding=(JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding ) {
+                date_over.push((result[j]['OUT_DATE']));
+                j=j+2;
+            }
+        });
         var generic = {
             title: {
                 text: ''
             },
             xAxis: {
                 type: "datetime",
-                categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
+                categories:date_over,
+               // categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
                 labels: {
                     rotation: 90,
                     step: 2
@@ -1091,11 +1108,52 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         }
         /*        var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
          var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];*/
-
-        var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
-        var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
-
+        var open=[];
+        var openJobs=[];
+        var closedJobs = [];
         var openData = [];
+        var closedData = [];
+        mpxd.getJSONData("getOverallProgress", function (result) {
+            open=(JSON.parse(JSON.stringify(result)));
+            for (var j in open ) {
+                openJobs.push(parseInt(result[j]['OPEN_JOBS']));
+                closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
+
+            }
+            //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
+            //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
+
+            for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
+                var total = openJobs[i]+closedJobs[i];
+                //Modified By Sebin
+                //var openPercent = parseInt((openJobs[i]/total)*100);
+                //var closedPercent = parseInt((closedJobs[i]/total)*100);
+                var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
+                var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
+                openData.push({
+                    y: openPercent,
+                    original: openJobs[i]
+                });
+                closedData.push({
+                    y: closedPercent,
+                    original: closedJobs[i]
+                });
+            }
+            open_item['series'].push({
+                name: 'Open Jobs',
+                data: openData
+            });
+            // Closed jobs
+            open_item['series'].push({
+                name: 'Closed Jobs',
+                data: closedData
+            });
+            that.$el.find('.progress-chart-2').highcharts(open_item);
+        });
+        //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
+        //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
+
+       /* var openData = [];
         var closedData = [];
 
         for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
@@ -1113,10 +1171,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 y: closedPercent,
                 original: closedJobs[i]
             });
-        }
+        }*/
 
         // Open jobs
-        open_item['series'].push({
+       /* open_item['series'].push({
             name: 'Open Jobs',
             data: openData
         });
@@ -1125,19 +1183,42 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         open_item['series'].push({
             name: 'Closed Jobs',
             data: closedData
-        })
+        })*/
 
         overall_progress['subtitle'] = {
             text: 'Outstanding Item Completion Progress'
         };
-
-        overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});
-        overall_progress['series'].push({name: 'Target',data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]});
+        var outstanding=[];
+        var target=[];
+        var jobsdone=[];
+        mpxd.getJSONData("outStandingProgress", function (result) {
+            outstanding=(JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding ) {
+                if(!isNaN(parseInt(result[j]['JOBS_DONE'])))
+                {
+                    jobsdone.push(parseInt(result[j]['JOBS_DONE']));
+                }
+                target.push(parseInt(result[j]['TARGET']));
+            }
+            overall_progress['series'].push({
+                name: 'Jobs done',
+                data:jobsdone
+                //data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]
+            });
+            overall_progress['series'].push({
+                name: 'Target',
+                data:target
+                // data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]
+            });
+            that.$el.find('.progress-chart-3').highcharts(overall_progress);
+        });
+       // overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});
+       // overall_progress['series'].push({name: 'Target',data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]});
 
 
         //that.$el.find('.progress-chart-1').highcharts(major_works);
-        that.$el.find('.progress-chart-2').highcharts(open_item);
-        that.$el.find('.progress-chart-3').highcharts(overall_progress);
+       // that.$el.find('.progress-chart-2').highcharts(open_item);
+      //  that.$el.find('.progress-chart-3').highcharts(overall_progress);
         //that.$el.find('#chart_'+that.data.id).highcharts({
         /*var chart = new Highcharts.Chart({
          title: {
