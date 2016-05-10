@@ -95,6 +95,9 @@ mpxd.constructors.train_manufacturing_progress_table = function(data) {
     return new mpxd.modules.train_manufacturing_progress_table.train_progress({data: data, el: el});
 }
 
+
+
+
 mpxd.modules.train_manufacturing_progress_table = {}
 mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.extend({
     initialize: function(options) {
@@ -143,7 +146,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 			var leftmotor = arguments[1];
 			var body = arguments[2];
 			var rightmotor = arguments[3];
-			
+
 			var $manufacturingContainer = that.$el.find('.manufacturing-container');
 			var $assemblyContainer = that.$el.find('.assembly-container');
 			var $subdContainer = that.$el.find('.subd-container');

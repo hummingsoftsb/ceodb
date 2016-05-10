@@ -1,0 +1,132 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+
+<!--Modified by : Agaile-->
+<!--Date: 09/05/2016-->
+<script type ="text/javascript">
+
+tabledata=[];
+var temp=[];
+cap =[];
+mpxd.getJSONData("GetTestingData", function (result) {
+for (var i in result){
+temp.push([(result[i]['TRAIN_NO']== null?'-':result[i]['TRAIN_NO']),(result[i]['Static_Total']== null?'-':parseInt(result[i]['Static_Total'])),(result[i]['Static_Pass']== null?'-':parseInt(result[i]['Static_Pass'])),(result[i]['Static_Incomplete']== null?'-':parseInt(result[i]['Static_Incomplete'])),(result[i]['Static_Fail']== null?'-':parseInt(result[i]['Static_Fail'])),(result[i]['Dynamic_Total']== null?'-':parseInt(result[i]['Dynamic_Total'])),(result[i]['Dynamic_Pass']== null?'-':parseInt(result[i]['Dynamic_Pass'])),(result[i]['Dynamic_Incomplete']== null?'-':parseInt(result[i]['Dynamic_Incomplete'])),(result[i]['Dynamic_Fail']== null?'-':parseInt(result[i]['Dynamic_Fail'])),(result[i]['SAT_Total']== null?'-':parseInt(result[i]['SAT_Total'])),(result[i]['SAT_Incomplete']== null?'-':parseInt(result[i]['SAT_Incomplete'])),(result[i]['SAT_Fail']== null?'-':parseInt(result[i]['SAT_Fail'])),(result[i]['IT_Incomplete']== null?'-':parseInt(result[i]['IT_Incomplete'])),(result[i]['IT_Total']== null?'-':parseInt(result[i]['IT_Total'])),(result[i]['SAT_Pass']== null?'-':parseInt(result[i]['SAT_Pass'])),(result[i]['IT_Fail']== null?'-':parseInt(result[i]['IT_Fail'])),(result[i]['SIT_Pass']== null?'-':parseInt(result[i]['SIT_Pass'])),(result[i]['SIT_Total']== null?'-':parseInt(result[i]['SIT_Total'])),(result[i]['SIT_Incomplete']== null?'-':parseInt(result[i]['SIT_Incomplete'])),(result[i]['SIT_Fail']== null?'-':parseInt(result[i]['SIT_Fail'])),(result[i]['IT_Pass']== null?'-':parseInt(result[i]['IT_Pass']))]);
+}
+
+tabledata= temp;
+    var tn="";
+    for(i=0;i< tabledata.length;i++ )
+    {
+        tn=tn+'<tr><td>'+tabledata[i]+'</td></tr>';
+        tn=tn.trim();
+        tn=tn.replace(/,/g,"</td><td>");
+    }
+//    console.log('Bingo');
+//    console.log(tn);
+    $("#test").append(tn);
+
+
+
+var getPercent = function(totalIndex, passIndex) {
+var totalArray = _.map(tabledata, function(p){ return p[totalIndex];});
+var passArray = _.map(tabledata, function(p){ return p[passIndex];});
+
+<!--Modified By Sebin-->
+var total = _.reduce(totalArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+var pass = _.reduce(passArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+return (isNaN(parseFloat((pass/total)*100).toFixed(0))?0:parseFloat((pass/total)*100).toFixed(0));
+}
+
+var statictest = getPercent(1,2);
+var dynamictest = getPercent(5,6);
+var mainlinetest = getPercent(9,10);
+var sit = getPercent(13,14);
+
+    var $td="<td style=\"\">"+statictest+"%"+"</td> <td style=\"\">"+dynamictest+"%"+"</td><td style=\"\">"+mainlinetest+"%"+"</td><td style=\"\">"+mainlinetest+"%"+"</td><td style=\"\">"+sit+"%"+"</td>";
+    $("#st_data").append($td);
+});
+
+</script>
+
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+	<th style="color: #ffd461;">Static Test</th>
+	<th style="color: #ffd461;">Dynamic Test</th>
+	<th style="color: #ffd461;">SAT</th>
+	<th style="color: #ffd461;">IT</th>
+	<th style="color: #ffd461;">SIT</th>
+	</thead>
+        <tbody>
+        <tr id="st_data">
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <a class="testing-report-link link" href="#modal_default_2" data-toggle="modal"><span>View Testing Report <i class="loadpage fa fa-link"></i></span></a>
+
+    <!-- MODAL START -->
+    <div class="modal" id="modal_default_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:1400px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Testing - Completion Percentage of 58 Trains</h4>
+                </div>
+                <div class="modal-body clearfix">
+                    <table class="table table-bordered table-condensed table-hover" style="text-align: center" id="test">
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Train Num.</th>
+                            <th colspan="4" style="color: #ffd461;">Static Test</th>
+                            <th colspan="4" style="color: #ffd461;">Dynamic Test</th>
+                            <th colspan="4" style="color: #ffd461;">SAT</th>
+                            <th colspan="4" style="color: #ffd461;">IT</th>
+                            <th colspan="4" style="color: #ffd461;">SIT</th>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
+
+</div>

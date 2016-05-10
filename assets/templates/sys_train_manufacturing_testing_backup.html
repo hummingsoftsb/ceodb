@@ -1,0 +1,197 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <% if (typeof(data.data[0].date) !== "undefined") { %>
+    <h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+    <% } else {%>
+    <h2><%=data.title%></h2>
+    <% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--h2>Header h2</h2-->
+
+    <table class="table table-bordered table-condensed table-hover" style="">
+        <thead>
+        <th style="color: #ffd461;">Static Test</th>
+        <th style="color: #ffd461;">Dynamic Test</th>
+        <th style="color: #ffd461;">SAT</th>
+        <th style="color: #ffd461;">IT</th>
+        <th style="color: #ffd461;">SIT</th>
+        </thead>
+        <%
+        /* Faking it */
+        <!--data.tabledata = [-->
+        <!--[17, 16, 1, 0, 7, 4, 2, 1, 21, 18, 1, 0, 7, 4, 2, 0, 7, 4, 2, 0 ],-->
+        <!--[19, 18, 1, 0, 7, 7, 4, 1, 19, 18, 1, 0, 7, 4, 2, 0, 7, 4, 2, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 6, 1, 0, 18, 11, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 8, 8, 0, 0, 8, 8, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 18, 11, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 20, 12, 8, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 7, 10, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 7, 10, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ],-->
+        <!--[17, 10, 7, 0, 5, 5, 0, 0, 17, 10, 7, 0, 5, 5, 0, 0, 5, 5, 0, 0 ]-->
+        <!--];	-->
+        <!--Modified By Sebin-->
+        data.tabledata = [
+        [18, 17, 1, 0, 7, 5, 2, 0,   ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [19, 18, 1, 0, 7, 5, 2, 0,   ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 10, 7, 0, 5, 5, 0, 0,   ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 9, 8, 0, 5, 5, 0, 0,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 10, 7, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 8, 9, 0, 5, 5, 0, 0,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 9, 8, 0, 5, 5, 0, 0,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 12, 5, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 11, 6, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 3, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 3, 0, 5, 3, 2, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 4, 1, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 3, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 12, 5, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 12, 5, 0, 5, 3, 2, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 11, 6, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 11, 6, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 12, 5, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 13, 4, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 3, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 14, 3, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 11, 6, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 11, 6, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 10, 7, 0, 5, 5, 0, 0,  ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 8, 6, 0, 5, 0, 5, 0,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 7, 7, 0, 5,  ,  ,  ,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+        [17, 3, 14, 0, 5, ,  ,  ,   ,    ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
+
+        ];
+
+        var getPercent = function(totalIndex, passIndex) {
+        var totalArray = _.map(data.tabledata, function(p){ return p[totalIndex];});
+        var passArray = _.map(data.tabledata, function(p){ return p[passIndex];});
+
+        <!--var total = _.reduce(totalArray, function(memo, num) { return memo+ num; });-->
+        <!--var pass = _.reduce(passArray, function(memo, num) { return memo + num; });-->
+        <!--return parseFloat((pass/total)*100).toFixed(0);-->
+
+        <!--Modified By Sebin-->
+        var total = _.reduce(totalArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+        var pass = _.reduce(passArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
+        return (isNaN(parseFloat((pass/total)*100).toFixed(0))?0:parseFloat((pass/total)*100).toFixed(0));
+        }
+        var statictest = getPercent(0,1);
+        var dynamictest = getPercent(4,5);
+        var mainlinetest = getPercent(8,9);
+        var sit = getPercent(12,13);
+        data.data = [[statictest+"%",dynamictest+"%",mainlinetest+"%", sit+"%"]]
+
+        if (data.data.length == 0) { %>
+        <tr><td colspan="6" style="text-align: center;">Nil</td></tr>
+        <% } %>
+        <%for (var i in data.data) { if(Object.prototype.toString.call(data.data[i]) == "[object Object]") { /*Do nothing*/} else {%>
+        <%
+
+        %>
+        <tr>
+            <td style=""><%=data.data[i][0]%></td>
+            <td style=""><%=data.data[i][1]%></td>
+            <td style=""><%=data.data[i][2]%></td>
+            <td style=""><%=data.data[i][2]%></td>
+            <td style=""><%=data.data[i][3]%></td>
+        </tr>
+        <%}}%>
+    </table>
+    <br/>
+    <a class="testing-report-link link" href="#modal_default_2" data-toggle="modal"><span>View Testing Report <i class="loadpage fa fa-link"></i></span></a>
+
+
+
+    <!-- MODAL START -->
+    <div class="modal" id="modal_default_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:1400px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Testing - Completion Percentage of 58 Trains</h4>
+                </div>
+                <div class="modal-body clearfix">
+                    <table class="table table-bordered table-condensed table-hover" style="text-align: center">
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Train Num.</th>
+                            <th colspan="4" style="color: #ffd461;">Static Test</th>
+                            <th colspan="4" style="color: #ffd461;">Dynamic Test</th>
+                            <th colspan="4" style="color: #ffd461;">SAT</th>
+                            <th colspan="4" style="color: #ffd461;">IT</th>
+                            <th colspan="4" style="color: #ffd461;">SIT</th>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                            <th>Total</th>
+                            <th>Pass</th>
+                            <th>Incomplete</th>
+                            <th>Fail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%for (var i = 0; i < data.tabledata.length; i++) { %>
+                        <tr>
+                            <td>Train<%=i+1%></td>
+                            <% for (var j = 0; j < data.tabledata[i].length; j++) { %>
+                            <!--Added else condition to add '-' if there is  no value-->
+                            <!--Modified by Sebin-->
+                            <td><% if (typeof data.tabledata[i][j] != 'undefined')
+                                { %>
+                                <%=data.tabledata[i][j]%>
+                                <% }else{ %>
+                                <%="-"%>
+                                <% } %>
+                            </td>
+                            <% } %>
+                        </tr>
+                        <% } %>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
+
+</div>
