@@ -757,6 +757,9 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data
+//    Created: 29/04/2016
     public function getBaselineM(){
         $this->db->select('*');
         $this->db->from('tbl_manufacuring_baseline_forecast');
@@ -764,7 +767,9 @@ class Dashboard_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
-
+//    Author: Ancy Mathew
+//    Usage : Get Train Data
+//    Created: 04/05/2016
     public function getTrainData(){
         $rel=array(
             "manufacturing"=>array(),
@@ -777,6 +782,10 @@ class Dashboard_model extends CI_Model {
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
+        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ARRIVED_DATE');
+        $this->db->from('tbl_SMH_Assmbly_Progress');
+        $query = $this->db->get();
+        $result1=$query->result_array();
         foreach($result as $key=> $val){
                 $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
                     "cars"=>array(
@@ -800,6 +809,33 @@ class Dashboard_model extends CI_Model {
                     )
                 );
         }
+        foreach($result1 as $key=> $val1) {
+            $rel["assembly"]["Train " . $val1['TRAIN_NO']] = array(
+                "cars" => array(
+                    $val1['CAR1_NO'] => array(
+                        "progress" => $val1['CAR1_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR2_NO'] => array(
+                        "progress" => $val1['CAR2_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR3_NO'] => array(
+                        "progress" => $val1['CAR3_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    ),
+                    $val1['CAR4_NO'] => array(
+                        "progress" => $val1['CAR4_PERC'],
+                        "rollout"=>"",
+                        "arrived" => $val1['ARRIVED_DATE']
+                    )
+
+                )
+            );
+        }
         return $rel;
 //        return
     }
@@ -808,6 +844,15 @@ class Dashboard_model extends CI_Model {
         return $this->db->affected_rows();
 
     }
-
+//    Author:AncY Mathew
+//    Usage : Baseline and forecast table data for assembly progress
+//    Created: 29/04/2016
+    public function getBaselineAssembly(){
+        $this->db->select('*');
+        $this->db->from('tbl_assembly_baseline_forecast');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
 }
