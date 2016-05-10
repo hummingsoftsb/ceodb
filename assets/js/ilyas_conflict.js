@@ -114,6 +114,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+<<<<<<< HEAD
 
         /*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
          if (error) throw error;
@@ -323,6 +324,217 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 $table.append($tbody);
                 return $table;
             }
+=======
+		
+		/*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
+		  if (error) throw error;
+			that.$el.find('.train-container')[0].appendChild(xml.documentElement);
+		});*/
+		
+		/* Fetch svgs in promises */
+		var deferred = new $.Deferred();
+
+		// Dont change the order of the strings, need to sync with later function.
+		var promises = $.map(['mrt_train_diagram_1.svg','mrt_train_diagram_2.svg','mrt_train_diagram_3.svg','mrt_train_diagram_4.svg'], 
+			function(item, idx) {
+				var d = $.Deferred();
+				d3.xml("/mpxd/assets/img/" + item, "image/svg+xml", function(error, xml) { if (error) d.reject(error); else d.resolve(xml.documentElement); }); 
+				return d.promise();
+		});
+		
+		var findConsecutive = function(arr, index) {
+			var c = 0;
+			var text = arr[index];
+			for (var i = index+1; i < arr.length; i++) {
+				if (arr[i] == text) c++;
+				else return c;
+			}
+			return c;
+		}
+
+		$.when.apply($, promises).then(function(a) {
+			var head = arguments[0];
+			var leftmotor = arguments[1];
+			var body = arguments[2];
+			var rightmotor = arguments[3];
+
+			var $manufacturingContainer = that.$el.find('.manufacturing-container');
+			var $assemblyContainer = that.$el.find('.assembly-container');
+			var $subdContainer = that.$el.find('.subd-container');
+			var $kjdContainer = that.$el.find('.kjd-container');
+			
+			$(head).attr('class', 'train-svg-head');
+			$(leftmotor).attr('class', 'train-svg-leftmotor');
+			$(body).attr('class', 'train-svg-body');
+			$(rightmotor).attr('class', 'train-svg-rightmotor');
+			
+			//var trainContainer = that.$el.find('.train-container')[0];
+			
+			var generateTrain = function() {
+				return $.map([head,leftmotor,body,body,rightmotor], function(item, idx){ return $.clone(item); })
+			}
+
+
+			var cnum = 1001;
+			
+			var renderTrainDom = function(data) {
+				
+				var $table = $('<table style="text-align: center; margin: 30px;">');
+				var $thead = $('<thead>');
+				var $tbody = $('<tbody>');
+				
+				$table.append($thead);
+				$table.append($tbody);
+				
+				var generateTooltipDiv = function(html) {
+					var $div = $('<div>');
+					$div.addClass('hastooltip');
+					$div.attr('data-toggle','tooltip');
+					$div.attr('data-html','true');
+					$div.attr('title',html);
+					return $div
+				}
+				
+				
+				var generateTooltipContainer = function(d) {
+					if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
+						var ass = d['assembly'];
+						var man = d['manufacturing'];
+						var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ cnum++;
+						return generateTooltipDiv(html);
+					} 
+					return $('<div>');
+				}
+				
+				$.each(data, function(idx, i) {
+					var train = generateTrain();
+					
+					
+					var hd = train[0];
+					var lm = train[1];
+					var b1 = train[2];
+					var b2 = train[3];
+					var rm = train[4];
+					
+					// First row - delivery row
+					var $tr1 = $('<tr>');
+					
+					
+					var $r1td1 = $('<td>');
+					
+					//var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
+					var toptext = i['toptext'] == '' ? '&nbsp':i['toptext'];
+					$tr1.append($r1td1).append($('<td>').attr('colspan','4').html(toptext));
+					
+					// Second row - train row
+					var $tr2 = $('<tr>');
+					var $tdhead = $('<td style="width: 80px">');
+					$tdhead.append(hd);
+					
+					d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
+					
+					var $r2td1 = $('<td>');
+					var $r2td2 = $('<td>');
+					var $r2td3 = $('<td>');
+					var $r2td4 = $('<td>');
+					
+					
+					d3.select(lm.querySelector('#path4836')).attr('fill',i['cars'][0]['color']);
+					$r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
+					
+					d3.select(b1.querySelector('#path4836')).attr('fill',i['cars'][1]['color']);
+					$r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
+					
+					d3.select(b2.querySelector('#path4836')).attr('fill',i['cars'][2]['color']);
+					$r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
+					
+					d3.select(rm.querySelector('#path4836')).attr('fill',i['cars'][3]['color']);
+					$r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
+					
+					$tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
+					
+					// Third row - train ids
+					var $tr3 = $('<tr>');
+					var $tdheadid = $('<td>');
+					var $r3td1 = $('<td>');
+					var $r3td2 = $('<td>');
+					var $r3td3 = $('<td>');
+					var $r3td4 = $('<td>');
+					
+					$tdheadid.text(i['name'])
+					$r3td1.text(i['cars'][0]['name']);
+					$r3td2.text(i['cars'][1]['name']);
+					$r3td3.text(i['cars'][2]['name']);
+					$r3td4.text(i['cars'][3]['name']);
+					
+					
+					$tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
+					
+					
+					// Fourth row - train progress and rollout and dynamic test and arrived on
+					var $tr4 = $('<tr>');
+					var $tdheadprogress = $('<td>');
+					$tdheadprogress.append($('<p>').text(i['progress']));
+					$tr4.append($tdheadprogress);
+					// Search for consecutive text and combine them if have to
+					var texts = $.map(i['cars'], function(v){return v['text']});
+					for (var x = 0; x < texts.length; x++) {
+						var text = texts[x];
+						var $td = $('<td>').text(text);
+						
+						if (text.indexOf('%') > -1) {
+							// Dont consecutive search
+							$tr4.append($td);
+						} else {
+							// Do
+							var count = findConsecutive(texts,x);
+							if (count > 0) {
+								$td.attr('colspan',count+1)
+								//$td.css('background-color','#555');
+							}
+							$tr4.append($td);
+							x = x+count;
+						}
+					}
+					
+					//$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
+					$tbody.append($tr1).append($tr2).append($tr3).append($tr4);
+					$tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
+					
+				});
+				return $table;
+			}
+			
+			var generateTable = function(data) {
+				var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+				var $thead = $('<thead>');
+				var $tbody = $('<tbody>');
+				
+				var $tr = $('<tr>');
+				for (var i = 0; i < data[0].length; i++) {
+					var $td = $('<td>');
+					$td.html(data[0][i]);
+					$tr.append($td);
+				}
+				$thead.append($tr);
+				
+				// Start from 1 since the first is for header
+				for (var i = 1; i < data.length; i++) {
+					var $tr = $('<tr>');
+					for (var j = 0; j < data[i].length; j++) {
+						var d = data[i][j];
+						var $td = $('<td>');
+						$td.html(d);
+						$tr.append($td);
+					}
+					$tbody.append($tr);
+				}
+				
+				$table.append($thead);
+				$table.append($tbody);
+				return $table;
+			}
+>>>>>>> origin/master
 
             var generateDataTable = function(data) {
                 var $table = $('<table>').addClass('table table-condensed table-hover');
@@ -460,10 +672,14 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='completed'){
-                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
-                            }else {
-                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            if(i['STATUS']=='pro_assem'){
+                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
+                            }else if(i['STATUS']=='ass_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
+                            }else if(i['STATUS']=='pro_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
+                            }else  {
+                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
                             }
                             baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
@@ -540,10 +756,14 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='completed'){
-                                $bar="<div style='width:100%; height: 10px; background:red; display: inline-block'></div>";
-                            }else {
-                                $bar = "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>";
+                            if(i['STATUS']=='pro_assem'){
+                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
+                            }else if(i['STATUS']=='ass_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
+                            }else if(i['STATUS']=='pro_completed') {
+                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
+                            }else  {
+                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
                             }
                             assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
@@ -951,13 +1171,22 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         that.data.maxJobs = 2500;
+        var date_over=[];
+        mpxd.getJSONData("outStandingProgress", function (result) {
+            outstanding=(JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding ) {
+                date_over.push((result[j]['OUT_DATE']));
+                j=j+2;
+            }
+        });
         var generic = {
             title: {
                 text: ''
             },
             xAxis: {
                 type: "datetime",
-                categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
+                categories:date_over,
+                //categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
                 labels: {
                     rotation: 90,
                     step: 2
@@ -1092,52 +1321,79 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         /*        var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
          var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];*/
 
-        var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
-        var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
-
+        var open=[];
+        var openJobs=[];
+        var closedJobs = [];
         var openData = [];
         var closedData = [];
+        mpxd.getJSONData("getOverallProgress", function (result) {
+            open=(JSON.parse(JSON.stringify(result)));
+            for (var j in open ) {
+                openJobs.push(parseInt(result[j]['OPEN_JOBS']));
+                closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
 
-        for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
-            var total = openJobs[i]+closedJobs[i];
-            //Modified By Sebin
-            //var openPercent = parseInt((openJobs[i]/total)*100);
-            //var closedPercent = parseInt((closedJobs[i]/total)*100);
-            var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
-            var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
-            openData.push({
-                y: openPercent,
-                original: openJobs[i]
-            });
-            closedData.push({
-                y: closedPercent,
-                original: closedJobs[i]
-            });
-        }
+            }
+            //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
+            //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
 
-        // Open jobs
-        open_item['series'].push({
-            name: 'Open Jobs',
-            data: openData
+            for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
+                var total = openJobs[i]+closedJobs[i];
+                //Modified By Sebin
+                //var openPercent = parseInt((openJobs[i]/total)*100);
+                //var closedPercent = parseInt((closedJobs[i]/total)*100);
+                var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
+                var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
+                openData.push({
+                    y: openPercent,
+                    original: openJobs[i]
+                });
+                closedData.push({
+                    y: closedPercent,
+                    original: closedJobs[i]
+                });
+            }
+            open_item['series'].push({
+                name: 'Open Jobs',
+                data: openData
+            });
+            // Closed jobs
+            open_item['series'].push({
+                name: 'Closed Jobs',
+                data: closedData
+            });
+            that.$el.find('.progress-chart-2').highcharts(open_item);
         });
-
-        // Closed jobs
-        open_item['series'].push({
-            name: 'Closed Jobs',
-            data: closedData
-        })
-
         overall_progress['subtitle'] = {
             text: 'Outstanding Item Completion Progress'
         };
-
-        overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});
-        overall_progress['series'].push({name: 'Target',data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]});
-
+        var outstanding=[];
+        var target=[];
+        var jobsdone=[];
+        mpxd.getJSONData("outStandingProgress", function (result) {
+            outstanding=(JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding ) {
+                if(!isNaN(parseInt(result[j]['JOBS_DONE'])))
+                {
+                    jobsdone.push(parseInt(result[j]['JOBS_DONE']));
+                }
+                target.push(parseInt(result[j]['TARGET']));
+            }
+            overall_progress['series'].push({
+                name: 'Jobs done',
+                data:jobsdone
+                //data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]
+            });
+            overall_progress['series'].push({
+                name: 'Target',
+                data:target
+               // data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]
+            });
+            that.$el.find('.progress-chart-3').highcharts(overall_progress);
+       });
 
         //that.$el.find('.progress-chart-1').highcharts(major_works);
-        that.$el.find('.progress-chart-2').highcharts(open_item);
-        that.$el.find('.progress-chart-3').highcharts(overall_progress);
+        //that.$el.find('.progress-chart-2').highcharts(open_item);
+
         //that.$el.find('#chart_'+that.data.id).highcharts({
         /*var chart = new Highcharts.Chart({
          title: {

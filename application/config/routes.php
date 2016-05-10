@@ -61,6 +61,7 @@ $route['topdf'] = 'dashboard/topdf';
 $route['(:any)/(:any)/(:any)'] = 'dashboard/view/$1/$2/$3';
 $route['(:any)/(:any)'] = 'dashboard/view/$1/$2';
 $route['(:any)'] = 'dashboard/view/$1';
+$route['GetTestingData'] = 'dashboard/GetTestingData';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

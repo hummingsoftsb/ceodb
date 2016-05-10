@@ -174,7 +174,14 @@
 		 <!-- Gallery src-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script>
-		<!--Picasa slider-->
+        <!--DataTables-->
+        <link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/dataTable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/dataTable/jquery.dataTables.min.js"></script>
+
+        <link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.js"></script>
+
+        <!--Picasa slider-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/picasa-slider/jquery.googleslides.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/picasa-slider/jquery.googleslides.js"></script>
 		
@@ -464,6 +471,29 @@
         		font-size: 1.2em;
         		cursor: default;
         	}
+            .btn.btn-warning {
+                border-color: #33aaae;
+                background: #33aaae;
+            }
+            .btn.btn-warning:hover {
+                background-color: #33aaae;
+                background-image: none;
+            }
+            /*table.dataTable tbody tr {*/
+                /*background-color: transparent;*/
+            /*}*/
+            /*#dataTab > tbody > tr > td:first-child,{*/
+                /*border-right: 1px solid  rgba(21, 166, 233, 0.2);*/
+            /*}*/
+            /*#dataTab{*/
+                /*border: 1px solid rgba(21, 166, 233, 0.2);*/
+            /*}*/
+            /*.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {*/
+                /*color: #A0AA9F;*/
+            /*}*/
+            /*.dataTables_wrapper .dataTables_paginate .paginate_button {*/
+                /*color: #A0AA9F !important;*/
+            /*}*/
         </style>
     </head>
     <body style="overflow-x: hidden">

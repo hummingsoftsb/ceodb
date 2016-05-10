@@ -540,7 +540,6 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
-
     public function OverallProgress(){
         if ($this->input->get()) {
             $result = $this->dashboard_model->getOverallProgress();
@@ -566,10 +565,29 @@ class Dashboard extends CI_Controller {
             } else {
                 $data['status'] = "fail";
                 $data['item'] = $result;
+
             }
         } else {
             return show_404();
         }
         $this->load->view('dashboard/api', $data);
     }
+// Added by : Agaile Victor
+// Date : 09/05/2016
+// Desc: Fetch the testing report data from table
+    public function GetTestingData(){
+        if ($this->input->get()) {
+            $TestingData = $this->dashboard_model->GetTestingData();
+            if ($TestingData) {
+                $data['status'] = "success";
+                $data['item'] = $TestingData;
+            } else {
+                $data['status'] = "fail";
+                $data['item'] = $TestingData;
+            }
+        }else {
+                return show_404();
+            }
+            $this->load->view('dashboard/api', $data);
+        }
 }
