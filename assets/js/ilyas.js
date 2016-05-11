@@ -108,6 +108,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
     render: function() {
         var that = this;
         var html = mpxd.getTemplate("train_manufacturing_progress_table");
+
         template = _.template(html, {data: that.data});
 
         var cookiename = 'sbk-s-01-mfg-progress';
@@ -115,214 +116,216 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 
-        /*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
-         if (error) throw error;
-         that.$el.find('.train-container')[0].appendChild(xml.documentElement);
-         });*/
+		/*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
+		  if (error) throw error;
+			that.$el.find('.train-container')[0].appendChild(xml.documentElement);
+		});*/
+		
+		/* Fetch svgs in promises */
+		var deferred = new $.Deferred();
 
-        /* Fetch svgs in promises */
-        var deferred = new $.Deferred();
+		// Dont change the order of the strings, need to sync with later function.
+		var promises = $.map(['mrt_train_diagram_1.svg','mrt_train_diagram_2.svg','mrt_train_diagram_3.svg','mrt_train_diagram_4.svg'], 
+			function(item, idx) {
+				var d = $.Deferred();
+				d3.xml("/mpxd/assets/img/" + item, "image/svg+xml", function(error, xml) { if (error) d.reject(error); else d.resolve(xml.documentElement); }); 
+				return d.promise();
+		});
+		
+		var findConsecutive = function(arr, index) {
+			var c = 0;
+			var text = arr[index];
+			for (var i = index+1; i < arr.length; i++) {
+				if (arr[i] == text) c++;
+				else return c;
+			}
+			return c;
+		}
 
-        // Dont change the order of the strings, need to sync with later function.
-        var promises = $.map(['mrt_train_diagram_1.svg','mrt_train_diagram_2.svg','mrt_train_diagram_3.svg','mrt_train_diagram_4.svg'],
-            function(item, idx) {
-                var d = $.Deferred();
-                d3.xml("/mpxd/assets/img/" + item, "image/svg+xml", function(error, xml) { if (error) d.reject(error); else d.resolve(xml.documentElement); });
-                return d.promise();
-            });
-
-        var findConsecutive = function(arr, index) {
-            var c = 0;
-            var text = arr[index];
-            for (var i = index+1; i < arr.length; i++) {
-                if (arr[i] == text) c++;
-                else return c;
-            }
-            return c;
-        }
-
-        $.when.apply($, promises).then(function(a) {
-            var head = arguments[0];
-            var leftmotor = arguments[1];
-            var body = arguments[2];
-            var rightmotor = arguments[3];
-
-            var $manufacturingContainer = that.$el.find('.manufacturing-container');
-            var $assemblyContainer = that.$el.find('.assembly-container');
-            var $subdContainer = that.$el.find('.subd-container');
-            var $kjdContainer = that.$el.find('.kjd-container');
-
-            $(head).attr('class', 'train-svg-head');
-            $(leftmotor).attr('class', 'train-svg-leftmotor');
-            $(body).attr('class', 'train-svg-body');
-            $(rightmotor).attr('class', 'train-svg-rightmotor');
-
-            //var trainContainer = that.$el.find('.train-container')[0];
-
-            var generateTrain = function() {
-                return $.map([head,leftmotor,body,body,rightmotor], function(item, idx){ return $.clone(item); })
-            }
-
-
-            var cnum = 1001;
-
-            var renderTrainDom = function(data) {
-
-                var $table = $('<table style="text-align: center; margin: 30px;">');
-                var $thead = $('<thead>');
-                var $tbody = $('<tbody>');
-
-                $table.append($thead);
-                $table.append($tbody);
-
-                var generateTooltipDiv = function(html) {
-                    var $div = $('<div>');
-                    $div.addClass('hastooltip');
-                    $div.attr('data-toggle','tooltip');
-                    $div.attr('data-html','true');
-                    $div.attr('title',html);
-                    return $div
-                }
+		$.when.apply($, promises).then(function(a) {
+			var head = arguments[0];
+			var leftmotor = arguments[1];
+			var body = arguments[2];
+			var rightmotor = arguments[3];
+			
+			var $manufacturingContainer = that.$el.find('.manufacturing-container');
+			var $assemblyContainer = that.$el.find('.assembly-container');
+			var $subdContainer = that.$el.find('.subd-container');
+			var $kjdContainer = that.$el.find('.kjd-container');
+			
+			$(head).attr('class', 'train-svg-head');
+			$(leftmotor).attr('class', 'train-svg-leftmotor');
+			$(body).attr('class', 'train-svg-body');
+			$(rightmotor).attr('class', 'train-svg-rightmotor');
+            var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
+			
+			//var trainContainer = that.$el.find('.train-container')[0];
+			
+			var generateTrain = function() {
+				return $.map([head,leftmotor,body,body,rightmotor], function(item, idx){ return $.clone(item); })
+			}
 
 
-                var generateTooltipContainer = function(d) {
-                    if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
-                        var ass = d['assembly'];
-                        var man = d['manufacturing'];
-                        var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ cnum++;
-                        return generateTooltipDiv(html);
-                    }
-                    return $('<div>');
-                }
-
-                $.each(data, function(idx, i) {
-                    var train = generateTrain();
-
-
-                    var hd = train[0];
-                    var lm = train[1];
-                    var b1 = train[2];
-                    var b2 = train[3];
-                    var rm = train[4];
-
-                    // First row - delivery row
-                    var $tr1 = $('<tr>');
-
-
-                    var $r1td1 = $('<td>');
-
-                    //var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
-                    var toptext = i['toptext'] == '' ? '&nbsp':i['toptext'];
-                    $tr1.append($r1td1).append($('<td>').attr('colspan','4').html(toptext));
-
-                    // Second row - train row
-                    var $tr2 = $('<tr>');
-                    var $tdhead = $('<td style="width: 80px">');
-                    $tdhead.append(hd);
-
-                    d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
-
-                    var $r2td1 = $('<td>');
-                    var $r2td2 = $('<td>');
-                    var $r2td3 = $('<td>');
-                    var $r2td4 = $('<td>');
-
-
-                    d3.select(lm.querySelector('#path4836')).attr('fill',i['cars'][0]['color']);
-                    $r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
-
-                    d3.select(b1.querySelector('#path4836')).attr('fill',i['cars'][1]['color']);
-                    $r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
-
-                    d3.select(b2.querySelector('#path4836')).attr('fill',i['cars'][2]['color']);
-                    $r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
-
-                    d3.select(rm.querySelector('#path4836')).attr('fill',i['cars'][3]['color']);
-                    $r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
-
-                    $tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
-
-                    // Third row - train ids
-                    var $tr3 = $('<tr>');
-                    var $tdheadid = $('<td>');
-                    var $r3td1 = $('<td>');
-                    var $r3td2 = $('<td>');
-                    var $r3td3 = $('<td>');
-                    var $r3td4 = $('<td>');
-
-                    $tdheadid.text(i['name'])
-                    $r3td1.text(i['cars'][0]['name']);
-                    $r3td2.text(i['cars'][1]['name']);
-                    $r3td3.text(i['cars'][2]['name']);
-                    $r3td4.text(i['cars'][3]['name']);
-
-
-                    $tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
-
-
-                    // Fourth row - train progress and rollout and dynamic test and arrived on
-                    var $tr4 = $('<tr>');
-                    var $tdheadprogress = $('<td>');
-                    $tdheadprogress.append($('<p>').text(i['progress']));
-                    $tr4.append($tdheadprogress);
-                    // Search for consecutive text and combine them if have to
-                    var texts = $.map(i['cars'], function(v){return v['text']});
-                    for (var x = 0; x < texts.length; x++) {
-                        var text = texts[x];
-                        var $td = $('<td>').text(text);
-
-                        if (text.indexOf('%') > -1) {
-                            // Dont consecutive search
-                            $tr4.append($td);
-                        } else {
-                            // Do
-                            var count = findConsecutive(texts,x);
-                            if (count > 0) {
-                                $td.attr('colspan',count+1)
-                                //$td.css('background-color','#555');
-                            }
-                            $tr4.append($td);
-                            x = x+count;
-                        }
-                    }
-
-                    //$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
-                    $tbody.append($tr1).append($tr2).append($tr3).append($tr4);
-                    $tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
-
-                });
-                return $table;
-            }
-
-            var generateTable = function(data) {
-                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
-                var $thead = $('<thead>');
-                var $tbody = $('<tbody>');
-
-                var $tr = $('<tr>');
-                for (var i = 0; i < data[0].length; i++) {
-                    var $td = $('<td>');
-                    $td.html(data[0][i]);
-                    $tr.append($td);
-                }
-                $thead.append($tr);
-
-                // Start from 1 since the first is for header
-                for (var i = 1; i < data.length; i++) {
-                    var $tr = $('<tr>');
-                    for (var j = 0; j < data[i].length; j++) {
-                        var d = data[i][j];
-                        var $td = $('<td>');
-                        $td.html(d);
-                        $tr.append($td);
-                    }
-                    $tbody.append($tr);
-                }
-
-                $table.append($thead);
-                $table.append($tbody);
-                return $table;
-            }
+			var cnum = 1001;
+			
+			var renderTrainDom = function(data) {
+				
+				var $table = $('<table style="text-align: center; margin: 30px;">');
+				var $thead = $('<thead>');
+				var $tbody = $('<tbody>');
+				
+				$table.append($thead);
+				$table.append($tbody);
+				
+				var generateTooltipDiv = function(html) {
+					var $div = $('<div>');
+					$div.addClass('hastooltip');
+					$div.attr('data-toggle','tooltip');
+					$div.attr('data-html','true');
+					$div.attr('title',html);
+					return $div
+				}
+				
+				
+				var generateTooltipContainer = function(d) {
+					if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
+						var ass = d['assembly'];
+						var man = d['manufacturing'];
+                        var carnum = d['car'];
+						var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ carnum;
+						return generateTooltipDiv(html);
+					} 
+					return $('<div>');
+				}
+				
+				$.each(data, function(idx, i) {
+					var train = generateTrain();
+					
+					
+					var hd = train[0];
+					var lm = train[1];
+					var b1 = train[2];
+					var b2 = train[3];
+					var rm = train[4];
+					
+					// First row - delivery row
+					var $tr1 = $('<tr>');
+					
+					
+					var $r1td1 = $('<td>');
+					
+					//var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
+					var toptext = i['toptext'] == '' ? '&nbsp':i['toptext'];
+					$tr1.append($r1td1).append($('<td>').attr('colspan','4').html(toptext));
+					
+					// Second row - train row
+					var $tr2 = $('<tr>');
+					var $tdhead = $('<td style="width: 80px">');
+					$tdhead.append(hd);
+					
+					d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
+					
+					var $r2td1 = $('<td>');
+					var $r2td2 = $('<td>');
+					var $r2td3 = $('<td>');
+					var $r2td4 = $('<td>');
+					
+					
+					d3.select(lm.querySelector('#path4836')).attr('fill',i['cars'][0]['color']);
+					$r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
+					
+					d3.select(b1.querySelector('#path4836')).attr('fill',i['cars'][1]['color']);
+					$r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
+					
+					d3.select(b2.querySelector('#path4836')).attr('fill',i['cars'][2]['color']);
+					$r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
+					
+					d3.select(rm.querySelector('#path4836')).attr('fill',i['cars'][3]['color']);
+					$r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
+					
+					$tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
+					
+					// Third row - train ids
+					var $tr3 = $('<tr>');
+					var $tdheadid = $('<td>');
+					var $r3td1 = $('<td>');
+					var $r3td2 = $('<td>');
+					var $r3td3 = $('<td>');
+					var $r3td4 = $('<td>');
+					
+					$tdheadid.text(i['name'])
+					$r3td1.text(i['cars'][0]['name']);
+					$r3td2.text(i['cars'][1]['name']);
+					$r3td3.text(i['cars'][2]['name']);
+					$r3td4.text(i['cars'][3]['name']);
+					
+					
+					$tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
+					
+					
+					// Fourth row - train progress and rollout and dynamic test and arrived on
+					var $tr4 = $('<tr>');
+					var $tdheadprogress = $('<td>');
+					$tdheadprogress.append($('<p>').text(i['progress']));
+					$tr4.append($tdheadprogress);
+					// Search for consecutive text and combine them if have to
+					var texts = $.map(i['cars'], function(v){return v['text']});
+					for (var x = 0; x < texts.length; x++) {
+						var text = texts[x];
+						var $td = $('<td>').text(text);
+						
+						if (text.indexOf('%') > -1) {
+							// Dont consecutive search
+							$tr4.append($td);
+						} else {
+							// Do
+							var count = findConsecutive(texts,x);
+							if (count > 0) {
+								$td.attr('colspan',count+1)
+								//$td.css('background-color','#555');
+							}
+							$tr4.append($td);
+							x = x+count;
+						}
+					}
+					
+					//$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
+					$tbody.append($tr1).append($tr2).append($tr3).append($tr4);
+					$tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
+					
+				});
+				return $table;
+			}
+			
+			var generateTable = function(data) {
+				var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+				var $thead = $('<thead>');
+				var $tbody = $('<tbody>');
+				
+				var $tr = $('<tr>');
+				for (var i = 0; i < data[0].length; i++) {
+					var $td = $('<td>');
+					$td.html(data[0][i]);
+					$tr.append($td);
+				}
+				$thead.append($tr);
+				
+				// Start from 1 since the first is for header
+				for (var i = 1; i < data.length; i++) {
+					var $tr = $('<tr>');
+					for (var j = 0; j < data[i].length; j++) {
+						var d = data[i][j];
+						var $td = $('<td>');
+						$td.html(d);
+						$tr.append($td);
+					}
+					$tbody.append($tr);
+				}
+				
+				$table.append($thead);
+				$table.append($tbody);
+				return $table;
+			}
 
             var generateDataTable = function(data) {
                 var $table = $('<table>').addClass('table table-condensed table-hover');
@@ -395,24 +398,24 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
             //Added by Sebin for Dynamic data Loading
             var trainData={};
-            mpxd.getJSONData("gettrainData", function (result) {
-                trainData=(JSON.parse(JSON.stringify(result)));
-                var mfgsummary = getSummary(trainData['manufacturing']);
-                var asssummary = getSummary(trainData['assembly']);
-                var subdsummary = getSummary(trainData['subd']);
-                var kjdsummary = getSummary(trainData['kjd']);
+                mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
+                    trainData = (JSON.parse(JSON.stringify(result)));
+                    var mfgsummary = getSummary(trainData['manufacturing']);
+                    var asssummary = getSummary(trainData['assembly']);
+                    var subdsummary = getSummary(trainData['subd']);
+                    var kjdsummary = getSummary(trainData['kjd']);
 
-                var subdnumber = (isNaN(getNumberOfTrains(trainData['subd'])))?0:getNumberOfTrains(trainData['subd']);
-                var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
+                    var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
+                    var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
 
-                $('#manufacturing_progress_value').text(mfgsummary);
-                $('#assembly_progress_value').text(asssummary);
-                $('#subd_progress_value').text(subdsummary);
-                $('#kjd_progress_value').text(kjdsummary);
+                    $('#manufacturing_progress_value').text(mfgsummary);
+                    $('#assembly_progress_value').text(asssummary);
+                    $('#subd_progress_value').text(subdsummary);
+                    $('#kjd_progress_value').text(kjdsummary);
 
-                $('#subd_number_of_trains').text('Total: ' + subdnumber);
-                $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
-            });
+                    $('#subd_number_of_trains').text('Total: ' + subdnumber);
+                    $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
+                });
             var renderManufacturing = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
@@ -448,7 +451,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["41","02/01/15", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("manuBaseline", function(result){
+                mpxd.getJSONData("manuBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -532,7 +535,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("AssemblyBaseline", function(result){
+                mpxd.getJSONData("AssemblyBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -668,7 +671,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //renderTesting(trainData['subd']);
             //renderKJD(trainData['kjd']);
             //Modified By Sebin For Dynamic data loading
-            mpxd.getJSONData("gettrainData", function (result) {
+
+            mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
                 trainData = (JSON.parse(JSON.stringify(result)));
                 renderManufacturing(trainData['manufacturing']);
                 renderAssembly(trainData['assembly']);
@@ -959,8 +963,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         that.data.maxJobs = 2500;
+        var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
-        mpxd.getJSONData("outStandingProgress", function (result) {
+        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 date_over.push((result[j]['OUT_DATE']));
@@ -1113,7 +1118,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var closedJobs = [];
         var openData = [];
         var closedData = [];
-        mpxd.getJSONData("getOverallProgress", function (result) {
+        mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
                 openJobs.push(parseInt(result[j]['OPEN_JOBS']));
@@ -1219,7 +1224,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var outstanding=[];
         var target=[];
         var jobsdone=[];
-        mpxd.getJSONData("outStandingProgress", function (result) {
+        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 if(!isNaN(parseInt(result[j]['JOBS_DONE'])))
@@ -2386,16 +2391,16 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
                 name: 'Early',
                 data: that.data.earlyData,
                 color: '#04B152',
-                enableMouseTracking: false,
+                enableMouseTracking: false
             }, {
                 name: 'Late',
                 data: that.data.delayedData,
                 color: '#0070C0',
-                enableMouseTracking: false,
+                enableMouseTracking: false
             }, {
                 name: 'Actual',
                 data: that.data.actualData,
-                color: '#FF0000',
+                color: '#FF0000'
                 //enableMouseTracking: false,
                 /*events : {
                  mouseOver: function() {
@@ -2416,7 +2421,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                renderTo: 'chart_' + that.data.id,
+                renderTo: 'chart_' + that.data.id
             }
 
 
@@ -2526,12 +2531,12 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
                 name: 'Early',
                 data: that.data.earlyData,
                 color: '#04B152',
-                enableMouseTracking: false,
+                enableMouseTracking: false
             }, {
                 name: 'Late',
                 data: that.data.delayedData,
                 color: '#0070C0',
-                enableMouseTracking: false,
+                enableMouseTracking: false
             }, {
                 name: 'Actual',
                 data: that.data.actualData,
@@ -2550,7 +2555,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                renderTo: 'chart_' + that.data.id,
+                renderTo: 'chart_' + that.data.id
             }
 
 
@@ -3127,9 +3132,7 @@ function relativeToAbsolute(url){
 }
 
 function loadPage(p, dontsavestate) {
-
     $("div#loading_pad").removeClass("loading_pad_gohide");
-
     reallink = p;
     p = p.substr(0, (p.indexOf('?') == -1) ? p.length : p.indexOf('?'));
     //var date = getParameterByName('date');
@@ -3184,7 +3187,8 @@ function loadPage(p, dontsavestate) {
             $("#data_date").val(moment(result[0].date, "DD-MMM-YY").format("DD-MMMM-YYYY"));
             curr_data_date = result[0].date;
         }
-
+        //Added by Sebin
+        $("#et_data_date").val(curr_data_date);
         //ellipseTitle(title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")");
         var titletext = title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")";
         if (!isUseCustomPortlet) { ellipseTitle(titletext); }
@@ -3196,16 +3200,14 @@ function loadPage(p, dontsavestate) {
 
     mpxd.getportletFromURL(p, function(data) {
         //$('#portlet_container').empty();
-
-        //Draw the portlets
-
+				
+		//Draw the portlets
         drawPortlets(data);
         mpxd.getData(data, function(result) {
             mpxd.resetDatasource();
             for (var i in result.data) {
                 //var json = jQuery.parseJSON(result.data[i].value);
                 //var name = data[i].name;
-
                 mpxd.storeDatasourceToArray(result.data[i], (typeof result.static_data[i] == "undefined") ? "[]" : result.static_data[i]);
                 //temp.push(json);
                 //console.log(result.data[i].value);
@@ -3239,42 +3241,42 @@ function getRoute() {
 }
 
 $(function() {
-    console.log("Fire!")
-    setTimeout(function(){console.log("Timeout");$(window).trigger("resize");},2000);
-    var State = History.getState()
+	console.log("Fire!")
+	setTimeout(function(){console.log("Timeout");$(window).trigger("resize");},2000);
+	var State = History.getState()
+	
+	//History.log('initial:', State.data, State.title, State.url);
 
-    //History.log('initial:', State.data, State.title, State.url);
+	// Bind to State Change
+	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+		// Log the State
+		var State = History.getState(); // Note: We are using History.getState() instead of event.state
+		//History.log('statechange:', State.data, State.title, State.url);
+		/* Using the fix from https://github.com/browserstate/history.js/issues/47#issuecomment-25750285 for popstate on pushstate state call*/
+		var currentIndex = History.getCurrentIndex();
+		var internal = (History.getState().data._index == (currentIndex - 1));
+		if (!internal) {
+			if ((typeof State.data.state != "undefined") && (State.data.state == "Pushstate")) { if (typeof State.data.p != "undefined") { loadPage(State.data.p, true);}};
+			// your action
+		}
+		
+		//console.log(State);
+	});
 
-    // Bind to State Change
-    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-        // Log the State
-        var State = History.getState(); // Note: We are using History.getState() instead of event.state
-        //History.log('statechange:', State.data, State.title, State.url);
-        /* Using the fix from https://github.com/browserstate/history.js/issues/47#issuecomment-25750285 for popstate on pushstate state call*/
-        var currentIndex = History.getCurrentIndex();
-        var internal = (History.getState().data._index == (currentIndex - 1));
-        if (!internal) {
-            if ((typeof State.data.state != "undefined") && (State.data.state == "Pushstate")) { if (typeof State.data.p != "undefined") { loadPage(State.data.p, true);}};
-            // your action
-        }
+	
+	$('#data_date').datepicker({
+	dateFormat: 'dd-MM-yy', beforeShowDay: enableAllTheseDays, nextText: "", prevText: "", altField : '#data_date_selected', altFormat: "dd-M-y",
+	onSelect: function(dateText, inst) {
+			p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
+			var selected = $('#data_date_selected').val();
+			loadPage(p+'?date='+selected)
 
-        //console.log(State);
-    });
-
-
-    $('#data_date').datepicker({
-        dateFormat: 'dd-MM-yy', beforeShowDay: enableAllTheseDays, nextText: "", prevText: "", altField : '#data_date_selected', altFormat: "dd-M-y",
-        onSelect: function(dateText, inst) {
-            p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
-
-            var selected = $('#data_date_selected').val();
-            loadPage(p+'?date='+selected)
-        }
-    });
-
-    $('#date_selector').on('click', function() {
-        $('#data_date').datepicker("show");
-    })
+		}
+	});
+	
+	$('#date_selector').on('click', function() {
+		$('#data_date').datepicker("show");
+	})
 });
 
 

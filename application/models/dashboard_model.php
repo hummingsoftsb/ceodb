@@ -779,9 +779,10 @@ class Dashboard_model extends CI_Model
 
         return $this->db->insert('news', $data);
     }
-
-    public function getComment()
-    {
+//    Author:Sebin Thomas
+//    Usage : Get Comments
+//    Created:
+    public function getComment(){
         $this->db->select('*');
         $this->db->from('prognosis');
         $this->db->order_by('timestamp', 'DESC');
@@ -791,18 +792,19 @@ class Dashboard_model extends CI_Model
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
-    public function getBaselineM()
+    public function getBaselineM($data_date)
     {
         $this->db->select('*');
         $this->db->from('tbl_manufacuring_baseline_forecast');
+        $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         return $query->result_array();
     }
-//    Author: Ancy Mathew
-//    Usage : Get Train Data
+//    Author: Ancy Mathew, Sebin Thomas
+//    Usage : Get Train Data [manufacturing,assembly,subd,kjd].
 //    Created: 04/05/2016
-    public function getTrainData()
+    public function getTrainData($data_date)
     {
         $rel = array(
             "manufacturing" => array(),
@@ -812,33 +814,50 @@ class Dashboard_model extends CI_Model
         );
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
         $this->db->from('tbl_puzhen_manufacture');
+        $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
-        $result = $query->result_array();
+        $result=$query->result_array();
+
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ARRIVED_DATE');
         $this->db->from('tbl_SMH_Assmbly_Progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $query = $this->db->get();
-        $result1 = $query->result_array();
-        foreach ($result as $key => $val) {
-            $rel["manufacturing"]["Train " . $val['TRAIN_NO']] = array(
-                "cars" => array(
-                    $val['CAR1_NO'] => array(
-                        "progress" => $val['CAR1_PERC'],
-                        "rollout" => $val['ROLL_OUT']
-                    ),
-                    $val['CAR2_NO'] => array(
-                        "progress" => $val['CAR2_PERC'],
-                        "rollout" => $val['ROLL_OUT']
-                    ),
-                    $val['CAR3_NO'] => array(
-                        "progress" => $val['CAR3_PERC'],
-                        "rollout" => $val['ROLL_OUT']
-                    ),
-                    $val['CAR4_NO'] => array(
-                        "progress" => $val['CAR4_PERC'],
-                        "rollout" => $val['ROLL_OUT']
-                    )
+        $result1=$query->result_array();
 
+        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
+        $this->db->from('tbl_SUBD_DT_CS');
+        $this->db->where_in("DATA_DATE",$data_date);
+        $this->db->order_by('SUBD_MASTER_ID');
+        $query = $this->db->get();
+        $subd=$query->result_array();
+
+        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
+        $this->db->from('tbl_KJD_DT_CS');
+        $this->db->where_in("DATA_DATE",$data_date);
+        $this->db->order_by('KJD_MASTER_ID');
+        $query = $this->db->get();
+        $kjd=$query->result_array();
+
+        foreach($result as $key=> $val){
+                $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
+                    "cars"=>array(
+                        $val['CAR1_NO']=>array(
+                            "progress"=>$val['CAR1_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR2_NO']=>array(
+                            "progress"=>$val['CAR2_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR3_NO']=>array(
+                            "progress"=>$val['CAR3_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        ),
+                        $val['CAR4_NO']=>array(
+                            "progress"=>$val['CAR4_PERC'],
+                            "rollout"=>$val['ROLL_OUT']
+                        )
                 )
             );
         }
@@ -869,15 +888,204 @@ class Dashboard_model extends CI_Model
                 )
             );
         }
+
+        foreach($subd as $key=> $subd_val){
+            if($subd_val["TRAIN_FROM"]!='' && $subd_val["TRAIN_TO"]!=''){
+                $rel["subd"]["Train " . $subd_val['TRAIN_FROM']." - Train ". $subd_val['TRAIN_TO']] = array(
+                    "delivery"=>$subd_val["DATE_DELIVERED"],
+                    "testingcompleted"=>$subd_val['COMMENTS'],
+                    "cars" => array(
+                        " ".$subd_val['CAR1'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$subd_val['CAR2'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$subd_val['CAR3'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$subd_val['CAR4'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        )
+
+                    )
+                );
+            }else {
+                $rel["subd"]["Train " . $subd_val['TRAIN_FROM']] = array(
+                    "delivery"=>$subd_val["DATE_DELIVERED"],
+                    "testingcompleted"=>$subd_val['COMMENTS'],
+                    "cars" => array(
+                        " ".$subd_val['CAR1'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "car"=>$subd_val['CAR1']
+                            )
+                        ),
+                        " ".$subd_val['CAR2'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "car"=>$subd_val['CAR2']
+                            )
+                        ),
+                        " ".$subd_val['CAR3'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "car"=>$subd_val['CAR3']
+                            )
+                        ),
+                        " ".$subd_val['CAR4'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "car"=>$subd_val['CAR4']
+                            )
+                        )
+
+                    )
+                );
+            }
+        }
+        foreach($kjd as $key=> $kjd_val){
+            if($kjd_val["TRAIN_FROM"]!='' && $kjd_val["TRAIN_TO"]!=''){
+                $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']." - Train ". $kjd_val['TRAIN_TO']] = array(
+                    "delivery"=>$kjd_val["DATE_DELIVERED"],
+                    "testingcompleted"=>$kjd_val['COMMENTS'],
+                    "cars" => array(
+                        " ".$kjd_val['CAR1'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$kjd_val['CAR2'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$kjd_val['CAR3'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        ),
+                        " ".$kjd_val['CAR4'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"",
+                                "assembly"=>"",
+                            )
+                        )
+
+                    )
+                );
+            }else {
+                $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']] = array(
+                    "delivery"=>$kjd_val["DATE_DELIVERED"],
+                    "testingcompleted"=>$kjd_val['COMMENTS'],
+                    "cars" => array(
+                        " ".$kjd_val['CAR1'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "car"=>$kjd_val['CAR1']
+                            )
+                        ),
+                        " ".$kjd_val['CAR2'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "car"=>$kjd_val['CAR2']
+                            )
+                        ),
+                        " ".$kjd_val['CAR3'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "car"=>$kjd_val['CAR3']
+                            )
+                        ),
+                        " ".$kjd_val['CAR4'] => array(
+                            "progress" => "",
+                            "rollout" => "",
+                            "arrived" => "",
+                            "history" => array(
+                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
+                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "car"=>$kjd_val['CAR4']
+                            )
+                        )
+
+                    )
+                );
+            }
+        }
         return $rel;
-//        return
     }
-
-
-    public function getOverallProgress(){
+public function getOverallProgress($data_date){
         $overall = array();
         $this->db->select('TRAIN_NO,OPEN_JOBS,CLOSED_JOBS');
         $this->db->from('tbl_overall_progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
@@ -891,10 +1099,11 @@ class Dashboard_model extends CI_Model
 //        return
     }
 
-    public function getOutStandingProgress(){
+    public function getOutStandingProgress($data_date){
         $outstand = array();
         $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
         $this->db->from('tbl_outstanding_item_progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $query = $this->db->get();
         $result=$query->result_array();
         $i=0;
@@ -907,7 +1116,9 @@ class Dashboard_model extends CI_Model
         return $outstand;
 //        return
     }
-
+//    Author:Sebin Thomas
+//    Usage : Store Comments
+//    Created:
     public function setComment($data)
     {
         $this->db->insert('prognosis', $data);
@@ -917,10 +1128,11 @@ class Dashboard_model extends CI_Model
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data for assembly progress
 //    Created: 29/04/2016
-    public function getBaselineAssembly()
+    public function getBaselineAssembly($data_date)
     {
         $this->db->select('*');
         $this->db->from('tbl_assembly_baseline_forecast');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         return $query->result_array();
@@ -929,9 +1141,9 @@ class Dashboard_model extends CI_Model
 //    Author:Agaile Victor
 //    Usage : Testing reports of 58 trains
 //    Created: 09/05/2016
-    public function GetTestingData()
+    public function GetTestingData($data_date)
     {
-        $sql = "Select \"TRAIN_NO\",\"Static_Total\",\"Static_Pass\",\"Static_Incomplete\",\"Static_Fail\",\"Dynamic_Total\",\"Dynamic_Pass\",\"Dynamic_Incomplete\",\"Dynamic_Fail\",\"SAT_Total\",\"SAT_Incomplete\",\"SAT_Fail\",\"IT_Incomplete\",\"IT_Total\",\"SAT_Pass\",\"IT_Fail\",\"SIT_Pass\",\"SIT_Total\",\"SIT_Incomplete\",\"SIT_Fail\",\"IT_Pass\" from \"tbl_testing_completion\" order by to_number(split_part(\"TRAIN_NO\", ' ', 2), '99G999D9S')";
+        $sql = "Select \"TRAIN_NO\",\"Static_Total\",\"Static_Pass\",\"Static_Incomplete\",\"Static_Fail\",\"Dynamic_Total\",\"Dynamic_Pass\",\"Dynamic_Incomplete\",\"Dynamic_Fail\",\"SAT_Total\",\"SAT_Incomplete\",\"SAT_Fail\",\"IT_Incomplete\",\"IT_Total\",\"SAT_Pass\",\"IT_Fail\",\"SIT_Pass\",\"SIT_Total\",\"SIT_Incomplete\",\"SIT_Fail\",\"IT_Pass\" from \"tbl_testing_completion\" WHERE \"DATA_DATE\"='$data_date' order by to_number(split_part(\"TRAIN_NO\", ' ', 2), '99G999D9S')";
         $query = $this->db->query($sql);
         $final = $query->result_array();
         return $final;
