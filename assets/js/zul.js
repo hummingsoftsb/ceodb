@@ -957,27 +957,81 @@ mpxd.modules.gallery.GalleryView = Backbone.View.extend({
 
         template = _.template(html, {data: that.data});
         that.$el.html(template);
-		that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        that.$el.find("#nanoGallery2").nanoGallery({
-            kind: 'picasa',
-            userID: '106498362119815035474',
-            //userID: '111186676244625461692',
-			//albumList: that.data.data.albumList,
-			whiteList: that.data.data.keyword,
-			//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
-            //thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
-            thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
-            //thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
-            paginationMaxLinesPerPage: 2,
-            imageTransition: 'slide',
-            thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
-            galleryFullpageButton: false,
-			//breadcrumbAutoHideTopLevel: true,
-			theme: 'default',
-			i18n: { breadcrumbHome: that.data.data.title },
-			albumSorting: 'standard',
-			touchAutoOpenDelay: -1,
-        });
+		that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});		
+		
+		if(typeof that.data.data.items === 'object') // Local repository format
+		{
+			images = that.data.data.items;
+		
+			var nano_items = [];
+			for(var i=0;i<images.length;i++){
+				image = images[i];
+				if(image.kind == 'album'){
+					nano_items.push({
+						"src":  mpxd.siteurl+image.path,
+						"srct":  mpxd.siteurl+image.path,
+						"title":  image.title,
+						"ID":  image.id,
+						"kind":  image.kind,
+					});
+				}
+				else if(image.kind == 'image'){
+					nano_items.push({
+						"src":  mpxd.siteurl+image.path,
+						"srct":  mpxd.siteurl+image.path,
+						"title":  image.title,
+						"albumID":  image.id,
+					});
+				}
+			}
+			
+			that.$el.find("#nanoGallery2").nanoGallery({
+				items: nano_items,
+				//kind: 'picasa',
+				//userID: '106498362119815035474',
+				//userID: '111186676244625461692',
+				//albumList: that.data.data.albumList,
+				whiteList: that.data.data.keyword,
+				//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
+				//thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
+				thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
+				//thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
+				paginationMaxLinesPerPage: 2,
+				imageTransition: 'slide',
+				thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
+				galleryFullpageButton: false,
+				//breadcrumbAutoHideTopLevel: true,
+				theme: 'default',
+				i18n: { breadcrumbHome: that.data.data.title },
+				albumSorting: 'standard',
+				touchAutoOpenDelay: -1,
+			});
+		}
+		else { // Picasa repository
+			that.$el.find("#nanoGallery2").nanoGallery({
+				kind: 'picasa',
+				userID: '106498362119815035474',
+				//userID: '111186676244625461692',
+				//albumList: that.data.data.albumList,
+				whiteList: that.data.data.keyword,
+				//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
+				//thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
+				thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
+				//thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
+				paginationMaxLinesPerPage: 2,
+				imageTransition: 'slide',
+				thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
+				galleryFullpageButton: false,
+				//breadcrumbAutoHideTopLevel: true,
+				theme: 'default',
+				i18n: { breadcrumbHome: that.data.data.title },
+				albumSorting: 'standard',
+				touchAutoOpenDelay: -1,
+			});
+		}
+		
+		
+        
     }
 });
 
@@ -1210,8 +1264,8 @@ mpxd.constructors.hsse = function(data) {
 }
 
 mpxd.constructors.kpi = function(data) {
-    //console.log(data);
-    //console.log('here');
+    console.log(data);
+    console.log('here');
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
