@@ -2523,7 +2523,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                renderTo: 'chart_' + that.data.id,
+                renderTo: 'chart_' + that.data.id
             }
 
 
