@@ -47,6 +47,7 @@ $route['AssemblyBaseline'] = 'dashboard/assemblybaseline';
 $route['getOverallProgress'] = 'dashboard/OverallProgress';
 $route['outStandingProgress'] = 'dashboard/OutStandingProgress';
 $route['gettrainData'] = 'dashboard/trainDataGet';
+$route['getCompleted'] = 'dashboard/fullyCompleted';
 $route['addComment/(:any)'] = 'dashboard/addComment/$1';
 $route['setapi/(:any)'] = 'dashboard/setapi/$1';
 $route['portlet/(:any)'] = 'dashboard/portlet/$1';

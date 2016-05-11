@@ -895,7 +895,6 @@ class Dashboard_model extends CI_Model
         $outstand = array();
         $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
         $this->db->from('tbl_outstanding_item_progress');
-        $this->db->order_by('OUTSTAND_ID');
         $query = $this->db->get();
         $result=$query->result_array();
         $i=0;
@@ -938,4 +937,19 @@ class Dashboard_model extends CI_Model
         return $final;
     }
 
+    public function getFullyCompletedData()
+    {
+        $outFully=array();
+        $sql = "select a.\"TRAIN_NO\",b.\"OPEN_JOBS\",b.\"CLOSED_JOBS\" from tbl_testing_completion a  join tbl_overall_progress b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" where \"Static_Total\"=\"Static_Pass\" and \"Dynamic_Total\"=\"Dynamic_Pass\" and \"SAT_Total\"=\"SAT_Pass\" and \"SIT_Pass\"=\"SIT_Total\" and \"IT_Total\"=\"IT_Pass\"";
+        $query = $this->db->query($sql);
+        $final = $query->result_array();
+        $i=0;
+        foreach($final as $key=> $val){
+            $outFully[$i]["OPEN_JOBS"] =$val['OPEN_JOBS'];
+            $outFully[$i]["CLOSED_JOBS"] =$val['CLOSED_JOBS'];
+            $outFully[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
+            $i++;
+        }
+        return $outFully;
+    }
 }

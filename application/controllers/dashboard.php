@@ -590,4 +590,20 @@ class Dashboard extends CI_Controller {
             }
             $this->load->view('dashboard/api', $data);
         }
+
+    public function fullyCompleted(){
+        if ($this->input->get()) {
+            $result = $this->dashboard_model->getFullyCompletedData();
+            if ($result) {
+                $data['status'] = "success";
+                $data['item'] = $result;
+            } else {
+                $data['status'] = "fail";
+                $data['item'] = $result;
+            }
+        }else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
+    }
 }

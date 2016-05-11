@@ -16,12 +16,45 @@
 	<div id="train_progress_container" style="margin-bottom: 25px;">
 	</div>
     <h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>
-	<h4 class="color-beige">Number of Fully Completed Train: <a class="manufacturing-link link" href="#modal_phase" data-toggle="modal" style="font-weight:bold">04</a></h4>
+	<h4 class="color-beige">Number of Fully Completed Train: <a id="id_fullyTrain" class="manufacturing-link link" href="#modal_phase" data-toggle="modal" style="font-weight:bold"></a></h4>
 	<!--<h1 style="padding-left: 15px"><%=data.data.currentActual%></h1>-->
 	</div>
 	
 	
 	<div class="scurve-container"></div>
+<!--Modal Start -->
+    <div class="modal" id="modal_phase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:300px">
+            <div class="modal-content">
+                <div class="modal-header" >
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 id="id_div" class="modal-title">Fully completed trains</h4>
+                </div>
+                <div class="modal-body clearfix">
+                    <table class="table table-bordered table-condensed table-hover" style=""  id="id_fullyTable">
+                        <thead>
+                        <tr>
+                            <th id="id_tabHed" style="text-align: center">Completed trains</th>
+                        </tr>
+                        </thead>
+                        <tbody style="text-align: center">
+                        <!--<tr><td>Train 01</td></tr>
+                        <tr><td>Train 02</td></tr>
+                        <tr><td>Train 03</td></tr>
+                        <tr><td>Train 04</td></tr>-->
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--MOdal End-->
+
 	<%
 	d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) { 
 	if (error) throw error 
@@ -31,5 +64,6 @@
 	%>
     <script>
         $(".g_package").text($('#page_title').text().split('(',1));
+
     </script>
 </div>
