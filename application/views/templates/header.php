@@ -537,6 +537,7 @@
         <div id="menuzord" class="menuzord red removeonprint" style="float:none; height:75px">
             <!--<a href="javascript:void(0)" class="menuzord-brand">MPXD</a>-->
 			<h1 style="color: #ffd461; padding:5px; border: 1px solid transparent; position:absolute;" id="page_title" class="top-title"></h1>
+            <input type="hidden" name="et_data_date" id="et_data_date">
             <ul class="menuzord-menu ">
             </ul>
         </div>

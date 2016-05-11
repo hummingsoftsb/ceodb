@@ -490,8 +490,8 @@ class Dashboard extends CI_Controller {
 //    Created: 29/04/2016
     public function baseline(){
         if ($this->input->get()) {
-            $date = $this->input->get("date");
-            $result = $this->dashboard_model->getBaselineM();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getBaselineM($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -509,7 +509,8 @@ class Dashboard extends CI_Controller {
 //    Created: 04/05/2016
     public function trainDataGet(){
         if ($this->input->get()) {
-            $result = $this->dashboard_model->getTrainData();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getTrainData($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -528,7 +529,8 @@ class Dashboard extends CI_Controller {
 //    Created: 04/05/2016
     public function assemblybaseline(){
         if ($this->input->get()) {
-            $result = $this->dashboard_model->getBaselineAssembly();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getBaselineAssembly($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -543,7 +545,8 @@ class Dashboard extends CI_Controller {
     }
     public function OverallProgress(){
         if ($this->input->get()) {
-            $result = $this->dashboard_model->getOverallProgress();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getOverallProgress($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -559,7 +562,8 @@ class Dashboard extends CI_Controller {
 
     public function outStandingProgress(){
         if ($this->input->get()) {
-            $result = $this->dashboard_model->getOutStandingProgress();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getOutStandingProgress($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -578,7 +582,8 @@ class Dashboard extends CI_Controller {
 // Desc: Fetch the testing report data from table
     public function GetTestingData(){
         if ($this->input->get()) {
-            $TestingData = $this->dashboard_model->GetTestingData();
+            $data_date=$this->input->get("date");
+            $TestingData = $this->dashboard_model->GetTestingData($data_date);
             if ($TestingData) {
                 $data['status'] = "success";
                 $data['item'] = $TestingData;

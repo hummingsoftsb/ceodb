@@ -792,10 +792,11 @@ class Dashboard_model extends CI_Model
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
-    public function getBaselineM()
+    public function getBaselineM($data_date)
     {
         $this->db->select('*');
         $this->db->from('tbl_manufacuring_baseline_forecast');
+        $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         return $query->result_array();
@@ -803,7 +804,7 @@ class Dashboard_model extends CI_Model
 //    Author: Ancy Mathew, Sebin Thomas
 //    Usage : Get Train Data [manufacturing,assembly,subd,kjd].
 //    Created: 04/05/2016
-    public function getTrainData()
+    public function getTrainData($data_date)
     {
         $rel = array(
             "manufacturing" => array(),
@@ -813,23 +814,27 @@ class Dashboard_model extends CI_Model
         );
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
         $this->db->from('tbl_puzhen_manufacture');
+        $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
 
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ARRIVED_DATE');
         $this->db->from('tbl_SMH_Assmbly_Progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $query = $this->db->get();
         $result1=$query->result_array();
 
         $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
         $this->db->from('tbl_SUBD_DT_CS');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('SUBD_MASTER_ID');
         $query = $this->db->get();
         $subd=$query->result_array();
 
         $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
         $this->db->from('tbl_KJD_DT_CS');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('KJD_MASTER_ID');
         $query = $this->db->get();
         $kjd=$query->result_array();
@@ -1076,10 +1081,11 @@ class Dashboard_model extends CI_Model
         }
         return $rel;
     }
-public function getOverallProgress(){
+public function getOverallProgress($data_date){
         $overall = array();
         $this->db->select('TRAIN_NO,OPEN_JOBS,CLOSED_JOBS');
         $this->db->from('tbl_overall_progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
@@ -1093,10 +1099,11 @@ public function getOverallProgress(){
 //        return
     }
 
-    public function getOutStandingProgress(){
+    public function getOutStandingProgress($data_date){
         $outstand = array();
         $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
         $this->db->from('tbl_outstanding_item_progress');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('OUTSTAND_ID');
         $query = $this->db->get();
         $result=$query->result_array();
@@ -1122,10 +1129,11 @@ public function getOverallProgress(){
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data for assembly progress
 //    Created: 29/04/2016
-    public function getBaselineAssembly()
+    public function getBaselineAssembly($data_date)
     {
         $this->db->select('*');
         $this->db->from('tbl_assembly_baseline_forecast');
+        $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         return $query->result_array();
@@ -1134,9 +1142,9 @@ public function getOverallProgress(){
 //    Author:Agaile Victor
 //    Usage : Testing reports of 58 trains
 //    Created: 09/05/2016
-    public function GetTestingData()
+    public function GetTestingData($data_date)
     {
-        $sql = "Select \"TRAIN_NO\",\"Static_Total\",\"Static_Pass\",\"Static_Incomplete\",\"Static_Fail\",\"Dynamic_Total\",\"Dynamic_Pass\",\"Dynamic_Incomplete\",\"Dynamic_Fail\",\"SAT_Total\",\"SAT_Incomplete\",\"SAT_Fail\",\"IT_Incomplete\",\"IT_Total\",\"SAT_Pass\",\"IT_Fail\",\"SIT_Pass\",\"SIT_Total\",\"SIT_Incomplete\",\"SIT_Fail\",\"IT_Pass\" from \"tbl_testing_completion\" order by to_number(split_part(\"TRAIN_NO\", ' ', 2), '99G999D9S')";
+        $sql = "Select \"TRAIN_NO\",\"Static_Total\",\"Static_Pass\",\"Static_Incomplete\",\"Static_Fail\",\"Dynamic_Total\",\"Dynamic_Pass\",\"Dynamic_Incomplete\",\"Dynamic_Fail\",\"SAT_Total\",\"SAT_Incomplete\",\"SAT_Fail\",\"IT_Incomplete\",\"IT_Total\",\"SAT_Pass\",\"IT_Fail\",\"SIT_Pass\",\"SIT_Total\",\"SIT_Incomplete\",\"SIT_Fail\",\"IT_Pass\" from \"tbl_testing_completion\" WHERE \"DATA_DATE\"='$data_date' order by to_number(split_part(\"TRAIN_NO\", ' ', 2), '99G999D9S')";
         $query = $this->db->query($sql);
         $final = $query->result_array();
         return $final;

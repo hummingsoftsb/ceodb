@@ -108,6 +108,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
     render: function() {
         var that = this;
         var html = mpxd.getTemplate("train_manufacturing_progress_table");
+
         template = _.template(html, {data: that.data});
 
         var cookiename = 'sbk-s-01-mfg-progress';
@@ -156,6 +157,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 			$(leftmotor).attr('class', 'train-svg-leftmotor');
 			$(body).attr('class', 'train-svg-body');
 			$(rightmotor).attr('class', 'train-svg-rightmotor');
+            var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
 			
 			//var trainContainer = that.$el.find('.train-container')[0];
 			
@@ -396,24 +398,24 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
             //Added by Sebin for Dynamic data Loading
             var trainData={};
-            mpxd.getJSONData("gettrainData", function (result) {
-                trainData=(JSON.parse(JSON.stringify(result)));
-                var mfgsummary = getSummary(trainData['manufacturing']);
-                var asssummary = getSummary(trainData['assembly']);
-                var subdsummary = getSummary(trainData['subd']);
-                var kjdsummary = getSummary(trainData['kjd']);
+                mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
+                    trainData = (JSON.parse(JSON.stringify(result)));
+                    var mfgsummary = getSummary(trainData['manufacturing']);
+                    var asssummary = getSummary(trainData['assembly']);
+                    var subdsummary = getSummary(trainData['subd']);
+                    var kjdsummary = getSummary(trainData['kjd']);
 
-                var subdnumber = (isNaN(getNumberOfTrains(trainData['subd'])))?0:getNumberOfTrains(trainData['subd']);
-                var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
+                    var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
+                    var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
 
-                $('#manufacturing_progress_value').text(mfgsummary);
-                $('#assembly_progress_value').text(asssummary);
-                $('#subd_progress_value').text(subdsummary);
-                $('#kjd_progress_value').text(kjdsummary);
+                    $('#manufacturing_progress_value').text(mfgsummary);
+                    $('#assembly_progress_value').text(asssummary);
+                    $('#subd_progress_value').text(subdsummary);
+                    $('#kjd_progress_value').text(kjdsummary);
 
-                $('#subd_number_of_trains').text('Total: ' + subdnumber);
-                $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
-            });
+                    $('#subd_number_of_trains').text('Total: ' + subdnumber);
+                    $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
+                });
             var renderManufacturing = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
@@ -449,7 +451,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["41","02/01/15", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("manuBaseline", function(result){
+                mpxd.getJSONData("manuBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -533,7 +535,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("AssemblyBaseline", function(result){
+                mpxd.getJSONData("AssemblyBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -669,7 +671,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //renderTesting(trainData['subd']);
             //renderKJD(trainData['kjd']);
             //Modified By Sebin For Dynamic data loading
-            mpxd.getJSONData("gettrainData", function (result) {
+
+            mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
                 trainData = (JSON.parse(JSON.stringify(result)));
                 renderManufacturing(trainData['manufacturing']);
                 renderAssembly(trainData['assembly']);
@@ -960,8 +963,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         that.data.maxJobs = 2500;
+        var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
-        mpxd.getJSONData("outStandingProgress", function (result) {
+        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 date_over.push((result[j]['OUT_DATE']));
@@ -1114,7 +1118,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var closedJobs = [];
         var openData = [];
         var closedData = [];
-        mpxd.getJSONData("getOverallProgress", function (result) {
+        mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
                 openJobs.push(parseInt(result[j]['OPEN_JOBS']));
@@ -1192,7 +1196,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var outstanding=[];
         var target=[];
         var jobsdone=[];
-        mpxd.getJSONData("outStandingProgress", function (result) {
+        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 if(!isNaN(parseInt(result[j]['JOBS_DONE'])))
@@ -3155,7 +3159,8 @@ function loadPage(p, dontsavestate) {
             $("#data_date").val(moment(result[0].date, "DD-MMM-YY").format("DD-MMMM-YYYY"));
             curr_data_date = result[0].date;
         }
-
+        //Added by Sebin
+        $("#et_data_date").val(curr_data_date);
         //ellipseTitle(title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")");
         var titletext = title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")";
         if (!isUseCustomPortlet) { ellipseTitle(titletext); }
@@ -3237,6 +3242,7 @@ $(function() {
 			p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
 			var selected = $('#data_date_selected').val();
 			loadPage(p+'?date='+selected)
+
 		}
 	});
 	
