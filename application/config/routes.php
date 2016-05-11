@@ -44,6 +44,8 @@ $route['api/(:any)'] = 'dashboard/api/$1';
 $route['fetchComment'] = 'dashboard/fetchComment';
 $route['manuBaseline'] = 'dashboard/baseline';
 $route['AssemblyBaseline'] = 'dashboard/assemblybaseline';
+$route['getOverallProgress'] = 'dashboard/OverallProgress';
+$route['outStandingProgress'] = 'dashboard/OutStandingProgress';
 $route['gettrainData'] = 'dashboard/trainDataGet';
 $route['addComment/(:any)'] = 'dashboard/addComment/$1';
 $route['setapi/(:any)'] = 'dashboard/setapi/$1';
@@ -59,6 +61,7 @@ $route['topdf'] = 'dashboard/topdf';
 $route['(:any)/(:any)/(:any)'] = 'dashboard/view/$1/$2/$3';
 $route['(:any)/(:any)'] = 'dashboard/view/$1/$2';
 $route['(:any)'] = 'dashboard/view/$1';
+$route['GetTestingData'] = 'dashboard/GetTestingData';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

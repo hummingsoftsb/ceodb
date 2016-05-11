@@ -1,12 +1,15 @@
 <?php
 
-class Dashboard_model extends CI_Model {
+class Dashboard_model extends CI_Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->load->database();
     }
 
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $hpassword = hash('sha256', $password);
         $this->db->select('id,username,password,fullname,lastlogin,user_group');
         $this->db->from('users');
@@ -102,7 +105,8 @@ class Dashboard_model extends CI_Model {
           } */
     }
 
-    public function login_ad($username, $password) {
+    public function login_ad($username, $password)
+    {
         $backslash = strpos($username, "\\");
         $domainuser = "MYMRT\\" . (($backslash === FALSE) ? $username : substr($username, $backslash + 1));
         //$ldap = ldap_connect("eagle.office.hummingsoft.com.my"); //172.16.2.10
@@ -113,34 +117,44 @@ class Dashboard_model extends CI_Model {
         // return ldap_bind($ldap, $domainuser, $password);
     }
 
-    public function update_login_lastlog($user) {
+    public function update_login_lastlog($user)
+    {
         $this->db->where('id', $user['id']);
         $this->db->set('lastlogin', 'NOW()', FALSE);
         return $this->db->update('users');
     }
 
-    public function log_login_attempt($data) {
+    public function log_login_attempt($data)
+    {
         return $this->db->insert('users_log', $data);
     }
-	
-	public function getSlugFromPageId($id) {
-	/* Function to return full slug including item and the page slug */
-		if (!is_numeric($id)) { die(); }
-		$this->db->select('items.slug,pages.page');
+
+    public function getSlugFromPageId($id)
+    {
+        /* Function to return full slug including item and the page slug */
+        if (!is_numeric($id)) {
+            die();
+        }
+        $this->db->select('items.slug,pages.page');
         $this->db->from('pages');
         $this->db->join('items', 'items.id = pages.item_id');
         $this->db->where('pages.id', $id);
         $page_query = $this->db->get();
-		$page_result = $page_query->result_array();
-		if (sizeOf($page_result) < 1) { die(); }
-		$page = $page_result[0]["page"];
-		$slug = $page_result[0]["slug"];
-		if (($page == "") || ($slug == "")) { die("No full page"); }
-		$fullslug = $slug . "/" . $page;
-		return $fullslug;
-	}
-    
-    public function menuPermission(){
+        $page_result = $page_query->result_array();
+        if (sizeOf($page_result) < 1) {
+            die();
+        }
+        $page = $page_result[0]["page"];
+        $slug = $page_result[0]["slug"];
+        if (($page == "") || ($slug == "")) {
+            die("No full page");
+        }
+        $fullslug = $slug . "/" . $page;
+        return $fullslug;
+    }
+
+    public function menuPermission()
+    {
         //Get permission list by page.
         $this->db->select('page_id');
         $this->db->from('group_permissions');
@@ -154,22 +168,24 @@ class Dashboard_model extends CI_Model {
         //end get permission
         return $permission;
     }
-   
-	
-    public function menuPermissionBySlugAndPage($usergroup){
+
+
+    public function menuPermissionBySlugAndPage($usergroup)
+    {
         $this->db->select('items.slug,pages.page');
         $this->db->from('group_permissions');
         $this->db->join('pages', 'pages.id = group_permissions.page_id');
         $this->db->join('items', 'items.id = pages.item_id');
         $this->db->where('group_id', $usergroup);
         $query = $this->db->get();
-        
+
         $result = $query->result_array();
-        
+
         return $result;
     }
 
-    public function getMenu() {
+    public function getMenu()
+    {
         $this->db->select('pages.id,items.name,items.slug,pages.page,pages.page_name,pages.parent,pages.external_url, pages.hidden');
         $this->db->from('pages');
         $this->db->join('items', 'items.id = pages.item_id');
@@ -180,7 +196,7 @@ class Dashboard_model extends CI_Model {
         $results = $query->result_array();
 
         $permission = $this->menuPermission();
-        $permissionTree = $this->findParentMenu($results,$permission); //Menu tree to build menu list based on parent child relation.
+        $permissionTree = $this->findParentMenu($results, $permission); //Menu tree to build menu list based on parent child relation.
 
 
         $menu = array();
@@ -201,47 +217,50 @@ class Dashboard_model extends CI_Model {
                         'name' => $result['page_name'],
                         'url' => $url,
                         'outurl' => $urlout,
-                        'parent' => (int) $result['parent'],
+                        'parent' => (int)$result['parent'],
                         'allow' => $allow,
-                        'hidden' => (bool) $result['hidden']
+                        'hidden' => (bool)$result['hidden']
                     );
                 } else {
                     $menu[$count] = array(
                         'id' => $result['id'],
                         'name' => $result['page_name'],
                         'url' => $url,
-                        'parent' => (int) $result['parent'],
+                        'parent' => (int)$result['parent'],
                         'allow' => $allow,
-                        'hidden' => (bool) $result['hidden']
+                        'hidden' => (bool)$result['hidden']
                     );
                 }
                 $count++;
             }
         }
         //print_r($menu);
-        
+
         return $menu;
     }
-    
-    function findParentMenu($menu, $item){
+
+    function findParentMenu($menu, $item)
+    {
         $menu = array_reverse($menu);
-        foreach($menu as $m){
-            if(in_array($m['id'], $item)){
-                if($m['parent'] != 0){
-                    if(!in_array($m['parent'], $item))
-                        array_push($item,$m['parent']);
+        foreach ($menu as $m) {
+            if (in_array($m['id'], $item)) {
+                if ($m['parent'] != 0) {
+                    if (!in_array($m['parent'], $item))
+                        array_push($item, $m['parent']);
                 }
             }
         }
         return $item;
     }
 
-    function array_push_assoc($array, $key, $value) {
+    function array_push_assoc($array, $key, $value)
+    {
         $array[$key] = $value;
         return $array;
     }
 
-    public function get_items($item = FALSE) {
+    public function get_items($item = FALSE)
+    {
         if ($item === FALSE) {
             $query = $this->db->get('items');
             if ($query) return $query->result_array();
@@ -259,7 +278,8 @@ class Dashboard_model extends CI_Model {
         if ($query) return $query->result_array();
     }
 
-    public function get_items_by_types($item, $query_type = FALSE, $query_key = FALSE) {
+    public function get_items_by_types($item, $query_type = FALSE, $query_key = FALSE)
+    {
         if ($query_type === FALSE || $query_key === FALSE) {
             die('No type/key given.');
         }
@@ -283,7 +303,8 @@ class Dashboard_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_meta($arr, $itemID = FALSE) {
+    public function get_meta($arr, $itemID = FALSE)
+    {
         $this->db->select('items_meta.id, title, type as type_name, items_meta.meta_group_id as meta_group_id, meta_key, pages.item_id as item_id');
         $this->db->from('meta_group');
         $this->db->join('items_meta', 'meta_group.id = items_meta.meta_group_id');
@@ -293,7 +314,6 @@ class Dashboard_model extends CI_Model {
             $this->db->where('pages.item_id', $itemID);
 
 
-
         $query = $this->db->get();
 //        echo "here1111";
 //        /*print_r($query->result_array());*/
@@ -301,50 +321,54 @@ class Dashboard_model extends CI_Model {
         //$query = $this->db->get_where('items', array('slug' => $item));
         if ($query) return $query->result_array();
     }
-/*
-    public function get_source($id) {
 
-        $this->db->select('name,value');
-        $this->db->from('data_sources');
-        $this->db->join('meta_sources', 'data_sources.id = meta_sources.source_id');
-        $this->db->where_in('meta_sources.meta_group_id', $id);
+    /*
+        public function get_source($id) {
 
-        $query = $this->db->get();
+            $this->db->select('name,value');
+            $this->db->from('data_sources');
+            $this->db->join('meta_sources', 'data_sources.id = meta_sources.source_id');
+            $this->db->where_in('meta_sources.meta_group_id', $id);
 
-        //$query = $this->db->get_where('items', array('slug' => $item));
+            $query = $this->db->get();
 
-        if ($query) return $query->result_array();
-    }
-	
-*/
-    public function get_date_list($slug) {
+            //$query = $this->db->get_where('items', array('slug' => $item));
+
+            if ($query) return $query->result_array();
+        }
+
+    */
+    public function get_date_list($slug)
+    {
 
         $this->db->select("to_char(data_sources.date, 'DD-Mon-YY') as date", FALSE); //Postgres
-		//$this->db->select("DATE_FORMAT(data_sources.date, '%d-%b-%y') as date", FALSE); //MYSQL
+        //$this->db->select("DATE_FORMAT(data_sources.date, '%d-%b-%y') as date", FALSE); //MYSQL
         $this->db->from('data_sources');
         $this->db->join('items', 'items.id = data_sources.item_id');
         $this->db->where('items.slug', $slug);
         $this->db->order_by('data_sources.date', "desc");
-		
+
         $query = $this->db->get();
-		//var_dump($query);
+        //var_dump($query);
         //$query = $this->db->get_where('items', array('slug' => $item));
 
         if ($query) return $query->result_array();
     }
 
-	public function get_static_source($id) { // Static data
+    public function get_static_source($id)
+    { // Static data
         $this->db->from('data_sources_static');
         $this->db->where('data_sources_static.item_id', $id);
-		$this->db->select('name,value');
-        
+        $this->db->select('name,value');
+
         $query = $this->db->get();
 
         if ($query) return $query->result_array();
     }
-	
-	
-    public function get_source_archivable($id, $date = FALSE) { //Archive
+
+
+    public function get_source_archivable($id, $date = FALSE)
+    { //Archive
         $this->db->from('data_sources');
         //$this->db->join('meta_sources', 'data_sources.id = meta_sources.source_id');
         $this->db->where('data_sources.item_id', $id);
@@ -367,7 +391,8 @@ class Dashboard_model extends CI_Model {
         if ($query) return $query->result_array();
     }
 
-    public function get_item_meta($id) {
+    public function get_item_meta($id)
+    {
 
         $this->db->select('type_name,meta_key,title,meta_value');
         $this->db->from('items_meta');
@@ -381,7 +406,8 @@ class Dashboard_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function set_item_by_allkey($item, $type, $meta_key, $meta_value) {
+    public function set_item_by_allkey($item, $type, $meta_key, $meta_value)
+    {
         $log = "";
         $this->db->select('items_meta.id, items_meta.type_id, items_meta.item_id, items_meta.meta_key');
         $this->db->from('items_meta');
@@ -451,7 +477,8 @@ class Dashboard_model extends CI_Model {
         return $log;
     }
 
-    public function getPortlet($slug, $page) {
+    public function getPortlet($slug, $page)
+    {
 
         //$this->db->select('*');
         $this->db->select('items_meta.id as id,slug,pages.id as page,type,meta_key,portlet_configuration.value as value, items_meta.meta_group_id, items_meta.portlet_id, items.id as item_id, items_meta.pdf_order as order');
@@ -469,7 +496,7 @@ class Dashboard_model extends CI_Model {
 
         $return = array();
 
-        foreach ($results as $k => $result) { 
+        foreach ($results as $k => $result) {
             $portlet_value = json_decode($result['value']);
             //add new value to the portlet
             $portlet_value->slug = $result['slug'];
@@ -489,7 +516,8 @@ class Dashboard_model extends CI_Model {
         return $return;
     }
 
-    public function getPortletOld($slug, $page) {
+    public function getPortletOld($slug, $page)
+    {
 
         $this->db->select('portlet_configuration.id as id,slug,value, portlet_configuration.page_id as page');
         $this->db->from('items');
@@ -503,7 +531,8 @@ class Dashboard_model extends CI_Model {
         if ($query) return $query->result_array();
     }
 
-    public function getPortletBySlug($slug) {
+    public function getPortletBySlug($slug)
+    {
 
         $this->db->select('portlet_configuration.id as id,slug,value, portlet_configuration.page_id as page');
         $this->db->from('items');
@@ -518,10 +547,11 @@ class Dashboard_model extends CI_Model {
         if ($query) return $query->result_array();
     }
 
-    public function updatePortletold($portlets) {
+    public function updatePortletold($portlets)
+    {
         /* Because of cross-database non-interoperability of "ON DUPLICATE UPDATE", had to first determine what to update and what to insert. */
         $log = "";
-        $getids = function($a) {
+        $getids = function ($a) {
             if (isset($a['id']))
                 return $a['id'];
             else
@@ -534,7 +564,7 @@ class Dashboard_model extends CI_Model {
         $this->db->where_in('id', $ids);
         $query = $this->db->get();
         $result_ids = $query->result_array();
-        $existing_ids = array_map(function($a) {
+        $existing_ids = array_map(function ($a) {
             return $a['id'];
         }, $result_ids);
 
@@ -582,8 +612,6 @@ class Dashboard_model extends CI_Model {
         $this->db->trans_complete();
 
 
-
-
         if ($this->db->trans_status() === TRUE) {
             $log .= sprintf('Updated %1$d records and inserted %2$d records', sizeOf($to_update), sizeOf($to_insert));
         } else {
@@ -595,10 +623,11 @@ class Dashboard_model extends CI_Model {
         //die();
     }
 
-    public function updatePortlet($portlets) {
+    public function updatePortlet($portlets)
+    {
         /* Because of cross-database non-interoperability of "ON DUPLICATE UPDATE", had to first determine what to update and what to insert. */
         $log = "";
-        $getids = function($a) {
+        $getids = function ($a) {
             if (isset($a['id']))
                 return $a['id'];
             else
@@ -613,7 +642,7 @@ class Dashboard_model extends CI_Model {
         $this->db->where_in('id', $ids);
         $query = $this->db->get();
         $result_ids = $query->result_array();
-        $existing_ids = array_map(function($a) {
+        $existing_ids = array_map(function ($a) {
             return $a['id'];
         }, $result_ids);
         //$existing_items = array_map(function($a){return Array($a['id'] => $a['portlet_id']);},$result_ids);
@@ -698,9 +727,9 @@ class Dashboard_model extends CI_Model {
                 array_push($to_insert_items, $iobject);
             }
         }
-		
+
         if (sizeOf($to_update_portlets > 0)) {
-			//var_dump($to_update_portlets);
+            //var_dump($to_update_portlets);
             $this->db->update_batch('portlet_configuration', $to_update_portlets, 'id');
         }
         if (sizeOf($to_update_items) > 0) {
@@ -709,10 +738,8 @@ class Dashboard_model extends CI_Model {
         if (sizeOf($to_insert_items) > 0) {
             $this->db->insert_batch('items_meta', $to_insert_items);
         }
-		//var_dump($this->db->queries);
+        //var_dump($this->db->queries);
         $this->db->trans_complete();
-
-
 
 
         if ($this->db->trans_status() === TRUE) {
@@ -727,7 +754,8 @@ class Dashboard_model extends CI_Model {
     }
 
     //reference functions
-    public function get_news1($slug = FALSE) {
+    public function get_news1($slug = FALSE)
+    {
         if ($slug === FALSE) {
             $query = $this->db->get('news');
             if ($query) return $query->result_array();
@@ -737,7 +765,8 @@ class Dashboard_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function set_news2() {
+    public function set_news2()
+    {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
@@ -763,7 +792,8 @@ class Dashboard_model extends CI_Model {
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
-    public function getBaselineM(){
+    public function getBaselineM()
+    {
         $this->db->select('*');
         $this->db->from('tbl_manufacuring_baseline_forecast');
         $this->db->order_by('TRAIN_NO');
@@ -773,12 +803,13 @@ class Dashboard_model extends CI_Model {
 //    Author: Ancy Mathew, Sebin Thomas
 //    Usage : Get Train Data [manufacturing,assembly,subd,kjd].
 //    Created: 04/05/2016
-    public function getTrainData(){
-        $rel=array(
-            "manufacturing"=>array(),
-            "assembly"=>array(),
-            "subd"=>array(),
-            "kjd"=>array()
+    public function getTrainData()
+    {
+        $rel = array(
+            "manufacturing" => array(),
+            "assembly" => array(),
+            "subd" => array(),
+            "kjd" => array()
         );
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
         $this->db->from('tbl_puzhen_manufacture');
@@ -822,31 +853,30 @@ class Dashboard_model extends CI_Model {
                             "progress"=>$val['CAR4_PERC'],
                             "rollout"=>$val['ROLL_OUT']
                         )
-
-                    )
-                );
+                )
+            );
         }
-        foreach($result1 as $key=> $val1) {
+        foreach ($result1 as $key => $val1) {
             $rel["assembly"]["Train " . $val1['TRAIN_NO']] = array(
                 "cars" => array(
                     $val1['CAR1_NO'] => array(
                         "progress" => $val1['CAR1_PERC'],
-                        "rollout"=>"",
+                        "rollout" => "",
                         "arrived" => $val1['ARRIVED_DATE']
                     ),
                     $val1['CAR2_NO'] => array(
                         "progress" => $val1['CAR2_PERC'],
-                        "rollout"=>"",
+                        "rollout" => "",
                         "arrived" => $val1['ARRIVED_DATE']
                     ),
                     $val1['CAR3_NO'] => array(
                         "progress" => $val1['CAR3_PERC'],
-                        "rollout"=>"",
+                        "rollout" => "",
                         "arrived" => $val1['ARRIVED_DATE']
                     ),
                     $val1['CAR4_NO'] => array(
                         "progress" => $val1['CAR4_PERC'],
-                        "rollout"=>"",
+                        "rollout" => "",
                         "arrived" => $val1['ARRIVED_DATE']
                     )
 
@@ -1046,10 +1076,45 @@ class Dashboard_model extends CI_Model {
         }
         return $rel;
     }
+public function getOverallProgress(){
+        $overall = array();
+        $this->db->select('TRAIN_NO,OPEN_JOBS,CLOSED_JOBS');
+        $this->db->from('tbl_overall_progress');
+        $this->db->order_by('TRAIN_NO');
+        $query = $this->db->get();
+        $result=$query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $overall[$i]["OPEN_JOBS"] =$val['OPEN_JOBS'];
+            $overall[$i]["CLOSED_JOBS"] =$val['CLOSED_JOBS'];
+            $i++;
+        }
+        return $overall;
+//        return
+    }
+
+    public function getOutStandingProgress(){
+        $outstand = array();
+        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
+        $this->db->from('tbl_outstanding_item_progress');
+        $this->db->order_by('OUTSTAND_ID');
+        $query = $this->db->get();
+        $result=$query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $outstand[$i]["JOBS_DONE"] =$val['JOBS_DONE'];
+            $outstand[$i]["TARGET"] =$val['TARGET'];
+            $outstand[$i]["OUT_DATE"] =$val['OUT_DATE'];
+            $i++;
+        }
+        return $outstand;
+//        return
+    }
 //    Author:Sebin Thomas
 //    Usage : Store Comments
 //    Created:
-    public function setComment($data){
+    public function setComment($data)
+    {
         $this->db->insert('prognosis', $data);
         return $this->db->affected_rows();
 
@@ -1057,12 +1122,24 @@ class Dashboard_model extends CI_Model {
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data for assembly progress
 //    Created: 29/04/2016
-    public function getBaselineAssembly(){
+    public function getBaselineAssembly()
+    {
         $this->db->select('*');
         $this->db->from('tbl_assembly_baseline_forecast');
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+//    Author:Agaile Victor
+//    Usage : Testing reports of 58 trains
+//    Created: 09/05/2016
+    public function GetTestingData()
+    {
+        $sql = "Select \"TRAIN_NO\",\"Static_Total\",\"Static_Pass\",\"Static_Incomplete\",\"Static_Fail\",\"Dynamic_Total\",\"Dynamic_Pass\",\"Dynamic_Incomplete\",\"Dynamic_Fail\",\"SAT_Total\",\"SAT_Incomplete\",\"SAT_Fail\",\"IT_Incomplete\",\"IT_Total\",\"SAT_Pass\",\"IT_Fail\",\"SIT_Pass\",\"SIT_Total\",\"SIT_Incomplete\",\"SIT_Fail\",\"IT_Pass\" from \"tbl_testing_completion\" order by to_number(split_part(\"TRAIN_NO\", ' ', 2), '99G999D9S')";
+        $query = $this->db->query($sql);
+        $final = $query->result_array();
+        return $final;
     }
 
 }
