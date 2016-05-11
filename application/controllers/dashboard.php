@@ -490,6 +490,7 @@ class Dashboard extends CI_Controller {
 //    Created: 29/04/2016
     public function baseline(){
         if ($this->input->get()) {
+            $date = $this->input->get("date");
             $result = $this->dashboard_model->getBaselineM();
             if ($result) {
                 $data['status'] = "success";

@@ -186,7 +186,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 					if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
 						var ass = d['assembly'];
 						var man = d['manufacturing'];
-						var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ cnum++;
+                        var carnum = d['car'];
+						var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ carnum;
 						return generateTooltipDiv(html);
 					} 
 					return $('<div>');
@@ -3015,7 +3016,6 @@ function relativeToAbsolute(url){
 }
 
 function loadPage(p, dontsavestate) {
-	
 	$("div#loading_pad").removeClass("loading_pad_gohide");
 	
     reallink = p;
@@ -3086,14 +3086,12 @@ function loadPage(p, dontsavestate) {
         //$('#portlet_container').empty();
 				
 		//Draw the portlets
-		
         drawPortlets(data);
         mpxd.getData(data, function(result) {
 			mpxd.resetDatasource();
             for (var i in result.data) {
                 //var json = jQuery.parseJSON(result.data[i].value);
                 //var name = data[i].name;
-
                 mpxd.storeDatasourceToArray(result.data[i], (typeof result.static_data[i] == "undefined") ? "[]" : result.static_data[i]);
                 //temp.push(json);
                 //console.log(result.data[i].value);
@@ -3151,10 +3149,9 @@ $(function() {
 
 	
 	$('#data_date').datepicker({
-	dateFormat: 'dd-MM-yy', beforeShowDay: enableAllTheseDays, nextText: "", prevText: "", altField : '#data_date_selected', altFormat: "dd-M-y",  
+	dateFormat: 'dd-MM-yy', beforeShowDay: enableAllTheseDays, nextText: "", prevText: "", altField : '#data_date_selected', altFormat: "dd-M-y",
 	onSelect: function(dateText, inst) {
 			p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
-			
 			var selected = $('#data_date_selected').val();
 			loadPage(p+'?date='+selected)
 		}
