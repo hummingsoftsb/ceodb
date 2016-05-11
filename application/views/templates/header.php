@@ -174,9 +174,6 @@
 		 <!-- Gallery src-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script>
-        <!--DataTables-->
-        <link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/dataTable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/dataTable/jquery.dataTables.min.js"></script>
 
         <link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.js"></script>
@@ -471,14 +468,6 @@
         		font-size: 1.2em;
         		cursor: default;
         	}
-            .btn.btn-warning {
-                border-color: #33aaae;
-                background: #33aaae;
-            }
-            .btn.btn-warning:hover {
-                background-color: #33aaae;
-                background-image: none;
-            }
             /*table.dataTable tbody tr {*/
                 /*background-color: transparent;*/
             /*}*/
