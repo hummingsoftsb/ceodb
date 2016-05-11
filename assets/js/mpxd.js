@@ -257,7 +257,6 @@ mpxd.getData = function(data, callback) {
 	var date = getParameterByName('date');
 	if(date.length>0)
 		query += "&date=" + date;
-	
 	//console.log(query);
 	mpxd.getJSON('api/', query, function(result) {
 		callback(result);
@@ -372,6 +371,7 @@ function drawPortletHelper(id, port) {
 
 
 function drawPortlets(s) {
+
     //b = new bsgridster(s, 50, '');
     //var v = b.getHtml();
 
