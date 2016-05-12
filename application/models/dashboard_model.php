@@ -992,38 +992,22 @@ class Dashboard_model extends CI_Model
                         " ".$kjd_val['CAR1'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR2'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR3'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR4'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         )
 
                     )
@@ -1036,42 +1020,22 @@ class Dashboard_model extends CI_Model
                         " ".$kjd_val['CAR1'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR1']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR2'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR2']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR3'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR3']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR4'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR4']
-                            )
+                            "arrived" => ""
                         )
 
                     )
