@@ -827,7 +827,7 @@ class Dashboard_model extends CI_Model
         $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
         $this->db->from('tbl_SUBD_DT_CS');
         $this->db->where_in("DATA_DATE",$data_date);
-        //$this->db->order_by('SUBD_MASTER_ID');
+        $this->db->order_by('TRAIN_FROM');
         $query = $this->db->get();
         $subd=$query->result_array();
 
@@ -936,7 +936,7 @@ class Dashboard_model extends CI_Model
             }else {
                 $rel["subd"]["Train " . $subd_val['TRAIN_FROM']] = array(
                     "delivery"=>$subd_val["DATE_DELIVERED"],
-                    "testingcompleted"=>$subd_val['COMMENTS'],
+                    "testingcompleted"=>($subd_val['COMMENTS']==null)?'':$subd_val['COMMENTS'],
                     "cars" => array(
                         " ".$subd_val['CAR1'] => array(
                             "progress" => "",
@@ -992,38 +992,22 @@ class Dashboard_model extends CI_Model
                         " ".$kjd_val['CAR1'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR2'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR3'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR4'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
-                            )
+                            "arrived" => ""
                         )
 
                     )
@@ -1036,42 +1020,22 @@ class Dashboard_model extends CI_Model
                         " ".$kjd_val['CAR1'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR1']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR2'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR2']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR3'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR3']
-                            )
+                            "arrived" => ""
                         ),
                         " ".$kjd_val['CAR4'] => array(
                             "progress" => "",
                             "rollout" => "",
-                            "arrived" => "",
-                            "history" => array(
-                                "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
-                                "car"=>$kjd_val['CAR4']
-                            )
+                            "arrived" => ""
                         )
 
                     )
