@@ -25,9 +25,9 @@ var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("Y
         var tn="";
         for(i=0;i< tabledata.length;i++ )
         {
-            tn=tn+'<tr><td>'+tabledata[i]+'</td></tr>';
-            tn=tn.trim();
-            tn=tn.replace(/,/g,"</td><td>");
+            tn = tn + '<tr><td>' + tabledata[i] + '</td></tr>';
+            tn = tn.trim();
+            tn = tn.replace(/,/g, "</td><td>");
         }
 //    console.log('Bingo');
 //    console.log(tn);
