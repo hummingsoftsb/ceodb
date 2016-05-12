@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42da559d-7eea-40b8-a835-1e04078a8cc4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/dashboard_model.php" afterPath="$PROJECT_DIR$/application/models/dashboard_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/ilyas.js" afterPath="$PROJECT_DIR$/assets/js/ilyas.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mpxd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +31,7 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.307692" vertical-offset="9733" max-vertical-offset="10557">
+            <state vertical-scroll-proportion="0.0" vertical-offset="9733" max-vertical-offset="10557">
               <caret line="599" column="37" selection-start-line="599" selection-start-column="37" selection-end-line="599" selection-end-column="37" />
               <folding>
                 <marker date="1462962263244" expanded="true" signature="19003:19017" placeholder="..." />
@@ -44,36 +44,12 @@
       <file leaf-file-name="dashboard_model.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1904762" vertical-offset="18698" max-vertical-offset="19958">
-              <caret line="1106" column="35" selection-start-line="1106" selection-start-column="35" selection-end-line="1106" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.25274727" vertical-offset="18817" max-vertical-offset="19975">
+              <caret line="1115" column="9" selection-start-line="1115" selection-start-column="9" selection-end-line="1115" selection-end-column="9" />
               <folding>
-                <marker date="1462967803979" expanded="true" signature="44590:45059" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45078:45514" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45387" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45397" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45404" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45414" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45422" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45437" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45440" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45453" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45459" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45474" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45475" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45478" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45492" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45498" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45510" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45513" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45523" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45540" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45543" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45554" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45560" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45571" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45574" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45583" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-                <marker date="1462967803979" expanded="true" signature="45267:45585" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+                <marker date="1463023609528" expanded="true" signature="45080:45503" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+                <marker date="1463023609528" expanded="true" signature="45080:45549" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+                <marker date="1463023609528" expanded="true" signature="45713:46031" placeholder="select a.\&quot;T..tbl_testing_completion..." />
               </folding>
             </state>
           </provider>
@@ -82,7 +58,7 @@
       <file leaf-file-name="sys_train_head_progress.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6111112" vertical-offset="162" max-vertical-offset="1275">
+            <state vertical-scroll-proportion="-7.5" vertical-offset="162" max-vertical-offset="1275">
               <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -98,7 +74,7 @@
       <file leaf-file-name="sys_train_manufacturing_phase.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_phase.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.76923" vertical-offset="374" max-vertical-offset="1853">
+            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1853">
               <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
@@ -108,7 +84,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="527" max-vertical-offset="1241">
+            <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1241">
               <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding />
             </state>
@@ -134,7 +110,7 @@
       <file leaf-file-name="ilyas.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/ilyas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-86.89286" vertical-offset="7036" max-vertical-offset="56389">
+            <state vertical-scroll-proportion="0.0" vertical-offset="9994" max-vertical-offset="56389">
               <caret line="557" column="29" selection-start-line="557" selection-start-column="29" selection-end-line="557" selection-end-column="29" />
               <folding>
                 <marker date="1462963990132" expanded="true" signature="5455:5488" placeholder="..." />
@@ -219,7 +195,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -340,6 +315,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -369,15 +345,15 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -396,13 +372,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -413,11 +388,12 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -437,10 +413,114 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/models/dashboard_model.php</url>
+          <line>795</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9733" max-vertical-offset="10557">
+          <caret line="599" column="37" selection-start-line="599" selection-start-column="37" selection-end-line="599" selection-end-column="37" />
+          <folding>
+            <marker date="1462962263244" expanded="true" signature="19003:19017" placeholder="..." />
+            <marker date="1462962263244" expanded="true" signature="22167:22424" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19975">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1463023609528" expanded="true" signature="45080:45503" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45549" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45713:46031" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1275">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#h4#2;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_phase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1853">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1241">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="2346">
+          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+          <folding>
+            <marker date="1462962263166" expanded="false" signature="3489:3493" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3528:3532" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3567:3571" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3607:3611" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3647:3651" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/ilyas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9994" max-vertical-offset="56389">
+          <caret line="557" column="29" selection-start-line="557" selection-start-column="29" selection-end-line="557" selection-end-column="29" />
+          <folding>
+            <marker date="1462963990132" expanded="true" signature="5455:5488" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="7043:7054" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="9640:9651" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="30697:30761" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="30884:30948" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="31071:31135" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="31235:31299" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="36480:36544" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="36667:36731" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="36854:36918" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="37018:37082" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="105956:105969" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="110633:110646" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="118023:118087" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="118141:118174" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="123322:123333" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="123348:123362" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="123437:123482" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="123536:123596" placeholder="..." />
+            <marker date="1462963990132" expanded="true" signature="129209:129237" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="9121" max-vertical-offset="10183">
@@ -500,33 +580,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="14142" max-vertical-offset="14994">
           <caret line="860" column="46" selection-start-line="860" selection-start-column="46" selection-end-line="860" selection-end-column="46" />
           <folding>
-            <marker date="1462967803979" expanded="true" signature="44590:45059" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45078:45514" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45387" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45397" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45404" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45414" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45422" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45437" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45440" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45453" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45459" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45474" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45475" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45478" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45492" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45498" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45510" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45513" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45523" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45540" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45543" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45554" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45560" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45571" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45574" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45583" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45585" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45503" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45549" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45713:46031" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -584,33 +640,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14637">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462967803979" expanded="true" signature="44590:45059" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45078:45514" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45387" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45397" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45404" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45414" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45422" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45437" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45440" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45453" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45459" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45474" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45475" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45478" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45492" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45498" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45510" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45513" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45523" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45540" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45543" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45554" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45560" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45571" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45574" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45583" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45585" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45503" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45549" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45713:46031" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -708,13 +740,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="54009">
           <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="527" max-vertical-offset="1241">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1241">
           <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding />
         </state>
@@ -722,7 +753,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.307692" vertical-offset="9733" max-vertical-offset="10557">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9733" max-vertical-offset="10557">
           <caret line="599" column="37" selection-start-line="599" selection-start-column="37" selection-end-line="599" selection-end-column="37" />
           <folding>
             <marker date="1462962263244" expanded="true" signature="19003:19017" placeholder="..." />
@@ -731,45 +762,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3076925" vertical-offset="780" max-vertical-offset="2346">
-          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
-          <folding>
-            <marker date="1462962263166" expanded="false" signature="3489:3493" placeholder="..." />
-            <marker date="1462962263166" expanded="false" signature="3528:3532" placeholder="..." />
-            <marker date="1462962263166" expanded="false" signature="3567:3571" placeholder="..." />
-            <marker date="1462962263166" expanded="false" signature="3607:3611" placeholder="..." />
-            <marker date="1462962263166" expanded="false" signature="3647:3651" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_phase.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.76923" vertical-offset="374" max-vertical-offset="1853">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1853">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6111112" vertical-offset="162" max-vertical-offset="1275">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#h4#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/ilyas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-86.89286" vertical-offset="7036" max-vertical-offset="56389">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9994" max-vertical-offset="56389">
           <caret line="557" column="29" selection-start-line="557" selection-start-column="29" selection-end-line="557" selection-end-column="29" />
           <folding>
             <marker date="1462963990132" expanded="true" signature="5455:5488" placeholder="..." />
@@ -796,38 +799,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5" vertical-offset="162" max-vertical-offset="1275">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#h4#2;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3076925" vertical-offset="780" max-vertical-offset="2346">
+          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+          <folding>
+            <marker date="1462962263166" expanded="false" signature="3489:3493" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3528:3532" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3567:3571" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3607:3611" placeholder="..." />
+            <marker date="1462962263166" expanded="false" signature="3647:3651" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1904762" vertical-offset="18698" max-vertical-offset="19958">
-          <caret line="1106" column="35" selection-start-line="1106" selection-start-column="35" selection-end-line="1106" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.25274727" vertical-offset="18817" max-vertical-offset="19975">
+          <caret line="1115" column="9" selection-start-line="1115" selection-start-column="9" selection-end-line="1115" selection-end-column="9" />
           <folding>
-            <marker date="1462967803979" expanded="true" signature="44590:45059" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45078:45514" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45387" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45397" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45404" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45414" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45422" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45437" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45440" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45453" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45459" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45474" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45475" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45478" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45492" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45498" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45510" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45513" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45523" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45540" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45543" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45554" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45560" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45571" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45574" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45583" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
-            <marker date="1462967803979" expanded="true" signature="45267:45585" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45503" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45080:45549" placeholder="Select \&quot;TRA..tbl_testing_completion..." />
+            <marker date="1463023609528" expanded="true" signature="45713:46031" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
