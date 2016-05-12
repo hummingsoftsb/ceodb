@@ -1187,8 +1187,22 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
          $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
+           var perc = (actual+"%");
             $('#id_actual').text(actual+"%");
             $('#id_fullyTable').append(td);
+
+            //Train head percemntage fillng logic : start
+
+            d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) {
+                if (error) throw error
+                document.getElementById('train_progress_container').appendChild(xml.documentElement);
+
+                d3.select('#progress stop').attr('offset',perc);
+                <!--d3.select('#progress stop').attr('offset','60%');-->
+
+                //Train head percemntage fillng logic : end
+
+            });
         });
         //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
         //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
