@@ -1186,7 +1186,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             if(closedJ.length==0){
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
-         $('#id_fullyTrain').text(((temp.length<=9)?"0"+temp.length:temp.length));
+         $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
             $('#id_actual').text(actual+"%");
             $('#id_fullyTable').append(td);
         });
