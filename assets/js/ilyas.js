@@ -1159,7 +1159,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var openJ=[];
         var train=[];
         mpxd.getJSONData("getCompleted", function (result) {
-            console.log(result);
+            //console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
             for (var j in fullyResult ) {
@@ -1171,15 +1171,18 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             for (var i = 0; i < closedJ.length; i++) {
                 var total = openJ[i]+closedJ[i];
                 var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
-                //console.log(closedPercent);
-                if(closedPercent==100){
+                if(closedPercent<100){
                     temp.push(train[i]);
                     td+="<tr><td>Train "+ train[i]+"</td></tr>";
                 }
                 else{
                     $('#id_tabHed').text("No Trains Completed Yet");
                 }
+
              }
+            if(closedJ.length==0){
+                $('#id_tabHed').text("No Trains Completed Yet");
+            }
          $('#id_fullyTrain').text(((temp.length<=9)?"0"+temp.length:temp.length));
             $('#id_fullyTable').append(td);
         });
