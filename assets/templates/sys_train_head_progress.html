@@ -15,7 +15,8 @@
 	<h4 class="color-beige total_progress" style="padding-left: 15px">Actual <span class="g_package"></span> Package Progress: <span style="color: #9EDD2E"><%=data.data.currentActual%></span></h4>
 	<div id="train_progress_container" style="margin-bottom: 25px;">
 	</div>
-    <h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>
+    <input type="hidden" id="perc">
+    <h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span id="id_actual"  style="color: #9EDD2E"></span></h4>
 	<h4 class="color-beige">Number of Fully Completed Train: <a id="id_fullyTrain" class="manufacturing-link link" href="#modal_phase" data-toggle="modal" style="font-weight:bold"></a></h4>
 	<!--<h1 style="padding-left: 15px"><%=data.data.currentActual%></h1>-->
 	</div>
@@ -56,11 +57,15 @@
 <!--MOdal End-->
 
 	<%
-	d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) { 
-	if (error) throw error 
-		document.getElementById('train_progress_container').appendChild(xml.documentElement);
-		d3.select('#progress stop').attr('offset','6.9%');
-	}); 
+    <!--moved the code to illyas.js to make it dynamic on 12/05/2016 by ancy-->
+    <!--alert($('#perc').val());-->
+	<!--d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) { -->
+	<!--if (error) throw error -->
+		<!--document.getElementById('train_progress_container').appendChild(xml.documentElement);-->
+
+		<!--d3.select('#progress stop').attr('offset',document.getElementById('perc').value);-->
+		<!--&lt;!&ndash;d3.select('#progress stop').attr('offset','60%');&ndash;&gt;-->
+	<!--});-->
 	%>
     <script>
         $(".g_package").text($('#page_title').text().split('(',1));
