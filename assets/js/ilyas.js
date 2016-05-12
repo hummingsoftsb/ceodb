@@ -463,11 +463,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='pro_assem'){
+                            if(i['STATUS']=='1.00'){
                                 $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
-                            }else if(i['STATUS']=='ass_completed') {
+                            }else if(i['STATUS']=='2.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
-                            }else if(i['STATUS']=='pro_completed') {
+                            }else if(i['STATUS']=='3.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
                             }else  {
                                 $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
@@ -547,11 +547,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='pro_assem'){
+                            if(i['STATUS']=='1.00'){
                                 $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
-                            }else if(i['STATUS']=='ass_completed') {
+                            }else if(i['STATUS']=='2.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
-                            }else if(i['STATUS']=='pro_completed') {
+                            }else if(i['STATUS']=='3.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
                             }else  {
                                 $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
