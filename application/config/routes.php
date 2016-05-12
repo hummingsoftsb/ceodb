@@ -42,6 +42,7 @@ $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 $route['api/(:any)'] = 'dashboard/api/$1';
 $route['fetchComment'] = 'dashboard/fetchComment';
+$route['rComment'] = 'dashboard/revComment';
 $route['manuBaseline'] = 'dashboard/baseline';
 $route['AssemblyBaseline'] = 'dashboard/assemblybaseline';
 $route['getOverallProgress'] = 'dashboard/OverallProgress';

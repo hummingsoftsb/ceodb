@@ -464,6 +464,22 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
+    public function revComment(){
+        if ($this->input->get()) {
+            $id_comment=$this->input->get("skj");
+            $result = $this->dashboard_model->removeComment($id_comment);
+            if ($result) {
+                $data['status'] = "success";
+                $data['item'] = $result;
+            } else {
+                $data['status'] = "fail";
+                $data['item'] = $result;
+            }
+        } else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
+    }
 //    Author: Sebin
 //    Usage : Add Comments
 //    Created: 28/04/2016

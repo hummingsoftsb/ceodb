@@ -328,13 +328,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 			}
 
             var generateDataTable = function(data) {
-                var $table = $('<table>').addClass('table table-condensed table-hover');
+                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
                 var $thead = $('<thead>');
                 var $tbody = $('<tbody>');
 
                 var $tr = $('<tr>');
                 for (var i = 0; i < data[0].length; i++) {
-                    var $td = $('<td>');
+                    var $td = $('<th style="color: #ffd461;text-align: center;">');
                     $td.html(data[0][i]);
                     $tr.append($td);
                 }
@@ -342,11 +342,16 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                 // Start from 1 since the first is for header
                 for (var i = 1; i < data.length; i++) {
-                    var $tr = $('<tr>');
-                    for (var j = 0; j < data[i].length; j++) {
-                        var d = data[i][j];
+                    var $tr = $('<tr class="s_comments">');
+                    for (var j = 0; j < (data[i].length)-1; j++) {
+                        var d = data[i][j+1];
                         var $td = $('<td>');
-                        $td.html(d);
+                        var $span=$('<span>');
+                        $span.html(d);
+                        $td.append($span);
+                        if(((j+1)%2)==0) {
+                            $td.append('<a data-value="'+data[i][j-1]+'" class="s_delete" href="javascript:void(0);"><i style="padding-left: 10px;color: #ffd461;" class="fa fa-trash-o pull-right">');
+                        }
                         $tr.append($td);
                     }
                     $tbody.append($tr);
@@ -570,9 +575,9 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         var comments = [];
                         comments.push(["Train Num.", "Comments"]);
                         $.each(result, function (idx, i) {
-                            comments.push([i['train_no'], i['comments']]);
+                            comments.push([i['id'],i['train_no'], i['comments']]);
                         });
-                        var $comment = generateTable(comments);
+                        var $comment = generateDataTable(comments);
                         //$comment.attr("id","dataTab");
                         //console.log("DataTable");
                         $assemblyContainer.find('.comment-container').html('').append($comment);

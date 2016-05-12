@@ -789,6 +789,13 @@ class Dashboard_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    //    Author:Sebin Thomas
+//    Usage : Get Comments
+//    Created:
+    public function removeComment($comment_id){
+        $this->db->where('id', $comment_id);
+        $ret = $this->db->delete('prognosis');
+        return $ret;    }
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
