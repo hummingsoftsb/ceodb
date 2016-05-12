@@ -1,7 +1,9 @@
 <div class="header bg-dot30 excel-normal">
     <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
     <% if (typeof(data.data[0].date) !== "undefined") { %>
-    <h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+    <h2><%=data.title%></h2>
+
+    <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
     <% } else {%>
     <h2><%=data.title%></h2>
     <% } %>
@@ -10,48 +12,59 @@
 
 <!--Modified by : Agaile-->
 <!--Date: 09/05/2016-->
-<script type ="text/javascript">
-var twist = $('#data_date_selected').val();
-var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
-    tabledata=[];
-    var temp=[];
-    cap =[];
-    mpxd.getJSONData("GetTestingData"+c_data_date+"", function (result) {
-        for (var i in result){
-            temp.push([(result[i]['TRAIN_NO']== null?'-':result[i]['TRAIN_NO']),(result[i]['Static_Total']== null?'-':parseInt(result[i]['Static_Total'])),(result[i]['Static_Pass']== null?'-':parseInt(result[i]['Static_Pass'])),(result[i]['Static_Incomplete']== null?'-':parseInt(result[i]['Static_Incomplete'])),(result[i]['Static_Fail']== null?'-':parseInt(result[i]['Static_Fail'])),(result[i]['Dynamic_Total']== null?'-':parseInt(result[i]['Dynamic_Total'])),(result[i]['Dynamic_Pass']== null?'-':parseInt(result[i]['Dynamic_Pass'])),(result[i]['Dynamic_Incomplete']== null?'-':parseInt(result[i]['Dynamic_Incomplete'])),(result[i]['Dynamic_Fail']== null?'-':parseInt(result[i]['Dynamic_Fail'])),(result[i]['SAT_Total']== null?'-':parseInt(result[i]['SAT_Total'])),(result[i]['SAT_Incomplete']== null?'-':parseInt(result[i]['SAT_Incomplete'])),(result[i]['SAT_Fail']== null?'-':parseInt(result[i]['SAT_Fail'])),(result[i]['IT_Incomplete']== null?'-':parseInt(result[i]['IT_Incomplete'])),(result[i]['IT_Total']== null?'-':parseInt(result[i]['IT_Total'])),(result[i]['SAT_Pass']== null?'-':parseInt(result[i]['SAT_Pass'])),(result[i]['IT_Fail']== null?'-':parseInt(result[i]['IT_Fail'])),(result[i]['SIT_Pass']== null?'-':parseInt(result[i]['SIT_Pass'])),(result[i]['SIT_Total']== null?'-':parseInt(result[i]['SIT_Total'])),(result[i]['SIT_Incomplete']== null?'-':parseInt(result[i]['SIT_Incomplete'])),(result[i]['SIT_Fail']== null?'-':parseInt(result[i]['SIT_Fail'])),(result[i]['IT_Pass']== null?'-':parseInt(result[i]['IT_Pass']))]);
-        }
+<script type="text/javascript">
+    var $td;
+    var twist = $('#data_date_selected').val();
+    var c_data_date = "?date=" + moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
+    tabledata = [];
+    var temp = [];
+    cap = [];
+    mpxd.getJSONData("GetTestingData" + c_data_date + "", function (result) {
+        if (result.length > 0) {
+            for (var i in result) {
+                temp.push([(result[i]['train_no'] == null ? '-' : result[i]['train_no']), (result[i]['Static_Total'] == null ? '-' : parseInt(result[i]['Static_Total'])), (result[i]['Static_Pass'] == null ? '-' : parseInt(result[i]['Static_Pass'])), (result[i]['Static_Incomplete'] == null ? '-' : parseInt(result[i]['Static_Incomplete'])), (result[i]['Static_Fail'] == null ? '-' : parseInt(result[i]['Static_Fail'])), (result[i]['Dynamic_Total'] == null ? '-' : parseInt(result[i]['Dynamic_Total'])), (result[i]['Dynamic_Pass'] == null ? '-' : parseInt(result[i]['Dynamic_Pass'])), (result[i]['Dynamic_Incomplete'] == null ? '-' : parseInt(result[i]['Dynamic_Incomplete'])), (result[i]['Dynamic_Fail'] == null ? '-' : parseInt(result[i]['Dynamic_Fail'])), (result[i]['SAT_Total'] == null ? '-' : parseInt(result[i]['SAT_Total'])), (result[i]['SAT_Incomplete'] == null ? '-' : parseInt(result[i]['SAT_Incomplete'])), (result[i]['SAT_Fail'] == null ? '-' : parseInt(result[i]['SAT_Fail'])), (result[i]['IT_Incomplete'] == null ? '-' : parseInt(result[i]['IT_Incomplete'])), (result[i]['IT_Total'] == null ? '-' : parseInt(result[i]['IT_Total'])), (result[i]['SAT_Pass'] == null ? '-' : parseInt(result[i]['SAT_Pass'])), (result[i]['IT_Fail'] == null ? '-' : parseInt(result[i]['IT_Fail'])), (result[i]['SIT_Pass'] == null ? '-' : parseInt(result[i]['SIT_Pass'])), (result[i]['SIT_Total'] == null ? '-' : parseInt(result[i]['SIT_Total'])), (result[i]['SIT_Incomplete'] == null ? '-' : parseInt(result[i]['SIT_Incomplete'])), (result[i]['SIT_Fail'] == null ? '-' : parseInt(result[i]['SIT_Fail'])), (result[i]['IT_Pass'] == null ? '-' : parseInt(result[i]['IT_Pass']))]);
+            }
 
-        tabledata= temp;
-        var tn="";
-        for(i=0;i< tabledata.length;i++ )
-        {
-            tn = tn + '<tr><td>' + tabledata[i] + '</td></tr>';
-            tn = tn.trim();
-            tn = tn.replace(/,/g, "</td><td>");
-        }
+            tabledata = temp;
+            var tn = "";
+            for (i = 0; i < tabledata.length; i++) {
+                tn = tn + '<tr><td>' + tabledata[i] + '</td></tr>';
+                tn = tn.trim();
+                tn = tn.replace(/,/g, "</td><td>");
+            }
 //    console.log('Bingo');
 //    console.log(tn);
-        $("#testing_report").append(tn);
+            $("#testing_report").append(tn);
+            var getPercent = function (totalIndex, passIndex) {
+                var totalArray = _.map(tabledata, function (p) {
+                    return p[totalIndex];
+                });
+                var passArray = _.map(tabledata, function (p) {
+                    return p[passIndex];
+                });
 
+                <!--Modified By Sebin-->
+                var total = _.reduce(totalArray, function (memo, num) {
+                    return ((isNaN(memo)) ? 0 : memo) + ((isNaN(num)) ? 0 : num);
+                });
+                var pass = _.reduce(passArray, function (memo, num) {
+                    return ((isNaN(memo)) ? 0 : memo) + ((isNaN(num)) ? 0 : num);
+                });
+                return (isNaN(parseFloat((pass / total) * 100).toFixed(0)) ? 0 : parseFloat((pass / total) * 100).toFixed(0));
+            }
 
+            var statictest = getPercent(1, 2);
+            var dynamictest = getPercent(5, 6);
+            var mainlinetest = getPercent(9, 10);
+            var sit = getPercent(13, 14);
 
-        var getPercent = function(totalIndex, passIndex) {
-            var totalArray = _.map(tabledata, function(p){ return p[totalIndex];});
-            var passArray = _.map(tabledata, function(p){ return p[passIndex];});
-
-            <!--Modified By Sebin-->
-            var total = _.reduce(totalArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
-            var pass = _.reduce(passArray, function(memo, num) { return ((isNaN(memo))?0:memo) + ((isNaN(num))?0:num); });
-            return (isNaN(parseFloat((pass/total)*100).toFixed(0))?0:parseFloat((pass/total)*100).toFixed(0));
+            $td = "<td style=\"\">" + statictest + "%" + "</td> <td style=\"\">" + dynamictest + "%" + "</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" + sit + "%" + "</td>";
         }
-
-        var statictest = getPercent(1,2);
-        var dynamictest = getPercent(5,6);
-        var mainlinetest = getPercent(9,10);
-        var sit = getPercent(13,14);
-
-        var $td="<td style=\"\">"+statictest+"%"+"</td> <td style=\"\">"+dynamictest+"%"+"</td><td style=\"\">"+mainlinetest+"%"+"</td><td style=\"\">"+mainlinetest+"%"+"</td><td style=\"\">"+sit+"%"+"</td>";
+        else {
+            $td = "<td style=\"text-align: center;\" colspan='5'> No Data Available </td>";
+        }
         $("#st_data").append($td);
+
     });
 
 </script>
@@ -73,10 +86,12 @@ var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("Y
         </tbody>
     </table>
     <br/>
-    <a class="testing-report-link link" href="#modal_default_2" data-toggle="modal"><span>View Testing Report <i class="loadpage fa fa-link"></i></span></a>
+    <a class="testing-report-link link" href="#modal_default_2" data-toggle="modal"><span>View Testing Report <i
+            class="loadpage fa fa-link"></i></span></a>
 
     <!-- MODAL START -->
-    <div class="modal" id="modal_default_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal" id="modal_default_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" style="width:1400px">
             <div class="modal-content">
                 <div class="modal-header">
@@ -84,10 +99,11 @@ var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("Y
                     <h4 class="modal-title">Testing - Completion Percentage of 58 Trains</h4>
                 </div>
                 <div class="modal-body clearfix">
-                    <table class="table table-bordered table-condensed table-hover" style="text-align: center" id="testing_report">
+                    <table class="table table-bordered table-condensed table-hover" style="text-align: center"
+                           id="testing_report">
                         <thead>
                         <tr>
-                            <th rowspan="2">Train Num.</th>
+                            <th rowspan="2">Train No.</th>
                             <th colspan="4" style="color: #ffd461;">Static Test</th>
                             <th colspan="4" style="color: #ffd461;">Dynamic Test</th>
                             <th colspan="4" style="color: #ffd461;">SAT</th>
