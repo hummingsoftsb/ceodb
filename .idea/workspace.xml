@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42da559d-7eea-40b8-a835-1e04078a8cc4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html" afterPath="$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/dashboard_model.php" afterPath="$PROJECT_DIR$/application/models/dashboard_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mpxd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,40 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sys_train_head_progress.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#h4#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.23077" vertical-offset="18904" max-vertical-offset="19958">
-              <caret line="1146" column="50" selection-start-line="1146" selection-start-column="50" selection-end-line="1146" selection-end-column="50" />
-              <folding>
-                <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-                <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ilyas.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/ilyas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2724" max-vertical-offset="56440">
-              <caret line="1181" column="14" selection-start-line="1181" selection-start-column="14" selection-end-line="1181" selection-end-column="14" />
+            <state vertical-scroll-proportion="-29.25" vertical-offset="10707" max-vertical-offset="56440">
+              <caret line="678" column="45" selection-start-line="678" selection-start-column="41" selection-end-line="678" selection-end-column="45" />
               <folding>
                 <marker date="1463028777642" expanded="false" signature="5455:5488" placeholder="..." />
                 <marker date="1463028777642" expanded="false" signature="7043:7054" placeholder="..." />
@@ -87,32 +59,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_train_manufacturing_testing.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
+      <file leaf-file-name="dashboard_model.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.75795454" vertical-offset="1738" max-vertical-offset="2618">
-              <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.32386363" vertical-offset="15661" max-vertical-offset="19958">
+              <caret line="938" column="94" selection-start-line="938" selection-start-column="94" selection-end-line="938" selection-end-column="94" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <marker date="1463030727553" expanded="true" signature="3975:3979" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4020:4024" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4065:4069" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4111:4115" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4157:4161" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4241:4264" placeholder="..." />
-                <marker date="1463030727553" expanded="true" signature="4243:4262" placeholder="..." />
+                <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+                <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
               </folding>
             </state>
           </provider>
@@ -136,9 +90,9 @@
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/assets/templates/sys_train_manufacturing_phase.html" />
         <option value="$PROJECT_DIR$/assets/templates/sys_train_head_progress.html" />
-        <option value="$PROJECT_DIR$/application/models/dashboard_model.php" />
         <option value="$PROJECT_DIR$/assets/js/ilyas.js" />
         <option value="$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html" />
+        <option value="$PROJECT_DIR$/application/models/dashboard_model.php" />
       </list>
     </option>
   </component>
@@ -236,7 +190,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mpxd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mpxd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mpxd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mpxd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -359,8 +349,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19941">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-            <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -445,8 +435,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19975">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-            <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -568,8 +558,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="14142" max-vertical-offset="14994">
           <caret line="860" column="46" selection-start-line="860" selection-start-column="46" selection-end-line="860" selection-end-column="46" />
           <folding>
-            <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-            <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -624,8 +614,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14637">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-            <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
@@ -750,20 +740,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
+    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.23077" vertical-offset="18904" max-vertical-offset="19958">
-          <caret line="1146" column="50" selection-start-line="1146" selection-start-column="50" selection-end-line="1146" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.45909092" vertical-offset="1738" max-vertical-offset="2618">
+          <caret line="126" column="41" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
           <folding>
-            <marker date="1463028362639" expanded="true" signature="45061:45507" placeholder="Select 'Trai..tbl_testing_completion..." />
-            <marker date="1463028362639" expanded="true" signature="45717:46035" placeholder="select a.\&quot;T..tbl_testing_completion..." />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463030727553" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_head_progress.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="1275">
+        <state vertical-scroll-proportion="0.74244124" vertical-offset="0" max-vertical-offset="1275">
           <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -777,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/ilyas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19503" max-vertical-offset="56440">
-          <caret line="1181" column="14" selection-start-line="1181" selection-start-column="14" selection-end-line="1181" selection-end-column="14" />
+        <state vertical-scroll-proportion="-29.25" vertical-offset="10707" max-vertical-offset="56440">
+          <caret line="678" column="45" selection-start-line="678" selection-start-column="41" selection-end-line="678" selection-end-column="45" />
           <folding>
             <marker date="1463028777642" expanded="false" signature="5455:5488" placeholder="..." />
             <marker date="1463028777642" expanded="false" signature="7043:7054" placeholder="..." />
@@ -804,31 +812,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/templates/sys_train_manufacturing_testing.html">
+    <entry file="file://$PROJECT_DIR$/application/models/dashboard_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.75795454" vertical-offset="1738" max-vertical-offset="2618">
-          <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.32386363" vertical-offset="15661" max-vertical-offset="19958">
+          <caret line="938" column="94" selection-start-line="938" selection-start-column="94" selection-end-line="938" selection-end-column="94" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#thead#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1463030727553" expanded="true" signature="3975:3979" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4020:4024" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4065:4069" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4111:4115" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4157:4161" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4241:4264" placeholder="..." />
-            <marker date="1463030727553" expanded="true" signature="4243:4262" placeholder="..." />
+            <marker date="1463034174884" expanded="true" signature="45088:45534" placeholder="Select 'Trai..tbl_testing_completion..." />
+            <marker date="1463034174884" expanded="true" signature="45744:46062" placeholder="select a.\&quot;T..tbl_testing_completion..." />
           </folding>
         </state>
       </provider>
