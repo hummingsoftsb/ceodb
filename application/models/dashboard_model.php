@@ -792,10 +792,9 @@ class Dashboard_model extends CI_Model
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
-    public function getBaselineM($data_date)
-    {
+    public function getBaselineM($data_date){
         $this->db->select('*');
-        $this->db->from('tbl_manufacturing_baseline_forecast');
+        $this->db->from('tbl_manf_baseline_forecast');
         $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
@@ -825,17 +824,17 @@ class Dashboard_model extends CI_Model
         $query = $this->db->get();
         $result1=$query->result_array();
 
-        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
+        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
         $this->db->from('tbl_SUBD_DT_CS');
         $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by('SUBD_MASTER_ID');
+        //$this->db->order_by('SUBD_MASTER_ID');
         $query = $this->db->get();
         $subd=$query->result_array();
 
-        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_DELIVERED');
+        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
         $this->db->from('tbl_KJD_DT_CS');
         $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by('KJD_MASTER_ID');
+        //$this->db->order_by('KJD_MASTER_ID');
         $query = $this->db->get();
         $kjd=$query->result_array();
 
@@ -945,7 +944,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
                                 "car"=>$subd_val['CAR1']
                             )
                         ),
@@ -955,7 +954,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
                                 "car"=>$subd_val['CAR2']
                             )
                         ),
@@ -965,7 +964,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
                                 "car"=>$subd_val['CAR3']
                             )
                         ),
@@ -975,7 +974,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $subd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
                                 "car"=>$subd_val['CAR4']
                             )
                         )
@@ -1040,7 +1039,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
                                 "car"=>$kjd_val['CAR1']
                             )
                         ),
@@ -1050,7 +1049,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
                                 "car"=>$kjd_val['CAR2']
                             )
                         ),
@@ -1060,7 +1059,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
                                 "car"=>$kjd_val['CAR3']
                             )
                         ),
@@ -1070,7 +1069,7 @@ class Dashboard_model extends CI_Model
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $kjd_val['H_MANUFACTURED'],
-                                "assembly"=>"Train " . $kjd_val['H_DELIVERED'],
+                                "assembly"=>"Train " . $kjd_val['H_ASSEMBLY'],
                                 "car"=>$kjd_val['CAR4']
                             )
                         )
