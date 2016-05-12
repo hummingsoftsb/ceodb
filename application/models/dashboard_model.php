@@ -812,7 +812,7 @@ class Dashboard_model extends CI_Model
             "kjd" => array()
         );
         $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
-        $this->db->from('tbl_puzhen_manufacure');
+        $this->db->from('tbl_puzhen_manufacture');
         $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
