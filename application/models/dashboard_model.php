@@ -877,22 +877,22 @@ class Dashboard_model extends CI_Model
                 "delivery"=>"",
                 "cars" => array(
                     $val1['CAR1_NO'] => array(
-                        "progress" =>($val['CAR1_PERC']==null)?0:$val['CAR1_PERC'],
+                        "progress" =>($val1['CAR1_PERC']==null)?0:$val1['CAR1_PERC'],
                         "rollout" => "",
                         "arrived" => ($val1['CAR1_ARRIVED']==null)?'':$val1['CAR1_ARRIVED']
                     ),
                     $val1['CAR2_NO'] => array(
-                        "progress" =>($val['CAR2_PERC']==null)?0:$val['CAR2_PERC'],
+                        "progress" =>($val1['CAR2_PERC']==null)?0:$val1['CAR2_PERC'],
                         "rollout" => "",
                         "arrived" => ($val1['CAR2_ARRIVED']==null)?'':$val1['CAR2_ARRIVED']
                     ),
                     $val1['CAR3_NO'] => array(
-                        "progress" =>($val['CAR3_PERC']==null)?0:$val['CAR3_PERC'],
+                        "progress" =>($val1['CAR3_PERC']==null)?0:$val1['CAR3_PERC'],
                         "rollout" => "",
                         "arrived" => ($val1['CAR3_ARRIVED']==null)?'':$val1['CAR3_ARRIVED']
                     ),
                     $val1['CAR4_NO'] => array(
-                        "progress" =>($val['CAR4_PERC']==null)?0:$val['CAR4_PERC'],
+                        "progress" =>($val1['CAR4_PERC']==null)?0:$val1['CAR4_PERC'],
                         "rollout" => "",
                         "arrived" => ($val1['CAR4_ARRIVED']==null)?'':$val1['CAR4_ARRIVED']
                     )
