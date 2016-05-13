@@ -831,12 +831,17 @@ class Dashboard_model extends CI_Model
         $query = $this->db->get();
         $result1=$query->result_array();
 
-        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
-        $this->db->from('tbl_SUBD_DT_CS');
-        $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by('TRAIN_FROM');
-        $query = $this->db->get();
-        $subd=$query->result_array();
+//        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
+//        $this->db->from('tbl_SUBD_DT_CS');
+//        $this->db->where_in("DATA_DATE",$data_date);
+//        $this->db->order_by('TRAIN_FROM');
+//        $query = $this->db->get();
+//        $subd=$query->result_array();
+
+        $sql = "Select \"TRAIN_FROM\",\"TRAIN_TO\",COALESCE(\"CAR1\",'1000') AS CAR1,COALESCE(\"CAR2\",'1001') AS CAR2,COALESCE(\"CAR3\",'1002') AS CAR3,COALESCE(\"CAR4\",'1003') AS CAR4,\"DATE_DELIVERED\",\"COMMENTS\",\"H_MANUFACTURED\",\"H_ASSEMBLY\" from \"tbl_SUBD_DT_CS\" WHERE \"DATA_DATE\"='$data_date' order by \"TRAIN_FROM\"";
+        //echo $sql;
+        $query = $this->db->query($sql);
+        $subd = $query->result_array();
 
         $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
         $this->db->from('tbl_KJD_DT_CS');
@@ -902,7 +907,7 @@ class Dashboard_model extends CI_Model
                     "delivery"=>$subd_val["DATE_DELIVERED"],
                     "testingcompleted"=>$subd_val['COMMENTS'],
                     "cars" => array(
-                        " ".$subd_val['CAR1'] => array(
+                        " ".$subd_val['car1'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
@@ -911,7 +916,7 @@ class Dashboard_model extends CI_Model
                                 "assembly"=>"",
                             )
                         ),
-                        " ".$subd_val['CAR2'] => array(
+                        " ".$subd_val['car2'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
@@ -920,7 +925,7 @@ class Dashboard_model extends CI_Model
                                 "assembly"=>"",
                             )
                         ),
-                        " ".$subd_val['CAR3'] => array(
+                        " ".$subd_val['car3'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
@@ -929,7 +934,7 @@ class Dashboard_model extends CI_Model
                                 "assembly"=>"",
                             )
                         ),
-                        " ".$subd_val['CAR4'] => array(
+                        " ".$subd_val['car4'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
@@ -946,44 +951,44 @@ class Dashboard_model extends CI_Model
                     "delivery"=>$subd_val["DATE_DELIVERED"],
                     "testingcompleted"=>($subd_val['COMMENTS']==null)?'':$subd_val['COMMENTS'],
                     "cars" => array(
-                        " ".$subd_val['CAR1'] => array(
+                        " ".$subd_val['car1'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
                                 "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
-                                "car"=>$subd_val['CAR1']
+                                "car"=>$subd_val['car1']
                             )
                         ),
-                        " ".$subd_val['CAR2'] => array(
+                        " ".$subd_val['car2'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
                                 "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
-                                "car"=>$subd_val['CAR2']
+                                "car"=>$subd_val['car2']
                             )
                         ),
-                        " ".$subd_val['CAR3'] => array(
+                        " ".$subd_val['car3'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
                                 "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
-                                "car"=>$subd_val['CAR3']
+                                "car"=>$subd_val['car3']
                             )
                         ),
-                        " ".$subd_val['CAR4'] => array(
+                        " ".$subd_val['car4'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
                                 "manufacturing"=>"Train " . $subd_val['H_MANUFACTURED'],
                                 "assembly"=>"Train " . $subd_val['H_ASSEMBLY'],
-                                "car"=>$subd_val['CAR4']
+                                "car"=>$subd_val['car4']
                             )
                         )
 
@@ -992,64 +997,64 @@ class Dashboard_model extends CI_Model
             }
         }
         foreach($kjd as $key=> $kjd_val){
-            if($kjd_val["TRAIN_FROM"]!='' && $kjd_val["TRAIN_TO"]!=''){
-                $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']." - Train ". $kjd_val['TRAIN_TO']] = array(
-                    "delivery"=>$kjd_val["DATE_DELIVERED"],
-                    "testingcompleted"=>$kjd_val['COMMENTS'],
-                    "cars" => array(
-                        " ".$kjd_val['CAR1'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR2'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR3'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR4'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        )
-
+        if($kjd_val["TRAIN_FROM"]!='' && $kjd_val["TRAIN_TO"]!=''){
+            $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']." - Train ". $kjd_val['TRAIN_TO']] = array(
+                "delivery"=>$kjd_val["DATE_DELIVERED"],
+                "testingcompleted"=>$kjd_val['COMMENTS'],
+                "cars" => array(
+                    " ".$kjd_val['CAR1'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR2'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR3'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR4'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
                     )
-                );
-            }else {
-                $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']] = array(
-                    "delivery"=>$kjd_val["DATE_DELIVERED"],
-                    "testingcompleted"=>$kjd_val['COMMENTS'],
-                    "cars" => array(
-                        " ".$kjd_val['CAR1'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR2'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR3'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        ),
-                        " ".$kjd_val['CAR4'] => array(
-                            "progress" => "",
-                            "rollout" => "",
-                            "arrived" => ""
-                        )
 
+                )
+            );
+        }else {
+            $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']] = array(
+                "delivery"=>$kjd_val["DATE_DELIVERED"],
+                "testingcompleted"=>$kjd_val['COMMENTS'],
+                "cars" => array(
+                    " ".$kjd_val['CAR1'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR2'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR3'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
+                    ),
+                    " ".$kjd_val['CAR4'] => array(
+                        "progress" => "",
+                        "rollout" => "",
+                        "arrived" => ""
                     )
-                );
-            }
+
+                )
+            );
         }
+    }
         return $rel;
     }
 public function getOverallProgress($data_date){
