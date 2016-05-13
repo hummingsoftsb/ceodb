@@ -818,14 +818,14 @@ class Dashboard_model extends CI_Model
             "subd" => array(),
             "kjd" => array()
         );
-        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ROLL_OUT');
+        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ROLL_OUT,CAR2_ROLL_OUT,CAR3_ROLL_OUT,CAR4_ROLL_OUT');
         $this->db->from('tbl_puzhen_manufacture');
         $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
         $result=$query->result_array();
 
-        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,ARRIVED_DATE');
+        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ARRIVED,CAR2_ARRIVED,CAR3_ARRIVED,CAR4_ARRIVED');
         $this->db->from('tbl_SMH_Assmbly_Progress');
         $this->db->where_in("DATA_DATE",$data_date);
         $query = $this->db->get();
@@ -849,46 +849,47 @@ class Dashboard_model extends CI_Model
                 $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
                     "cars"=>array(
                         $val['CAR1_NO']=>array(
-                            "progress"=>$val['CAR1_PERC'],
-                            "rollout"=>$val['ROLL_OUT']
+                            "progress"=>($val['CAR1_PERC']==null)?0:$val['CAR1_PERC'],
+                            "rollout"=>($val['CAR1_ROLL_OUT']==null)?'':$val['CAR1_ROLL_OUT']
                         ),
                         $val['CAR2_NO']=>array(
-                            "progress"=>$val['CAR2_PERC'],
-                            "rollout"=>$val['ROLL_OUT']
+                            "progress"=>($val['CAR2_PERC']==null)?0:$val['CAR2_PERC'],
+                            "rollout"=>($val['CAR2_ROLL_OUT']==null)?'':$val['CAR2_ROLL_OUT']
                         ),
                         $val['CAR3_NO']=>array(
-                            "progress"=>$val['CAR3_PERC'],
-                            "rollout"=>$val['ROLL_OUT']
+                            "progress"=>($val['CAR3_PERC']==null)?0:$val['CAR3_PERC'],
+                            "rollout"=>($val['CAR3_ROLL_OUT']==null)?'':$val['CAR3_ROLL_OUT']
                         ),
                         $val['CAR4_NO']=>array(
-                            "progress"=>$val['CAR4_PERC'],
-                            "rollout"=>$val['ROLL_OUT']
+                            "progress"=>($val['CAR4_PERC']==null)?0:$val['CAR4_PERC'],
+                            "rollout"=>($val['CAR4_ROLL_OUT']==null)?'':$val['CAR4_ROLL_OUT']
                         )
                 )
             );
         }
         foreach ($result1 as $key => $val1) {
             $rel["assembly"]["Train " . $val1['TRAIN_NO']] = array(
+                "delivery"=>"",
                 "cars" => array(
                     $val1['CAR1_NO'] => array(
-                        "progress" => $val1['CAR1_PERC'],
+                        "progress" =>($val['CAR1_PERC']==null)?0:$val['CAR1_PERC'],
                         "rollout" => "",
-                        "arrived" => $val1['ARRIVED_DATE']
+                        "arrived" => ($val1['CAR1_ARRIVED']==null)?'':$val1['CAR1_ARRIVED']
                     ),
                     $val1['CAR2_NO'] => array(
-                        "progress" => $val1['CAR2_PERC'],
+                        "progress" =>($val['CAR2_PERC']==null)?0:$val['CAR2_PERC'],
                         "rollout" => "",
-                        "arrived" => $val1['ARRIVED_DATE']
+                        "arrived" => ($val1['CAR2_ARRIVED']==null)?'':$val1['CAR2_ARRIVED']
                     ),
                     $val1['CAR3_NO'] => array(
-                        "progress" => $val1['CAR3_PERC'],
+                        "progress" =>($val['CAR3_PERC']==null)?0:$val['CAR3_PERC'],
                         "rollout" => "",
-                        "arrived" => $val1['ARRIVED_DATE']
+                        "arrived" => ($val1['CAR3_ARRIVED']==null)?'':$val1['CAR3_ARRIVED']
                     ),
                     $val1['CAR4_NO'] => array(
-                        "progress" => $val1['CAR4_PERC'],
+                        "progress" =>($val['CAR4_PERC']==null)?0:$val['CAR4_PERC'],
                         "rollout" => "",
-                        "arrived" => $val1['ARRIVED_DATE']
+                        "arrived" => ($val1['CAR4_ARRIVED']==null)?'':$val1['CAR4_ARRIVED']
                     )
 
                 )

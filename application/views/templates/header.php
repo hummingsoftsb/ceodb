@@ -521,9 +521,8 @@
         .s_comments:hover .s_delete{
             display:-moz-inline-box;
             display: inline-block;
-        }
-        .s_comments:hover .s_delete i{
             float: right;
+
         }
     </style>
     <div id="loading_pad" class="loading_pad loading_pad_gohide">
