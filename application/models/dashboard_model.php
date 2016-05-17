@@ -1080,7 +1080,6 @@ public function getOverallProgress($data_date){
         $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
         $this->db->from('tbl_outstanding_item_progress');
         $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by('TARGET');
         $query = $this->db->get();
         $result=$query->result_array();
         $i=0;
