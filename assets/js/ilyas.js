@@ -967,10 +967,12 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        that.data.maxJobs = 2500;
+        that.data.maxJobs = 4000;
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
+            console.log("Sebin-Out");
+            console.log(result);
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 date_over.push((result[j]['OUT_DATE']));
@@ -1113,9 +1115,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         /*		for (var i = 1; i < 22; i++) {
          open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
          }*/
-        for (var i = 1; i < 30; i++) {
-            open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
-        }
         /*        var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
          var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];*/
         var open=[];
@@ -1124,6 +1123,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var openData = [];
         var closedData = [];
         mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
+            for (var i = 1; i <=result.length; i++) {
+                open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
+            }
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
                 openJobs.push(parseInt(result[j]['OPEN_JOBS']));
@@ -1163,7 +1165,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var closedJ=[];
         var openJ=[];
         var train=[];
-        mpxd.getJSONData("getCompleted", function (result) {
+        mpxd.getJSONData("getCompleted"+c_data_date+"", function (result) {
             //console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
