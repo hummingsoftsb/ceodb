@@ -1170,7 +1170,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var train=[];
         var trainData=[];
         var fullyResult=[];
-        var flg = 0;
+        var flag = 0;
         mpxd.getJSONData("getCompletedT"+c_data_date+"", function (result) {
             //console.log("train");
             //console.log(result);
