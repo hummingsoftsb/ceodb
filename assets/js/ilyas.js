@@ -971,8 +971,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
-            console.log("Sebin-Out");
-            console.log(result);
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
                 date_over.push((result[j]['OUT_DATE']));
