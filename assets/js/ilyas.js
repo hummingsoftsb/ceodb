@@ -1163,37 +1163,48 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var closedJ=[];
         var openJ=[];
         var train=[];
-        mpxd.getJSONData("getCompleted"+c_data_date+"", function (result) {
-            //console.log(result);
+        var trainData=[];
+        var fullyResult=[];
+        mpxd.getJSONData("getCompletedT"+c_data_date+"", function (result) {
+            console.log("train");
+            console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
             for (var j in fullyResult ) {
-                train.push(parseInt(result[j]['TRAIN_NO']));
                 openJ.push(parseInt(result[j]['OPEN_JOBS']));
                 closedJ.push(parseInt(result[j]['CLOSED_JOBS']));
+                trainData.push(parseInt(result[j]['TRAIN_NUMBER']));
+                train.push(parseInt(result[j]['TRAIN_NO']));
             }
+            /*console("train");
+            console(train);
+            console("trainData");
+            console(trainData);*/
             var td="";
             var actual=((closedJ.length/58)*100).toFixed(2);
             if(actual==0 || actual==100)
                 var actual=((closedJ.length/58)*100);
-            for (var i = 0; i < closedJ.length; i++) {
-                var total = openJ[i]+closedJ[i];
-                var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
-                if(closedPercent<100){
-                    temp.push(train[i]);
-                    td+="<tr><td>Train "+ train[i]+"</td></tr>";
-                }
-                else{
-                    $('#id_tabHed').text("No Trains Completed Yet");
+                for(var j = 0; j < trainData.length; j++){
+                    for (var i = 0; i < train.length; i++) {
+                        var total = openJ[i]+closedJ[i];
+                        var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
+                        if((closedPercent==100) && (trainData[j]==train[i]) ){
+                            temp.push(trainData[j]);
+                            td+="<tr><td>Train "+ trainData[j]+"</td></tr>";
+                        }
+                        else{
+                            $('#id_tabHed').text("No Trains Completed Yet");
+                        }
+
+                    }
                 }
 
-             }
             if(closedJ.length==0){
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
          $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
-           var perc = (actual+"%");
-            $('#id_actual').text(actual+"%");
+           var perc = (temp.length/58)*100;
+            $('#id_actual').text(perc+"%");
             $('#id_fullyTable').append(td);
 
             //Train head percemntage fillng logic : start
@@ -1209,6 +1220,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 
             });
         });
+
         //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
         //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
 

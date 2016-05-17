@@ -613,9 +613,10 @@ class Dashboard extends CI_Controller {
             $this->load->view('dashboard/api', $data);
         }
 
-    public function fullyCompleted(){
+    public function fullyCompletedTrain(){
         if ($this->input->get()) {
-            $result = $this->dashboard_model->getFullyCompletedData();
+            $data_date=$this->input->get("date");
+            $result = $this->dashboard_model->getFullyCompletedTrain($data_date);
             if ($result) {
                 $data['status'] = "success";
                 $data['item'] = $result;
@@ -628,4 +629,5 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
+
 }
