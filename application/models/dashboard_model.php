@@ -1130,7 +1130,7 @@ public function getOverallProgress($data_date){
     public function getFullyCompletedTrain($data_date)
     {
         $outFully=array();
-        $sql = "select \"TRAIN_NO\"from tbl_testing_completion where \"Static_Total\"=\"Static_Pass\" and \"Dynamic_Total\"=\"Dynamic_Pass\" and \"SAT_Total\"=\"SAT_Pass\" and \"SIT_Pass\"=\"SIT_Total\" and \"IT_Total\"=\"IT_Pass\" and \"TRAIN_NO\" in(select \"TRAIN_NO\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 and \"OPEN_JOBS\" !=0 order by \"TRAIN_NO\")and \"DATA_DATE\" = '$data_date'";
+        $sql = "select \"TRAIN_NO\"from tbl_testing_completion where \"Static_Total\"=\"Static_Pass\" and \"Dynamic_Total\"=\"Dynamic_Pass\" and \"SAT_Total\"=\"SAT_Pass\" and \"SIT_Total\" = \"SIT_Pass\" and \"IT_Total\"=\"IT_Pass\" and \"TRAIN_NO\" in(select \"TRAIN_NO\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 order by \"TRAIN_NO\")and \"DATA_DATE\" = '$data_date'";
         $query = $this->db->query($sql);
         $final = $query->result_array();
         $i=0;
@@ -1138,7 +1138,7 @@ public function getOverallProgress($data_date){
             $outFully[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
             $i++;
         }
-        $trainData = "select \"TRAIN_NO\",\"OPEN_JOBS\",\"CLOSED_JOBS\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 and \"OPEN_JOBS\" !=0 order by \"TRAIN_NO\"";
+        $trainData = "select \"TRAIN_NO\",\"OPEN_JOBS\",\"CLOSED_JOBS\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 order by \"TRAIN_NO\"";
         $query = $this->db->query($trainData);
         $finalData = $query->result_array();
         $j=0;

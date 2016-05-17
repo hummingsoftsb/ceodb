@@ -1170,9 +1170,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var train=[];
         var trainData=[];
         var fullyResult=[];
+        var flg = 0;
         mpxd.getJSONData("getCompletedT"+c_data_date+"", function (result) {
-            console.log("train");
-            console.log(result);
+            //console.log("train");
+            //console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
             for (var j in fullyResult ) {
@@ -1181,10 +1182,14 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 trainData.push(parseInt(result[j]['TRAIN_NUMBER']));
                 train.push(parseInt(result[j]['TRAIN_NO']));
             }
-            /*console("train");
-            console(train);
-            console("trainData");
-            console(trainData);*/
+            //console.log("Open");
+            //console.log(openJ);
+            //console.log("Closed");
+            //console.log(closedJ);
+            //console.log("Train_Data");
+            //console.log(trainData);
+            //console.log("Train");
+            //console.log(train);
             var td="";
             var actual=((closedJ.length/58)*100).toFixed(2);
             if(actual==0 || actual==100)
@@ -1193,27 +1198,31 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     for (var i = 0; i < train.length; i++) {
                         var total = openJ[i]+closedJ[i];
                         var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
+                        //alert('maverick');
                         if((closedPercent==100) && (trainData[j]==train[i]) ){
+                            flag =1;
+                            //alert('CJ '+closedPercent);
                             temp.push(trainData[j]);
                             td+="<tr><td>Train "+ trainData[j]+"</td></tr>";
                         }
                         else{
-                            $('#id_tabHed').text("No Trains Completed Yet");
                         }
 
                     }
                 }
 
+            if(flag == 0)
+            {
+                $('#id_tabHed').text("No Trains Completed Yet");
+            }
             if(closedJ.length==0){
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
          $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
-           var perc = (temp.length/58)*100;
-            $('#id_actual').text(perc+"%");
+           var perc = ((temp.length/58)*100).toFixed(2)+"%";
+            $('#id_actual').text(perc);
             $('#id_fullyTable').append(td);
-
             //Train head percemntage fillng logic : start
-
             d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) {
                 if (error) throw error
                 document.getElementById('train_progress_container').appendChild(xml.documentElement);
