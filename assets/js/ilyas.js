@@ -967,15 +967,19 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        that.data.maxJobs = 4000;
+        //Static Needs Change
+        that.data.maxJobs = 10000;
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
             outstanding=(JSON.parse(JSON.stringify(result)));
             for (var j in outstanding ) {
-                date_over.push((result[j]['OUT_DATE']));
+               date_over.push((result[j]['OUT_DATE']));
                 j=j+2;
             }
+            //for(var i=0;i<result.length; i++){
+            //        that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
+            //}
         });
         var generic = {
             title: {
@@ -1079,7 +1083,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     var originalOpen = seriesOpen['data'][index]['original'];
                     var originalClosed = seriesClosed['data'][index]['original'];
 
-                    var html = '<b>'+this.x+'</b><br>';
+                    var html = '<b>Train:'+this.x+'</b><br>';
                     html += '<span style="color:'+seriesOpen.color+'">'+seriesOpen.name+'</span>: <b>'+originalOpen+'</b> ('+percentOpen+'%)<br/>';
                     html += '<span style="color:'+seriesClosed.color+'">'+seriesClosed.name+'</span>: <b>'+originalClosed+'</b> ('+percentClosed+'%)<br/>';
                     return html;
@@ -1125,9 +1129,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var openData = [];
         var closedData = [];
         mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
-            for (var i = 1; i <=result.length; i++) {
+            for (var i = 0; i <result.length; i++) {
                 //open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
-                open_item['xAxis']['categories'].push(((i < 10) ? '0' : '') + i);
+                open_item['xAxis']['categories'].push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
             }
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
@@ -1195,16 +1199,17 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             if(actual==0 || actual==100){
                 var actual=((closedJ.length/58)*100);
             }
-                for(var j = 0; j < trainData.length; j++){
-                    for (var i = 0; i < train.length; i++) {
+                for(var j = 0; j < train.length; j++){
+                    for (var i = 0; i < trainData.length; i++) {
+
                         var total = openJ[i]+closedJ[i];
                         var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
                         //alert('maverick');
-                        if((closedPercent==100) && (trainData[j]==train[i]) ){
+                        if((closedPercent==100) && (trainData[i]==train[j]) ){
                             flag =1;
                             //alert('CJ '+closedPercent);
-                            temp.push(trainData[j]);
-                            td+="<tr><td>Train "+ trainData[j]+"</td></tr>";
+                            temp.push(trainData[i]);
+                            td+="<tr><td>Train "+ trainData[i]+"</td></tr>";
                         }
                         else{
                         }
