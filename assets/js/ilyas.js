@@ -1155,10 +1155,12 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             });
             that.$el.find('.progress-chart-2').highcharts(open_item);
         });
+
+        alert();
         var closedJ=[];
         var openJ=[];
         var train=[];
-        mpxd.getJSONData("getCompleted", function (result) {
+        mpxd.getJSONData("getCompleted"+c_data_date+"", function (result) {
             //console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
