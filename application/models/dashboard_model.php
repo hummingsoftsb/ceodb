@@ -1127,7 +1127,7 @@ public function getOverallProgress($data_date){
         return $final;
     }
 
-    public function getFullyCompletedData($data_date)
+    public function getFullyCompletedData()
     {
         $outFully=array();
         $sql = "select a.\"TRAIN_NO\",b.\"OPEN_JOBS\",b.\"CLOSED_JOBS\" from tbl_testing_completion a  join tbl_overall_progress b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" where \"Static_Total\"=\"Static_Pass\" and \"Dynamic_Total\"=\"Dynamic_Pass\" and \"SAT_Total\"=\"SAT_Pass\" and \"SIT_Pass\"=\"SIT_Total\" and \"IT_Total\"=\"IT_Pass\"";

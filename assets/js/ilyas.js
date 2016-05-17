@@ -1160,8 +1160,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             });
             that.$el.find('.progress-chart-2').highcharts(open_item);
         });
-
-        alert();
         var closedJ=[];
         var openJ=[];
         var train=[];
