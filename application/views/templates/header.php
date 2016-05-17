@@ -515,6 +515,15 @@
     	.loading_pad_gohide{
     		display: none;
     	}
+        .s_delete{
+            display: none;
+        }
+        .s_comments:hover .s_delete{
+            display:-moz-inline-box;
+            display: inline-block;
+            float: right;
+
+        }
     </style>
     <div id="loading_pad" class="loading_pad loading_pad_gohide">
     	<span>

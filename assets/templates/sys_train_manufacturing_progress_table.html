@@ -172,6 +172,7 @@
     <!---->
 	<script>
         $(function(){
+            var $assemblyContainer = $('.assembly-container');
             $('#cmntonTrain').click(function(){
                 var $f,$m=0;
                 var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
@@ -187,39 +188,104 @@
                     }
                     if(($f+$m)>1) {
                         mpxd.getJSONData("addComment/get?train_no=" + $('#mpxd_train_no').val() + "&comments=" + $('#mpxd_train_no_comment').val(), function (result) {
-                            if (result == 1) {
+                            if(result==1){
                                 $("#modal_comment").modal('hide');
-                                $row = "<tr><td>" + $('#mpxd_train_no').val() + "</td><td>" + $('#mpxd_train_no_comment').val() + "</td></tr>";
-                                $n_tab="<table id=\"dataTab\" class=\"table table-condensed table-hover\"><thead><tr><td>Train Num.</td><td>Comments</td></tr></thead><tbody><tr><td>"+$('#mpxd_train_no').val()+"</td><td>"+$('#mpxd_train_no_comment').val()+"</td></tr></tbody></table>";
-//                                if($(".comment-container").children('#dataTab_wrapper').children('.table').length){
-//                                    $(".comment-container").children('#dataTab_wrapper').children('.table').children('tbody').prepend($row);
-                                if($(".comment-container").children('.table').length){
-                                    $(".comment-container").children('.table').children('tbody').prepend($row);
-                                }else{
-                                    $(".comment-container").append($n_tab);
-//                                    $("#dataTab").DataTable({
-//                                        pagingType: "simple",
-//                                        language: {
-//                                            paginate: {'next': 'Next &rarr;', 'previous': '&larr; Prev'}
-//                                        },
-//                                        bFilter: false,
-//                                        pageLength: 5
-//
-//                                    });
-                                }
-
-//                                $('#modal_default_3').animate({
-//                                    scrollTop: $(".comment-container").offset().top
-//                                }, 2000);
-//                                $('.comment-container').scrollTop(0);
+                                refreshTable();
                                 $('#mpxd_train_no').val('');
                                 $('#mpxd_train_no_comment').val('');
                             }
+//                            if (result == 1) {
+//                                $("#modal_comment").modal('hide');
+//                                $row = "<tr><td>" + $('#mpxd_train_no').val() + "</td><td>" + $('#mpxd_train_no_comment').val() + "</td></tr>";
+//                                $n_tab="<table id=\"dataTab\" class=\"table table-bordered table-condensed table-hover\"><thead><tr><td>Train Num.</td><td>Comments</td></tr></thead><tbody><tr><td>"+$('#mpxd_train_no').val()+"</td><td>"+$('#mpxd_train_no_comment').val()+"</td></tr></tbody></table>";
+////                                if($(".comment-container").children('#dataTab_wrapper').children('.table').length){
+////                                    $(".comment-container").children('#dataTab_wrapper').children('.table').children('tbody').prepend($row);
+//                                if($(".comment-container").children('.table').length){
+//                                    $(".comment-container").children('.table').children('tbody').prepend($row);
+//                                }else{
+//                                    $(".comment-container").append($n_tab);
+////                                    $("#dataTab").DataTable({
+////                                        pagingType: "simple",
+////                                        language: {
+////                                            paginate: {'next': 'Next &rarr;', 'previous': '&larr; Prev'}
+////                                        },
+////                                        bFilter: false,
+////                                        pageLength: 5
+////
+////                                    });
+//                                }
+//
+////                                $('#modal_default_3').animate({
+////                                    scrollTop: $(".comment-container").offset().top
+////                                }, 2000);
+////                                $('.comment-container').scrollTop(0);
+//                                $('#mpxd_train_no').val('');
+//                                $('#mpxd_train_no_comment').val('');
+//                            }
                         });
                     }
 
             });
-//           s
+            var generateDataTable = function(data) {
+                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+                var $thead = $('<thead>');
+                var $tbody = $('<tbody>');
+
+                var $tr = $('<tr>');
+                for (var i = 0; i < data[0].length; i++) {
+                    var $td = $('<th style="color: #ffd461;text-align: center;">');
+                    $td.html(data[0][i]);
+                    $tr.append($td);
+                }
+                $thead.append($tr);
+
+                // Start from 1 since the first is for header
+                for (var i = 1; i < data.length; i++) {
+                    var $tr = $('<tr class="s_comments">');
+                    for (var j = 0; j < (data[i].length)-1; j++) {
+                        var d = data[i][j+1];
+                        var $td = $('<td>');
+                        var $span=$('<span>');
+                        $span.html(d);
+                        $td.append($span);
+                        if(((j+1)%2)==0) {
+                            $td.append('<a data-value="'+data[i][j-1]+'" class="s_delete" href="javascript:void(0);"><i style="padding-left: 10px;color: #ffd461;" class="fa fa-trash-o pull-right">');
+                        }
+                        $tr.append($td);
+                    }
+                    $tbody.append($tr);
+                }
+
+                $table.append($thead);
+                $table.append($tbody);
+                return $table;
+            }
+            var refreshTable=function(){
+                mpxd.getJSONData("fetchComment", function(result){
+                    if(result.length>0) {
+                        var comments = [];
+                        comments.push(["Train Num.", "Comments"]);
+                        $.each(result, function (idx, i) {
+                            comments.push([i['id'],i['train_no'], i['comments']]);
+                        });
+                        var $comment = generateDataTable(comments);
+                        $assemblyContainer.find('.comment-container').html('').append($comment);
+                    }else{
+                        $assemblyContainer.find('.comment-container').html('');
+                    }
+                });
+            }
+            $(document).on('click', '.s_delete' , function() {
+                if (confirm("Delete Comment?")) {
+                    var $j = $(this).attr("data-value");
+                    mpxd.getJSONData('rComment?skj=' + $j, function (data) {
+                        if (data) {
+                            refreshTable();
+                        }
+                    });
+                }
+            });
+
         });
 	</script>
 
