@@ -1083,7 +1083,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     var originalOpen = seriesOpen['data'][index]['original'];
                     var originalClosed = seriesClosed['data'][index]['original'];
 
-                    var html = '<b>Train:'+this.x+'</b><br>';
+                    var html = '<b>Train: '+this.x+'</b><br>';
                     html += '<span style="color:'+seriesOpen.color+'">'+seriesOpen.name+'</span>: <b>'+originalOpen+'</b> ('+percentOpen+'%)<br/>';
                     html += '<span style="color:'+seriesClosed.color+'">'+seriesClosed.name+'</span>: <b>'+originalClosed+'</b> ('+percentClosed+'%)<br/>';
                     return html;
@@ -1181,10 +1181,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
             for (var j in fullyResult ) {
-                openJ.push(parseInt(result[j]['OPEN_JOBS']));
-                closedJ.push(parseInt(result[j]['CLOSED_JOBS']));
-                trainData.push(parseInt(result[j]['TRAIN_NUMBER']));
-                train.push(parseInt(result[j]['TRAIN_NO']));
+                openJ.push(parseInt(result[j]['OPEN_JOBS'])); // values
+                closedJ.push(parseInt(result[j]['CLOSED_JOBS'])); // values
+                trainData.push(parseInt(result[j]['TRAIN_NUMBER']));// all data
+                train.push(parseInt(result[j]['TRAIN_NO'])); // condition statisfied data
             }
             //console.log("Open");
             //console.log(openJ);
@@ -1195,13 +1195,12 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             //console.log("Train");
             //console.log(train);
             var td="";
-            var actual=((closedJ.length/58)*100).toFixed(2);
-            if(actual==0 || actual==100){
-                var actual=((closedJ.length/58)*100);
+            var actual=((closedJ.length/58)*100).toFixed(2); // no of fully completed perc
+            if(actual==0 || actual==100){ // to trim trim decimal places for zero and 100
+                actual=((closedJ.length/58)*100);
             }
                 for(var j = 0; j < train.length; j++){
                     for (var i = 0; i < trainData.length; i++) {
-
                         var total = openJ[i]+closedJ[i];
                         var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
                         //alert('maverick');
@@ -1211,16 +1210,14 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                             temp.push(trainData[i]);
                             td+="<tr><td>Train "+ trainData[i]+"</td></tr>";
                         }
-                        else{
-                        }
-
                     }
                 }
 
-            if(flag == 0)
+            if(flag == 0) // to show if there is not completed trains
             {
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
+
          $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
            var perc = ((temp.length/58)*100).toFixed(2)+"%";
             $('#id_actual').text(perc);
@@ -1230,7 +1227,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 if (error) throw error
                 document.getElementById('train_progress_container').appendChild(xml.documentElement);
 
-                d3.select('#progress stop').attr('offset',perc+"%");
+                d3.select('#progress stop').attr('offset',perc);
                 <!--d3.select('#progress stop').attr('offset','60%');-->
 
                 //Train head percemntage fillng logic : end
