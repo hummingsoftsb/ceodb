@@ -1054,7 +1054,11 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             subtitle: {
                 text: 'Overall Open Item Closure'
             },
-            xAxis: {},
+            xAxis: {
+                title: {
+                    text: 'Train #'
+                }
+            },
             yAxis: {
                 min: 0,
                 max: 100,
@@ -1124,7 +1128,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var closedData = [];
         mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
             for (var i = 1; i <=result.length; i++) {
-                open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
+                //open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
+                open_item['xAxis']['categories'].push(((i < 10) ? '0' : '') + i);
             }
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
