@@ -1192,8 +1192,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             //console.log(train);
             var td="";
             var actual=((closedJ.length/58)*100).toFixed(2);
-            if(actual==0 || actual==100)
+            if(actual==0 || actual==100){
                 var actual=((closedJ.length/58)*100);
+            }
                 for(var j = 0; j < trainData.length; j++){
                     for (var i = 0; i < train.length; i++) {
                         var total = openJ[i]+closedJ[i];
@@ -1215,9 +1216,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             {
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
-            if(closedJ.length==0){
-                $('#id_tabHed').text("No Trains Completed Yet");
-            }
          $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
            var perc = ((temp.length/58)*100).toFixed(2)+"%";
             $('#id_actual').text(perc);
@@ -1227,7 +1225,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 if (error) throw error
                 document.getElementById('train_progress_container').appendChild(xml.documentElement);
 
-                d3.select('#progress stop').attr('offset',perc);
+                d3.select('#progress stop').attr('offset',perc+"%");
                 <!--d3.select('#progress stop').attr('offset','60%');-->
 
                 //Train head percemntage fillng logic : end
