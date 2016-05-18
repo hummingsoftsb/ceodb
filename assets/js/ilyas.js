@@ -114,7 +114,21 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
         var cookiename = 'sbk-s-01-mfg-progress';
 
         that.$el.html(template);
-        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+       //that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+       // that.$el.find('.train-container').mCustomScrollbar({
+       //     setHeight:1000,
+       //     theme: 'rounded'
+       // });
+
+        that.$el.find('.summersoft_scroll').slimScroll({
+            color: '#fff',
+            height: '700px',
+            alwaysVisible: true
+        });
+        //that.$el.find('.summersoft_container').slimScroll({
+        //    color: '#fff',
+        //    alwaysVisible: true
+        //});
 
 		/*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
 		  if (error) throw error;
@@ -328,7 +342,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 			}
 
             var generateDataTable = function(data) {
-                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover summersoft_container');
                 var $thead = $('<thead>');
                 var $tbody = $('<tbody>');
 
