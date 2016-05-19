@@ -119,12 +119,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
        //     setHeight:1000,
        //     theme: 'rounded'
        // });
-
-        that.$el.find('.summersoft_scroll').slimScroll({
-            color: '#fff',
-            height: '700px',
-            alwaysVisible: true
-        });
+            that.$el.find('.summersoft_scroll').slimScroll({
+                color: '#fff',
+                height: '700px',
+                alwaysVisible: true
+            });
         //that.$el.find('.summersoft_container').slimScroll({
         //    color: '#fff',
         //    alwaysVisible: true
@@ -532,7 +531,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     });
                 });
                 $assemblyContainer.find('.train-container').html('').append(renderTrainDom(newdata));
-
                 //var $table = generateTable([
                 //	["Train Num.", "Target Delivery", "Status"],
                 //	["24", "22/12/15", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
