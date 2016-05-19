@@ -1132,6 +1132,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         };
 
         open_item['xAxis']['categories'] = [];
+        var xAxis = [];
         /*		for (var i = 1; i < 22; i++) {
          open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
          }*/
@@ -1146,6 +1147,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             for (var i = 0; i <result.length; i++) {
                 //open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
                 open_item['xAxis']['categories'].push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
+                xAxis.push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
             }
             open=(JSON.parse(JSON.stringify(result)));
             for (var j in open ) {
@@ -1181,7 +1183,76 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 name: 'Closed Jobs',
                 data: closedData
             });
-            that.$el.find('.progress-chart-2').highcharts(open_item);
+            //that.$el.find('.progress-chart-2').highcharts(open_item);
+
+            //modified by agaile on 19/05/2016
+             //Start Here
+            that.$el.find('.progress-chart-2').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title:{
+                    text:''
+                },
+                subtitle: {
+                    text: 'Overall Progress Per Train'
+                },
+                xAxis: {
+                    categories: xAxis,
+                    title: {
+                        text: 'Train #'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    max:100,
+                    title: {
+                        text: 'Number of Jobs(%)'
+                    },
+                    stackLabels: {
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'white'
+                        }
+                    }
+                },
+                legend: {
+                    align: 'right',
+                    x: -0,
+                    verticalAlign: 'top',
+                    y: 0,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                tooltip: {
+                    headerFormat: '<b>Train {point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}'
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: false,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                            style: {
+                                textShadow: '0 0 3px grey'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Open Jobs',
+                    data: openData
+                }, {
+                    name: 'Closed Jobs',
+                    data: closedData
+                }]
+            });
+
+            //End Here
         });
         var closedJ=[];
         var openJ=[];
