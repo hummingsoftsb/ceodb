@@ -1190,8 +1190,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var fullyResult=[];
         var flag = 0;
         mpxd.getJSONData("getCompletedT"+c_data_date+"", function (result) {
-            //console.log("train");
-            //console.log(result);
             var temp=[];
             fullyResult=(JSON.parse(JSON.stringify(result)));
             for (var j in fullyResult ) {
@@ -1200,14 +1198,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 trainData.push(parseInt(result[j]['TRAIN_NUMBER']));// all data
                 train.push(parseInt(result[j]['TRAIN_NO'])); // condition statisfied data
             }
-            //console.log("Open");
-            //console.log(openJ);
-            //console.log("Closed");
-            //console.log(closedJ);
-            //console.log("Train_Data");
-            //console.log(trainData);
-            //console.log("Train");
-            //console.log(train);
             var td="";
             var actual=((closedJ.length/58)*100).toFixed(2); // no of fully completed perc
             if(actual==0 || actual==100){ // to trim trim decimal places for zero and 100
