@@ -44,7 +44,7 @@
 	%>
 	
 	 <tr style="text-align: center">
-		<td rowspan="2"><%=data.data[i][0]%></td>
+		<td rowspan="3"><%=data.data[i][0]%></td>
          <!--Modified by Sebin-->
          <td colspan="2"><h2 data-value="<%=satleft %>" class="numbers excel-d2 <%=((satleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((satleft)/7)%> Weeks" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%> "><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>
 		<td colspan="2"><h2 class="numbers excel-d2 <%=((sitleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((sitleft)/7)%> Weeks" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>" ><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>
@@ -59,6 +59,14 @@
 		<td style="color: #ffd461">Start Date</td>
 		<td><%=data.data[i][3]%></td>
 	</tr>
+        <tr style="text-align: center">
+            <td style="color: #ffd461">Variance</td>
+            <td style="color: <%=((satleft < 1)?'#ff3333':'#ffd461')%>;font-weight: 600"><%=((satleft < 1)?(Math.floor(satleft/7)+" w"):'-')%></td>
+            <td style="color: #ffd461">Variance</td>
+            <td style="color: <%=((sitleft < 1)?'#ff3333':'#ffd461')%>;font-weight: 600"><%=((sitleft < 1)?(Math.floor(sitleft/7)+" w"):'-')%></td>
+            <td style="color: #ffd461">Variance</td>
+            <td style="color: <%=((trialleft < 1)?'#ff3333':'#ffd461')%>;font-weight: 600"><%=((trialleft < 1)?(Math.floor(trialleft/7)+" w"):'-')%></td>
+        </tr>
 		
 	<%}}%>
 	</table>

@@ -167,7 +167,8 @@
 		<script src="<?php echo $this->config->base_url(); ?>assets/js/leaflet-knn.js"></script>
 		<script src="<?php echo $this->config->base_url(); ?>assets/js/jquery.panzoom.min.js"></script>
 		<script src="<?php echo $this->config->base_url(); ?>assets/js/js.cookie-2.1.0.min.js"></script>
-		
+        <!-- slim scroll -->
+        <script src="<?php echo $this->config->base_url(); ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 		<!-- Moment js for dates-->
 <!--		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>-->
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/moment/moment.min.js"></script>

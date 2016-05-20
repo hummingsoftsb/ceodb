@@ -434,122 +434,31 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     $('#subd_number_of_trains').text('Total: ' + subdnumber);
                     $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
                 });
-            var getColor=function(f,r,p){
-                var carcolor='';
-                var pr;
-                var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
-                //alert(date1);
-                var date = new Date();
-                var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
-
-                var today = cdate;
-                today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                var f_date = date1;
-                var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    if(DaysDiff>0)
-                    {
-                        if((r!='')&&(r !='undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#f06';//red
-                        }
-                    }
-                    else if(DaysDiff==NaN)
-                    {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
-
-                        }
-                    }
-                    else
-                    {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
-
-                        }
-                    }
-               /* if(t!=0)
-                {
-                    if (carcolor== '#f06') {
-                        carcolor = '#f06';
-                       // flag = 1;
-                    }
-                    else if (carcolor == '#fe0') {
-                        carcolor = '#fe0';
-                       // flag = 2;
-                    }
-                    else {
-                        carcolor = '#0f9';
-                    }
-                }*/
-                return carcolor;
-            }
             var renderManufacturing = function(data) {
                 var newdata = [];
-                var color=[];
-                var flag=0;
-                var totalCarsProgress;
-                var trainProgress;
                 $.each(data, function(idx, i) {
-                      totalCarsProgress = _.reduce($.map(i['cars'], function (v, j) {
-                            return parseFloat(v['progress']);
-                        }), function (m, v) {
-                            return m + v
-                        });
-                       trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                            //color = (trainProgress < 100) ? '#fe0' : '#0f9';
-                            color=$.map(i['cars'], function (val, jdx) {
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                                    return getColor(val['foreDate'], val['rollout'],trainProgress);
-                                }
-                            });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
-                    }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
-                    }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
-                    }
-                        newdata.push({
-                            'name': idx,
-                            'toptext': '',
-                            'progress': trainProgress + '%',
-                            'color':color,
-                            'cars': $.map(i['cars'], function (val, jdx) {
-                                var carprogress = parseFloat(val['progress']).toFixed(0);
-                                //var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
-                                var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress + '%';
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != ''))
-                                {
-                                  var carcolor=getColor(val['foreDate'],val['rollout'],carprogress);
-                                    return {
-                                        'name': jdx,
-                                        'text': text,
-                                        'color': carcolor
-                                    };
-                                }
-                            })
-                        });
+                    var totalCarsProgress = _.reduce($.map(i['cars'], function(v, j) {
+                        return parseFloat(v['progress']);
+                    }), function(m,v){return m+v});
+                    var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
+                    var color = (trainProgress < 100) ? '#fe0' : '#0f9'
+                    newdata.push({
+                        'name': idx,
+                        'toptext': '',
+                        'progress': trainProgress+'%',
+                        'color': color,
+                        'cars': $.map(i['cars'], function(val, jdx) {
+                            var carprogress = parseFloat(val['progress']).toFixed(0);
+                            var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
+                            var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress+'%';
+                            return {
+                                'name': jdx,
+                                'text': text,
+                                'color': carcolor
+                            };
+                        })
                     });
+                });
                 $manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
                 /*var $table = generateTable([
                  ["Train Num.", "Target Roll-out", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
@@ -570,8 +479,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             $rev =  i['REV_INT'];
                             return;
                         });
-                        alert("trainProgress");
-                        alert(trainProgress);
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
                             if(i['STATUS']=='1.00'){
@@ -593,29 +500,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
             var renderAssembly = function(data) {
                 var newdata = [];
-                var color;
                 $.each(data, function(idx, i) {
                     var totalCarsProgress = _.reduce($.map(i['cars'], function(v, j) {
                         if (isNaN(parseFloat(v['progress']))) return 0;
                         return parseFloat(v['progress']);
                     }), function(m,v){return m+v});
                     var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                     color=$.map(i['cars'], function (val, jdx) {
-                        if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                            return getColor(val['foreDateA'], val['rollout'],trainProgress);
-                        }
-                    });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
-                    }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
-                    }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
-                    }
+                    var color = (trainProgress < 100) ? '#fe0' : '#0f9'
                     newdata.push({
                         'name': idx,
                         'toptext': 'Target delivery: '+ i['delivery'],
@@ -623,8 +514,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                            var carcolor=getColor(val['foreDateA'],val['rollout'],carprogress);
-                           // if (isNaN(carprogress)) carcolor = '#fe0';
+                            var carcolor = (carprogress < 100) ? '#fe0' : '#0f9';
+                            if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
                                 text = 'Arrived on ' + val['arrived'];
@@ -721,7 +612,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var renderTesting = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
-                    var color = '#0f9';
+                    var color = '#f0c';
 
                     if ((typeof i['testingcompleted'] != 'undefined') && (i['testingcompleted'] != '')) {
                         newdata.push({
@@ -768,7 +659,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var renderKJD = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
-                    var color = '#0f9';
+                    var color = '#f0c';
                     newdata.push({
                         'name': idx,
                         'toptext': '',
