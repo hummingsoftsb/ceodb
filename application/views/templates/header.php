@@ -170,7 +170,8 @@
         <!-- slim scroll -->
         <script src="<?php echo $this->config->base_url(); ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 		<!-- Moment js for dates-->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+<!--		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>-->
+        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/moment/moment.min.js"></script>
 		
 		 <!-- Gallery src-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">

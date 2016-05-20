@@ -380,79 +380,21 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //    "subd":{"Train 1 - 24":{"delivery":"","testingcompleted":"Train 1 - 24 delivered to to SUBD as per agreed SSSC target programme - by 23/12/15, and have completed dynamic test","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 19":{"delivery":"","cars":{"1191":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1192":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1193":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1194":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 20":{"delivery":"","cars":{"1201":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1202":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1203":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1204":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 21":{"delivery":"","cars":{"1211":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1212":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1213":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1214":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 22":{"delivery":"09-Dec-15","cars":{"1221":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1222":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1223":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1224":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 23":{"delivery":"19-Dec-15","cars":{"1231":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1232":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1233":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1234":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 24":{"delivery":"23-Dec-15","cars":{"1241":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1242":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1243":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1244":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}},
             //    "kjd":{"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}}
             //};
-            // Added by Sebin
-            //usage: Alg: to find the list numbers in train manufacturing progress
-            var tg=function(n){
-                var t='',a=[],b=[],k=0;
-                for(var i=0;i< n.length;i++){
-                    if(i == 0 || (n[i] != n[i-1]+1)) {
-                        a.push(n[i]);
-                    }
-                }
-                for(var i=1;i< a.length;i++) {
-                    if(a[i] != a[i-1]+1) {
-                        b.push(n[n.indexOf(a[i])-1]);
-                    }
-                }
-                b.push(n[n.length-1]);
-                for(var j=0;j< a.length;j++){
-                    if(a[j]==b[j]){
-                        if(j== a.length-1){
-                            t+=a[j];
-                        }else{
-                            t+=a[j]+ ", ";
-                        }
-                    }else{
-                        if(j== a.length-1) {
-                            t += a[j] + " - " + b[j];
-                        }
-                        else{
-                            t += a[j] + " - " + b[j] + ", ";
-                        }
-                    }
-                }
-                return t;
-            }
+
             var getSummary = function(d) {
                 var trains = Object.keys(d);
                 var trainIndeces = _.map(trains, function(t){return parseInt(t.substr(t.indexOf("Train")+6)); })
                 // Sort ascending
                 trainIndeces.sort(function(a,b){return a-b});
-                //alert(trainIndeces);
-                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
-                        return "No Train(s) here " ;
-                    }
-                else {
-                    if(trainIndeces.length > 1 ) {
-                        return "Train " + tg(trainIndeces);
-                    }
-                    else{
-                        return "Train " + trainIndeces[0];
-                    }
-                }
-            }
-            //Added by Sebin;
-            var getSummarys_k = function(d) {
-                var trains = Object.keys(d);
-                var trainIndeces=[];
-                for(var i=0;i<trains.length;i++){
-                    if(trains[i].length>8){
-                        var ar= trains[0].split('-');
-                        for(var j=parseInt(ar[0].substr(ar[0].indexOf("Train") + 6));j<=parseInt(ar[1].substr(ar[1].indexOf("Train") + 6));j++){
-                            trainIndeces.push(j);
-                        }
-                    }else{
-                        trainIndeces.push(parseInt(trains[i].substr(trains[i].indexOf("Train") + 6)));
-                    }
-                }
-                trainIndeces.sort(function(a,b){return a-b});
-                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
+                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined)
+                {
                     return "No Train(s) here " ;
                 }
                 else {
                     if(trainIndeces.length > 1 ) {
-                        return "Train " + tg(trainIndeces);
-                    }else{
+                        return "Train " + trainIndeces[0] + " - " + trainIndeces[trainIndeces.length - 1];
+                    }
+                    else{
                         return "Train " + trainIndeces[0];
                     }
                 }
@@ -478,8 +420,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     trainData = (JSON.parse(JSON.stringify(result)));
                     var mfgsummary = getSummary(trainData['manufacturing']);
                     var asssummary = getSummary(trainData['assembly']);
-                    var subdsummary = getSummarys_k(trainData['subd']);
-                    var kjdsummary = getSummarys_k(trainData['kjd']);
+                    var subdsummary = getSummary(trainData['subd']);
+                    var kjdsummary = getSummary(trainData['kjd']);
 
                     var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
                     var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
@@ -492,122 +434,31 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     $('#subd_number_of_trains').text('Total: ' + subdnumber);
                     $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
                 });
-            var getColor=function(f,r,p){
-                var carcolor='';
-                var pr;
-                var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
-                //alert(date1);
-                var date = new Date();
-                var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
-
-                var today = cdate;
-                today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                var f_date = date1;
-                var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    if(DaysDiff>0)
-                    {
-                        if((r!='')&&(r !='undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#f06';//red
-                        }
-                    }
-                    else if(DaysDiff==NaN)
-                    {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
-
-                        }
-                    }
-                    else
-                    {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
-                        }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
-
-                        }
-                    }
-               /* if(t!=0)
-                {
-                    if (carcolor== '#f06') {
-                        carcolor = '#f06';
-                       // flag = 1;
-                    }
-                    else if (carcolor == '#fe0') {
-                        carcolor = '#fe0';
-                       // flag = 2;
-                    }
-                    else {
-                        carcolor = '#0f9';
-                    }
-                }*/
-                return carcolor;
-            }
             var renderManufacturing = function(data) {
                 var newdata = [];
-                var color=[];
-                var flag=0;
-                var totalCarsProgress;
-                var trainProgress;
                 $.each(data, function(idx, i) {
-                      totalCarsProgress = _.reduce($.map(i['cars'], function (v, j) {
-                            return parseFloat(v['progress']);
-                        }), function (m, v) {
-                            return m + v
-                        });
-                       trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                            //color = (trainProgress < 100) ? '#fe0' : '#0f9';
-                            color=$.map(i['cars'], function (val, jdx) {
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                                    return getColor(val['foreDate'], val['rollout'],trainProgress);
-                                }
-                            });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
-                    }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
-                    }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
-                    }
-                        newdata.push({
-                            'name': idx,
-                            'toptext': '',
-                            'progress': trainProgress + '%',
-                            'color':color,
-                            'cars': $.map(i['cars'], function (val, jdx) {
-                                var carprogress = parseFloat(val['progress']).toFixed(0);
-                                //var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
-                                var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress + '%';
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != ''))
-                                {
-                                  var carcolor=getColor(val['foreDate'],val['rollout'],carprogress);
-                                    return {
-                                        'name': jdx,
-                                        'text': text,
-                                        'color': carcolor
-                                    };
-                                }
-                            })
-                        });
+                    var totalCarsProgress = _.reduce($.map(i['cars'], function(v, j) {
+                        return parseFloat(v['progress']);
+                    }), function(m,v){return m+v});
+                    var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
+                    var color = (trainProgress < 100) ? '#fe0' : '#0f9'
+                    newdata.push({
+                        'name': idx,
+                        'toptext': '',
+                        'progress': trainProgress+'%',
+                        'color': color,
+                        'cars': $.map(i['cars'], function(val, jdx) {
+                            var carprogress = parseFloat(val['progress']).toFixed(0);
+                            var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
+                            var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress+'%';
+                            return {
+                                'name': jdx,
+                                'text': text,
+                                'color': carcolor
+                            };
+                        })
                     });
+                });
                 $manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
                 /*var $table = generateTable([
                  ["Train Num.", "Target Roll-out", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
@@ -628,8 +479,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             $rev =  i['REV_INT'];
                             return;
                         });
-                        alert("trainProgress");
-                        alert(trainProgress);
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
                             if(i['STATUS']=='1.00'){
@@ -651,29 +500,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
             var renderAssembly = function(data) {
                 var newdata = [];
-                var color;
                 $.each(data, function(idx, i) {
                     var totalCarsProgress = _.reduce($.map(i['cars'], function(v, j) {
                         if (isNaN(parseFloat(v['progress']))) return 0;
                         return parseFloat(v['progress']);
                     }), function(m,v){return m+v});
                     var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                     color=$.map(i['cars'], function (val, jdx) {
-                        if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                            return getColor(val['foreDateA'], val['rollout'],trainProgress);
-                        }
-                    });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
-                    }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
-                    }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
-                    }
+                    var color = (trainProgress < 100) ? '#fe0' : '#0f9'
                     newdata.push({
                         'name': idx,
                         'toptext': 'Target delivery: '+ i['delivery'],
@@ -681,8 +514,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                            var carcolor=getColor(val['foreDateA'],val['rollout'],carprogress);
-                           // if (isNaN(carprogress)) carcolor = '#fe0';
+                            var carcolor = (carprogress < 100) ? '#fe0' : '#0f9';
+                            if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
                                 text = 'Arrived on ' + val['arrived'];
@@ -779,7 +612,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var renderTesting = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
-                    var color = '#0f9';
+                    var color = '#f0c';
 
                     if ((typeof i['testingcompleted'] != 'undefined') && (i['testingcompleted'] != '')) {
                         newdata.push({
@@ -826,7 +659,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var renderKJD = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
-                    var color = '#0f9';
+                    var color = '#f0c';
                     newdata.push({
                         'name': idx,
                         'toptext': '',
