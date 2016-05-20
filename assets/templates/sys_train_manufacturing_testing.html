@@ -53,12 +53,19 @@
                 return (isNaN(parseFloat((pass / total) * 100).toFixed(0)) ? 0 : parseFloat((pass / total) * 100).toFixed(0));
             }
 
+            var stat_final,dynamic_final,mainline_final,sit_final;
             var statictest = getPercent(1, 2);
             var dynamictest = getPercent(5, 6);
             var mainlinetest = getPercent(9, 10);
             var sit = getPercent(13, 14);
 
-            $td = "<td style=\"\">" + statictest + "%" + "</td> <td style=\"\">" + dynamictest + "%" + "</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" + sit + "%" + "</td>";
+            stat_final = (statictest/58);
+            dynamic_final = (dynamictest/58);
+            mainline_final = (mainlinetest/58);
+            sit_final = (sit/58);
+
+//            $td = "<td style=\"\">" + stat_final.toFixed(2) + "%" + "</td> <td style=\"\">" + dynamic_final.toFixed(2) + "%" + "</td><td style=\"\">" + mainline_final.toFixed(2) + "%" + "</td><td style=\"\">" + mainline_final.toFixed(2) + "%" + "</td><td style=\"\">" + sit_final.toFixed(2) + "%" + "</td>";
+            $td = "<td style=\"\">" + statictest + "%" + "</td> <td style=\"\">" + dynamictest + "%" + "</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" +mainlinetest + "%" + "</td><td style=\"\">" + sit + "%" + "</td>";
         }
         else {
             $td = "<td style=\"text-align: center;\" colspan='5'> No Data Available </td>";
@@ -75,7 +82,7 @@
     <table class="table table-bordered table-condensed table-hover" style="">
         <thead>
         <th style="color: #ffd461;">Static Test</th>
-        <th style="color: #ffd461;">Dynamic Test</th>
+        <th style="color: #ffd461;">PAT</th>
         <th style="color: #ffd461;">SAT</th>
         <th style="color: #ffd461;">IT</th>
         <th style="color: #ffd461;">SIT</th>
@@ -105,7 +112,7 @@
                         <tr>
                             <th rowspan="2">Train No.</th>
                             <th colspan="4" style="color: #ffd461;">Static Test</th>
-                            <th colspan="4" style="color: #ffd461;">Dynamic Test</th>
+                            <th colspan="4" style="color: #ffd461;">PAT</th>
                             <th colspan="4" style="color: #ffd461;">SAT</th>
                             <th colspan="4" style="color: #ffd461;">IT</th>
                             <th colspan="4" style="color: #ffd461;">SIT</th>
