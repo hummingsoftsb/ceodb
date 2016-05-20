@@ -800,12 +800,29 @@ class Dashboard_model extends CI_Model
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
     public function getBaselineM($data_date){
-        $this->db->select('*');
+        $manufacture=array();
+        /*$this->db->select('*');
         $this->db->from('tbl_manf_baseline_forecast');
         $this->db->where_in('DATA_DATE',$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->result_array();*/
+        $sql = "select a.\"TRAIN_NO\",a.\"BASE_DATE\",a.\"FORE_DATE\",a.\"REV_INT\",b.\"DATA_DATE\",b.\"CAR1_NO\",b.\"CAR1_PERC\",b.\"CAR2_NO\",b.\"CAR2_PERC\",b.\"CAR3_NO\",b.\"CAR3_PERC\",b.\"CAR4_NO\",b.\"CAR4_PERC\",b.\"CAR1_ROLL_OUT\",b.\"CAR2_ROLL_OUT\",b.\"CAR3_ROLL_OUT\",b.\"CAR4_ROLL_OUT\" from \"tbl_manf_baseline_forecast\" a join \"tbl_puzhen_manufacture\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and a.\"DATA_DATE\" = b.\"DATA_DATE\"  where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $manufacture[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
+            $manufacture[$i]["BASE_DATE"] =$val['BASE_DATE'];
+            $manufacture[$i]["FORE_DATE"] =$val['FORE_DATE'];
+            $manufacture[$i]["REV_INT"] =$val['REV_INT'];
+            $manufacture[$i]["CAR1_PERC"] =$val['CAR1_PERC'];
+            $manufacture[$i]["CAR2_PERC"] =$val['CAR2_PERC'];
+            $manufacture[$i]["CAR3_PERC"] =$val['CAR3_PERC'];
+            $manufacture[$i]["CAR4_PERC"] =$val['CAR4_PERC'];
+            $i++;
+        }
+        return $manufacture;
     }
 //    Author: Ancy Mathew, Sebin Thomas
 //    Usage : Get Train Data [manufacturing,assembly,subd,kjd].
@@ -1129,12 +1146,30 @@ public function getOverallProgress($data_date){
 //    Created: 29/04/2016
     public function getBaselineAssembly($data_date)
     {
-        $this->db->select('*');
+        $manufacture=array();
+        $sql = "select a.\"TRAIN_NO\",a.\"BASE_DATE\",a.\"FORE_DATE\",a.\"REV_INT\",b.\"DATA_DATE\",b.\"CAR1_NO\",b.\"CAR2_NO\",b.\"CAR3_NO\",b.\"CAR4_NO\",b.\"CAR4_PERC\" , b.\"CAR3_PERC\" ,b.\"CAR2_PERC\" , b.\"CAR1_PERC\" from \"tbl_assembly_baseline_forecast\" a join \"tbl_SMH_Assmbly_Progress\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and a.\"DATA_DATE\" = b.\"DATA_DATE\"  where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
+
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $i=0;
+        foreach($result as $key=> $val){
+            $manufacture[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
+            $manufacture[$i]["BASE_DATE"] =$val['BASE_DATE'];
+            $manufacture[$i]["FORE_DATE"] =$val['FORE_DATE'];
+            $manufacture[$i]["REV_INT"] =$val['REV_INT'];
+            $manufacture[$i]["CAR1_PERC"] =$val['CAR1_PERC'];
+            $manufacture[$i]["CAR2_PERC"] =$val['CAR2_PERC'];
+            $manufacture[$i]["CAR3_PERC"] =$val['CAR3_PERC'];
+            $manufacture[$i]["CAR4_PERC"] =$val['CAR4_PERC'];
+            $i++;
+        }
+        return $manufacture;
+       /* $this->db->select('*');
         $this->db->from('tbl_assembly_baseline_forecast');
         $this->db->where_in("DATA_DATE",$data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->result_array();*/
     }
 
 //    Author:Agaile Victor

@@ -483,20 +483,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                         }
                     }
-               /* if(t!=0)
-                {
-                    if (carcolor== '#f06') {
-                        carcolor = '#f06';
-                       // flag = 1;
-                    }
-                    else if (carcolor == '#fe0') {
-                        carcolor = '#fe0';
-                       // flag = 2;
-                    }
-                    else {
-                        carcolor = '#0f9';
-                    }
-                }*/
                 return carcolor;
             }
             var renderManufacturing = function(data) {
@@ -561,6 +547,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
                 mpxd.getJSONData("manuBaseline"+c_data_date+"", function(result){
+                    console.log(result);
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -570,19 +557,57 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             $rev =  i['REV_INT'];
                             return;
                         });
-                        alert("trainProgress");
-                        alert(trainProgress);
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='1.00'){
-                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
-                            }else if(i['STATUS']=='2.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
-                            }else if(i['STATUS']=='3.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
-                            }else  {
-                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
+                            var perc;
+                            var carcolor;
+                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
+                            var date = new Date();
+                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+
+                            var today = cdate;
+                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
+                            var f_date = date1;
+                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
+                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
+                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
+                            if(DaysDiff>0)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#f06';//red
+                                }
                             }
+                            else if(DaysDiff==NaN)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            else
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
                             baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
                         var baselines = generateTable(baseline);
@@ -663,6 +688,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ]);*/
                 mpxd.getJSONData("AssemblyBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
+                        var color;
                         var $bar;
                         var $rev;
                         var $fordate;
@@ -673,7 +699,56 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='1.00'){
+                            var perc;
+                            var carcolor;
+                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
+                            var date = new Date();
+                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+
+                            var today = cdate;
+                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
+                            var f_date = date1;
+                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
+                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
+                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
+                            if(DaysDiff>0)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#f06';//red
+                                }
+                            }
+                            else if(DaysDiff==NaN)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            else
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
+                            /*if(i['STATUS']=='1.00'){
                                 $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
                             }else if(i['STATUS']=='2.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
@@ -681,7 +756,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                                 $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
                             }else  {
                                 $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
-                            }
+                            }*/
                             assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
                         var assemblys = generateTable(assembly);
@@ -764,7 +839,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                 $subdContainer.find('.table-container').html('');
             }
-
             var renderKJD = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
