@@ -816,21 +816,28 @@ class Dashboard_model extends CI_Model
             "manufacturing" => array(),
             "assembly" => array(),
             "subd" => array(),
-            "kjd" => array()
+            "kjd" => array(),
+            "fore_date"=>array()
+
         );
-        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ROLL_OUT,CAR2_ROLL_OUT,CAR3_ROLL_OUT,CAR4_ROLL_OUT');
+       /* $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ROLL_OUT,CAR2_ROLL_OUT,CAR3_ROLL_OUT,CAR4_ROLL_OUT');
         $this->db->from('tbl_puzhen_manufacture');
         $this->db->where_in('DATA_DATE',$data_date);
-        $this->db->order_by('TRAIN_NO');
-        $query = $this->db->get();
-        $result=$query->result_array();
+        $this->db->order_by('TRAIN_NO');*/
+        $sql = "select a.\"TRAIN_NO\",a.\"CAR1_NO\",a.\"CAR1_PERC\",a.\"CAR2_NO\",a.\"CAR2_PERC\",a.\"CAR3_NO\",a.\"CAR3_PERC\",a.\"CAR4_NO\",a.\"CAR4_PERC\",a.\"CAR1_ROLL_OUT\",a.\"CAR2_ROLL_OUT\",a.\"CAR3_ROLL_OUT\",a.\"CAR4_ROLL_OUT\",COALESCE(b.\"FORE_DATE\",'ROLLED_OUT') as fore_cast from \"tbl_puzhen_manufacture\" a join \"tbl_manf_baseline_forecast\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+      /*  $query = $this->db->get();
+        $result=$query->result_array();*/
 
-        $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ARRIVED,CAR2_ARRIVED,CAR3_ARRIVED,CAR4_ARRIVED');
+        /*$this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ARRIVED,CAR2_ARRIVED,CAR3_ARRIVED,CAR4_ARRIVED');
         $this->db->from('tbl_SMH_Assmbly_Progress');
         $this->db->where_in("DATA_DATE",$data_date);
-        $query = $this->db->get();
+        $query = $this->db->get();*/
+        $sql = "select a.\"TRAIN_NO\",a.\"CAR1_NO\",a.\"CAR1_PERC\",a.\"CAR2_NO\",a.\"CAR2_PERC\",a.\"CAR3_NO\",a.\"CAR3_PERC\",a.\"CAR4_NO\",a.\"CAR4_PERC\",a.\"CAR1_ARRIVED\",a.\"CAR2_ARRIVED\",a.\"CAR3_ARRIVED\",a.\"CAR4_ARRIVED\",COALESCE(b.\"FORE_DATE\",'ROLLED_OUT') as fore_cast from \"tbl_SMH_Assmbly_Progress\" a join \"tbl_assembly_baseline_forecast\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
+        $query = $this->db->query($sql);
+       /* $result = $query->result_array();*/
         $result1=$query->result_array();
-
 //        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
 //        $this->db->from('tbl_SUBD_DT_CS');
 //        $this->db->where_in("DATA_DATE",$data_date);
@@ -849,25 +856,36 @@ class Dashboard_model extends CI_Model
         //$this->db->order_by('KJD_MASTER_ID');
         $query = $this->db->get();
         $kjd=$query->result_array();
-
+        /*$sql = "select \"TRAIN_NO\",\"FORE_DATE\" from tbl_assembly_baseline_forecast where \"DATA_DATE\"='$data_date' order by \"TRAIN_NO\"";
+        $query = $this->db->query($sql);
+        $final = $query->result_array();
+        $i=0;
+        foreach($final as $key=> $val1){
+            $rel[$i]["fore_date"] =array("FOR_TRAIN"=>$val1['TRAIN_NO'],"FORE_DATE"=>$val1['FORE_DATE']);
+            $i++;
+        }*/
         foreach($result as $key=> $val){
                 $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
                     "cars"=>array(
                         $val['CAR1_NO']=>array(
                             "progress"=>($val['CAR1_PERC']==null)?0:$val['CAR1_PERC'],
-                            "rollout"=>($val['CAR1_ROLL_OUT']==null)?'':$val['CAR1_ROLL_OUT']
+                            "rollout"=>($val['CAR1_ROLL_OUT']==null)?'':$val['CAR1_ROLL_OUT'],
+                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
                         ),
                         $val['CAR2_NO']=>array(
                             "progress"=>($val['CAR2_PERC']==null)?0:$val['CAR2_PERC'],
-                            "rollout"=>($val['CAR2_ROLL_OUT']==null)?'':$val['CAR2_ROLL_OUT']
+                            "rollout"=>($val['CAR2_ROLL_OUT']==null)?'':$val['CAR2_ROLL_OUT'],
+                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
                         ),
                         $val['CAR3_NO']=>array(
                             "progress"=>($val['CAR3_PERC']==null)?0:$val['CAR3_PERC'],
-                            "rollout"=>($val['CAR3_ROLL_OUT']==null)?'':$val['CAR3_ROLL_OUT']
+                            "rollout"=>($val['CAR3_ROLL_OUT']==null)?'':$val['CAR3_ROLL_OUT'],
+                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
                         ),
                         $val['CAR4_NO']=>array(
                             "progress"=>($val['CAR4_PERC']==null)?0:$val['CAR4_PERC'],
-                            "rollout"=>($val['CAR4_ROLL_OUT']==null)?'':$val['CAR4_ROLL_OUT']
+                            "rollout"=>($val['CAR4_ROLL_OUT']==null)?'':$val['CAR4_ROLL_OUT'],
+                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
                         )
                 )
             );
@@ -879,22 +897,26 @@ class Dashboard_model extends CI_Model
                     $val1['CAR1_NO'] => array(
                         "progress" =>($val1['CAR1_PERC']==null)?0:$val1['CAR1_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR1_ARRIVED']==null)?'':$val1['CAR1_ARRIVED']
+                        "arrived" => ($val1['CAR1_ARRIVED']==null)?'':$val1['CAR1_ARRIVED'],
+                        "foreDateA"=>($val['fore_cast']==null)?'':$val['fore_cast']
                     ),
                     $val1['CAR2_NO'] => array(
                         "progress" =>($val1['CAR2_PERC']==null)?0:$val1['CAR2_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR2_ARRIVED']==null)?'':$val1['CAR2_ARRIVED']
+                        "arrived" => ($val1['CAR2_ARRIVED']==null)?'':$val1['CAR2_ARRIVED'],
+                        "foreDateA"=>($val['fore_cast']==null)?'':$val['fore_cast']
                     ),
                     $val1['CAR3_NO'] => array(
                         "progress" =>($val1['CAR3_PERC']==null)?0:$val1['CAR3_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR3_ARRIVED']==null)?'':$val1['CAR3_ARRIVED']
+                        "arrived" => ($val1['CAR3_ARRIVED']==null)?'':$val1['CAR3_ARRIVED'],
+                        "foreDateA"=>($val['fore_cast']==null)?'':$val['fore_cast']
                     ),
                     $val1['CAR4_NO'] => array(
                         "progress" =>($val1['CAR4_PERC']==null)?0:$val1['CAR4_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR4_ARRIVED']==null)?'':$val1['CAR4_ARRIVED']
+                        "arrived" => ($val1['CAR4_ARRIVED']==null)?'':$val1['CAR4_ARRIVED'],
+                        "foreDateA"=>($val['fore_cast']==null)?'':$val['fore_cast']
                     )
 
                 )
