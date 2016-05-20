@@ -380,21 +380,79 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //    "subd":{"Train 1 - 24":{"delivery":"","testingcompleted":"Train 1 - 24 delivered to to SUBD as per agreed SSSC target programme - by 23/12/15, and have completed dynamic test","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 19":{"delivery":"","cars":{"1191":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1192":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1193":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1194":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 20":{"delivery":"","cars":{"1201":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1202":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1203":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1204":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 21":{"delivery":"","cars":{"1211":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1212":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1213":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1214":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 22":{"delivery":"09-Dec-15","cars":{"1221":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1222":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1223":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1224":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 23":{"delivery":"19-Dec-15","cars":{"1231":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1232":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1233":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1234":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 24":{"delivery":"23-Dec-15","cars":{"1241":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1242":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1243":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1244":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}},
             //    "kjd":{"Train 13":{"delivery":"","cars":{"1131":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1132":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1133":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1134":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 14":{"delivery":"","cars":{"1141":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1142":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1143":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1144":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 15":{"delivery":"","cars":{"1151":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1152":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1153":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1154":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 16":{"delivery":"","cars":{"1161":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1162":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1163":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1164":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 17":{"delivery":"","cars":{"1171":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1172":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1173":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1174":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}},"Train 18":{"delivery":"","cars":{"1181":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 4","assembly":"Train 12"}},"1182":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 11","assembly":"Train 9"}},"1183":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 5","assembly":"Train 11"}},"1184":{"progress":"","rollout":"","arrived":"","history":{"manufacturing":"Train 10","assembly":"Train 9"}}}}}
             //};
-
+            // Added by Sebin
+            //usage: Alg: to find the list numbers in train manufacturing progress
+            var tg=function(n){
+                var t='',a=[],b=[],k=0;
+                for(var i=0;i< n.length;i++){
+                    if(i == 0 || (n[i] != n[i-1]+1)) {
+                        a.push(n[i]);
+                    }
+                }
+                for(var i=1;i< a.length;i++) {
+                    if(a[i] != a[i-1]+1) {
+                        b.push(n[n.indexOf(a[i])-1]);
+                    }
+                }
+                b.push(n[n.length-1]);
+                for(var j=0;j< a.length;j++){
+                    if(a[j]==b[j]){
+                        if(j== a.length-1){
+                            t+=a[j];
+                        }else{
+                            t+=a[j]+ ", ";
+                        }
+                    }else{
+                        if(j== a.length-1) {
+                            t += a[j] + " - " + b[j];
+                        }
+                        else{
+                            t += a[j] + " - " + b[j] + ", ";
+                        }
+                    }
+                }
+                return t;
+            }
             var getSummary = function(d) {
                 var trains = Object.keys(d);
                 var trainIndeces = _.map(trains, function(t){return parseInt(t.substr(t.indexOf("Train")+6)); })
                 // Sort ascending
                 trainIndeces.sort(function(a,b){return a-b});
-                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined)
-                {
+                //alert(trainIndeces);
+                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
+                        return "No Train(s) here " ;
+                    }
+                else {
+                    if(trainIndeces.length > 1 ) {
+                        return "Train " + tg(trainIndeces);
+                    }
+                    else{
+                        return "Train " + trainIndeces[0];
+                    }
+                }
+            }
+            //Added by Sebin;
+            var getSummarys_k = function(d) {
+                var trains = Object.keys(d);
+                var trainIndeces=[];
+                for(var i=0;i<trains.length;i++){
+                    if(trains[i].length>8){
+                        var ar= trains[0].split('-');
+                        for(var j=parseInt(ar[0].substr(ar[0].indexOf("Train") + 6));j<=parseInt(ar[1].substr(ar[1].indexOf("Train") + 6));j++){
+                            trainIndeces.push(j);
+                        }
+                    }else{
+                        trainIndeces.push(parseInt(trains[i].substr(trains[i].indexOf("Train") + 6)));
+                    }
+                }
+                trainIndeces.sort(function(a,b){return a-b});
+                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
                     return "No Train(s) here " ;
                 }
                 else {
                     if(trainIndeces.length > 1 ) {
-                        return "Train " + trainIndeces[0] + " - " + trainIndeces[trainIndeces.length - 1];
-                    }
-                    else{
+                        return "Train " + tg(trainIndeces);
+                    }else{
                         return "Train " + trainIndeces[0];
                     }
                 }
@@ -420,8 +478,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     trainData = (JSON.parse(JSON.stringify(result)));
                     var mfgsummary = getSummary(trainData['manufacturing']);
                     var asssummary = getSummary(trainData['assembly']);
-                    var subdsummary = getSummary(trainData['subd']);
-                    var kjdsummary = getSummary(trainData['kjd']);
+                    var subdsummary = getSummarys_k(trainData['subd']);
+                    var kjdsummary = getSummarys_k(trainData['kjd']);
 
                     var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
                     var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
@@ -1148,6 +1206,8 @@ mpxd.constructors.train_manufacturing_progress = function(data) {
      */
 }
 
+var max_value=[];
+var max_of_array;
 mpxd.modules.manufacturing_progress_chart = {}
 mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend({
     initialize: function(options) {
@@ -1163,7 +1223,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         //Static Needs Change
-        that.data.maxJobs = 10000;
+        //that.data.maxJobs = 10000;
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
@@ -1172,9 +1232,16 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                date_over.push((result[j]['OUT_DATE']));
                 j=j+2;
             }
-            //for(var i=0;i<result.length; i++){
-            //        that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
-            //}
+            // taking the max value for the target logiv : Agaile
+            for(var i=0;i<result.length; i++){
+                    //that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
+                if(parseInt(result[i]['TARGET'])!= null){
+                    max_value.push(parseInt(result[i]['TARGET']));
+                }
+                max_of_array = Math.max.apply(Math, max_value);
+            }
+
+            //alert('Target Value - ' + max_of_array);
         });
         var generic = {
             title: {
@@ -1198,7 +1265,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     width: 1
                 }],
                 min: 200,
-                max: that.data.maxJobs
+                //max: that.data.maxJobs
+               max: max_of_array
             },
             tooltip: {
                 formatter: function(){
