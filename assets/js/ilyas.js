@@ -1132,6 +1132,8 @@ mpxd.constructors.train_manufacturing_progress = function(data) {
      */
 }
 
+var max_value=[];
+var max_of_array;
 mpxd.modules.manufacturing_progress_chart = {}
 mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend({
     initialize: function(options) {
@@ -1147,7 +1149,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         //Static Needs Change
-        that.data.maxJobs = 10000;
+        //that.data.maxJobs = 10000;
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
@@ -1156,9 +1158,16 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                date_over.push((result[j]['OUT_DATE']));
                 j=j+2;
             }
-            //for(var i=0;i<result.length; i++){
-            //        that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
-            //}
+            // taking the max value for the target logiv : Agaile
+            for(var i=0;i<result.length; i++){
+                    //that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
+                if(parseInt(result[i]['TARGET'])!= null){
+                    max_value.push(parseInt(result[i]['TARGET']));
+                }
+                max_of_array = Math.max.apply(Math, max_value);
+            }
+
+            //alert('Target Value - ' + max_of_array);
         });
         var generic = {
             title: {
@@ -1182,7 +1191,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     width: 1
                 }],
                 min: 200,
-                max: that.data.maxJobs
+                //max: that.data.maxJobs
+               max: max_of_array
             },
             tooltip: {
                 formatter: function(){
