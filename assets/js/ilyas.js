@@ -543,6 +543,57 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     }
                 return carcolor;
             }
+            var getColorAssem=function(f,p){
+                var carcolor='';
+                var pr;
+                var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
+                //alert(date1);
+                var date = new Date();
+                var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+
+                var today = cdate;
+                today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
+                var f_date = date1;
+                var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
+                var timeDiff = Math.abs(f_date.getTime() - today.getTime());
+                var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                if(DaysDiff>0)
+                {
+                    if(p==100 )
+                    {
+                        carcolor='#0f9';//green
+                    }
+                    else
+                    {
+                        carcolor='#f06';//red
+                    }
+                }
+                else if(DaysDiff==NaN)
+                {
+                    if((r!='')&&(r != 'undefined')&& p==100 )
+                    {
+                        carcolor='#0f9';//green
+                    }
+                    else
+                    {
+                        carcolor='#fe0';//yellow
+
+                    }
+                }
+                else
+                {
+                    if(p==100 )
+                    {
+                        carcolor='#0f9';//green
+                    }
+                    else
+                    {
+                        carcolor='#fe0';//yellow
+
+                    }
+                }
+                return carcolor;
+            }
             var renderManufacturing = function(data) {
                 var newdata = [];
                 var color=[];
@@ -684,9 +735,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     }), function(m,v){return m+v});
                     var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
                      color=$.map(i['cars'], function (val, jdx) {
-                        if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                            return getColor(val['foreDateA'], val['rollout'],trainProgress);
-                        }
+                             return getColorAssem(val['foreDateA'],trainProgress);
                     });
                     if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
                         color='#f06';
@@ -706,9 +755,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                            if(val['foreDateA']=='ROLLED_OUT') {
-                                var carcolor = getColor(val['foreDateA'], val['rollout'], carprogress);
-                            }
+                                var carcolor = getColorAssem(val['foreDateA'], carprogress);
                            // if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
@@ -1285,13 +1332,13 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             tooltip: {
                 formatter: function(){
                     var isDoneAvailable = typeof this.points[1] != 'undefined';
-
                     if (isDoneAvailable) {
                         var seriesDone = this.points[0].series;
                         var doneValue = this.points[0].y;
-                        var percentDone = parseFloat((doneValue/that.data.maxJobs)*100).toFixed(0);
                         var seriesTarget = this.points[1].series;
                         var targetValue = this.points[1].y;
+                        //var percentDone = parseFloat((doneValue/that.data.maxJobs)*100).toFixed(0);
+                        var percentDone = parseFloat((doneValue/targetValue)*100).toFixed(0);
                     } else {
                         var seriesTarget = this.points[0].series;
                         var targetValue = this.points[0].y;
