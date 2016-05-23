@@ -1255,9 +1255,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 }
                 max_of_array = Math.max.apply(Math, max_value);
             }
-
+            //alert(date_over);
             //alert('Target Value - ' + max_of_array);
         });
+
         var generic = {
             title: {
                 text: ''
@@ -1267,8 +1268,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 categories: date_over,
                 // categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
                 labels: {
-                    rotation: 90,
-                    step: 2
+                    rotation: 90
+                   // step: 2
                 }
             },
             yAxis: {
@@ -1278,10 +1279,11 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 plotLines: [{
                     value: 0,
                     width: 1
-                }],
-                min: 200,
+                }]
+                // modified commented the min and max, so that it will auto detect the min and max values
+                //min: 200,
                 //max: that.data.maxJobs
-                max: max_of_array
+              // max: max_of_array
             },
             tooltip: {
                 formatter: function () {
@@ -1416,6 +1418,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
 
             }
+
+            //alert(openJobs);
+            //alert(closedJobs);
             //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
             //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
 
@@ -1447,7 +1452,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             //that.$el.find('.progress-chart-2').highcharts(open_item);
 
             //modified by agaile on 19/05/2016
-            //Start Here
+             //Start Here note:- below is stacked column percentage chart of highcharts
             that.$el.find('.progress-chart-2').highcharts({
                 chart: {
                     type: 'column'
@@ -1466,7 +1471,6 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 },
                 yAxis: {
                     min: 0,
-                    max: 100,
                     title: {
                         text: 'Number of Jobs(%)'
                     },
@@ -1477,24 +1481,30 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                         }
                     }
                 },
+                //legend: {
+                //    align: 'right',
+                //    x: -0,
+                //    verticalAlign: 'top',
+                //    y: 0,
+                //    floating: true,
+                //    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                //    borderColor: '#CCC',
+                //    borderWidth: 1,
+                //    shadow: false
+                //},
                 legend: {
-                    align: 'right',
-                    x: -0,
-                    verticalAlign: 'top',
-                    y: 0,
-                    floating: true,
-                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-                    borderColor: '#CCC',
-                    borderWidth: 1,
-                    shadow: false
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
                 },
                 tooltip: {
                     headerFormat: '<b>Train {point.x}</b><br/>',
-                    pointFormat: '{series.name}: {point.y}'
+                    pointFormat: '{series.name}: {point.y} ({point.percentage:.0f}%)<br/>'
                 },
                 plotOptions: {
                     column: {
-                        stacking: 'normal',
+                        stacking: 'percent',
                         dataLabels: {
                             enabled: false,
                             color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
@@ -1506,10 +1516,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 },
                 series: [{
                     name: 'Open Jobs',
-                    data: openData
+                    data: openJobs
                 }, {
                     name: 'Closed Jobs',
-                    data: closedData
+                    data: closedJobs
                 }]
             });
 

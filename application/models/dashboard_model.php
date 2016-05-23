@@ -1119,10 +1119,13 @@ public function getOverallProgress($data_date){
 
     public function getOutStandingProgress($data_date){
         $outstand = array();
-        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
+        $sql="select \"OUT_DATE\",\"JOBS_DONE\",\"TARGET\" FROM tbl_outstanding_item_progress WHERE \"DATA_DATE\"='$data_date' ORDER BY TO_DATE(\"OUT_DATE\", 'DD-Mon-YYYY')";
+/*        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
         $this->db->from('tbl_outstanding_item_progress');
         $this->db->where_in("DATA_DATE",$data_date);
-        $query = $this->db->get();
+        $this->db->order_by((to_date("OUT_DATE", 'DD-Mon-YYYY')));
+        $query = $this->db->get();*/
+        $query = $this->db->query($sql);
         $result=$query->result_array();
         $i=0;
         foreach($result as $key=> $val){
