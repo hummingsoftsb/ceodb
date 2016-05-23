@@ -1273,13 +1273,13 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             tooltip: {
                 formatter: function(){
                     var isDoneAvailable = typeof this.points[1] != 'undefined';
-
                     if (isDoneAvailable) {
                         var seriesDone = this.points[0].series;
                         var doneValue = this.points[0].y;
-                        var percentDone = parseFloat((doneValue/that.data.maxJobs)*100).toFixed(0);
                         var seriesTarget = this.points[1].series;
                         var targetValue = this.points[1].y;
+                        //var percentDone = parseFloat((doneValue/that.data.maxJobs)*100).toFixed(0);
+                        var percentDone = parseFloat((doneValue/targetValue)*100).toFixed(0);
                     } else {
                         var seriesTarget = this.points[0].series;
                         var targetValue = this.points[0].y;
