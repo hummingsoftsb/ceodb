@@ -1,17 +1,16 @@
-
-mpxd.constructors.page_info_system = function(data) {
+mpxd.constructors.page_info_system = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.system_design_1 = function(data) {
+mpxd.constructors.system_design_1 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.system_design_2 = function(data) {
+mpxd.constructors.system_design_2 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.system_design_3 = function(data) {
+mpxd.constructors.system_design_3 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 /*
@@ -23,89 +22,87 @@ mpxd.constructors.system_design_3 = function(data) {
  mpxd.modules.general.GenerateGeneralview(data);
  }
  */
-mpxd.constructors.testing_commisioning_1 = function(data) {
+mpxd.constructors.testing_commisioning_1 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.testing_commisioning_2 = function(data) {
+mpxd.constructors.testing_commisioning_2 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.testing_commisioning_3 = function(data) {
+mpxd.constructors.testing_commisioning_3 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.testing_commisioning_4 = function(data) {
+mpxd.constructors.testing_commisioning_4 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.procurement_manufacturing_1 = function(data) {
+mpxd.constructors.procurement_manufacturing_1 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.procurement_manufacturing_2 = function(data) {
+mpxd.constructors.procurement_manufacturing_2 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.procurement_manufacturing_3 = function(data) {
+mpxd.constructors.procurement_manufacturing_3 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.procurement_manufacturing_4 = function(data) {
+mpxd.constructors.procurement_manufacturing_4 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.procurement_manufacturing_5 = function(data) {
+mpxd.constructors.procurement_manufacturing_5 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.installation_1 = function(data) {
+mpxd.constructors.installation_1 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.installation_2 = function(data) {
+mpxd.constructors.installation_2 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.installation_3 = function(data) {
+mpxd.constructors.installation_3 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.delivery_1 = function(data) {
+mpxd.constructors.delivery_1 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.delivery_2 = function(data) {
+mpxd.constructors.delivery_2 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.delivery_3 = function(data) {
+mpxd.constructors.delivery_3 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.delivery_4 = function(data) {
+mpxd.constructors.delivery_4 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.delivery_5 = function(data) {
+mpxd.constructors.delivery_5 = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.le = function(data) {
+mpxd.constructors.le = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.train_manufacturing_progress_table = function(data) {
+mpxd.constructors.train_manufacturing_progress_table = function (data) {
     var el = "#portlet_" + data.id;
     return new mpxd.modules.train_manufacturing_progress_table.train_progress({data: data, el: el});
 }
 
 
-
-
 mpxd.modules.train_manufacturing_progress_table = {}
 mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         //console.log(options);
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("train_manufacturing_progress_table");
 
@@ -114,233 +111,239 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
         var cookiename = 'sbk-s-01-mfg-progress';
 
         that.$el.html(template);
-       //that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-       // that.$el.find('.train-container').mCustomScrollbar({
-       //     setHeight:1000,
-       //     theme: 'rounded'
-       // });
-            that.$el.find('.summersoft_scroll').slimScroll({
-                color: '#fff',
-                height: '700px',
-                alwaysVisible: true
-            });
+        //that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+        // that.$el.find('.train-container').mCustomScrollbar({
+        //     setHeight:1000,
+        //     theme: 'rounded'
+        // });
+        that.$el.find('.summersoft_scroll').slimScroll({
+            color: '#fff',
+            height: '700px',
+            alwaysVisible: true
+        });
         //that.$el.find('.summersoft_container').slimScroll({
         //    color: '#fff',
         //    alwaysVisible: true
         //});
 
-		/*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
-		  if (error) throw error;
-			that.$el.find('.train-container')[0].appendChild(xml.documentElement);
-		});*/
-		
-		/* Fetch svgs in promises */
-		var deferred = new $.Deferred();
+        /*d3.xml("/mpxd/assets/img/mrt_train_diagram_1.svg", "image/svg+xml", function(error, xml) {
+         if (error) throw error;
+         that.$el.find('.train-container')[0].appendChild(xml.documentElement);
+         });*/
 
-		// Dont change the order of the strings, need to sync with later function.
-		var promises = $.map(['mrt_train_diagram_1.svg','mrt_train_diagram_2.svg','mrt_train_diagram_3.svg','mrt_train_diagram_4.svg'], 
-			function(item, idx) {
-				var d = $.Deferred();
-				d3.xml("/mpxd/assets/img/" + item, "image/svg+xml", function(error, xml) { if (error) d.reject(error); else d.resolve(xml.documentElement); }); 
-				return d.promise();
-		});
-		
-		var findConsecutive = function(arr, index) {
-			var c = 0;
-			var text = arr[index];
-			for (var i = index+1; i < arr.length; i++) {
-				if (arr[i] == text) c++;
-				else return c;
-			}
-			return c;
-		}
+        /* Fetch svgs in promises */
+        var deferred = new $.Deferred();
 
-		$.when.apply($, promises).then(function(a) {
-			var head = arguments[0];
-			var leftmotor = arguments[1];
-			var body = arguments[2];
-			var rightmotor = arguments[3];
-			
-			var $manufacturingContainer = that.$el.find('.manufacturing-container');
-			var $assemblyContainer = that.$el.find('.assembly-container');
-			var $subdContainer = that.$el.find('.subd-container');
-			var $kjdContainer = that.$el.find('.kjd-container');
-			
-			$(head).attr('class', 'train-svg-head');
-			$(leftmotor).attr('class', 'train-svg-leftmotor');
-			$(body).attr('class', 'train-svg-body');
-			$(rightmotor).attr('class', 'train-svg-rightmotor');
-            var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
-			
-			//var trainContainer = that.$el.find('.train-container')[0];
-			
-			var generateTrain = function() {
-				return $.map([head,leftmotor,body,body,rightmotor], function(item, idx){ return $.clone(item); })
-			}
+        // Dont change the order of the strings, need to sync with later function.
+        var promises = $.map(['mrt_train_diagram_1.svg', 'mrt_train_diagram_2.svg', 'mrt_train_diagram_3.svg', 'mrt_train_diagram_4.svg'],
+            function (item, idx) {
+                var d = $.Deferred();
+                d3.xml("/mpxd/assets/img/" + item, "image/svg+xml", function (error, xml) {
+                    if (error) d.reject(error); else d.resolve(xml.documentElement);
+                });
+                return d.promise();
+            });
+
+        var findConsecutive = function (arr, index) {
+            var c = 0;
+            var text = arr[index];
+            for (var i = index + 1; i < arr.length; i++) {
+                if (arr[i] == text) c++;
+                else return c;
+            }
+            return c;
+        }
+
+        $.when.apply($, promises).then(function (a) {
+            var head = arguments[0];
+            var leftmotor = arguments[1];
+            var body = arguments[2];
+            var rightmotor = arguments[3];
+
+            var $manufacturingContainer = that.$el.find('.manufacturing-container');
+            var $assemblyContainer = that.$el.find('.assembly-container');
+            var $subdContainer = that.$el.find('.subd-container');
+            var $kjdContainer = that.$el.find('.kjd-container');
+
+            $(head).attr('class', 'train-svg-head');
+            $(leftmotor).attr('class', 'train-svg-leftmotor');
+            $(body).attr('class', 'train-svg-body');
+            $(rightmotor).attr('class', 'train-svg-rightmotor');
+            var c_data_date = "?date=" + moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
+
+            //var trainContainer = that.$el.find('.train-container')[0];
+
+            var generateTrain = function () {
+                return $.map([head, leftmotor, body, body, rightmotor], function (item, idx) {
+                    return $.clone(item);
+                })
+            }
 
 
-			var cnum = 1001;
-			
-			var renderTrainDom = function(data) {
-				
-				var $table = $('<table style="text-align: center; margin: 30px;">');
-				var $thead = $('<thead>');
-				var $tbody = $('<tbody>');
-				
-				$table.append($thead);
-				$table.append($tbody);
-				
-				var generateTooltipDiv = function(html) {
-					var $div = $('<div>');
-					$div.addClass('hastooltip');
-					$div.attr('data-toggle','tooltip');
-					$div.attr('data-html','true');
-					$div.attr('title',html);
-					return $div
-				}
-				
-				
-				var generateTooltipContainer = function(d) {
-					if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
-						var ass = d['assembly'];
-						var man = d['manufacturing'];
+            var cnum = 1001;
+
+            var renderTrainDom = function (data) {
+
+                var $table = $('<table style="text-align: center; margin: 30px;">');
+                var $thead = $('<thead>');
+                var $tbody = $('<tbody>');
+
+                $table.append($thead);
+                $table.append($tbody);
+
+                var generateTooltipDiv = function (html) {
+                    var $div = $('<div>');
+                    $div.addClass('hastooltip');
+                    $div.attr('data-toggle', 'tooltip');
+                    $div.attr('data-html', 'true');
+                    $div.attr('title', html);
+                    return $div
+                }
+
+
+                var generateTooltipContainer = function (d) {
+                    if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
+                        var ass = d['assembly'];
+                        var man = d['manufacturing'];
                         var carnum = d['car'];
-						var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass+'<br>Car number: '+ carnum;
-						return generateTooltipDiv(html);
-					} 
-					return $('<div>');
-				}
-				
-				$.each(data, function(idx, i) {
-					var train = generateTrain();
-					
-					
-					var hd = train[0];
-					var lm = train[1];
-					var b1 = train[2];
-					var b2 = train[3];
-					var rm = train[4];
-					
-					// First row - delivery row
-					var $tr1 = $('<tr>');
-					
-					
-					var $r1td1 = $('<td>');
-					
-					//var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
-					var toptext = i['toptext'] == '' ? '&nbsp':i['toptext'];
-					$tr1.append($r1td1).append($('<td>').attr('colspan','4').html(toptext));
-					
-					// Second row - train row
-					var $tr2 = $('<tr>');
-					var $tdhead = $('<td style="width: 80px">');
-					$tdhead.append(hd);
-					
-					d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
-					
-					var $r2td1 = $('<td>');
-					var $r2td2 = $('<td>');
-					var $r2td3 = $('<td>');
-					var $r2td4 = $('<td>');
-					
-					
-					d3.select(lm.querySelector('#path4836')).attr('fill',i['cars'][0]['color']);
-					$r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
-					
-					d3.select(b1.querySelector('#path4836')).attr('fill',i['cars'][1]['color']);
-					$r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
-					
-					d3.select(b2.querySelector('#path4836')).attr('fill',i['cars'][2]['color']);
-					$r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
-					
-					d3.select(rm.querySelector('#path4836')).attr('fill',i['cars'][3]['color']);
-					$r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
-					
-					$tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
-					
-					// Third row - train ids
-					var $tr3 = $('<tr>');
-					var $tdheadid = $('<td>');
-					var $r3td1 = $('<td>');
-					var $r3td2 = $('<td>');
-					var $r3td3 = $('<td>');
-					var $r3td4 = $('<td>');
-					
-					$tdheadid.text(i['name'])
-					$r3td1.text(i['cars'][0]['name']);
-					$r3td2.text(i['cars'][1]['name']);
-					$r3td3.text(i['cars'][2]['name']);
-					$r3td4.text(i['cars'][3]['name']);
-					
-					
-					$tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
-					
-					
-					// Fourth row - train progress and rollout and dynamic test and arrived on
-					var $tr4 = $('<tr>');
-					var $tdheadprogress = $('<td>');
-					$tdheadprogress.append($('<p>').text(i['progress']));
-					$tr4.append($tdheadprogress);
-					// Search for consecutive text and combine them if have to
-					var texts = $.map(i['cars'], function(v){return v['text']});
-					for (var x = 0; x < texts.length; x++) {
-						var text = texts[x];
-						var $td = $('<td>').text(text);
-						
-						if (text.indexOf('%') > -1) {
-							// Dont consecutive search
-							$tr4.append($td);
-						} else {
-							// Do
-							var count = findConsecutive(texts,x);
-							if (count > 0) {
-								$td.attr('colspan',count+1)
-								//$td.css('background-color','#555');
-							}
-							$tr4.append($td);
-							x = x+count;
-						}
-					}
-					
-					//$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
-					$tbody.append($tr1).append($tr2).append($tr3).append($tr4);
-					$tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
-					
-				});
-				return $table;
-			}
-			
-			var generateTable = function(data) {
-				var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
-				var $thead = $('<thead>');
-				var $tbody = $('<tbody>');
-				
-				var $tr = $('<tr>');
-				for (var i = 0; i < data[0].length; i++) {
-					var $td = $('<td>');
-					$td.html(data[0][i]);
-					$tr.append($td);
-				}
-				$thead.append($tr);
-				
-				// Start from 1 since the first is for header
-				for (var i = 1; i < data.length; i++) {
-					var $tr = $('<tr>');
-					for (var j = 0; j < data[i].length; j++) {
-						var d = data[i][j];
-						var $td = $('<td>');
-						$td.html(d);
-						$tr.append($td);
-					}
-					$tbody.append($tr);
-				}
-				
-				$table.append($thead);
-				$table.append($tbody);
-				return $table;
-			}
+                        var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass + '<br>Car number: ' + carnum;
+                        return generateTooltipDiv(html);
+                    }
+                    return $('<div>');
+                }
 
-            var generateDataTable = function(data) {
+                $.each(data, function (idx, i) {
+                    var train = generateTrain();
+
+
+                    var hd = train[0];
+                    var lm = train[1];
+                    var b1 = train[2];
+                    var b2 = train[3];
+                    var rm = train[4];
+
+                    // First row - delivery row
+                    var $tr1 = $('<tr>');
+
+
+                    var $r1td1 = $('<td>');
+
+                    //var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
+                    var toptext = i['toptext'] == '' ? '&nbsp' : i['toptext'];
+                    $tr1.append($r1td1).append($('<td>').attr('colspan', '4').html(toptext));
+
+                    // Second row - train row
+                    var $tr2 = $('<tr>');
+                    var $tdhead = $('<td style="width: 80px">');
+                    $tdhead.append(hd);
+
+                    d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
+
+                    var $r2td1 = $('<td>');
+                    var $r2td2 = $('<td>');
+                    var $r2td3 = $('<td>');
+                    var $r2td4 = $('<td>');
+
+
+                    d3.select(lm.querySelector('#path4836')).attr('fill', i['cars'][0]['color']);
+                    $r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
+
+                    d3.select(b1.querySelector('#path4836')).attr('fill', i['cars'][1]['color']);
+                    $r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
+
+                    d3.select(b2.querySelector('#path4836')).attr('fill', i['cars'][2]['color']);
+                    $r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
+
+                    d3.select(rm.querySelector('#path4836')).attr('fill', i['cars'][3]['color']);
+                    $r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
+
+                    $tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
+
+                    // Third row - train ids
+                    var $tr3 = $('<tr>');
+                    var $tdheadid = $('<td>');
+                    var $r3td1 = $('<td>');
+                    var $r3td2 = $('<td>');
+                    var $r3td3 = $('<td>');
+                    var $r3td4 = $('<td>');
+
+                    $tdheadid.text(i['name'])
+                    $r3td1.text(i['cars'][0]['name']);
+                    $r3td2.text(i['cars'][1]['name']);
+                    $r3td3.text(i['cars'][2]['name']);
+                    $r3td4.text(i['cars'][3]['name']);
+
+
+                    $tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
+
+
+                    // Fourth row - train progress and rollout and dynamic test and arrived on
+                    var $tr4 = $('<tr>');
+                    var $tdheadprogress = $('<td>');
+                    $tdheadprogress.append($('<p>').text(i['progress']));
+                    $tr4.append($tdheadprogress);
+                    // Search for consecutive text and combine them if have to
+                    var texts = $.map(i['cars'], function (v) {
+                        return v['text']
+                    });
+                    for (var x = 0; x < texts.length; x++) {
+                        var text = texts[x];
+                        var $td = $('<td>').text(text);
+
+                        if (text.indexOf('%') > -1) {
+                            // Dont consecutive search
+                            $tr4.append($td);
+                        } else {
+                            // Do
+                            var count = findConsecutive(texts, x);
+                            if (count > 0) {
+                                $td.attr('colspan', count + 1)
+                                //$td.css('background-color','#555');
+                            }
+                            $tr4.append($td);
+                            x = x + count;
+                        }
+                    }
+
+                    //$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
+                    $tbody.append($tr1).append($tr2).append($tr3).append($tr4);
+                    $tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
+
+                });
+                return $table;
+            }
+
+            var generateTable = function (data) {
+                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+                var $thead = $('<thead>');
+                var $tbody = $('<tbody>');
+
+                var $tr = $('<tr>');
+                for (var i = 0; i < data[0].length; i++) {
+                    var $td = $('<td>');
+                    $td.html(data[0][i]);
+                    $tr.append($td);
+                }
+                $thead.append($tr);
+
+                // Start from 1 since the first is for header
+                for (var i = 1; i < data.length; i++) {
+                    var $tr = $('<tr>');
+                    for (var j = 0; j < data[i].length; j++) {
+                        var d = data[i][j];
+                        var $td = $('<td>');
+                        $td.html(d);
+                        $tr.append($td);
+                    }
+                    $tbody.append($tr);
+                }
+
+                $table.append($thead);
+                $table.append($tbody);
+                return $table;
+            }
+
+            var generateDataTable = function (data) {
                 var $table = $('<table>').addClass('table table-bordered table-condensed table-hover summersoft_container');
                 var $thead = $('<thead>');
                 var $tbody = $('<tbody>');
@@ -356,14 +359,14 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 // Start from 1 since the first is for header
                 for (var i = 1; i < data.length; i++) {
                     var $tr = $('<tr class="s_comments">');
-                    for (var j = 0; j < (data[i].length)-1; j++) {
-                        var d = data[i][j+1];
+                    for (var j = 0; j < (data[i].length) - 1; j++) {
+                        var d = data[i][j + 1];
                         var $td = $('<td>');
-                        var $span=$('<span>');
+                        var $span = $('<span>');
                         $span.html(d);
                         $td.append($span);
-                        if(((j+1)%2)==0) {
-                            $td.append('<a data-value="'+data[i][j-1]+'" class="s_delete" href="javascript:void(0);"><i style="padding-left: 10px;color: #ffd461;" class="fa fa-trash-o pull-right">');
+                        if (((j + 1) % 2) == 0) {
+                            $td.append('<a data-value="' + data[i][j - 1] + '" class="s_delete" href="javascript:void(0);"><i style="padding-left: 10px;color: #ffd461;" class="fa fa-trash-o pull-right">');
                         }
                         $tr.append($td);
                     }
@@ -382,88 +385,98 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //};
             // Added by Sebin
             //usage: Alg: to find the list numbers in train manufacturing progress
-            var tg=function(n){
-                var t='',a=[],b=[],k=0;
-                for(var i=0;i< n.length;i++){
-                    if(i == 0 || (n[i] != n[i-1]+1)) {
+            var tg = function (n) {
+                var t = '', a = [], b = [], k = 0;
+                for (var i = 0; i < n.length; i++) {
+                    if (i == 0 || (n[i] != n[i - 1] + 1)) {
                         a.push(n[i]);
                     }
                 }
-                for(var i=1;i< a.length;i++) {
-                    if(a[i] != a[i-1]+1) {
-                        b.push(n[n.indexOf(a[i])-1]);
+                for (var i = 1; i < a.length; i++) {
+                    if (a[i] != a[i - 1] + 1) {
+                        b.push(n[n.indexOf(a[i]) - 1]);
                     }
                 }
-                b.push(n[n.length-1]);
-                for(var j=0;j< a.length;j++){
-                    if(a[j]==b[j]){
-                        if(j== a.length-1){
-                            t+=a[j];
-                        }else{
-                            t+=a[j]+ ", ";
+                b.push(n[n.length - 1]);
+                for (var j = 0; j < a.length; j++) {
+                    if (a[j] == b[j]) {
+                        if (j == a.length - 1) {
+                            t += a[j];
+                        } else {
+                            t += a[j] + ", ";
                         }
-                    }else{
-                        if(j== a.length-1) {
+                    } else {
+                        if (j == a.length - 1) {
                             t += a[j] + " - " + b[j];
                         }
-                        else{
+                        else {
                             t += a[j] + " - " + b[j] + ", ";
                         }
                     }
                 }
                 return t;
             }
-            var getSummary = function(d) {
+            var getSummary = function (d) {
                 var trains = Object.keys(d);
-                var trainIndeces = _.map(trains, function(t){return parseInt(t.substr(t.indexOf("Train")+6)); })
+                var trainIndeces = _.map(trains, function (t) {
+                    return parseInt(t.substr(t.indexOf("Train") + 6));
+                })
                 // Sort ascending
-                trainIndeces.sort(function(a,b){return a-b});
+                trainIndeces.sort(function (a, b) {
+                    return a - b
+                });
                 //alert(trainIndeces);
-                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
-                        return "No Train(s) here " ;
-                    }
+                if (trainIndeces[0] == undefined && trainIndeces[trainIndeces.length - 1] == undefined) {
+                    return "No Train(s) here ";
+                }
                 else {
-                    if(trainIndeces.length > 1 ) {
+                    if (trainIndeces.length > 1) {
                         return "Train " + tg(trainIndeces);
                     }
-                    else{
+                    else {
                         return "Train " + trainIndeces[0];
                     }
                 }
             }
             //Added by Sebin;
-            var getSummarys_k = function(d) {
+            var getSummarys_k = function (d) {
                 var trains = Object.keys(d);
-                var trainIndeces=[];
-                for(var i=0;i<trains.length;i++){
-                    if(trains[i].length>8){
-                        var ar= trains[0].split('-');
-                        for(var j=parseInt(ar[0].substr(ar[0].indexOf("Train") + 6));j<=parseInt(ar[1].substr(ar[1].indexOf("Train") + 6));j++){
+                var trainIndeces = [];
+                for (var i = 0; i < trains.length; i++) {
+                    if (trains[i].length > 8) {
+                        var ar = trains[0].split('-');
+                        for (var j = parseInt(ar[0].substr(ar[0].indexOf("Train") + 6)); j <= parseInt(ar[1].substr(ar[1].indexOf("Train") + 6)); j++) {
                             trainIndeces.push(j);
                         }
-                    }else{
+                    } else {
                         trainIndeces.push(parseInt(trains[i].substr(trains[i].indexOf("Train") + 6)));
                     }
                 }
-                trainIndeces.sort(function(a,b){return a-b});
-                if(trainIndeces[0] == undefined && trainIndeces[trainIndeces.length-1] == undefined){
-                    return "No Train(s) here " ;
+                trainIndeces.sort(function (a, b) {
+                    return a - b
+                });
+                if (trainIndeces[0] == undefined && trainIndeces[trainIndeces.length - 1] == undefined) {
+                    return "No Train(s) here ";
                 }
                 else {
-                    if(trainIndeces.length > 1 ) {
+                    if (trainIndeces.length > 1) {
                         return "Train " + tg(trainIndeces);
-                    }else{
+                    } else {
                         return "Train " + trainIndeces[0];
                     }
                 }
             }
 
-            var getNumberOfTrains = function(d) {
+            var getNumberOfTrains = function (d) {
                 var trains = Object.keys(d);
-                var trainIndeces = _.map(trains, function(t){return parseInt(t.substr(t.indexOf("Train")+6)); })
+                var trainIndeces = _.map(trains, function (t) {
+                    return parseInt(t.substr(t.indexOf("Train") + 6));
+                })
                 // Sort ascending
-                trainIndeces.sort(function(a,b){return a-b});
-                return parseInt(trainIndeces[trainIndeces.length-1]) - parseInt(trainIndeces[0]) + 1;
+                trainIndeces.sort(function (a, b) {
+                    return a - b
+                });
+                return parseInt(trainIndeces[trainIndeces.length - 1]) - parseInt(trainIndeces[0]) + 1;
             }
             //var mfgsummary = getSummary(trainData['manufacturing']);
             //var asssummary = getSummary(trainData['assembly']);
@@ -473,178 +486,209 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //var subdnumber = getNumberOfTrains(trainData['subd']);
             //var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd'])))?0:getNumberOfTrains(trainData['kjd']);
             //Added by Sebin for Dynamic data Loading
-            var trainData={};
-                mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
-                    trainData = (JSON.parse(JSON.stringify(result)));
-                    var mfgsummary = getSummary(trainData['manufacturing']);
-                    var asssummary = getSummary(trainData['assembly']);
-                    var subdsummary = getSummarys_k(trainData['subd']);
-                    var kjdsummary = getSummarys_k(trainData['kjd']);
+            var trainData = {};
+            mpxd.getJSONData("gettrainData" + c_data_date + "", function (result) {
+                trainData = (JSON.parse(JSON.stringify(result)));
+                var mfgsummary = getSummary(trainData['manufacturing']);
+                var asssummary = getSummary(trainData['assembly']);
+                var subdsummary = getSummarys_k(trainData['subd']);
+                var kjdsummary = getSummarys_k(trainData['kjd']);
 
-                    var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
-                    var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
+                var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
+                var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
 
-                    $('#manufacturing_progress_value').text(mfgsummary);
-                    $('#assembly_progress_value').text(asssummary);
-                    $('#subd_progress_value').text(subdsummary);
-                    $('#kjd_progress_value').text(kjdsummary);
+                $('#manufacturing_progress_value').text(mfgsummary);
+                $('#assembly_progress_value').text(asssummary);
+                $('#subd_progress_value').text(subdsummary);
+                $('#kjd_progress_value').text(kjdsummary);
 
-                    $('#subd_number_of_trains').text('Total: ' + subdnumber);
-                    $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
-                });
-            var getColor=function(f,r,p){
-                var carcolor='';
+                $('#subd_number_of_trains').text('Total: ' + subdnumber);
+                $('#kjd_number_of_trains').text('Total: ' + kjdnumber);
+            });
+
+            // modified start : Agaile - test
+
+            var getColor_SMH = function (f, p) {
+                console.log(f);
+                var carcolor = '';
                 var pr;
-                var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
-                //alert(date1);
-                var date = new Date();
-                var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
-
-                var today = cdate;
-                today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                var f_date = date1;
-                var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    if(DaysDiff>0)
-                    {
-                        if((r!='')&&(r !='undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
+                if (f != 'ROLLED_OUT') {
+                    var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
+                    //var date1 = moment(mix, "DD-MMM-YYYY").format("DD/MM/YYYY");
+                    var date = new Date();
+                    var cdate = [(date.getDate()), (date.getMonth() + 1), date.getFullYear()].join('/');
+                    var today = cdate;
+                    today = new Date(today.split('/')[2], today.split('/')[1] - 1, today.split('/')[0]);
+                    var f_date = date1;
+                    var f_date = new Date(f_date.split('/')[2], f_date.split('/')[1] - 1, f_date.split('/')[0]);
+                    //var timeDiff = Math.abs(today.getTime() - f_date.getTime());
+                    var timeDiff = today.getTime() - f_date.getTime();
+                    var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)).toFixed(0);
+                    if (DaysDiff == 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
                         }
-                        else
-                        {
-                            carcolor='#f06';//red
+                        else {
+                            carcolor = '#f06';//red
                         }
                     }
-                    else if(DaysDiff==NaN)
-                    {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
+                    else if (DaysDiff > 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
                         }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
+                        else {
+                            carcolor = '#f06';//red
+
+                        }
+                    }
+                    else if (DaysDiff < 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
+                        }
+                        else {
+                            carcolor = '#fe0';//yellow
 
                         }
                     }
                     else
                     {
-                        if((r!='')&&(r != 'undefined')&& p==100 )
-                        {
-                            carcolor='#0f9';//green
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
                         }
-                        else
-                        {
-                            carcolor='#fe0';//yellow
+                        else {
+                            carcolor = '#fe0';//yellow
 
                         }
-                    }
-                return carcolor;
-            }
-            var getColorAssem=function(f,p){
-                var carcolor='';
-                var pr;
-                var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
-                //alert(date1);
-                var date = new Date();
-                var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
-
-                var today = cdate;
-                today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                var f_date = date1;
-                var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                if(DaysDiff>0)
-                {
-                    if(p==100 )
-                    {
-                        carcolor='#0f9';//green
-                    }
-                    else
-                    {
-                        carcolor='#f06';//red
-                    }
-                }
-                else if(DaysDiff==NaN)
-                {
-                    if((r!='')&&(r != 'undefined')&& p==100 )
-                    {
-                        carcolor='#0f9';//green
-                    }
-                    else
-                    {
-                        carcolor='#fe0';//yellow
-
                     }
                 }
                 else
                 {
-                    if(p==100 )
-                    {
-                        carcolor='#0f9';//green
+                    if (p == 100) {
+                        carcolor = '#0f9';//green
                     }
-                    else
-                    {
-                        carcolor='#fe0';//yellow
+                    else  {
+                        carcolor = '#fe0';//yellow
 
                     }
                 }
                 return carcolor;
             }
-            var renderManufacturing = function(data) {
+
+            // modified : end
+
+
+            var getColor = function (f, p) {
+               // console.log('foredate');
+               //console.log(f);
+                var carcolor = '';
+                var pr;
+                //alert(f);
+               // var mix = '03-May-2016';
+                if (f != 'ROLLED_OUT') {
+                    var date1 = moment(f, "DD-MMM-YYYY").format("DD/MM/YYYY");
+                    //var date1 = moment(mix, "DD-MMM-YYYY").format("DD/MM/YYYY");
+                    var date = new Date();
+                    var cdate = [(date.getDate()), (date.getMonth() + 1), date.getFullYear()].join('/');
+                    var today = cdate;
+                    today = new Date(today.split('/')[2], today.split('/')[1] - 1, today.split('/')[0]);
+                    var f_date = date1;
+                    var f_date = new Date(f_date.split('/')[2], f_date.split('/')[1] - 1, f_date.split('/')[0]);
+                    //var timeDiff = Math.abs(today.getTime() - f_date.getTime());
+                    var timeDiff = today.getTime() - f_date.getTime();
+                    var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)).toFixed(0);
+                    if (DaysDiff == 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
+                        }
+                        else {
+                            carcolor = '#f06';//red
+                        }
+                    }
+                    else if (DaysDiff > 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
+                        }
+                        else {
+                            carcolor = '#f06';//red
+
+                        }
+                    }
+                    else if (DaysDiff < 0) {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
+                        }
+                        else {
+                            carcolor = '#fe0';//yellow
+
+                        }
+                    }
+                else
+                    {
+                        if (p == 100) {
+                            carcolor = '#0f9';//green
+                        }
+                        else {
+                            carcolor = '#fe0';//yellow
+
+                        }
+                    }
+                }
+                 else
+                 {
+                 if (p == 100) {
+                 carcolor = '#0f9';//green
+                 }
+                 else  {
+                 carcolor = '#fe0';//yellow
+
+                 }
+                 }
+                return carcolor;
+            }
+            var renderManufacturing = function (data) {
                 var newdata = [];
-                var color=[];
-                var flag=0;
+                var color = [];
+                var flag = 0;
                 var totalCarsProgress;
                 var trainProgress;
-                $.each(data, function(idx, i) {
-                      totalCarsProgress = _.reduce($.map(i['cars'], function (v, j) {
-                            return parseFloat(v['progress']);
-                        }), function (m, v) {
-                            return m + v
-                        });
-                       trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                            //color = (trainProgress < 100) ? '#fe0' : '#0f9';
-                            color=$.map(i['cars'], function (val, jdx) {
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != '')) {
-                                    return getColor(val['foreDate'], val['rollout'],trainProgress);
-                                }
-                            });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
-                    }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
-                    }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
-                    }
-                        newdata.push({
-                            'name': idx,
-                            'toptext': '',
-                            'progress': trainProgress + '%',
-                            'color':color,
-                            'cars': $.map(i['cars'], function (val, jdx) {
-                                var carprogress = parseFloat(val['progress']).toFixed(0);
-                                //var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
-                                var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress + '%';
-                                if((val['rollout'] != 'undefined') || (val['rollout'] != ''))
-                                {
-                                  var carcolor=getColor(val['foreDate'],val['rollout'],carprogress);
-                                    return {
-                                        'name': jdx,
-                                        'text': text,
-                                        'color': carcolor
-                                    };
-                                }
-                            })
-                        });
+                $.each(data, function (idx, i) {
+                    totalCarsProgress = _.reduce($.map(i['cars'], function (v, j) {
+                        return parseFloat(v['progress']);
+                    }), function (m, v) {
+                        return m + v
                     });
+                    trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
+                    //color = (trainProgress < 100) ? '#fe0' : '#0f9';
+                    color = $.map(i['cars'], function (val, jdx) {
+                        return getColor(val['foreDate'], trainProgress);
+                    });
+                    if (color[0] == '#f06' || color[1] == '#f06' || color[2] == '#f06' || color[3] == '#f06') {
+                        color = '#f06';
+                    }
+                    if (color[0] == '#0f9' || color[1] == '#0f9' || color[2] == '#0f9' || color[3] == '#0f9') {
+                        color = '#0f9';
+                    }
+                    if ((color[0] != '#f06' || color[1] != '#f06' || color[2] != '#f06' || color[3] != '#f06') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
+                        color = '#fe0';
+                    }
+                    newdata.push({
+                        'name': idx,
+                        'toptext': '',
+                        'progress': trainProgress + '%',
+                        'color': color,
+                        'cars': $.map(i['cars'], function (val, jdx) {
+                            var carprogress = parseFloat(val['progress']).toFixed(0);
+                            //var carcolor = (carprogress < 100) ? '#fe0' : '#0f9'
+                            var text = ((typeof val['rollout'] != 'undefined') && (val['rollout'] != '')) ? 'Rolled out on ' + val['rollout'] : carprogress + '%';
+                            var carcolor = getColor(val['foreDate'], carprogress);
+                            return {
+                                'name': jdx,
+                                'text': text,
+                                'color': carcolor
+                            };
+                        })
+                    });
+                });
                 $manufacturingContainer.find('.train-container').html('').append(renderTrainDom(newdata));
                 /*var $table = generateTable([
                  ["Train Num.", "Target Roll-out", "Dates acc. to Baseline Rev.06","Current CRRC Forecast Date", "Status"],
@@ -655,69 +699,23 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["41","02/01/15", "06/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("manuBaseline"+c_data_date+"", function(result){
-                    console.log(result);
-                    if(result.length>0) {
+                mpxd.getJSONData("manuBaseline" + c_data_date + "", function (result) {
+                    if (result.length > 0) {
                         var $bar;
                         var $rev;
                         var $fordate;
                         var baseline = [];
                         $.each(result, function (idx, i) {
-                            $rev =  i['REV_INT'];
+                            $rev = i['REV_INT'];
                             return;
                         });
-                        baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
+                        baseline.push(["Train Num.", "Dates acc.to Baseline Rev." + $rev + "", "Current CRRC Forecast Date", "Status"])
                         $.each(result, function (idx, i) {
                             var perc;
-                            var carcolor;
-                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
-                            var date = new Date();
-                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
-
-                            var today = cdate;
-                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                            var f_date = date1;
-                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
-                            if(DaysDiff>0)
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#f06';//red
-                                }
-                            }
-                            else if(DaysDiff==NaN)
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#fe0';//yellow
-
-                                }
-                            }
-                            else
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#fe0';//yellow
-
-                                }
-                            }
-                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
-                            baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
+                            perc = (parseInt(i['CAR1_PERC']) + parseInt(i['CAR2_PERC']) + parseInt(i['CAR3_PERC']) + parseInt(i['CAR4_PERC'])) / 4;
+                            var carcolor = getColor(i['FORE_DATE'], perc);
+                            $bar = "<div style='width:100%; height: 10px; background:" + carcolor + "; display: inline-block'></div>";
+                            baseline.push([i['TRAIN_NO'], (i['BASE_DATE'] == null) ? "-" : i['BASE_DATE'], (i['FORE_DATE'] == null)||(i['FORE_DATE'] =='ROLLED_OUT') ? "-" : i['FORE_DATE'], $bar]);
                         });
                         var baselines = generateTable(baseline);
                         $manufacturingContainer.find('.table-container').html('').append(baselines);
@@ -725,47 +723,48 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 });
             }
 
-            var renderAssembly = function(data) {
+            var renderAssembly = function (data) {
                 var newdata = [];
                 var color;
-                $.each(data, function(idx, i) {
-                    var totalCarsProgress = _.reduce($.map(i['cars'], function(v, j) {
+                var carcolor;
+                $.each(data, function (idx, i) {
+                    var totalCarsProgress = _.reduce($.map(i['cars'], function (v, j) {
                         if (isNaN(parseFloat(v['progress']))) return 0;
                         return parseFloat(v['progress']);
-                    }), function(m,v){return m+v});
-                    var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
-                     color=$.map(i['cars'], function (val, jdx) {
-                             return getColorAssem(val['foreDateA'],trainProgress);
+                    }), function (m, v) {
+                        return m + v
                     });
-                    if(color[0]=='#f06'||color[1]=='#f06'||color[2]=='#f06'||color[3]=='#f06'){
-                        color='#f06';
+                    var trainProgress = parseFloat(totalCarsProgress / Object.keys(i['cars']).length).toFixed(0);
+                    color = $.map(i['cars'], function (val, jdx) {
+                        return getColor(val['foreDateA'], trainProgress);
+                    });
+                    if (color[0] == '#f06' || color[1] == '#f06' || color[2] == '#f06' || color[3] == '#f06') {
+                        color = '#f06';
                     }
-                    if(color[0]=='#0f9'||color[1]=='#0f9'||color[2]=='#0f9'||color[3]=='#0f9')
-                    {
-                        color='#0f9';
+                    if (color[0] == '#0f9' || color[1] == '#0f9' || color[2] == '#0f9' || color[3] == '#0f9') {
+                        color = '#0f9';
                     }
-                    if((color[0]!='#f06'||color[1]!='#f06'||color[2]!='#f06'||color[3]!='#f06')&&(color[0]=='#fe0'||color[1]=='#fe0'||color[2]=='#fe0'||color[3]=='#fe0') )
-                    {
-                        color='#fe0';
+                    if ((color[0] != '#f06' || color[1] != '#f06' || color[2] != '#f06' || color[3] != '#f06') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
+                        color = '#fe0';
                     }
                     newdata.push({
                         'name': idx,
-                        'toptext': 'Target delivery '+ ((i['delivery']!='')?i['delivery']:'-'),
-                        'progress': trainProgress+'%',
+                        'toptext': 'Target delivery ' + ((i['delivery'] != '') ? i['delivery'] : '-'),
+                        'progress': trainProgress + '%',
                         'color': color,
-                        'cars': $.map(i['cars'], function(val, jdx) {
+                        'cars': $.map(i['cars'], function (val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                                var carcolor = getColorAssem(val['foreDateA'], carprogress);
-                           // if (isNaN(carprogress)) carcolor = '#fe0';
+                            carcolor = getColor(val['foreDateA'], carprogress);
+                            // if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
-                                if(val['arrived']!=null) {
+                                if (val['arrived'] != null) {
                                     text = 'Arrived on ' + val['arrived'];
-                                }else{
+                                } else {
                                     text = 'Arrived on -';
                                 }
                             } else if (val['progress'] != '') {
-                                text = carprogress+'%';
+                                text = carprogress + '%';
                             }
                             return {
                                 'name': jdx,
@@ -797,78 +796,34 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["37", "27/06/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"],
                  ["38", "11/07/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
-                mpxd.getJSONData("AssemblyBaseline"+c_data_date+"", function(result){
-                    if(result.length>0) {
+                mpxd.getJSONData("AssemblyBaseline" + c_data_date + "", function (result) {
+                    if (result.length > 0) {
                         var color;
                         var $bar;
                         var $rev;
                         var $fordate;
                         var assembly = [];
                         $.each(result, function (idx, i) {
-                            $rev =  i['REV_INT'];
+                            $rev = i['REV_INT'];
                             return;
                         });
-                        assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
+                        assembly.push(["Train Num.", "Dates acc.to Baseline Rev." + $rev + "", "Current Forecast Roll-out", "Status"])
                         $.each(result, function (idx, i) {
                             var perc;
-                            var carcolor;
-                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
-                            var date = new Date();
-                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+                            perc = (parseInt(i['CAR1_PERC']) + parseInt(i['CAR2_PERC']) + parseInt(i['CAR3_PERC']) + parseInt(i['CAR4_PERC'])) / 4;
+                            var carcolor = getColor(i['FORE_DATE'], perc);
 
-                            var today = cdate;
-                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
-                            var f_date = date1;
-                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
-                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
-                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
-                            if(DaysDiff>0)
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#f06';//red
-                                }
-                            }
-                            else if(DaysDiff==NaN)
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#fe0';//yellow
-
-                                }
-                            }
-                            else
-                            {
-                                if(perc==100 )
-                                {
-                                    carcolor='#0f9';//green
-                                }
-                                else
-                                {
-                                    carcolor='#fe0';//yellow
-
-                                }
-                            }
-                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
+                            $bar = "<div style='width:100%; height: 10px; background:" + carcolor + "; display: inline-block'></div>";
                             /*if(i['STATUS']=='1.00'){
-                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
-                            }else if(i['STATUS']=='2.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
-                            }else if(i['STATUS']=='3.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
-                            }else  {
-                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
-                            }*/
-                            assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
+                             $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
+                             }else if(i['STATUS']=='2.00') {
+                             $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
+                             }else if(i['STATUS']=='3.00') {
+                             $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
+                             }else  {
+                             $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
+                             }*/
+                            assembly.push([i['TRAIN_NO'], (i['BASE_DATE'] == null) ? "-" : i['BASE_DATE'], (i['FORE_DATE'] == null)||(i['FORE_DATE'] =='ROLLED_OUT') ? "-" : i['FORE_DATE'], $bar]);
                         });
                         var assemblys = generateTable(assembly);
                         $assemblyContainer.find('.table-container').html('').append(assemblys);
@@ -877,12 +832,12 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                 //Modified By Sebin (Dynamic Data)
                 //For Comments
-                mpxd.getJSONData("fetchComment", function(result){
-                    if(result.length>0) {
+                mpxd.getJSONData("fetchComment", function (result) {
+                    if (result.length > 0) {
                         var comments = [];
                         comments.push(["Train Num.", "Comments"]);
                         $.each(result, function (idx, i) {
-                            comments.push([i['id'],i['train_no'], i['comments']]);
+                            comments.push([i['id'], i['train_no'], i['comments']]);
                         });
                         var $comment = generateDataTable(comments);
                         //$comment.attr("id","dataTab");
@@ -904,9 +859,9 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 });
             }
 
-            var renderTesting = function(data) {
+            var renderTesting = function (data) {
                 var newdata = [];
-                $.each(data, function(idx, i) {
+                $.each(data, function (idx, i) {
                     var color = '#0f9';
 
                     if ((typeof i['testingcompleted'] != 'undefined') && (i['testingcompleted'] != '')) {
@@ -915,7 +870,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             'toptext': '',
                             'progress': '',
                             'color': '#ccc',
-                            'cars': $.map(i['cars'], function(val, jdx) {
+                            'cars': $.map(i['cars'], function (val, jdx) {
                                 var text = i['testingcompleted'];
                                 return {
                                     'name': '',
@@ -930,12 +885,12 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             'toptext': '',
                             'progress': '',
                             'color': color,
-                            'cars': $.map(i['cars'], function(val, jdx) {
+                            'cars': $.map(i['cars'], function (val, jdx) {
                                 var text = 'Dynamic Test Completed';
                                 if ((typeof i['delivery'] != 'undefined') && (i['delivery'] != '')) {
-                                    if(i['delivery']!=null) {
+                                    if (i['delivery'] != null) {
                                         text = 'Delivered on ' + i['delivery']
-                                    }else{
+                                    } else {
                                         text = 'Delivered on -'
                                     }
                                 }
@@ -954,21 +909,21 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                 $subdContainer.find('.table-container').html('');
             }
-            var renderKJD = function(data) {
+            var renderKJD = function (data) {
                 var newdata = [];
-                $.each(data, function(idx, i) {
+                $.each(data, function (idx, i) {
                     var color = '#0f9';
                     newdata.push({
                         'name': idx,
                         'toptext': '',
                         'progress': '',
                         'color': color,
-                        'cars': $.map(i['cars'], function(val, jdx) {
+                        'cars': $.map(i['cars'], function (val, jdx) {
                             var text = "Dynamic Test Completed";
                             if ((typeof i['delivery'] != 'undefined') && (i['delivery'] != '')) {
-                                if(i['delivery']!=null) {
+                                if (i['delivery'] != null) {
                                     text = 'Delivered on ' + i['delivery']
-                                }else{
+                                } else {
                                     text = 'Delivered on -'
                                 }
                             }
@@ -991,7 +946,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             //renderKJD(trainData['kjd']);
             //Modified By Sebin For Dynamic data loading
 
-            mpxd.getJSONData("gettrainData"+c_data_date+"", function (result) {
+            mpxd.getJSONData("gettrainData" + c_data_date + "", function (result) {
                 trainData = (JSON.parse(JSON.stringify(result)));
                 renderManufacturing(trainData['manufacturing']);
                 renderAssembly(trainData['assembly']);
@@ -999,8 +954,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 renderKJD(trainData['kjd']);
             });
 
-            that.$el.find('#modal_default_3').on('shown.bs.modal', function() {
-                that.$el.find('.modal-body').css('max-height', $(window).height()-237);
+            that.$el.find('#modal_default_3').on('shown.bs.modal', function () {
+                that.$el.find('.modal-body').css('max-height', $(window).height() - 237);
             })
 
 
@@ -1016,23 +971,23 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             };
 
             var currentZoom = 2;
-            var setZoom = function(i) {
+            var setZoom = function (i) {
                 var $parent = $panzoom.parent();
                 var $zoomin = that.$el.find('.zoom-in');
                 var $zoomout = that.$el.find('.zoom-out');
-                switch(i) {
+                switch (i) {
                     case 0:
                         $panzoom.panzoom('zoom', 1);
                         $parent.addClass('zoomout');
-                        $parent.css('zoom',0.5).css('min-width','2000px');
+                        $parent.css('zoom', 0.5).css('min-width', '2000px');
                         $zoomin.removeAttr('disabled');
-                        $zoomout.attr('disabled','disabled');
+                        $zoomout.attr('disabled', 'disabled');
                         currentZoom = 0;
                         break;
                     case 1:
                         $panzoom.panzoom('zoom', 1);
                         $parent.addClass('zoomout');
-                        $parent.css('zoom',0.75).css('min-width','3000px');
+                        $parent.css('zoom', 0.75).css('min-width', '3000px');
                         $zoomin.removeAttr('disabled');
                         $zoomout.removeAttr('disabled');
                         currentZoom = 1;
@@ -1040,7 +995,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     case 2:
                         $panzoom.panzoom('zoom', 1);
                         $parent.removeClass('zoomout');
-                        $parent.css('zoom',1);
+                        $parent.css('zoom', 1);
                         $zoomin.removeAttr('disabled');
                         $zoomout.removeAttr('disabled');
                         currentZoom = 2;
@@ -1048,7 +1003,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     case 3:
                         $panzoom.panzoom('zoom', 1);
                         $parent.removeClass('zoomout');
-                        $parent.css('zoom',1.25);
+                        $parent.css('zoom', 1.25);
                         $zoomin.removeAttr('disabled');
                         $zoomout.removeAttr('disabled');
                         currentZoom = 3;
@@ -1056,19 +1011,19 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     case 4:
                         $panzoom.panzoom('zoom', 1);
                         $parent.removeClass('zoomout');
-                        $parent.css('zoom',1.5);
-                        $zoomin.attr('disabled','disabled');
+                        $parent.css('zoom', 1.5);
+                        $zoomin.attr('disabled', 'disabled');
                         $zoomout.removeAttr('disabled');
                         currentZoom = 4;
                         break;
                 }
-                Cookies.set(cookiename, {zoom:currentZoom});
+                Cookies.set(cookiename, {zoom: currentZoom});
             }
 
-            var setPan = function(zoom, index) {
+            var setPan = function (zoom, index) {
                 var x = 0;
                 var y = 0;
-                switch(zoom) {
+                switch (zoom) {
                     case 0:
                         x = 1100;
                         break;
@@ -1088,35 +1043,35 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         x = 125;
                         break;
                 }
-                $panzoom.panzoom('pan',x-(index*750),y);
+                $panzoom.panzoom('pan', x - (index * 750), y);
             }
 
             var $section = that.$el.find('#modal_default_3');
             $panzoom = $section.find('.panzoom').panzoom(panzoomOptions);
 
 
-            that.$el.find('.manufacturing-link').on('click', function(){
+            that.$el.find('.manufacturing-link').on('click', function () {
                 setPan(currentZoom, 0);
             });
 
-            that.$el.find('.assembly-link').on('click', function(){
+            that.$el.find('.assembly-link').on('click', function () {
                 setPan(currentZoom, 1);
             });
 
-            that.$el.find('.testing-link').on('click', function(){
+            that.$el.find('.testing-link').on('click', function () {
                 setPan(currentZoom, 2);
             });
 
-            that.$el.find('.kjd-link').on('click', function(){
+            that.$el.find('.kjd-link').on('click', function () {
                 setPan(currentZoom, 3);
             });
 
-            $section.find('.zoom-in').on('click', function() {
-                setZoom(currentZoom+1);
+            $section.find('.zoom-in').on('click', function () {
+                setZoom(currentZoom + 1);
             });
 
-            $section.find('.zoom-out').on('click', function() {
-                setZoom(currentZoom-1);
+            $section.find('.zoom-out').on('click', function () {
+                setZoom(currentZoom - 1);
             });
 
             var cookies = Cookies.getJSON(cookiename);
@@ -1152,7 +1107,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 });
 
 
-mpxd.constructors.train_progress = function(data) {
+mpxd.constructors.train_progress = function (data) {
     //alert(data.data.currentActual);
     if (typeof data.data.id == "undefined")
         data.data.id = data.id;
@@ -1223,8 +1178,7 @@ mpxd.constructors.train_progress = function(data) {
                     color: 'rgba(0,0,0,0.2)'
                 },
             ]
-        }]
-        ,
+        }],
         credits: {
             enabled: false
         }
@@ -1244,18 +1198,18 @@ mpxd.constructors.train_progress = function(data) {
  }
  })*/
 
-mpxd.constructors.train_manufacturing_testing = function(data) {
+mpxd.constructors.train_manufacturing_testing = function (data) {
     mpxd.modules.general.GenerateGeneralview(data);
 
 }
 
-mpxd.constructors.train_manufacturing_phase = function(data) {
+mpxd.constructors.train_manufacturing_phase = function (data) {
     console.log('train manufact');
     console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
-mpxd.constructors.train_manufacturing_progress = function(data) {
+mpxd.constructors.train_manufacturing_progress = function (data) {
     //mpxd.modules.general.GenerateGeneralview(data);
 
     //var data = items;
@@ -1267,16 +1221,16 @@ mpxd.constructors.train_manufacturing_progress = function(data) {
      */
 }
 
-var max_value=[];
+var max_value = [];
 var max_of_array;
 mpxd.modules.manufacturing_progress_chart = {}
 mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         //console.log(options);
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("train_manufacturing_progress");
         template = _.template(html, {data: that.data});
@@ -1285,18 +1239,18 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         //Static Needs Change
         //that.data.maxJobs = 10000;
-        var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
-        var date_over=[];
-        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
-            outstanding=(JSON.parse(JSON.stringify(result)));
-            for (var j in outstanding ) {
-               date_over.push((result[j]['OUT_DATE']));
-                j=j+2;
+        var c_data_date = "?date=" + moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
+        var date_over = [];
+        mpxd.getJSONData("outStandingProgress" + c_data_date + "", function (result) {
+            outstanding = (JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding) {
+                date_over.push((result[j]['OUT_DATE']));
+                j = j + 2;
             }
             // taking the max value for the target logiv : Agaile
-            for(var i=0;i<result.length; i++){
-                    //that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
-                if(parseInt(result[i]['TARGET'])!= null){
+            for (var i = 0; i < result.length; i++) {
+                //that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
+                if (parseInt(result[i]['TARGET']) != null) {
                     max_value.push(parseInt(result[i]['TARGET']));
                 }
                 max_of_array = Math.max.apply(Math, max_value);
@@ -1310,8 +1264,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             },
             xAxis: {
                 type: "datetime",
-                categories:date_over,
-               // categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
+                categories: date_over,
+                // categories: ["20/08/2015", "27/08/2015", "03/09/2015", "10/09/2015", "17/09/2015", "24/09/2015", "01/10/2015", "08/10/2015", "15/10/2015", "22/10/2015", "29/10/2015", "05/11/2015", "12/11/2015", "19/11/2015", "26/11/2015", "03/12/2015", "10/12/2015", "17/12/2015", "24/12/2015", "31/12/2015", "07/01/2016", "14/01/2016", "21/01/2016", "28/01/2016", "04/02/2016", "11/02/2016", "18/02/2016", "25/02/2016", "03/03/2016", "10/03/2016", "17/03/2016", "24/03/2016", "31/03/2016", "07/04/2016", "14/04/2016", "21/04/2016", "28/04/2016", "05/05/2016", "12/05/2016", "19/05/2016", "26/05/2016", "02/06/2016", "09/06/2016", "16/06/2016", "23/06/2016", "30/06/2016", "07/07/2016", "14/07/2016", "21/07/2016", "28/07/2016", "04/08/2016"],
                 labels: {
                     rotation: 90,
                     step: 2
@@ -1327,10 +1281,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 }],
                 min: 200,
                 //max: that.data.maxJobs
-               max: max_of_array
+                max: max_of_array
             },
             tooltip: {
-                formatter: function(){
+                formatter: function () {
                     var isDoneAvailable = typeof this.points[1] != 'undefined';
                     if (isDoneAvailable) {
                         var seriesDone = this.points[0].series;
@@ -1338,19 +1292,16 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                         var seriesTarget = this.points[1].series;
                         var targetValue = this.points[1].y;
                         //var percentDone = parseFloat((doneValue/that.data.maxJobs)*100).toFixed(0);
-                        var percentDone = parseFloat((doneValue/targetValue)*100).toFixed(0);
+                        var percentDone = parseFloat((doneValue / targetValue) * 100).toFixed(0);
                     } else {
                         var seriesTarget = this.points[0].series;
                         var targetValue = this.points[0].y;
                     }
 
 
-
-
-
-                    var html = '<b>'+this.x+'</b><br>';
-                    if(isDoneAvailable) html += '<span style="color:'+seriesDone.color+'">'+seriesDone.name+'</span>: <b>'+doneValue+'</b> ('+percentDone+'%)<br/>';
-                    html += '<span style="color:'+seriesTarget.color+'">'+seriesTarget.name+'</span>: <b>'+targetValue+'</b><br/>';
+                    var html = '<b>' + this.x + '</b><br>';
+                    if (isDoneAvailable) html += '<span style="color:' + seriesDone.color + '">' + seriesDone.name + '</span>: <b>' + doneValue + '</b> (' + percentDone + '%)<br/>';
+                    html += '<span style="color:' + seriesTarget.color + '">' + seriesTarget.name + '</span>: <b>' + targetValue + '</b><br/>';
                     return html;
 
                 },
@@ -1394,7 +1345,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             },
             tooltip: {
 
-                formatter: function(){
+                formatter: function () {
                     //console.log(this,a,b,c);
                     var index = open_item['xAxis']['categories'].indexOf(this.x);
 
@@ -1407,9 +1358,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     var originalOpen = seriesOpen['data'][index]['original'];
                     var originalClosed = seriesClosed['data'][index]['original'];
 
-                    var html = '<b>Train: '+this.x+'</b><br>';
-                    html += '<span style="color:'+seriesOpen.color+'">'+seriesOpen.name+'</span>: <b>'+originalOpen+'</b> ('+percentOpen+'%)<br/>';
-                    html += '<span style="color:'+seriesClosed.color+'">'+seriesClosed.name+'</span>: <b>'+originalClosed+'</b> ('+percentClosed+'%)<br/>';
+                    var html = '<b>Train: ' + this.x + '</b><br>';
+                    html += '<span style="color:' + seriesOpen.color + '">' + seriesOpen.name + '</span>: <b>' + originalOpen + '</b> (' + percentOpen + '%)<br/>';
+                    html += '<span style="color:' + seriesClosed.color + '">' + seriesClosed.name + '</span>: <b>' + originalClosed + '</b> (' + percentClosed + '%)<br/>';
                     return html;
 
                 },
@@ -1448,19 +1399,19 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
          }*/
         /*        var openJobs = [172, 135, 102, 93, 139, 124, 115, 100, 102, 103, 119, 105, 68, 70, 73, 61, 83, 66, 57, 62, 52];
          var closedJobs = [149, 101, 100, 121, 82, 66, 53, 43, 43, 47, 66, 52, 81, 93, 93, 116, 90, 97, 102, 97, 99];*/
-        var open=[];
-        var openJobs=[];
+        var open = [];
+        var openJobs = [];
         var closedJobs = [];
         var openData = [];
         var closedData = [];
-        mpxd.getJSONData("getOverallProgress"+c_data_date+"", function (result) {
-            for (var i = 0; i <result.length; i++) {
+        mpxd.getJSONData("getOverallProgress" + c_data_date + "", function (result) {
+            for (var i = 0; i < result.length; i++) {
                 //open_item['xAxis']['categories'].push('Train '+ ((i < 10) ? '0' : '') + i);
                 open_item['xAxis']['categories'].push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
                 xAxis.push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
             }
-            open=(JSON.parse(JSON.stringify(result)));
-            for (var j in open ) {
+            open = (JSON.parse(JSON.stringify(result)));
+            for (var j in open) {
                 openJobs.push(parseInt(result[j]['OPEN_JOBS']));
                 closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
 
@@ -1469,12 +1420,12 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
 
             for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
-                var total = openJobs[i]+closedJobs[i];
+                var total = openJobs[i] + closedJobs[i];
                 //Modified By Sebin
                 //var openPercent = parseInt((openJobs[i]/total)*100);
                 //var closedPercent = parseInt((closedJobs[i]/total)*100);
-                var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
-                var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
+                var openPercent = (isNaN(parseInt((openJobs[i] / total) * 100)) ? 0 : parseInt((openJobs[i] / total) * 100));
+                var closedPercent = (isNaN(parseInt((closedJobs[i] / total) * 100)) ? 0 : parseInt((closedJobs[i] / total) * 100));
                 openData.push({
                     y: openPercent,
                     original: openJobs[i]
@@ -1496,13 +1447,13 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
             //that.$el.find('.progress-chart-2').highcharts(open_item);
 
             //modified by agaile on 19/05/2016
-             //Start Here
+            //Start Here
             that.$el.find('.progress-chart-2').highcharts({
                 chart: {
                     type: 'column'
                 },
-                title:{
-                    text:''
+                title: {
+                    text: ''
                 },
                 subtitle: {
                     text: 'Overall Progress Per Train'
@@ -1515,7 +1466,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 },
                 yAxis: {
                     min: 0,
-                    max:100,
+                    max: 100,
                     title: {
                         text: 'Number of Jobs(%)'
                     },
@@ -1564,55 +1515,55 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 
             //End Here
         });
-        var closedJ=[];
-        var openJ=[];
-        var train=[];
-        var trainData=[];
-        var fullyResult=[];
+        var closedJ = [];
+        var openJ = [];
+        var train = [];
+        var trainData = [];
+        var fullyResult = [];
         var flag = 0;
-        mpxd.getJSONData("getCompletedT"+c_data_date+"", function (result) {
-            var temp=[];
-            fullyResult=(JSON.parse(JSON.stringify(result)));
-            for (var j in fullyResult ) {
+        mpxd.getJSONData("getCompletedT" + c_data_date + "", function (result) {
+            var temp = [];
+            fullyResult = (JSON.parse(JSON.stringify(result)));
+            for (var j in fullyResult) {
                 openJ.push(parseInt(result[j]['OPEN_JOBS'])); // values
                 closedJ.push(parseInt(result[j]['CLOSED_JOBS'])); // values
                 trainData.push(parseInt(result[j]['TRAIN_NUMBER']));// all data
                 train.push(parseInt(result[j]['TRAIN_NO'])); // condition statisfied data
             }
-            var td="";
-            var actual=((closedJ.length/58)*100).toFixed(2); // no of fully completed perc
-            if(actual==0 || actual==100){ // to trim trim decimal places for zero and 100
-                actual=((closedJ.length/58)*100);
+            var td = "";
+            var actual = ((closedJ.length / 58) * 100).toFixed(2); // no of fully completed perc
+            if (actual == 0 || actual == 100) { // to trim trim decimal places for zero and 100
+                actual = ((closedJ.length / 58) * 100);
             }
-                for(var j = 0; j < train.length; j++){
-                    for (var i = 0; i < trainData.length; i++) {
-                        var total = openJ[i]+closedJ[i];
-                        var closedPercent = (isNaN(parseInt((closedJ[i]/total)*100))?0:parseInt((closedJ[i]/total)*100));
-                        //alert('maverick');
-                        if((closedPercent==100) && (trainData[i]==train[j]) ){
-                            flag =1;
-                            //alert('CJ '+closedPercent);
-                            temp.push(trainData[i]);
-                            td+="<tr><td>Train "+ trainData[i]+"</td></tr>";
-                        }
+            for (var j = 0; j < train.length; j++) {
+                for (var i = 0; i < trainData.length; i++) {
+                    var total = openJ[i] + closedJ[i];
+                    var closedPercent = (isNaN(parseInt((closedJ[i] / total) * 100)) ? 0 : parseInt((closedJ[i] / total) * 100));
+                    //alert('maverick');
+                    if ((closedPercent == 100) && (trainData[i] == train[j])) {
+                        flag = 1;
+                        //alert('CJ '+closedPercent);
+                        temp.push(trainData[i]);
+                        td += "<tr><td>Train " + trainData[i] + "</td></tr>";
                     }
                 }
+            }
 
-            if(flag == 0) // to show if there is not completed trains
+            if (flag == 0) // to show if there is not completed trains
             {
                 $('#id_tabHed').text("No Trains Completed Yet");
             }
 
-         $('#id_fullyTrain').text(((temp.length<=9)&&(temp.length!=0)?"0"+temp.length:temp.length));
-           var perc = ((temp.length/58)*100).toFixed(2)+"%";
+            $('#id_fullyTrain').text(((temp.length <= 9) && (temp.length != 0) ? "0" + temp.length : temp.length));
+            var perc = ((temp.length / 58) * 100).toFixed(2) + "%";
             $('#id_actual').text(perc);
             $('#id_fullyTable').append(td);
             //Train head percemntage fillng logic : start
-            d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function(error, xml) {
+            d3.xml("/mpxd/assets/img/mrt_train_diagram_head.svg", "image/svg+xml", function (error, xml) {
                 if (error) throw error
                 document.getElementById('train_progress_container').appendChild(xml.documentElement);
 
-                d3.select('#progress stop').attr('offset',perc);
+                d3.select('#progress stop').attr('offset', perc);
                 <!--d3.select('#progress stop').attr('offset','60%');-->
 
                 //Train head percemntage fillng logic : end
@@ -1623,72 +1574,71 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
         //var closedJobs = [ 0, 0, 55, 59, 63, 61, 53, 63, 66, 71, 66, 82, 84, 74, 83, 89, 80, 85, 83, 91, 82, 88, 88, 0, 88, 90, 90, 92, 93];
 
-       /* var openData = [];
-        var closedData = [];
+        /* var openData = [];
+         var closedData = [];
 
-        for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
-            var total = openJobs[i]+closedJobs[i];
-            //Modified By Sebin
-            //var openPercent = parseInt((openJobs[i]/total)*100);
-            //var closedPercent = parseInt((closedJobs[i]/total)*100);
-            var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
-            var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
-            openData.push({
-                y: openPercent,
-                original: openJobs[i]
-            });
-            closedData.push({
-                y: closedPercent,
-                original: closedJobs[i]
-            });
-        }*/
+         for (var i = 0; ((i < openJobs.length) && (i < closedJobs.length)); i++) {
+         var total = openJobs[i]+closedJobs[i];
+         //Modified By Sebin
+         //var openPercent = parseInt((openJobs[i]/total)*100);
+         //var closedPercent = parseInt((closedJobs[i]/total)*100);
+         var openPercent = (isNaN(parseInt((openJobs[i]/total)*100))?0:parseInt((openJobs[i]/total)*100));
+         var closedPercent = (isNaN(parseInt((closedJobs[i]/total)*100))?0:parseInt((closedJobs[i]/total)*100));
+         openData.push({
+         y: openPercent,
+         original: openJobs[i]
+         });
+         closedData.push({
+         y: closedPercent,
+         original: closedJobs[i]
+         });
+         }*/
 
         // Open jobs
-       /* open_item['series'].push({
-            name: 'Open Jobs',
-            data: openData
-        });
+        /* open_item['series'].push({
+         name: 'Open Jobs',
+         data: openData
+         });
 
-        // Closed jobs
-        open_item['series'].push({
-            name: 'Closed Jobs',
-            data: closedData
-        })*/
+         // Closed jobs
+         open_item['series'].push({
+         name: 'Closed Jobs',
+         data: closedData
+         })*/
 
         overall_progress['subtitle'] = {
             text: 'Outstanding Item Completion Progress'
         };
-        var outstanding=[];
-        var target=[];
-        var jobsdone=[];
-        mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
-            outstanding=(JSON.parse(JSON.stringify(result)));
-            for (var j in outstanding ) {
-                if(!isNaN(parseInt(result[j]['JOBS_DONE'])))
-                {
+        var outstanding = [];
+        var target = [];
+        var jobsdone = [];
+        mpxd.getJSONData("outStandingProgress" + c_data_date + "", function (result) {
+            outstanding = (JSON.parse(JSON.stringify(result)));
+            for (var j in outstanding) {
+                if (!isNaN(parseInt(result[j]['JOBS_DONE']))) {
                     jobsdone.push(parseInt(result[j]['JOBS_DONE']));
                 }
                 target.push(parseInt(result[j]['TARGET']));
             }
             overall_progress['series'].push({
                 name: 'Jobs done',
-                data:jobsdone
+                data: jobsdone
                 //data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]
             });
             overall_progress['series'].push({
                 name: 'Target',
-                data:target
+                data: target
                 // data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]
             });
             that.$el.find('.progress-chart-3').highcharts(overall_progress);
         });
-       // overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});
-       // overall_progress['series'].push({name: 'Target',data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]});
+        // overall_progress['series'].push({name: 'Jobs done',data: [0, 30, 67, 104, 141, 178, 215, 252, 289, 326, 363, 399, 436, 473, 510, 547, 584, 621, 658, 695, 720, 780, 810, 840, 884, 910, 920, 950, 970, 1020]});
+        // overall_progress['series'].push({name: 'Target',data: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2050, 2100, 2150, 2200, 2250, 2300, 2350, 2400, 2450, 2500]});
 
 
         //that.$el.find('.progress-chart-1').highcharts(major_works);
-       // that.$el.find('.progress-chart-2').highcharts(open_item);
-      //  that.$el.find('.progress-chart-3').highcharts(overall_progress);
+        // that.$el.find('.progress-chart-2').highcharts(open_item);
+        //  that.$el.find('.progress-chart-3').highcharts(overall_progress);
         //that.$el.find('#chart_'+that.data.id).highcharts({
         /*var chart = new Highcharts.Chart({
          title: {
@@ -1796,14 +1746,13 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
 });
 
 
-
 mpxd.modules.double_pier_view = {};
 mpxd.modules.double_pier_view.View = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("double_pier_view");
 
@@ -1812,20 +1761,19 @@ mpxd.modules.double_pier_view.View = Backbone.View.extend({
     }
 });
 
-mpxd.constructors.double_pier_view = function(items) {
+mpxd.constructors.double_pier_view = function (items) {
     var el = "#portlet_" + items.id
     return new mpxd.modules.double_pier_view.View({data: items, el: el});
 }
 
 
-
 mpxd.modules.single_pier_view = {};
 mpxd.modules.single_pier_view.View = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("single_pier_view");
 
@@ -1834,7 +1782,7 @@ mpxd.modules.single_pier_view.View = Backbone.View.extend({
     }
 });
 
-mpxd.constructors.single_pier_view = function(items) {
+mpxd.constructors.single_pier_view = function (items) {
     var el = "#portlet_" + items.id
     return new mpxd.modules.single_pier_view.View({data: items, el: el});
 }
@@ -1842,11 +1790,11 @@ mpxd.constructors.single_pier_view = function(items) {
 
 mpxd.modules.viaduct_pier_view = {};
 mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("viaduct_pier_view");
 
@@ -1860,7 +1808,7 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
         var pierdata = that.data.data;
         //["V1","DD01","PS3-C","DS39.8N",3.20343,101.58672,"",""]
 
-        $.each(pierdata, function(idx,i){
+        $.each(pierdata, function (idx, i) {
             /* Before database pierdata
              var via = i[0];
              var pnum = i[1];
@@ -1887,10 +1835,16 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
 
             if (isPortal) {
                 //Double pier here
-                data.push({"pier":{id:pnum,"type":"double","status":pierstatus,"l_status":l_pierstatus}, "span":{"type":spanType,"status":spanstatus,"l_status":l_spanstatus}});
+                data.push({
+                    "pier": {id: pnum, "type": "double", "status": pierstatus, "l_status": l_pierstatus},
+                    "span": {"type": spanType, "status": spanstatus, "l_status": l_spanstatus}
+                });
             } else {
                 //Single pier here
-                data.push({"pier":{id:pnum,"type":"single","status":pierstatus,"l_status":l_pierstatus}, "span":{"type":spanType,"status":spanstatus,"l_status":l_spanstatus}});
+                data.push({
+                    "pier": {id: pnum, "type": "single", "status": pierstatus, "l_status": l_pierstatus},
+                    "span": {"type": spanType, "status": spanstatus, "l_status": l_spanstatus}
+                });
             }
         });
 
@@ -1900,17 +1854,17 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
 
         //	height = 500 - margin.top - margin.bottom;
 
-        var getdim = function(){
+        var getdim = function () {
             if (typeof this.width == "undefined") this.width = parseInt($('.piermap').css('width'));
             if (typeof this.height == "undefined") this.height = parseInt($('.piermap').css('height'));
             if ((this.width == 0) || (typeof getUrlParameter("width") != "undefined")) {
-                this.width = (typeof getUrlParameter("width") != "undefined") ? getUrlParameter("width") : 1280 ;
+                this.width = (typeof getUrlParameter("width") != "undefined") ? getUrlParameter("width") : 1280;
             }
-            return [this.width,this.height];
+            return [this.width, this.height];
         }
 
 
-        var pan = function() {
+        var pan = function () {
             //console.log(d3.event);
             var event = d3.event;
             var evtype = event.sourceEvent.type;
@@ -1927,7 +1881,7 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
                 //console.log(dx, dy);
                 if (dy > 50) dy = 50;
                 if (dy < pan.ylimit) dy = pan.ylimit;
-                svg.attr("transform", "translate(" + [dx,dy] + ")");
+                svg.attr("transform", "translate(" + [dx, dy] + ")");
             }
             return false;
             /* Old function for zooming
@@ -1966,7 +1920,6 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             .on("zoom", pan)
 
 
-
         /*var drag = d3.behavior.drag()
          .origin(function(d) { return d; })
          .on("dragstart", dragstarted)
@@ -1981,19 +1934,19 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             .on("dblclick.zoom", null)
             .append("g")
             .attr("transform", "translate(" + 50 + "," + 50 + ")")
-            .attr("id","maingroup")
+            .attr("id", "maingroup")
 
         var defs = svg.append("svg:defs")
         var filter = defs.append("svg:filter")
-            .attr("x","-0.3")
-            .attr("y","-0.1")
-            .attr("width","1.6")
-            .attr("height","1.2")
-            .attr("id","textbg")
+            .attr("x", "-0.3")
+            .attr("y", "-0.1")
+            .attr("width", "1.6")
+            .attr("height", "1.2")
+            .attr("id", "textbg")
             .append("svg:feFlood")
-            .attr("flood-color","#111111")
+            .attr("flood-color", "#111111")
         filter.append("svg:feComposite")
-            .attr("in","SourceGraphic")
+            .attr("in", "SourceGraphic")
 
         var rect = svg.append("rect")
             .attr("width", "100%")
@@ -2002,8 +1955,8 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             .style("pointer-events", "all");
 
         var container = svg.append("g")
-            .attr("id","viewport")
-            .attr("transform","scale(0.8)");
+            .attr("id", "viewport")
+            .attr("transform", "scale(0.8)");
         /*
          container.append("g")
          .attr("class", "x axis")
@@ -2028,26 +1981,26 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
          */
 
 
-        var getItsColor = function(p) {
+        var getItsColor = function (p) {
             if (p >= 100) return "rgb(90, 255, 92)"
             if (p > 0) return "rgb(255, 198, 53)"
             return "#CCCCCC";
         }
 
 
-        var gotoSingle = function(id,phead,pier_l,pcap_l,pile_l,l_phead,l_pier_l,l_pcap_l,l_pile_l){
+        var gotoSingle = function (id, phead, pier_l, pcap_l, pile_l, l_phead, l_pier_l, l_pcap_l, l_pile_l) {
             /* Last week data is not in yet! */
-            location.href="singlepiers?d={0},{1},{2},{3},{4},{5},{6},{7},{8}".format(id,phead,pier_l,pcap_l,pile_l,l_phead,l_pier_l,l_pcap_l,l_pile_l);
+            location.href = "singlepiers?d={0},{1},{2},{3},{4},{5},{6},{7},{8}".format(id, phead, pier_l, pcap_l, pile_l, l_phead, l_pier_l, l_pcap_l, l_pile_l);
         }
-        var gotoDouble = function(id,phead,pier_l,pcap_l,pile_l,pier_r,pcap_r,pile_r,l_phead,l_pier_l,l_pcap_l,l_pile_l,l_pier_r,l_pcap_r,l_pile_r){
+        var gotoDouble = function (id, phead, pier_l, pcap_l, pile_l, pier_r, pcap_r, pile_r, l_phead, l_pier_l, l_pcap_l, l_pile_l, l_pier_r, l_pcap_r, l_pile_r) {
             /* Last week data is not in yet! */
             //console.log(pile_r);
-            location.href="doublepiers?d={0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}".format(id,phead,pier_l,pcap_l,pile_l,pier_r,pcap_r,pile_r,l_phead,l_pier_l,l_pcap_l,l_pile_l,l_pier_r,l_pcap_r,l_pile_r)
+            location.href = "doublepiers?d={0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}".format(id, phead, pier_l, pcap_l, pile_l, pier_r, pcap_r, pile_r, l_phead, l_pier_l, l_pcap_l, l_pile_l, l_pier_r, l_pcap_r, l_pile_r)
         }
 
-        var addSingleSpan = function(id, xy, d) {
+        var addSingleSpan = function (id, xy, d) {
             var span = container.append("g")
-                .attr("transform","translate("+xy.join(',')+")")
+                .attr("transform", "translate(" + xy.join(',') + ")")
 
 
             var parapet_s = 0;
@@ -2060,47 +2013,47 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
 
             /* Parapet */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","9")
-                .attr("width","155")
-                .attr("height","5")
-                .attr("fill",getItsColor(parapet_s))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "9")
+                .attr("width", "155")
+                .attr("height", "5")
+                .attr("fill", getItsColor(parapet_s))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Span */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","17.75")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "17.75")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
             span.append("svg:use")
-                .attr("xlink:href","#spantext"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#spantext" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             span.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(125,70)")
-                .attr("id","spantext"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","11px")
-                .style("text-anchor","middle")
-                .text("Span "+id)
-                .attr("class","normaltext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(125,70)")
+                .attr("id", "spantext" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "11px")
+                .style("text-anchor", "middle")
+                .text("Span " + id)
+                .attr("class", "normaltext");
 
         }
 
-        var addDoubleSpan = function(id, xy, d) {
+        var addDoubleSpan = function (id, xy, d) {
             var span = container.append("g")
-                .attr("transform","translate("+xy.join(',')+")")
+                .attr("transform", "translate(" + xy.join(',') + ")")
 
             var parapet_s = 0;
             var span_s_t = 0;
@@ -2114,80 +2067,80 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
 
             /* Parapet */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","-6")
-                .attr("width","155")
-                .attr("height","4")
-                .attr("fill",getItsColor(parapet_s))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "-6")
+                .attr("width", "155")
+                .attr("height", "4")
+                .attr("fill", getItsColor(parapet_s))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Span Top*/
             span.append("rect")
-                .attr("x","47")
-                .attr("y","2")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s_t))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "2")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s_t))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
 
             /* Span Bottom */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","17.75")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s_b))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "17.75")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s_b))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
 
             /* Span Text Top */
             span.append("svg:use")
-                .attr("xlink:href","#spantext_t"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#spantext_t" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             span.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(125,60)")
-                .attr("id","spantext_t"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","9px")
-                .style("text-anchor","middle")
-                .text("Span "+id+" A")
-                .attr("class","normaltext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(125,60)")
+                .attr("id", "spantext_t" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "9px")
+                .style("text-anchor", "middle")
+                .text("Span " + id + " A")
+                .attr("class", "normaltext");
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
 
             /* Span Text Bottom */
             span.append("svg:use")
-                .attr("xlink:href","#spantext_b"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#spantext_b" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             span.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(125,120)")
-                .attr("id","spantext_b"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","9px")
-                .style("text-anchor","middle")
-                .text("Span "+id+" B")
-                .attr("class","normaltext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(125,120)")
+                .attr("id", "spantext_b" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "9px")
+                .style("text-anchor", "middle")
+                .text("Span " + id + " B")
+                .attr("class", "normaltext");
 
         }
 
-        var addTripleSpan = function(id, xy, d) {
+        var addTripleSpan = function (id, xy, d) {
             var span = container.append("g")
-                .attr("transform","translate("+xy.join(',')+")")
+                .attr("transform", "translate(" + xy.join(',') + ")")
 
             var parapet_s = 0;
             var span_s_t = 0;
@@ -2203,97 +2156,97 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
 
             /* Parapet */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","-21.75")
-                .attr("width","155")
-                .attr("height","4")
-                .attr("fill",getItsColor(parapet_s))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "-21.75")
+                .attr("width", "155")
+                .attr("height", "4")
+                .attr("fill", getItsColor(parapet_s))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Span Top*/
             span.append("rect")
-                .attr("x","47")
-                .attr("y","-13.75")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s_t))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "-13.75")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s_t))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
 
             /* Span Middle */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","2")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s_b))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "2")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s_b))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
 
             /* Span Bottom2 */
             span.append("rect")
-                .attr("x","47")
-                .attr("y","17.75")
-                .attr("width","155")
-                .attr("height","12")
-                .attr("fill",getItsColor(span_s_b2))
-                .style("stroke-width",0.9)
+                .attr("x", "47")
+                .attr("y", "17.75")
+                .attr("width", "155")
+                .attr("height", "12")
+                .attr("fill", getItsColor(span_s_b2))
+                .style("stroke-width", 0.9)
                 .style("stroke", "#000000")
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
 
             /* Span Text Top */
             span.append("svg:use")
-                .attr("xlink:href","#spantext_t"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#spantext_t" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             span.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(125,60)")
-                .attr("id","spantext_t"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","9px")
-                .style("text-anchor","middle")
-                .text("Span "+id+" A")
-                .attr("class","normaltext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(125,60)")
+                .attr("id", "spantext_t" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "9px")
+                .style("text-anchor", "middle")
+                .text("Span " + id + " A")
+                .attr("class", "normaltext");
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
 
             /* Span Text Bottom */
             span.append("svg:use")
-                .attr("xlink:href","#spantext_b"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#spantext_b" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             span.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(125,120)")
-                .attr("id","spantext_b"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","9px")
-                .style("text-anchor","middle")
-                .text("Span "+id+" B")
-                .attr("class","normaltext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(125,120)")
+                .attr("id", "spantext_b" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "9px")
+                .style("text-anchor", "middle")
+                .text("Span " + id + " B")
+                .attr("class", "normaltext");
 
         }
 
-        var addSinglePier = function(id, xy, d, ld) {
+        var addSinglePier = function (id, xy, d, ld) {
             var phead = 0;
             var pier_l = 0;
             var pcap_l = 0;
             var pile_l = 0;
-            var	l_phead = 0;
-            var	l_pier_l = 0;
-            var	l_pcap_l = 0;
-            var	l_pile_l = 0;
+            var l_phead = 0;
+            var l_pier_l = 0;
+            var l_pcap_l = 0;
+            var l_pile_l = 0;
 
             if (typeof d != "undefined") {
                 phead = d[0];
@@ -2310,88 +2263,90 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             }
 
             var pier = container.append("g")
-                .attr("id","pier"+id)
-                .attr("transform","translate("+xy.join(',')+") scale(0.1)")
-                .attr("class","piergroup singlepier")
+                .attr("id", "pier" + id)
+                .attr("transform", "translate(" + xy.join(',') + ") scale(0.1)")
+                .attr("class", "piergroup singlepier")
                 .style("pointer-events", "all")
-                .on("dblclick",function(){gotoSingle(id,phead,pier_l,pcap_l,pile_l,l_phead,l_pier_l,l_pcap_l,l_pile_l)})
+                .on("dblclick", function () {
+                    gotoSingle(id, phead, pier_l, pcap_l, pile_l, l_phead, l_pier_l, l_pcap_l, l_pile_l)
+                })
 
             pier.append("title").html('Double click to zoom in');
 
             pier.append("svg:path")
-                .attr("d","m 249.34131,337.47226 -198.244855,-0.0511 c 0,0 -2.168406,-71.57158 -9.547054,-106.59639 C 32.099126,185.96631 0.54837168,100.6359 0.54837168,100.6359 l 138.72764832,0 160.50539,0 c 0,0 -29.41273,84.75998 -39.83489,130.18882 -8.63192,37.62546 -10.60521,106.64754 -10.60521,106.64754 z")
-                .style("stroke-width",10.2)
+                .attr("d", "m 249.34131,337.47226 -198.244855,-0.0511 c 0,0 -2.168406,-71.57158 -9.547054,-106.59639 C 32.099126,185.96631 0.54837168,100.6359 0.54837168,100.6359 l 138.72764832,0 160.50539,0 c 0,0 -29.41273,84.75998 -39.83489,130.18882 -8.63192,37.62546 -10.60521,106.64754 -10.60521,106.64754 z")
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(phead))
 
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pier_l))
-                .attr("width","198.19127")
-                .attr("height","558.4967")
-                .attr("x","51.207119")
-                .attr("y","337.61234")
-                .attr("ry","0.22273682")
+                .attr("width", "198.19127")
+                .attr("height", "558.4967")
+                .attr("x", "51.207119")
+                .attr("y", "337.61234")
+                .attr("ry", "0.22273682")
 
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pcap_l))
-                .attr("width","256.71027")
-                .attr("height","94.184898")
-                .attr("x","21.670496")
-                .attr("y","895.42322")
+                .attr("width", "256.71027")
+                .attr("height", "94.184898")
+                .attr("x", "21.670496")
+                .attr("y", "895.42322")
 
             pilingg = pier.append("svg:g")
-                .attr("transform","matrix(1,0,0,0.5213903,0,503.67093)")
+                .attr("transform", "matrix(1,0,0,0.5213903,0,503.67093)")
 
             pilingg.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","51.235119")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "51.235119")
+                .attr("y", "932.02399")
             pilingg.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","129.20053")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "129.20053")
+                .attr("y", "932.02399")
             pilingg.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","207.33298")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "207.33298")
+                .attr("y", "932.02399")
 
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
             pier.append("svg:use")
-                .attr("xlink:href","#piertext"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#piertext" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             pier.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(150,1300)")
-                .attr("id","piertext"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","112px")
-                .style("text-anchor","middle")
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(150,1300)")
+                .attr("id", "piertext" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "112px")
+                .style("text-anchor", "middle")
                 .text(id)
-                .attr("class","bigtext");
+                .attr("class", "bigtext");
         }
 
-        var addDoublePier = function(id, xy, d, ld) {
+        var addDoublePier = function (id, xy, d, ld) {
             var phead = 0;
             var pier_l = 0;
             var pcap_l = 0;
@@ -2429,176 +2384,177 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             }
 
             pier = container.append("g")
-                .attr("id","pier"+id)
-                .attr("transform","translate("+xy.join(',')+") scale(0.1)")
-                .attr("class","piergroup doublepier")
-                .on("dblclick",function(){gotoDouble(id,phead,pier_l,pcap_l,pile_l,pier_r,pcap_r,pile_r,l_phead,l_pier_l,l_pcap_l,l_pile_l,l_pier_r,l_pcap_r,l_pile_r)});
+                .attr("id", "pier" + id)
+                .attr("transform", "translate(" + xy.join(',') + ") scale(0.1)")
+                .attr("class", "piergroup doublepier")
+                .on("dblclick", function () {
+                    gotoDouble(id, phead, pier_l, pcap_l, pile_l, pier_r, pcap_r, pile_r, l_phead, l_pier_l, l_pcap_l, l_pile_l, l_pier_r, l_pcap_r, l_pile_r)
+                });
 
             pier.append("title").html('Double click to zoom in');
 
             /* Pier Head */
             pier.append("svg:path")
-                .attr("d","m 571.17642,338.5303 -198.24486,-0.0511 c 0,0 -2.1684,-71.57158 -9.54705,-106.59639 -9.45028,-44.85846 -41.00103,-130.18888 -41.00103,-130.18888 l 138.72765,0 160.50537,0 c 0,0 -29.41271,84.75999 -39.83487,130.18883 -8.63192,37.62546 -10.60521,106.64754 -10.60521,106.64754 z")
-                .style("stroke-width",10.2)
+                .attr("d", "m 571.17642,338.5303 -198.24486,-0.0511 c 0,0 -2.1684,-71.57158 -9.54705,-106.59639 -9.45028,-44.85846 -41.00103,-130.18888 -41.00103,-130.18888 l 138.72765,0 160.50537,0 c 0,0 -29.41271,84.75999 -39.83487,130.18883 -8.63192,37.62546 -10.60521,106.64754 -10.60521,106.64754 z")
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(phead))
 
 
             pier.append("svg:rect")
-                .attr("width","798.10425")
-                .attr("height","137.88963")
-                .attr("x","51.099304")
-                .attr("y","338.66718")
-                .attr("ry","0.092159733")
-                .style("stroke-width",10.2)
+                .attr("width", "798.10425")
+                .attr("height", "137.88963")
+                .attr("x", "51.099304")
+                .attr("y", "338.66718")
+                .attr("ry", "0.092159733")
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(phead))
-
 
 
             /* Pier Left */
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pier_l))
-                .attr("width","198.17593")
-                .attr("height","419.29205")
-                .attr("x","51.136162")
-                .attr("y","476.30215")
-                .attr("ry","0.16721992")
+                .attr("width", "198.17593")
+                .attr("height", "419.29205")
+                .attr("x", "51.136162")
+                .attr("y", "476.30215")
+                .attr("ry", "0.16721992")
 
             /* Pier Right */
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pier_r))
-                .attr("width","198.17596")
-                .attr("height","419.29236")
-                .attr("x","651.09021")
-                .attr("y","476.30154")
-                .attr("ry","0.16722004")
+                .attr("width", "198.17596")
+                .attr("height", "419.29236")
+                .attr("x", "651.09021")
+                .attr("y", "476.30154")
+                .attr("ry", "0.16722004")
 
             /* Pile Cap Left */
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pcap_l))
-                .attr("width","256.76886")
-                .attr("height","94.18502")
-                .attr("x","21.768166")
-                .attr("y","895.59998")
+                .attr("width", "256.76886")
+                .attr("height", "94.18502")
+                .attr("x", "21.768166")
+                .attr("y", "895.59998")
 
             /* Pile Cap Right */
             pier.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pcap_r))
-                .attr("width","256.71027")
-                .attr("height","94.18502")
-                .attr("x","621.67944")
-                .attr("y","895.59998")
+                .attr("width", "256.71027")
+                .attr("height", "94.18502")
+                .attr("x", "621.67944")
+                .attr("y", "895.59998")
 
 
             /* Piling Left */
             pilingg_l = pier.append("svg:g")
-                .attr("transform","matrix(1,0,0,0.51986191,0,505.27935)");
+                .attr("transform", "matrix(1,0,0,0.51986191,0,505.27935)");
 
             pilingg_l.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","51.235119")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "51.235119")
+                .attr("y", "932.02399")
             pilingg_l.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","129.20053")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "129.20053")
+                .attr("y", "932.02399")
             pilingg_l.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_l))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","207.33298")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "207.33298")
+                .attr("y", "932.02399")
 
             /* Piling Right */
             pilingg_r = pier.append("svg:g")
-                .attr("transform","translate(599.91125,-3.9778743e-4) matrix(1,0,0,0.51986191,0,505.27935)")
+                .attr("transform", "translate(599.91125,-3.9778743e-4) matrix(1,0,0,0.51986191,0,505.27935)")
 
             pilingg_r.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_r))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","51.235119")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "51.235119")
+                .attr("y", "932.02399")
             pilingg_r.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_r))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","129.20053")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "129.20053")
+                .attr("y", "932.02399")
             pilingg_r.append("svg:rect")
-                .style("stroke-width",10.2)
+                .style("stroke-width", 10.2)
                 .style("stroke", "#000000")
                 .style("fill", getItsColor(pile_r))
-                .attr("width","41.911671")
-                .attr("height","119.81321")
-                .attr("x","207.33298")
-                .attr("y","932.02399")
+                .attr("width", "41.911671")
+                .attr("height", "119.81321")
+                .attr("x", "207.33298")
+                .attr("y", "932.02399")
 
 
             /* Hack to include text background, from http://stackoverflow.com/questions/12260370/draw-text-in-svg-but-remove-background */
 
             /* Pile Text Left */
             pier.append("svg:use")
-                .attr("xlink:href","#piertext_l"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#piertext_l" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             pier.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(150,1300)")
-                .attr("id","piertext_l"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","112px")
-                .style("text-anchor","middle")
-                .text(id+" L")
-                .attr("class","bigtext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(150,1300)")
+                .attr("id", "piertext_l" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "112px")
+                .style("text-anchor", "middle")
+                .text(id + " L")
+                .attr("class", "bigtext");
 
             /* Pile Text Right */
             pier.append("svg:use")
-                .attr("xlink:href","#piertext_r"+id)
-                .attr("filter","url(#textbg)")
-                .attr("fill","black")
+                .attr("xlink:href", "#piertext_r" + id)
+                .attr("filter", "url(#textbg)")
+                .attr("fill", "black")
 
             pier.append("svg:text")
-                .attr("dx","0")
-                .attr("dy","0")
-                .attr("transform","translate(750,1300)")
-                .attr("id","piertext_r"+id)
-                .attr("fill","#ffffff")
-                .style("font-family","Arial Unicode MS")
-                .style("font-size","112px")
-                .style("text-anchor","middle")
-                .text(id+" R")
-                .attr("class","bigtext");
+                .attr("dx", "0")
+                .attr("dy", "0")
+                .attr("transform", "translate(750,1300)")
+                .attr("id", "piertext_r" + id)
+                .attr("fill", "#ffffff")
+                .style("font-family", "Arial Unicode MS")
+                .style("font-size", "112px")
+                .style("text-anchor", "middle")
+                .text(id + " R")
+                .attr("class", "bigtext");
         }
 
         /* From https://gist.github.com/andrewrk/4382935 */
-        var zfill1 = function(number, size) {
+        var zfill1 = function (number, size) {
             number = number.toString();
             while (number.length < size) number = "0" + number;
             return number;
@@ -2607,11 +2563,11 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
         var blockwidth = 160;
         var dim = getdim()
         var scale = 0.8;
-        var width = (dim[0]/scale) - ((dim[0]/scale) % blockwidth) - blockwidth;
+        var width = (dim[0] / scale) - ((dim[0] / scale) % blockwidth) - blockwidth;
 
         var clevel = 0;
         var levelheight = 210;
-        var x,y;
+        var x, y;
 
         for (var i = 0; i < data.length; i++) {
             //7 Spaces in between piers & double piers
@@ -2620,14 +2576,14 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             var ypad = 10;
 
             var id = zfill1(i, 4);
-            x = (xpad + (blockwidth*i)) % width;
-            clevel = Math.floor((blockwidth/width)*i);
-            y = ypad + (levelheight*clevel) + 10;
+            x = (xpad + (blockwidth * i)) % width;
+            clevel = Math.floor((blockwidth / width) * i);
+            y = ypad + (levelheight * clevel) + 10;
 
             if (typeof current.pier.type != "undefined") {
                 if (current.pier.type == "single") {
                     addSinglePier(current.pier.id, [x + 30, y + 30], current.pier.status, current.pier.l_status);
-                } else{
+                } else {
                     addDoublePier(current.pier.id, [x, y + 30], current.pier.status, current.pier.l_status);
                 }
             }
@@ -2646,11 +2602,12 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             //addDoubleSpan(i, [160*i, 10])
         }
         //console.log(y);
-        pan.ylimit = 0-(y*scale-dim[1])-200; /* 200 is hardcoded margin */
+        pan.ylimit = 0 - (y * scale - dim[1]) - 200;
+        /* 200 is hardcoded margin */
         //addDoublePier(123,[500]);
 
-        var wrap = function(text, width) {
-            text.each(function() {
+        var wrap = function (text, width) {
+            text.each(function () {
                 var text = d3.select(this),
                     words = text.text().split(/\s+/).reverse(),
                     word,
@@ -2678,9 +2635,9 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
         d3.selectAll('text.normaltext').call(wrap, 40);
         /* when finished, get our container to have the height of svg */
 
-        d3.selectAll("svg").attr("height",parseInt(d3.selectAll('g#maingroup')[0][0].getBBox().height)*1.08+"px");
+        d3.selectAll("svg").attr("height", parseInt(d3.selectAll('g#maingroup')[0][0].getBBox().height) * 1.08 + "px");
 
-        var clone_d3_selection = function(selection, i) {
+        var clone_d3_selection = function (selection, i) {
             // Assume the selection contains only one object, or just work
             // on the first object. 'i' is an index to add to the id of the
             // newly cloned DOM element.
@@ -2692,7 +2649,7 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
                 .attr("id", selection.attr("id") + i);
             for (var j = 0; j < length; j++) {
                 if (attr[j].nodeName == "id") continue;
-                cloned.attr(attr[j].name,attr[j].value);
+                cloned.attr(attr[j].name, attr[j].value);
             }
             return cloned;
         }
@@ -2705,7 +2662,7 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
             var maingroup = d3.select("#maingroup");
             var height = maingroup.node().getBBox().height;
             var legendHeight = 200;
-            $content.css("height",legendHeight + (height*1.2));
+            $content.css("height", legendHeight + (height * 1.2));
 
         }
         /*
@@ -2731,12 +2688,11 @@ mpxd.modules.viaduct_pier_view.View = Backbone.View.extend({
          });*/
 
 
-
     }
 });
 
 
-mpxd.constructors.viaduct_pier_view = function(items) {
+mpxd.constructors.viaduct_pier_view = function (items) {
     var el = "#portlet_" + items.id
     return new mpxd.modules.viaduct_pier_view.View({data: items, el: el});
 }
@@ -2744,12 +2700,12 @@ mpxd.constructors.viaduct_pier_view = function(items) {
 
 mpxd.modules.scurve = {};
 mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         //console.log(options);
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         var that = this;
         var html = mpxd.getTemplate("scurve-1");
 
@@ -2803,7 +2759,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
                 enabled: true,
                 //formatter: function() { return this.series.name; },
                 //valueSuffix: '%'
-                formatter: function(evt) {
+                formatter: function (evt) {
                     var current = this.series.data;
                     //console.log(current[current.length - 1].category);
                     var tooltip;
@@ -2873,7 +2829,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
 });
 
 mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         //console.log(options);
         this.data = options.data;
         if (typeof options.componentSelector != 'undefined') {
@@ -2882,7 +2838,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             this.render();
         }
     },
-    render: function(componentSelector) {
+    render: function (componentSelector) {
         // ComponentSelector is css selector for embedding S-Curve as a component, rather than a portlet
         var that = this;
         var html = mpxd.getTemplate("scurve-2");
@@ -2943,7 +2899,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             tooltip: {
                 enabled: true,
                 //formatter: function() { return this.series.name; }
-                formatter: function(evt) {
+                formatter: function (evt) {
                     var current = this.series.data;
                     //console.log(current[current.length - 1].category);
                     var tooltip;
@@ -3007,9 +2963,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
 });
 
 
-
-
-mpxd.modules.scurve.initializeScurve = function(callback) {
+mpxd.modules.scurve.initializeScurve = function (callback) {
     /* Initialize template */
 
     if (typeof mpxd.modules.scurve.initializedFlag == "undefined") {
@@ -3022,22 +2976,20 @@ mpxd.modules.scurve.initializeScurve = function(callback) {
 }
 
 
-mpxd.constructors.scurve = function(data) {
+mpxd.constructors.scurve = function (data) {
     if (typeof data.data.id == "undefined")
         data.data.id = data.id;
     if (typeof data.data.title == "undefined")
         data.data.title = data.title;
     var s = mpxd.modules.scurve;
-    s.initializeScurve(function() {
+    s.initializeScurve(function () {
         s.GenerateScurve(data.data);
     });
 
 }
 
 
-
-
-mpxd.modules.scurve.GenerateScurve = function(items, componentSelector) {
+mpxd.modules.scurve.GenerateScurve = function (items, componentSelector) {
     //mpxd.modules.scurve.initializeScurve();
     var data = items;
     var el = "#portlet_" + data.id;
@@ -3061,10 +3013,10 @@ mpxd.modules.scurve.GenerateScurve = function(items, componentSelector) {
 
     if (typeof data.startAt != "undefined") {
         var dayms = 86400000;
-        var beginningD = new Date("1/"+data.categories[0]);
-        var startD = new Date("1/"+data.startAt);
-        var months = monthDiff(beginningD,startD);
-        var quarters = months/4;
+        var beginningD = new Date("1/" + data.categories[0]);
+        var startD = new Date("1/" + data.startAt);
+        var months = monthDiff(beginningD, startD);
+        var quarters = months / 4;
         if (type == "long") {
             data.earlyData.reverse();
             data.actualData.reverse();
@@ -3112,17 +3064,13 @@ mpxd.modules.scurve.GenerateScurve = function(items, componentSelector) {
 }
 
 
-
-
-
-
 mpxd.modules.piechart_workpackage = {};
 mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         that = this;
         var html = mpxd.getTemplate("piechartworkpackage");
 
@@ -3135,10 +3083,16 @@ mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
         var yetcalled = procdata.yetcalled;
         var calledin = procdata.calledin;
 
-        var ac = (_.reduce(awarded, function(memo, num){ if (typeof num === "object") return memo+1; else return memo;}, 0));
-        var yc = (_.reduce(yetcalled, function(memo, num){ if (typeof num === "object") return memo+1; else return memo;}, 0));
-        var cc = (_.reduce(calledin, function(memo, num){ if (typeof num === "object") return memo+1; else return memo;}, 0));
-        var total = ac+yc+cc;
+        var ac = (_.reduce(awarded, function (memo, num) {
+            if (typeof num === "object") return memo + 1; else return memo;
+        }, 0));
+        var yc = (_.reduce(yetcalled, function (memo, num) {
+            if (typeof num === "object") return memo + 1; else return memo;
+        }, 0));
+        var cc = (_.reduce(calledin, function (memo, num) {
+            if (typeof num === "object") return memo + 1; else return memo;
+        }, 0));
+        var total = ac + yc + cc;
         //console.log(template);
         //console.log('#chart_'+that.data.id);
         that.$el.find('#chart_' + that.data.id).highcharts({
@@ -3148,7 +3102,7 @@ mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
                 plotShadow: false
             },
             title: {
-                text: '<p style="color: #FFF;font-size: 330%; text-align: center; margin-bottom:0" id="piechart_packages_total">'+total+'</p><p style="color: #9EDD2E;text-align: center">packages</p>',
+                text: '<p style="color: #FFF;font-size: 330%; text-align: center; margin-bottom:0" id="piechart_packages_total">' + total + '</p><p style="color: #9EDD2E;text-align: center">packages</p>',
                 align: 'center',
                 verticalAlign: 'middle',
                 y: -50,
@@ -3168,14 +3122,14 @@ mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
                             color: 'white',
                             textShadow: '0px 1px 2px black'
                         },
-                        formatter: function() {
+                        formatter: function () {
                             return this.y;
                         }
                     },
                     showInLegend: true,
                     point: {
                         events: {
-                            click: function(event) {
+                            click: function (event) {
                                 var options = this.options;
                                 if (options.name == "Awarded")
                                     loadPage('procurement/awarded');
@@ -3186,7 +3140,7 @@ mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
                                 //console.log(options);
 
                             },
-                            legendItemClick: function(e) {
+                            legendItemClick: function (e) {
                                 /* To calculate what is the total package shown in pie chart */
                                 var pts = e.currentTarget.series.points;
                                 var sum = ((!e.currentTarget.visible) ? e.currentTarget.y : 0);
@@ -3218,7 +3172,7 @@ mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
     }
 })
 
-mpxd.modules.piechart_workpackage.initialize = function(callback) {
+mpxd.modules.piechart_workpackage.initialize = function (callback) {
     /* Initialize template */
 
     if (typeof mpxd.modules.piechart_workpackage.initializedFlag == "undefined") {
@@ -3230,12 +3184,11 @@ mpxd.modules.piechart_workpackage.initialize = function(callback) {
     }
 }
 
-mpxd.constructors.piechart_workpackage = function(items) {
+mpxd.constructors.piechart_workpackage = function (items) {
     mpxd.modules.piechart_workpackage.initialize();
     var el = "#portlet_" + items.id
     return new mpxd.modules.piechart_workpackage.View({data: items, el: el});
 }
-
 
 
 /**********************************/
@@ -3247,11 +3200,11 @@ mpxd.constructors.piechart_workpackage = function(items) {
 mpxd.modules.barchart_workpackage = {};
 
 mpxd.modules.barchart_workpackage.View = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.data = options.data;
         this.render();
     },
-    render: function() {
+    render: function () {
         that = this;
         var html = mpxd.getTemplate("barchartworkpackage");
 
@@ -3311,7 +3264,7 @@ mpxd.modules.barchart_workpackage.View = Backbone.View.extend({
                 series: {
                     point: {
                         events: {
-                            click: function(e) {
+                            click: function (e) {
                                 var name = e.currentTarget.series.name.toLowerCase();
                                 if (name == "awarded")
                                     loadPage('procurement/awarded');
@@ -3328,7 +3281,7 @@ mpxd.modules.barchart_workpackage.View = Backbone.View.extend({
                 name: 'Total',
                 data: [22, 8, 2, 1, 7, 11, 8, 26]
 
-            },	{
+            }, {
                 name: 'Awarded',
                 data: [22, 8, 2, 1, 6, 11, 8, 19]
 
@@ -3340,7 +3293,7 @@ mpxd.modules.barchart_workpackage.View = Backbone.View.extend({
                 name: 'Yet to be called',
                 data: [0, 0, 0, 0, 1, 0, 0, 4]
 
-            } ],
+            }],
             credits: {
                 enabled: false
             }
@@ -3349,7 +3302,7 @@ mpxd.modules.barchart_workpackage.View = Backbone.View.extend({
     }
 })
 
-mpxd.modules.barchart_workpackage.initialize = function(callback) {
+mpxd.modules.barchart_workpackage.initialize = function (callback) {
     /* Initialize template */
     if (typeof mpxd.modules.barchart_workpackage.initializedFlag == "undefined") {
         mpxd.loadTemplateAsync(["barchartworkpackage"], callback);
@@ -3360,13 +3313,11 @@ mpxd.modules.barchart_workpackage.initialize = function(callback) {
     }
 }
 
-mpxd.constructors.barchart_workpackage = function(items) {
+mpxd.constructors.barchart_workpackage = function (items) {
     mpxd.modules.barchart_workpackage.initialize();
     var el = "#portlet_" + items.id
     return new mpxd.modules.barchart_workpackage.View({data: items, el: el});
 }
-
-
 
 
 /****************************
@@ -3375,7 +3326,7 @@ mpxd.constructors.barchart_workpackage = function(items) {
 
  ***************************/
 
-mpxd.constructors.tbm = function(items) {
+mpxd.constructors.tbm = function (items) {
     console.log(items);
 }
 
@@ -3468,7 +3419,7 @@ function generateBreadcrumbs(id) {
     crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + page.name + '</a>');
     while (parentid != 0) {
         url = pages_lookup_id[parentid].url;
-        if(url != '#')
+        if (url != '#')
             crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + pages_lookup_id[parentid].name + '</a>');
         else
             crumbs.push('<a href="javascript:void(0);" style="cursor:default;color:#B2B2B2">' + pages_lookup_id[parentid].name + '</a>');
@@ -3488,7 +3439,6 @@ function generateBreadcrumbs(id) {
 }
 
 
-
 function ellipseTitle(text) {
     /* Not so dynamic, but temporary fix for iPad short width orientation */
     if (($(window).width() <= 768) || true) {
@@ -3505,19 +3455,19 @@ function ellipseTitle(text) {
             bg = $pageTitle.css('background'),
             current = getTextWidth(text, font),
             isExpand = false,
-            fexpand = function() {
+            fexpand = function () {
                 $pageTitle.css('background', '#000000');
                 $pageTitle.css('border-color', '#000000');
                 $pageTitle.text(text);
                 isExpand = true;
             },
-            fcollapse = function() {
+            fcollapse = function () {
                 $pageTitle.css('background', bg);
                 $pageTitle.css('border-color', 'transparent');
                 $pageTitle.text(rtext);
                 isExpand = false;
             },
-            ftoggle = function() {
+            ftoggle = function () {
                 if (isExpand)
                     fcollapse();
                 else
@@ -3560,9 +3510,9 @@ var currentPageID = 0;
 
 
 /*From: http://stackoverflow.com/questions/13721651/javascript-get-absolute-url-from-relative-escaped-url */
-function relativeToAbsolute(url){
+function relativeToAbsolute(url) {
     arr = url.split("/") // Cut the url up into a array
-    while(!!~arr.indexOf("..")){ // If there still is a ".." in the array
+    while (!!~arr.indexOf("..")) { // If there still is a ".." in the array
         arr.splice(arr.indexOf("..") - 1, 2); // Remove the ".." and the element before it.
     }
     return arr.join("/"); // Rebuild the url and return it.
@@ -3576,15 +3526,19 @@ function loadPage(p, dontsavestate) {
     $('.megamenu').fadeOut(300);
     if ((typeof p == "undefined") || (p == "") || (p == "#"))
         return;
-    if ((typeof dontsavestate != "undefined") && (dontsavestate)) {}
+    if ((typeof dontsavestate != "undefined") && (dontsavestate)) {
+    }
     else {
 
         /* Cant use '../' in pushState, because it will cause a redundant pushstate to parse to the real url! Need to parse it using script to avoid this */
-        var parsedlink = relativeToAbsolute(location.href+ "/../../" + reallink);
-        History.pushState({_index: History.getCurrentIndex(), p:reallink, state:"Pushstate"}, document.title, parsedlink);
+        var parsedlink = relativeToAbsolute(location.href + "/../../" + reallink);
+        History.pushState({
+            _index: History.getCurrentIndex(),
+            p: reallink,
+            state: "Pushstate"
+        }, document.title, parsedlink);
     }
     //console.log("Pushstate!!");
-
 
 
     //if (
@@ -3601,46 +3555,50 @@ function loadPage(p, dontsavestate) {
 
 
     //Get the date list of current slug
-    mpxd.getDateList("api/get?date_list=" + currentSlug, function(result){
+    mpxd.getDateList("api/get?date_list=" + currentSlug, function (result) {
         var datelist = $("#date_list").empty();
         var curr_data_date = "";
         enableDays = [];
 
-        for(var i=0;i<result.length;i++){
+        for (var i = 0; i < result.length; i++) {
             var date = result[i].date;
             enableDays.push(date);
-            if(i==0)
-                datelist.append("<li><a href='javascript:void(0)' onClick=loadPage('"+p+"')>"+date+ " (Latest)</a></li>");
+            if (i == 0)
+                datelist.append("<li><a href='javascript:void(0)' onClick=loadPage('" + p + "')>" + date + " (Latest)</a></li>");
             else
-                datelist.append("<li><a href='javascript:void(0)' onClick=loadPage('"+p+"?date="+date+"')>"+date+"</a></li>");
+                datelist.append("<li><a href='javascript:void(0)' onClick=loadPage('" + p + "?date=" + date + "')>" + date + "</a></li>");
 
             //Update the current date field
-            if(getParameterByName("date") === date){
+            if (getParameterByName("date") === date) {
                 $("#data_date").val(moment(getParameterByName("date"), "DD-MMM-YY").format("DD-MMMM-YYYY"));
                 curr_data_date = date;
             }
         }
-        if(getParameterByName("date").length == 0){
+        if (getParameterByName("date").length == 0) {
             $("#data_date").val(moment(result[0].date, "DD-MMM-YY").format("DD-MMMM-YYYY"));
             curr_data_date = result[0].date;
         }
         //Added by Sebin
         $("#et_data_date").val(curr_data_date);
         //ellipseTitle(title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")");
-        var titletext = title +" ("+ moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") +")";
-        if (!isUseCustomPortlet) { ellipseTitle(titletext); }
-        else { $('#page_title').text(titletext); }
+        var titletext = title + " (" + moment(curr_data_date, "DD-MMM-YY").format("DD MMMM YYYY") + ")";
+        if (!isUseCustomPortlet) {
+            ellipseTitle(titletext);
+        }
+        else {
+            $('#page_title').text(titletext);
+        }
         setPageTitle(title);
 
 
     });
 
-    mpxd.getportletFromURL(p, function(data) {
+    mpxd.getportletFromURL(p, function (data) {
         //$('#portlet_container').empty();
-				
-		//Draw the portlets
+
+        //Draw the portlets
         drawPortlets(data);
-        mpxd.getData(data, function(result) {
+        mpxd.getData(data, function (result) {
             mpxd.resetDatasource();
             for (var i in result.data) {
                 //var json = jQuery.parseJSON(result.data[i].value);
@@ -3659,9 +3617,9 @@ function loadPage(p, dontsavestate) {
 }
 
 function enableAllTheseDays(date) {
-    var sdate = $.datepicker.formatDate( 'dd-M-y', date)
+    var sdate = $.datepicker.formatDate('dd-M-y', date)
     //console.log(sdate)
-    if($.inArray(sdate, enableDays) != -1) {
+    if ($.inArray(sdate, enableDays) != -1) {
         return [true];
     }
     return [false];
@@ -3677,47 +3635,57 @@ function getRoute() {
     return currentRoute;
 }
 
-$(function() {
-	console.log("Fire!")
-	setTimeout(function(){console.log("Timeout");$(window).trigger("resize");},2000);
-	var State = History.getState()
-	
-	//History.log('initial:', State.data, State.title, State.url);
+$(function () {
+    console.log("Fire!")
+    setTimeout(function () {
+        console.log("Timeout");
+        $(window).trigger("resize");
+    }, 2000);
+    var State = History.getState()
 
-	// Bind to State Change
-	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-		// Log the State
-		var State = History.getState(); // Note: We are using History.getState() instead of event.state
-		//History.log('statechange:', State.data, State.title, State.url);
-		/* Using the fix from https://github.com/browserstate/history.js/issues/47#issuecomment-25750285 for popstate on pushstate state call*/
-		var currentIndex = History.getCurrentIndex();
-		var internal = (History.getState().data._index == (currentIndex - 1));
-		if (!internal) {
-			if ((typeof State.data.state != "undefined") && (State.data.state == "Pushstate")) { if (typeof State.data.p != "undefined") { loadPage(State.data.p, true);}};
-			// your action
-		}
-		
-		//console.log(State);
-	});
+    //History.log('initial:', State.data, State.title, State.url);
 
-	
-	$('#data_date').datepicker({
-	dateFormat: 'dd-MM-yy', beforeShowDay: enableAllTheseDays, nextText: "", prevText: "", altField : '#data_date_selected', altFormat: "dd-M-y",
-	onSelect: function(dateText, inst) {
-			p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
-			var selected = $('#data_date_selected').val();
-			loadPage(p+'?date='+selected)
+    // Bind to State Change
+    History.Adapter.bind(window, 'statechange', function () { // Note: We are using statechange instead of popstate
+        // Log the State
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        //History.log('statechange:', State.data, State.title, State.url);
+        /* Using the fix from https://github.com/browserstate/history.js/issues/47#issuecomment-25750285 for popstate on pushstate state call*/
+        var currentIndex = History.getCurrentIndex();
+        var internal = (History.getState().data._index == (currentIndex - 1));
+        if (!internal) {
+            if ((typeof State.data.state != "undefined") && (State.data.state == "Pushstate")) {
+                if (typeof State.data.p != "undefined") {
+                    loadPage(State.data.p, true);
+                }
+            }
+            ;
+            // your action
+        }
 
-		}
-	});
-	
-	$('#date_selector').on('click', function() {
-		$('#data_date').datepicker("show");
-	})
+        //console.log(State);
+    });
+
+
+    $('#data_date').datepicker({
+        dateFormat: 'dd-MM-yy',
+        beforeShowDay: enableAllTheseDays,
+        nextText: "",
+        prevText: "",
+        altField: '#data_date_selected',
+        altFormat: "dd-M-y",
+        onSelect: function (dateText, inst) {
+            p = reallink.substr(0, (reallink.indexOf('?') == -1) ? reallink.length : reallink.indexOf('?'));
+            var selected = $('#data_date_selected').val();
+            loadPage(p + '?date=' + selected)
+
+        }
+    });
+
+    $('#date_selector').on('click', function () {
+        $('#data_date').datepicker("show");
+    })
 });
-
-
-
 
 
 /* Utility functions */
