@@ -541,20 +541,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                         }
                     }
-               /* if(t!=0)
-                {
-                    if (carcolor== '#f06') {
-                        carcolor = '#f06';
-                       // flag = 1;
-                    }
-                    else if (carcolor == '#fe0') {
-                        carcolor = '#fe0';
-                       // flag = 2;
-                    }
-                    else {
-                        carcolor = '#0f9';
-                    }
-                }*/
                 return carcolor;
             }
             var renderManufacturing = function(data) {
@@ -619,6 +605,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ["42","08/01/15", "12/05/16","-", "<div style='width:100%; height: 10px; background:grey; display: inline-block'></div>"]
                  ]);*/
                 mpxd.getJSONData("manuBaseline"+c_data_date+"", function(result){
+                    console.log(result);
                     if(result.length>0) {
                         var $bar;
                         var $rev;
@@ -628,19 +615,57 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             $rev =  i['REV_INT'];
                             return;
                         });
-                        alert("trainProgress");
-                        alert(trainProgress);
                         baseline.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current CRRC Forecast Date","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='1.00'){
-                                $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
-                            }else if(i['STATUS']=='2.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
-                            }else if(i['STATUS']=='3.00') {
-                                $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
-                            }else  {
-                                $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
+                            var perc;
+                            var carcolor;
+                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
+                            var date = new Date();
+                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+
+                            var today = cdate;
+                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
+                            var f_date = date1;
+                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
+                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
+                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
+                            if(DaysDiff>0)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#f06';//red
+                                }
                             }
+                            else if(DaysDiff==NaN)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            else
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
                             baseline.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
                         var baselines = generateTable(baseline);
@@ -681,7 +706,9 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                            var carcolor=getColor(val['foreDateA'],val['rollout'],carprogress);
+                            if(val['foreDateA']=='ROLLED_OUT') {
+                                var carcolor = getColor(val['foreDateA'], val['rollout'], carprogress);
+                            }
                            // if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
@@ -725,6 +752,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                  ]);*/
                 mpxd.getJSONData("AssemblyBaseline"+c_data_date+"", function(result){
                     if(result.length>0) {
+                        var color;
                         var $bar;
                         var $rev;
                         var $fordate;
@@ -735,7 +763,56 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         });
                         assembly.push(["Train Num.","Dates acc.to Baseline Rev."+$rev+"","Current Forecast Roll-out","Status"])
                         $.each(result, function (idx, i) {
-                            if(i['STATUS']=='1.00'){
+                            var perc;
+                            var carcolor;
+                            var date1 = moment(i['FORE_DATE'], "DD-MMM-YYYY").format("DD/MM/YYYY");
+                            var date = new Date();
+                            var cdate = [(date.getDate()),(date.getMonth()+1), date.getFullYear()].join('/');
+
+                            var today = cdate;
+                            today = new Date(today.split('/')[2],today.split('/')[1]-1,today.split('/')[0]);
+                            var f_date = date1;
+                            var f_date = new Date(f_date.split('/')[2],f_date.split('/')[1]-1,f_date.split('/')[0]);
+                            var timeDiff = Math.abs(f_date.getTime() - today.getTime());
+                            var DaysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                            perc=(parseInt(i['CAR1_PERC'])+parseInt(i['CAR2_PERC'])+parseInt(i['CAR3_PERC'])+parseInt(i['CAR4_PERC']))/4;
+                            if(DaysDiff>0)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#f06';//red
+                                }
+                            }
+                            else if(DaysDiff==NaN)
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            else
+                            {
+                                if(perc==100 )
+                                {
+                                    carcolor='#0f9';//green
+                                }
+                                else
+                                {
+                                    carcolor='#fe0';//yellow
+
+                                }
+                            }
+                            $bar="<div style='width:100%; height: 10px; background:"+carcolor+"; display: inline-block'></div>";
+                            /*if(i['STATUS']=='1.00'){
                                 $bar="<div style='width:100%; height: 10px; background:#fe0; display: inline-block'></div>";
                             }else if(i['STATUS']=='2.00') {
                                 $bar = "<div style='width:100%; height: 10px; background:#f0c; display: inline-block'></div>";
@@ -743,7 +820,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                                 $bar = "<div style='width:100%; height: 10px; background:#0f9; display: inline-block'></div>";
                             }else  {
                                 $bar = "<div style='width:100%; height: 10px; background:#f06; display: inline-block'></div>";
-                            }
+                            }*/
                             assembly.push([i['TRAIN_NO'],(i['BASE_DATE']==null)?"-":i['BASE_DATE'],(i['FORE_DATE']==null)?"-":i['FORE_DATE'],$bar]);
                         });
                         var assemblys = generateTable(assembly);
@@ -830,7 +907,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
                 $subdContainer.find('.table-container').html('');
             }
-
             var renderKJD = function(data) {
                 var newdata = [];
                 $.each(data, function(idx, i) {
@@ -1144,6 +1220,8 @@ mpxd.constructors.train_manufacturing_progress = function(data) {
      */
 }
 
+var max_value=[];
+var max_of_array;
 mpxd.modules.manufacturing_progress_chart = {}
 mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend({
     initialize: function(options) {
@@ -1159,7 +1237,7 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         //Static Needs Change
-        that.data.maxJobs = 10000;
+        //that.data.maxJobs = 10000;
         var c_data_date="?date="+moment($("#et_data_date").val(), "DD-MMM-YY").format("YYYY-MM-DD");
         var date_over=[];
         mpxd.getJSONData("outStandingProgress"+c_data_date+"", function (result) {
@@ -1168,9 +1246,16 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                date_over.push((result[j]['OUT_DATE']));
                 j=j+2;
             }
-            //for(var i=0;i<result.length; i++){
-            //        that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
-            //}
+            // taking the max value for the target logiv : Agaile
+            for(var i=0;i<result.length; i++){
+                    //that.data.maxJobs=((parseInt(result[i]['TARGET']))> that.data.maxJobs)?parseInt(result[i]['TARGET']):that.data.maxJobs;
+                if(parseInt(result[i]['TARGET'])!= null){
+                    max_value.push(parseInt(result[i]['TARGET']));
+                }
+                max_of_array = Math.max.apply(Math, max_value);
+            }
+
+            //alert('Target Value - ' + max_of_array);
         });
         var generic = {
             title: {
@@ -1194,7 +1279,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     width: 1
                 }],
                 min: 200,
-                max: that.data.maxJobs
+                //max: that.data.maxJobs
+               max: max_of_array
             },
             tooltip: {
                 formatter: function(){
