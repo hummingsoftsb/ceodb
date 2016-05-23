@@ -706,7 +706,9 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var carprogress = parseFloat(val['progress']).toFixed(0);
-                            var carcolor=getColor(val['foreDateA'],val['rollout'],carprogress);
+                            if(val['foreDateA']=='ROLLED_OUT') {
+                                var carcolor = getColor(val['foreDateA'], val['rollout'], carprogress);
+                            }
                            // if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
