@@ -1530,16 +1530,22 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                         }
                     }
                 },
+                //legend: {
+                //    align: 'right',
+                //    x: -0,
+                //    verticalAlign: 'top',
+                //    y: 0,
+                //    floating: true,
+                //    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                //    borderColor: '#CCC',
+                //    borderWidth: 1,
+                //    shadow: false
+                //},
                 legend: {
-                    align: 'right',
-                    x: -0,
-                    verticalAlign: 'top',
-                    y: 0,
-                    floating: true,
-                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-                    borderColor: '#CCC',
-                    borderWidth: 1,
-                    shadow: false
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
                 },
                 tooltip: {
                     headerFormat: '<b>Train {point.x}</b><br/>',
