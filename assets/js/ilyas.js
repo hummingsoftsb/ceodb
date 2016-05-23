@@ -676,7 +676,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     }
                     newdata.push({
                         'name': idx,
-                        'toptext': 'Target delivery: '+ i['delivery'],
+                        'toptext': 'Target delivery '+ ((i['delivery']!='')?i['delivery']:'-'),
                         'progress': trainProgress+'%',
                         'color': color,
                         'cars': $.map(i['cars'], function(val, jdx) {
@@ -685,7 +685,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                            // if (isNaN(carprogress)) carcolor = '#fe0';
                             var text = "Stabling";
                             if ((typeof val['arrived'] != 'undefined') && (val['arrived'] != '')) {
-                                text = 'Arrived on ' + val['arrived'];
+                                if(val['arrived']!=null) {
+                                    text = 'Arrived on ' + val['arrived'];
+                                }else{
+                                    text = 'Arrived on -';
+                                }
                             } else if (val['progress'] != '') {
                                 text = carprogress+'%';
                             }
@@ -805,7 +809,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             'cars': $.map(i['cars'], function(val, jdx) {
                                 var text = 'Dynamic Test Completed';
                                 if ((typeof i['delivery'] != 'undefined') && (i['delivery'] != '')) {
-                                    text = 'Delivered on ' + i['delivery']
+                                    if(i['delivery']!=null) {
+                                        text = 'Delivered on ' + i['delivery']
+                                    }else{
+                                        text = 'Delivered on -'
+                                    }
                                 }
                                 return {
                                     'name': jdx,
@@ -835,7 +843,11 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         'cars': $.map(i['cars'], function(val, jdx) {
                             var text = "Dynamic Test Completed";
                             if ((typeof i['delivery'] != 'undefined') && (i['delivery'] != '')) {
-                                text = 'Delivered on ' + i['delivery']
+                                if(i['delivery']!=null) {
+                                    text = 'Delivered on ' + i['delivery']
+                                }else{
+                                    text = 'Delivered on -'
+                                }
                             }
                             return {
                                 'name': jdx,
