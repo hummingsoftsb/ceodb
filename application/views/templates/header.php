@@ -177,8 +177,7 @@
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script>
 
-        <link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/pagination.js"></script>
+        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/paging.js"></script>
 
         <!--Picasa slider-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/picasa-slider/jquery.googleslides.css" rel="stylesheet" type="text/css">
@@ -466,7 +465,34 @@
 
         </script>
         <style type="text/css">
-        	.megamenu-firstlevel {
+            .paging-nav {
+                text-align: right;
+                padding-top: 2px;
+                margin-top: 10px !important;
+            }
+
+            .paging-nav a {
+                margin: auto 1px;
+                text-decoration: none;
+                display: inline-block;
+                padding: 1px 7px;
+                background: RGBA(158, 221, 46, 0.53);
+                color: rgb(255, 212, 97);
+                border-radius: 3px;
+            }
+
+            .paging-nav .selected-page {
+                background: RGB(77, 80, 70);
+                font-weight: bold;
+            }
+
+            .paging-nav,
+            #tableData {
+                width: 400px;
+                margin: 0 auto;
+                font-family: Arial, sans-serif;
+            }
+            .megamenu-firstlevel {
         		font-size: 1.2em;
         		cursor: default;
         	}
