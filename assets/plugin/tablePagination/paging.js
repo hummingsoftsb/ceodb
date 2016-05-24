@@ -22,7 +22,13 @@
                     this._on($('<a>', {
                         href: '#',
                         text: (i + 1),
-                        "data-page": (i)
+                        "data-page": (i),
+                        class:function(){
+                            if(i==0){
+                                return 'selected-page';
+                            }
+                            return '';
+                        }
                     }).appendTo(nav),
                             {click: "pageClickHandler"});
                 }
