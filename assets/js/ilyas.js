@@ -344,7 +344,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             }
 
             var generateDataTable = function (data) {
-                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover summersoft_container');
+                var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
                 var $thead = $('<thead>');
                 var $tbody = $('<tbody>');
 
@@ -846,9 +846,10 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             comments.push([i['id'], i['train_no'], i['comments']]);
                         });
                         var $comment = generateDataTable(comments);
-                        //$comment.attr("id","dataTab");
+                        $comment.attr("id","tableData");
                         //console.log("DataTable");
                         $assemblyContainer.find('.comment-container').html('').append($comment);
+                        $('#tableData').paging({limit:3});
                         //$('#dataTab').tablePaginate({navigateType:'navigator',recordPerPage:10});
                         //$("#dataTab").DataTable({
                         //    pagingType: "simple",

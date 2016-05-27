@@ -90,6 +90,7 @@
                             <a id="id_comments" class="assembly-link" href="#modal_comment" data-toggle="modal" style="font-weight:bold">Add comments <i class="loadpage fa fa-comments"></i></a>
                         </div>
                         <div class="comment-container summersoft_container" style="max-width: 500px; text-align: center; margin: auto;">
+
                         </div>
                         <!---->
 					</div>
@@ -270,7 +271,9 @@
                             comments.push([i['id'],i['train_no'], i['comments']]);
                         });
                         var $comment = generateDataTable(comments);
+                        $comment.attr("id","tableData");
                         $assemblyContainer.find('.comment-container').html('').append($comment);
+                        $('#tableData').paging({limit:3});
                     }else{
                         $assemblyContainer.find('.comment-container').html('');
                     }
