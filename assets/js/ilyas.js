@@ -493,10 +493,16 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 var asssummary = getSummary(trainData['assembly']);
                 var subdsummary = getSummarys_k(trainData['subd']);
                 var kjdsummary = getSummarys_k(trainData['kjd']);
-
                 var subdnumber = (isNaN(getNumberOfTrains(trainData['subd']))) ? 0 : getNumberOfTrains(trainData['subd']);
                 var kjdnumber = (isNaN(getNumberOfTrains(trainData['kjd']))) ? 0 : getNumberOfTrains(trainData['kjd']);
-
+                var mannumb = (isNaN(getNumberOfTrains(trainData['manufacturing']))) ? 0 : getNumberOfTrains(trainData['manufacturing']);
+                var assemNum = (isNaN(getNumberOfTrains(trainData['assembly']))) ? 0 : getNumberOfTrains(trainData['assembly']);
+                var totalNum=parseInt(subdnumber) +parseInt(kjdnumber)+parseInt(mannumb)+parseInt(assemNum);
+                if(totalNum==0)
+                {
+                    $('#id_comments').hide();
+                    $('.comment-container').hide();
+                }
                 $('#manufacturing_progress_value').text(mfgsummary);
                 $('#assembly_progress_value').text(asssummary);
                 $('#subd_progress_value').text(subdsummary);
