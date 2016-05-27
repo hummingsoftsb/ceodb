@@ -174,10 +174,24 @@
     <!---->
 	<script>
         $(function(){
+            var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
             var $assemblyContainer = $('.assembly-container');
+            $('#mpxd_train_no').change(function(){
+                if($(this).val()!=null){
+                    $(this).css("border-color", "rgba(21, 166, 233, 0.2)");$(this).next('small').remove();
+                }
+            });
+            $('#mpxd_train_no_comment').keyup(function(){
+                if($(this).val().trim().length>0){
+                    $(this).css("border-color", "rgba(21, 166, 233, 0.2)");$(this).next('small').remove();
+                }else{
+                    $(this).css("border-color","rgb(194, 67, 71)");$(this).next('small').remove();$(this).after($err);
+                }
+            });
+
+
             $('#cmntonTrain').click(function(){
                 var $f,$m=0;
-                var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
                     if($('#mpxd_train_no').val()!=null) {
                         $('#mpxd_train_no').css("border-color", "rgba(21, 166, 233, 0.2)");$('#mpxd_train_no').next('small').remove();$f=1;
                     }else{
