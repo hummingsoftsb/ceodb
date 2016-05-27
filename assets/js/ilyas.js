@@ -501,7 +501,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 if(totalNum==0)
                 {
                     $('#id_comments').hide();
-                    $('.comment-container').hide();
+                    //$('.comment-container').hide();
                 }
                 $('#manufacturing_progress_value').text(mfgsummary);
                 $('#assembly_progress_value').text(asssummary);
