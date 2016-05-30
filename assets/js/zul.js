@@ -1326,7 +1326,6 @@ mpxd.constructors.kpi_station = function(data) {
 }
 
 mpxd.constructors.kpi_system = function(data) {
-    //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
