@@ -1512,6 +1512,11 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 plotOptions: {
                     column: {
                         stacking: 'percent',
+                        events: {
+                            legendItemClick: function () {
+                                return false;
+                            }
+                        },
                         dataLabels: {
                             enabled: false,
                             color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
