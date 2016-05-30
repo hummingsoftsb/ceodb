@@ -535,7 +535,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             carcolor = '#0f9';//green
                         }
                         else {
-                            carcolor = '#f06';//red
+                            carcolor = '#ff0000';//red
                         }
                     }
                     else if (DaysDiff > 0) {
@@ -543,7 +543,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             carcolor = '#0f9';//green
                         }
                         else {
-                            carcolor = '#f06';//red
+                            carcolor = '#ff0000';//red
 
                         }
                     }
@@ -607,7 +607,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             carcolor = '#0f9';//green
                         }
                         else {
-                            carcolor = '#f06';//red
+                            carcolor = '#ff0000';//red
                         }
                     }
                     else if (DaysDiff > 0) {
@@ -615,7 +615,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             carcolor = '#0f9';//green
                         }
                         else {
-                            carcolor = '#f06';//red
+                            carcolor = '#ff0000';//red
 
                         }
                     }
@@ -668,13 +668,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     color = $.map(i['cars'], function (val, jdx) {
                         return getColor(val['foreDate'], trainProgress);
                     });
-                    if (color[0] == '#f06' || color[1] == '#f06' || color[2] == '#f06' || color[3] == '#f06') {
-                        color = '#f06';
+                    if (color[0] == '#ff0000' || color[1] == '#ff0000' || color[2] == '#ff0000' || color[3] == '#ff0000') {
+                        color = '#ff0000';
                     }
                     if (color[0] == '#0f9' || color[1] == '#0f9' || color[2] == '#0f9' || color[3] == '#0f9') {
                         color = '#0f9';
                     }
-                    if ((color[0] != '#f06' || color[1] != '#f06' || color[2] != '#f06' || color[3] != '#f06') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
+                    if ((color[0] != '#ff0000' || color[1] != '#ff0000' || color[2] != '#ff0000' || color[3] != '#ff0000') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
                         color = '#fe0';
                     }
                     newdata.push({
@@ -744,13 +744,13 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     color = $.map(i['cars'], function (val, jdx) {
                         return getColor(val['foreDateA'], trainProgress);
                     });
-                    if (color[0] == '#f06' || color[1] == '#f06' || color[2] == '#f06' || color[3] == '#f06') {
-                        color = '#f06';
+                    if (color[0] == '#ff0000' || color[1] == '#ff0000' || color[2] == '#ff0000' || color[3] == '#ff0000') {
+                        color = '#ff0000';
                     }
                     if (color[0] == '#0f9' || color[1] == '#0f9' || color[2] == '#0f9' || color[3] == '#0f9') {
                         color = '#0f9';
                     }
-                    if ((color[0] != '#f06' || color[1] != '#f06' || color[2] != '#f06' || color[3] != '#f06') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
+                    if ((color[0] != '#ff0000' || color[1] != '#ff0000' || color[2] != '#ff0000' || color[3] != '#ff0000') && (color[0] == '#fe0' || color[1] == '#fe0' || color[2] == '#fe0' || color[3] == '#fe0')) {
                         color = '#fe0';
                     }
                     newdata.push({
