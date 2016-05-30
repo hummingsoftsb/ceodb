@@ -835,7 +835,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                         $assemblyContainer.find('.table-container').html('').append(assemblys);
                     }
                 });
-
                 //Modified By Sebin (Dynamic Data)
                 //For Comments
                 mpxd.getJSONData("fetchComment", function (result) {

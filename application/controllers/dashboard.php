@@ -450,7 +450,8 @@ class Dashboard extends CI_Controller {
 //    Usage : Fetch Comments
 //    Created: 28/04/2016
     public function fetchComment(){
-        if ($this->input->get()) {
+//        if ($this->input->get()) {
+//            echo "Sebin1";
                 $result = $this->dashboard_model->getComment();
                 if ($result) {
                     $data['status'] = "success";
@@ -459,9 +460,9 @@ class Dashboard extends CI_Controller {
                     $data['status'] = "fail";
                     $data['item'] = $result;
                 }
-        } else {
-            return show_404();
-        }
+//        } else {
+//            return show_404();
+//        }
         $this->load->view('dashboard/api', $data);
     }
     public function revComment(){
