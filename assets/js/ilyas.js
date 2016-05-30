@@ -1503,7 +1503,10 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     layout: 'horizontal',
                     align: 'center',
                     verticalAlign: 'bottom',
-                    borderWidth: 0
+                    borderWidth: 0,
+                    itemHoverStyle: {
+                        cursor:'default'
+                    }
                 },
                 tooltip: {
                     headerFormat: '<b>Train {point.x}</b><br/>',
