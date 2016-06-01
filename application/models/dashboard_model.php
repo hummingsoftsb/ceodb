@@ -1000,8 +1000,8 @@ class Dashboard_model extends CI_Model
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"Train " . ($subd_val['TRAIN_PUZHEN_CAR1']==null)?'N/A':$subd_val['TRAIN_PUZHEN_CAR1'],
-                                "assembly"=>"Train " . ($subd_val['TRAIN_SMH_CAR1']==null)?'N/A':$subd_val['TRAIN_SMH_CAR1'],
+                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR1']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR1'],
+                                "assembly"=>($subd_val['TRAIN_SMH_CAR1']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR1'],
                                 "car"=>$subd_val['car1']
                             )
                         ),
@@ -1010,8 +1010,8 @@ class Dashboard_model extends CI_Model
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"Train " . ($subd_val['TRAIN_PUZHEN_CAR2']==null)?'N/A':$subd_val['TRAIN_PUZHEN_CAR2'],
-                                "assembly"=>"Train " . ($subd_val['TRAIN_SMH_CAR2']==null)?'N/A':$subd_val['TRAIN_SMH_CAR2'],
+                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR2']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR2'],
+                                "assembly"=>($subd_val['TRAIN_SMH_CAR2']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR2'],
                                 "car"=>$subd_val['car2']
                             )
                         ),
@@ -1020,8 +1020,8 @@ class Dashboard_model extends CI_Model
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"Train " . ($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':$subd_val['TRAIN_PUZHEN_CAR3'],
-                                "assembly"=>"Train " . ($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':$subd_val['TRAIN_SMH_CAR3'],
+                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
+                                "assembly"=>($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR3'],
                                 "car"=>$subd_val['car3']
                             )
                         ),
@@ -1030,8 +1030,8 @@ class Dashboard_model extends CI_Model
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"Train " . ($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':$subd_val['TRAIN_PUZHEN_CAR3'],
-                                "assembly"=>"Train " . ($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':$subd_val['TRAIN_SMH_CAR3'],
+                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
+                                "assembly"=>($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR3'],
                                 "car"=>$subd_val['car4']
                             )
                         )
