@@ -1504,7 +1504,8 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     verticalAlign: 'bottom',
                     borderWidth: 0,
                     itemHoverStyle: {
-                        cursor:'default'
+                        cursor:'default',
+                        color:'#E0E0E3'
                     }
                 },
                 tooltip: {
