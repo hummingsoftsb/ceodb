@@ -183,7 +183,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var cnum = 1001;
 
             var renderTrainDom = function (data) {
-
                 var $table = $('<table style="text-align: center; margin: 30px;">');
                 var $thead = $('<thead>');
                 var $tbody = $('<tbody>');
@@ -243,7 +242,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     var $r2td2 = $('<td>');
                     var $r2td3 = $('<td>');
                     var $r2td4 = $('<td>');
-
 
                     d3.select(lm.querySelector('#path4836')).attr('fill', i['cars'][0]['color']);
                     $r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
@@ -444,7 +442,7 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 var trainIndeces = [];
                 for (var i = 0; i < trains.length; i++) {
                     if (trains[i].length > 8) {
-                        var ar = trains[0].split('-');
+                        var ar = trains[i].split('-');
                         for (var j = parseInt(ar[0].substr(ar[0].indexOf("Train") + 6)); j <= parseInt(ar[1].substr(ar[1].indexOf("Train") + 6)); j++) {
                             trainIndeces.push(j);
                         }
@@ -469,14 +467,30 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
 
             var getNumberOfTrains = function (d) {
                 var trains = Object.keys(d);
-                var trainIndeces = _.map(trains, function (t) {
-                    return parseInt(t.substr(t.indexOf("Train") + 6));
-                })
+                //var trainIndeces = _.map(trains, function (t) {
+                //    return parseInt(t.substr(t.indexOf("Train") + 6));
+                //})
+                var trainIndeces = [];
+                for (var i = 0; i < trains.length; i++) {
+                    if (trains[i].length > 8) {
+                        var ar = trains[i].split('-');
+                        for (var j = parseInt(ar[0].substr(ar[0].indexOf("Train") + 6)); j <= parseInt(ar[1].substr(ar[1].indexOf("Train") + 6)); j++) {
+                            trainIndeces.push(j);
+                        }
+                    } else {
+                        trainIndeces.push(parseInt(trains[i].substr(trains[i].indexOf("Train") + 6)));
+                    }
+                }
+                trainIndeces.sort(function (a, b) {
+                    return a - b
+                });
                 // Sort ascending
                 trainIndeces.sort(function (a, b) {
                     return a - b
                 });
-                return parseInt(trainIndeces[trainIndeces.length - 1]) - parseInt(trainIndeces[0]) + 1;
+                //console.log(parseInt(trainIndeces.length));
+                //return parseInt(trainIndeces[trainIndeces.length - 1]) - parseInt(trainIndeces[0]) + 1;
+                return trainIndeces.length;
             }
             //var mfgsummary = getSummary(trainData['manufacturing']);
             //var asssummary = getSummary(trainData['assembly']);
@@ -911,8 +925,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                     }
                 });
                 $subdContainer.find('.train-container').html('').append(renderTrainDom(newdata));
-
-
                 $subdContainer.find('.table-container').html('');
             }
             var renderKJD = function (data) {
@@ -929,8 +941,6 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                             if ((typeof i['delivery'] != 'undefined') && (i['delivery'] != '')) {
                                 if (i['delivery'] != null) {
                                     text = 'Delivered on ' + i['delivery']
-                                } else {
-                                    text = 'Delivered on -'
                                 }
                             }
                             return {
@@ -1503,6 +1513,9 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                     align: 'center',
                     verticalAlign: 'bottom',
                     borderWidth: 0,
+                    itemStyle:{
+                        cursor:'default'
+                    },
                     itemHoverStyle: {
                         cursor:'default',
                         color:'#E0E0E3'
