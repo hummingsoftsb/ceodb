@@ -1173,6 +1173,10 @@ mpxd.modules.progress.initializeProgress = function() {
  */
 
 mpxd.modules.general = {};
+var f_image = [];
+var ihtm="";
+var ihtm2="";
+var twist="";
 mpxd.modules.general.GeneralView = Backbone.View.extend({
     initialize: function(options) {
         //console.log(options);
@@ -1189,6 +1193,31 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 		if(that.data.type === 'slider'){
+            // modified by agaile to show imgae slider from local repository : 31/05/2016 : START
+            //console.log('slider_agaile');
+            //console.log(that.data.data.items);
+            var lg = that.data.data.items.length;
+            //console.log('inside loop');
+            for( var i=0; i<lg; i ++)
+            {
+                //if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind=="image")) {
+                //    console.log('Image Path :  https://mpxd.mymrt.com.my/'+that.data.data.items[i].path + '  Image Title :  '+that.data.data.items[i].title );
+                //}
+                //alert(twist);
+                if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
+                    //alert(that.data.data.items[i].kind);
+                    //alert(that.data.data.items[i].title);
+                    ihtm +="<img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
+                    //ihtm2 +="path="+ that.data.data.items[i].path+"' title='"+that.data.data.items[i].title+"' kind='"+that.data.data.items[i].kind+"'";
+                    //ihtm +="<div class=\"aslide\" data-duration=\"1\"> <img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' height=\"200px\"/>"+"<div class=\"text\">"+that.data.data.items[i].title+"</div></div>";
+                }
+            }
+            //console.log('cond array');
+            //console.log(f_image);
+            //console.log('cond var');
+            //console.log(ihtm);
+            //console.log(ihtm2);
+            /*
 			that.$el.find('#slider_' + that.data.id).googleslides({
 				userid: '106498362119815035474',
 				albumid: that.data.data.album,
@@ -1201,6 +1230,9 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
 				time: 5000, // Time to show each photo before advancing (in milliseconds).
 				fadespeed: 1000 // Fade in/out speed (in milliseconds).
 			});
+            */
+           $('#slider').append(ihtm);
+            // modified by agaile : 31/05/2016 : END
 		}
     }
 });
