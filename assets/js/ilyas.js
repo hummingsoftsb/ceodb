@@ -1220,8 +1220,8 @@ mpxd.constructors.train_manufacturing_testing = function (data) {
 }
 
 mpxd.constructors.train_manufacturing_phase = function (data) {
-    console.log('train manufact');
-    console.log(data);
+    //console.log('train manufact');
+    //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 

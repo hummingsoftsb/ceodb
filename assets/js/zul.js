@@ -1173,19 +1173,18 @@ mpxd.modules.progress.initializeProgress = function() {
  */
 
 mpxd.modules.general = {};
-var f_image = [];
-var ihtm="";
-var ihtm2="";
-var twist="";
+
 mpxd.modules.general.GeneralView = Backbone.View.extend({
     initialize: function(options) {
         //console.log(options);
+        //console.log('im called here');
         this.data = options.data;
         this.render();
 		if (typeof options.callback == "function") options.callback(this.data);
         //this.type = options.data.type;
     },
     render: function() {
+        var ihtm="";
         var that = this;
         var html = mpxd.getTemplate(that.data.type);
 
@@ -1193,7 +1192,7 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 		if(that.data.type === 'slider'){
-            // modified by agaile to show imgae slider from local repository : 31/05/2016 : START
+            // modified by agaile to show image slider from local repository : 31/05/2016 : START
             //console.log('slider_agaile');
             //console.log(that.data.data.items);
             var lg = that.data.data.items.length;
@@ -1203,7 +1202,7 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
                 //if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind=="image")) {
                 //    console.log('Image Path :  https://mpxd.mymrt.com.my/'+that.data.data.items[i].path + '  Image Title :  '+that.data.data.items[i].title );
                 //}
-                //alert(twist);
+                //alert('twist');
                 if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
                     //alert(that.data.data.items[i].kind);
                     //alert(that.data.data.items[i].title);
@@ -1232,6 +1231,7 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
 			});
             */
            $('#slider').append(ihtm);
+            imageSlider.reload();
             // modified by agaile : 31/05/2016 : END
 		}
     }
@@ -1251,6 +1251,43 @@ mpxd.modules.general.initializeGeneralview = function(type) {
         mpxd.loadTemplateAsync(type);
     }
 }
+
+/* Added by Agaile on 02/06/2016
+* usage: to make the image slider
+* Inherited from zul's code with some modifications and improvisations*/
+
+// START : HERE
+
+// mpxd.modules.general.twist = Backbone.View.extend({
+//    initialize: function(options) {
+//        this.data = options.data;
+//        this.render();
+//        if (typeof options.callback == "function") options.callback(this.data);
+//    },
+//    render: function() {
+//        var that = this;
+//        var html = mpxd.getTemplate(that.data.type);
+//        template = _.template(html, {data: that.data});
+//        that.$el.html(template);
+//        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+//        if(that.data.type === 'slider'){
+//            var lg = that.data.data.items.length;
+//            for( var i=0; i<lg; i ++)
+//            {
+//                if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
+//                    ihtm +="<img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
+//                    //ihtm2 +="path="+ that.data.data.items[i].path+"' title='"+that.data.data.items[i].title+"' kind='"+that.data.data.items[i].kind+"'";
+//                    //ihtm +="<div class=\"aslide\" data-duration=\"1\"> <img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' height=\"200px\"/>"+"<div class=\"text\">"+that.data.data.items[i].title+"</div></div>";
+//                }
+//            }
+//            $('#slider').append(ihtm);
+//        }
+//    }
+//});
+
+// END : HERE
+
+
 
 /*
  **********************
@@ -1275,7 +1312,6 @@ mpxd.constructors.page_info_station = function(data) {
 }
 
 mpxd.constructors.syspackage = function(data) {
-    //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1296,8 +1332,8 @@ mpxd.constructors.hsse = function(data) {
 }
 
 mpxd.constructors.kpi = function(data) {
-    console.log(data);
-    console.log('here');
+    //console.log(data);
+    //console.log('here');
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1312,9 +1348,12 @@ mpxd.constructors.kad2 = function(data) {
 }
 
 mpxd.constructors.slider = function(data) {
+
+    //console.log('im called everytme');
 	//mpxd.modules.gallery.getJSON('106498362119815035474',data.data.album,data.data.authkey).done(mpxd.modules.gallery.getFeatured);
 	//mpxd.modules.gallery.getFeatured(mpxd.modules.gallery.getJSON('106498362119815035474',data.data.album,data.data.authkey));
     mpxd.modules.general.GenerateGeneralview(data);
+    //mpxd.modules.general.twist(data);
 }
 
 mpxd.constructors.procurement_awarded_table = function(data) {

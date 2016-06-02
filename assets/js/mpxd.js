@@ -97,8 +97,8 @@ mpxd.datasource = [];
 mpxd.datasourceAss = {};
 
 mpxd.getTemplate = function(t) {
-    console.log('names to identify');
-    console.log(t);
+    //console.log('names to identify');
+    //console.log(t);
     if (typeof mpxd.templateData[t] == "undefined") {
         /* template not loaded yet or unexistant */
         if (typeof mpxd.templateURLs[t] == "undefined") {
