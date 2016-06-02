@@ -3,7 +3,7 @@ mpxd = {};
 
 isPDF = true;
 isUseCustomPortlet = (getUrlParameter("print") == "1");
-mpxd.siteurl = '192.168.1.52';
+mpxd.siteurl = 'https://mpxd.mymrt.com.my/';
 $(function(){
 	/* Optimize page for print layout */
 	

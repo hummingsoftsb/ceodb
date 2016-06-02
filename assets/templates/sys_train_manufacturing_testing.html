@@ -22,9 +22,13 @@
     var stat_no = [];
     var dynamic_no = [];
     var mainline_no = [];
+    var it_no = [];
     var sit_no = [];
     mpxd.getJSONData("GetTestingData" + c_data_date + "", function (result) {
         if (result.length > 0) {
+
+            // Logic to find the number of trains with pass value for showing the percentage based on trains : Starts Agaile
+
             for (var i in result) {
                 if(result[i]['Static_Pass']!= null) {
                     stat_no.push(result[i]['Static_Pass']);
@@ -35,17 +39,24 @@
                 if(result[i]['SAT_Pass']!= null) {
                     mainline_no.push(result[i]['SAT_Pass']);
                 }
+                if(result[i]['IT_Pass']!= null) {
+                    it_no.push(result[i]['IT_Pass']);
+                }
                 if(result[i]['SIT_Pass']= null) {
                     sit_no.push(result[i]['SIT_Pass']);
                 }
                 temp.push([(result[i]['train_no'] == null ? '-' : result[i]['train_no']), (result[i]['Static_Total'] == null ? '-' : parseInt(result[i]['Static_Total'])), (result[i]['Static_Pass'] == null ? '-' : parseInt(result[i]['Static_Pass'])), (result[i]['Static_Incomplete'] == null ? '-' : parseInt(result[i]['Static_Incomplete'])), (result[i]['Static_Fail'] == null ? '-' : parseInt(result[i]['Static_Fail'])), (result[i]['Dynamic_Total'] == null ? '-' : parseInt(result[i]['Dynamic_Total'])), (result[i]['Dynamic_Pass'] == null ? '-' : parseInt(result[i]['Dynamic_Pass'])), (result[i]['Dynamic_Incomplete'] == null ? '-' : parseInt(result[i]['Dynamic_Incomplete'])), (result[i]['Dynamic_Fail'] == null ? '-' : parseInt(result[i]['Dynamic_Fail'])), (result[i]['SAT_Total'] == null ? '-' : parseInt(result[i]['SAT_Total'])),(result[i]['SAT_Pass'] == null ? '-' : parseInt(result[i]['SAT_Pass'])), (result[i]['SAT_Incomplete'] == null ? '-' : parseInt(result[i]['SAT_Incomplete'])), (result[i]['SAT_Fail'] == null ? '-' : parseInt(result[i]['SAT_Fail'])), (result[i]['IT_Total'] == null ? '-' : parseInt(result[i]['IT_Total'])), (result[i]['IT_Pass'] == null ? '-' : parseInt(result[i]['IT_Pass'])),(result[i]['IT_Incomplete'] == null ? '-' : parseInt(result[i]['IT_Incomplete'])),  (result[i]['IT_Fail'] == null ? '-' : parseInt(result[i]['IT_Fail'])),  (result[i]['SIT_Total'] == null ? '-' : parseInt(result[i]['SIT_Total'])),(result[i]['SIT_Pass'] == null ? '-' : parseInt(result[i]['SIT_Pass'])), (result[i]['SIT_Incomplete'] == null ? '-' : parseInt(result[i]['SIT_Incomplete'])), (result[i]['SIT_Fail'] == null ? '-' : parseInt(result[i]['SIT_Fail']))]);
             }
 
-//            alert('STATIC PASS - '+stat_no.length);
-//            alert('DYNAMIC PASS - '+dynamic_no.length);
-//            alert('SAT PASS - '+mainline_no.length);
-//            alert('SIT PASS - '+mainline_no.length);
-//            alert('IT PASS - '+sit_no.length);
+            // Logic to find the number of trains with pass value for showing the percentage based on trains : Ends Agaile
+
+            /*
+            alert('STATIC PASS - '+stat_no.length);
+            alert('DYNAMIC PASS - '+dynamic_no.length);
+            alert('SAT PASS - '+mainline_no.length);
+            alert('IT PASS - '+it_no.length);
+            alert('SIT PASS - '+sit_no.length);
+            */
             tabledata = temp;
             var tn = "";
             for (i = 0; i < tabledata.length; i++) {
@@ -67,10 +78,6 @@
                     return ((isNaN(memo)) ? 0 : memo) + ((isNaN(num)) ? 0 : num);
                 });
                 var pass = _.reduce(passArray, function (memo, num) {
-//                    console.log('memo');
-//                    console.log(memo);
-//                    console.log('num');
-//                    console.log(num);
                     return ((isNaN(memo)) ? 0 : memo) + ((isNaN(num)) ? 0 : num);
                 });
                 return (isNaN(parseFloat((pass / total) * 100).toFixed(0)) ? 0 : parseFloat((pass / total) * 100).toFixed(0));
@@ -80,7 +87,8 @@
             var statictest = getPercent(1, 2);
             var dynamictest = getPercent(5, 6);
             var mainlinetest = getPercent(9, 10);
-            //var sit = getPercent(13, 14);
+            //var sit = getPercent(13, 14); // before it was same for manline and it. Its a typo by illyas i think so changing : Agaile and for sit it was wrong columns so that's also changing
+            var it = getPercent(13, 14);
             var sit = getPercent(17, 18);
 
             /*
@@ -91,7 +99,10 @@
             $td = "<td style=\"\">" + stat_final.toFixed(2) + "%" + "</td> <td style=\"\">" + dynamic_final.toFixed(2) + "%" + "</td><td style=\"\">" + mainline_final.toFixed(2) + "%" + "</td><td style=\"\">" + mainline_final.toFixed(2) + "%" + "</td><td style=\"\">" + sit_final.toFixed(2) + "%" + "</td>";
             */
 
-            $td = "<td style=\"\">" + statictest + " % of " + stat_no.length + " Train(s)" +"</td> <td style=\"\">" + dynamictest + " % of " + dynamic_no.length + " Train(s)" + "</td><td style=\"\">" + mainlinetest + " % of " + mainline_no.length + " Train(s)" + "</td><td style=\"\">" +mainlinetest + " % of " + mainline_no.length + " Train(s)" + "</td><td style=\"\">" + sit + " % of " + sit_no.length + " Train(s)" + "</td>";
+            // the below commented code is to show the percentage based on trains not fully - commented as per client request : Agaile 01/06/2016
+            //$td = "<td style=\"\">" + statictest + " % of " + stat_no.length + " Train(s)" +"</td> <td style=\"\">" + dynamictest + " % of " + dynamic_no.length + " Train(s)" + "</td><td style=\"\">" + mainlinetest + " % of " + mainline_no.length + " Train(s)" + "</td><td style=\"\">" +it + " % of " + it_no.length + " Train(s)" + "</td><td style=\"\">" + sit + " % of " + sit_no.length + " Train(s)" + "</td>";
+
+            $td = "<td style=\"\">" + statictest + "%" +"</td> <td style=\"\">" + dynamictest + "%" +"</td><td style=\"\">" + mainlinetest + "%" + "</td><td style=\"\">" +it + "%" + "</td><td style=\"\">" + sit + "%"+ "</td>";
         }
         else {
             $td = "<td style=\"text-align: center;\" colspan='5'> No Data Available </td>";
