@@ -4,7 +4,7 @@ var sliderOptions=
 	startSlide: 0,
 	effect: "13",
 	effectRandom: false,
-	pauseTime: 2600,
+	pauseTime: 5000,
 	transitionTime: 100,
 	slices: 12,
 	boxes: 8,
