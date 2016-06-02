@@ -917,6 +917,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 $subdContainer.find('.table-container').html('');
             }
             var renderKJD = function (data) {
+                console.log("Sebin");
+                console.log(data);
                 var newdata = [];
                 $.each(data, function (idx, i) {
                     var color = '#0f9';
