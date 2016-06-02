@@ -183,132 +183,135 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
             var cnum = 1001;
 
             var renderTrainDom = function (data) {
-                var $table = $('<table style="text-align: center; margin: 30px;">');
-                var $thead = $('<thead>');
-                var $tbody = $('<tbody>');
+                try {
+                    var $table = $('<table style="text-align: center; margin: 30px;">');
+                    var $thead = $('<thead>');
+                    var $tbody = $('<tbody>');
 
-                $table.append($thead);
-                $table.append($tbody);
+                    $table.append($thead);
+                    $table.append($tbody);
 
-                var generateTooltipDiv = function (html) {
-                    var $div = $('<div>');
-                    $div.addClass('hastooltip');
-                    $div.attr('data-toggle', 'tooltip');
-                    $div.attr('data-html', 'true');
-                    $div.attr('title', html);
-                    return $div
-                }
-
-
-                var generateTooltipContainer = function (d) {
-                    if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
-                        var ass = d['assembly'];
-                        var man = d['manufacturing'];
-                        var carnum = d['car'];
-                        var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass + '<br>Car number: ' + carnum;
-                        return generateTooltipDiv(html);
+                    var generateTooltipDiv = function (html) {
+                        var $div = $('<div>');
+                        $div.addClass('hastooltip');
+                        $div.attr('data-toggle', 'tooltip');
+                        $div.attr('data-html', 'true');
+                        $div.attr('title', html);
+                        return $div
                     }
-                    return $('<div>');
-                }
-
-                $.each(data, function (idx, i) {
-                    var train = generateTrain();
 
 
-                    var hd = train[0];
-                    var lm = train[1];
-                    var b1 = train[2];
-                    var b2 = train[3];
-                    var rm = train[4];
-
-                    // First row - delivery row
-                    var $tr1 = $('<tr>');
-
-
-                    var $r1td1 = $('<td>');
-
-                    //var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
-                    var toptext = i['toptext'] == '' ? '&nbsp' : i['toptext'];
-                    $tr1.append($r1td1).append($('<td>').attr('colspan', '4').html(toptext));
-
-                    // Second row - train row
-                    var $tr2 = $('<tr>');
-                    var $tdhead = $('<td style="width: 80px">');
-                    $tdhead.append(hd);
-
-                    d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
-
-                    var $r2td1 = $('<td>');
-                    var $r2td2 = $('<td>');
-                    var $r2td3 = $('<td>');
-                    var $r2td4 = $('<td>');
-
-                    d3.select(lm.querySelector('#path4836')).attr('fill', i['cars'][0]['color']);
-                    $r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
-
-                    d3.select(b1.querySelector('#path4836')).attr('fill', i['cars'][1]['color']);
-                    $r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
-
-                    d3.select(b2.querySelector('#path4836')).attr('fill', i['cars'][2]['color']);
-                    $r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
-
-                    d3.select(rm.querySelector('#path4836')).attr('fill', i['cars'][3]['color']);
-                    $r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
-
-                    $tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
-
-                    // Third row - train ids
-                    var $tr3 = $('<tr>');
-                    var $tdheadid = $('<td>');
-                    var $r3td1 = $('<td>');
-                    var $r3td2 = $('<td>');
-                    var $r3td3 = $('<td>');
-                    var $r3td4 = $('<td>');
-
-                    $tdheadid.text(i['name'])
-                    $r3td1.text(i['cars'][0]['name']);
-                    $r3td2.text(i['cars'][1]['name']);
-                    $r3td3.text(i['cars'][2]['name']);
-                    $r3td4.text(i['cars'][3]['name']);
-
-
-                    $tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
-
-
-                    // Fourth row - train progress and rollout and dynamic test and arrived on
-                    var $tr4 = $('<tr>');
-                    var $tdheadprogress = $('<td>');
-                    $tdheadprogress.append($('<p>').text(i['progress']));
-                    $tr4.append($tdheadprogress);
-                    // Search for consecutive text and combine them if have to
-                    var texts = $.map(i['cars'], function (v) {
-                        return v['text']
-                    });
-                    for (var x = 0; x < texts.length; x++) {
-                        var text = texts[x];
-                        var $td = $('<td>').text(text);
-
-                        if (text.indexOf('%') > -1) {
-                            // Dont consecutive search
-                            $tr4.append($td);
-                        } else {
-                            // Do
-                            var count = findConsecutive(texts, x);
-                            if (count > 0) {
-                                $td.attr('colspan', count + 1)
-                                //$td.css('background-color','#555');
-                            }
-                            $tr4.append($td);
-                            x = x + count;
+                    var generateTooltipContainer = function (d) {
+                        if ((typeof d != 'undefined') && (typeof d['assembly'] != 'undefined') && (d['assembly'] != '') && (typeof d['manufacturing'] != 'undefined') && (d['manufacturing'] != '')) {
+                            var ass = d['assembly'];
+                            var man = d['manufacturing'];
+                            var carnum = d['car'];
+                            var html = 'Manufacturing: ' + man + '<br>Assembly: ' + ass + '<br>Car number: ' + carnum;
+                            return generateTooltipDiv(html);
                         }
+                        return $('<div>');
                     }
 
-                    //$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
-                    $tbody.append($tr1).append($tr2).append($tr3).append($tr4);
-                    $tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
+                    $.each(data, function (idx, i) {
+                        var train = generateTrain();
 
-                });
+
+                        var hd = train[0];
+                        var lm = train[1];
+                        var b1 = train[2];
+                        var b2 = train[3];
+                        var rm = train[4];
+
+                        // First row - delivery row
+                        var $tr1 = $('<tr>');
+
+
+                        var $r1td1 = $('<td>');
+
+                        //var deliveryText = (typeof i['delivery'] != undefined) ? 'Target delivery: '+i['delivery'] : '';
+                        var toptext = i['toptext'] == '' ? '&nbsp' : i['toptext'];
+                        $tr1.append($r1td1).append($('<td>').attr('colspan', '4').html(toptext));
+
+                        // Second row - train row
+                        var $tr2 = $('<tr>');
+                        var $tdhead = $('<td style="width: 80px">');
+                        $tdhead.append(hd);
+
+                        d3.select(hd.querySelector('#path4147-2')).attr('fill', i['color']);
+
+                        var $r2td1 = $('<td>');
+                        var $r2td2 = $('<td>');
+                        var $r2td3 = $('<td>');
+                        var $r2td4 = $('<td>');
+
+                        d3.select(lm.querySelector('#path4836')).attr('fill', i['cars'][0]['color']);
+                        $r2td1.append(generateTooltipContainer(i['cars'][0]['history']).append(lm));
+
+                        d3.select(b1.querySelector('#path4836')).attr('fill', i['cars'][1]['color']);
+                        $r2td2.append(generateTooltipContainer(i['cars'][1]['history']).append(b1));
+
+                        d3.select(b2.querySelector('#path4836')).attr('fill', i['cars'][2]['color']);
+                        $r2td3.append(generateTooltipContainer(i['cars'][2]['history']).append(b2));
+
+                        d3.select(rm.querySelector('#path4836')).attr('fill', i['cars'][3]['color']);
+                        $r2td4.append(generateTooltipContainer(i['cars'][3]['history']).append(rm));
+
+                        $tr2.append($tdhead).append($r2td1).append($r2td2).append($r2td3).append($r2td4);
+
+                        // Third row - train ids
+                        var $tr3 = $('<tr>');
+                        var $tdheadid = $('<td>');
+                        var $r3td1 = $('<td>');
+                        var $r3td2 = $('<td>');
+                        var $r3td3 = $('<td>');
+                        var $r3td4 = $('<td>');
+
+                        $tdheadid.text(i['name'])
+                        $r3td1.text(i['cars'][0]['name']);
+                        $r3td2.text(i['cars'][1]['name']);
+                        $r3td3.text(i['cars'][2]['name']);
+                        $r3td4.text(i['cars'][3]['name']);
+
+
+                        $tr3.append($tdheadid).append($r3td1).append($r3td2).append($r3td3).append($r3td4);
+
+
+                        // Fourth row - train progress and rollout and dynamic test and arrived on
+                        var $tr4 = $('<tr>');
+                        var $tdheadprogress = $('<td>');
+                        $tdheadprogress.append($('<p>').text(i['progress']));
+                        $tr4.append($tdheadprogress);
+                        // Search for consecutive text and combine them if have to
+                        var texts = $.map(i['cars'], function (v) {
+                            return v['text']
+                        });
+                        for (var x = 0; x < texts.length; x++) {
+                            var text = texts[x];
+                            var $td = $('<td>').text(text);
+
+                            if (text.indexOf('%') > -1) {
+                                // Dont consecutive search
+                                $tr4.append($td);
+                            } else {
+                                // Do
+                                var count = findConsecutive(texts, x);
+                                if (count > 0) {
+                                    $td.attr('colspan', count + 1)
+                                    //$td.css('background-color','#555');
+                                }
+                                $tr4.append($td);
+                                x = x + count;
+                            }
+                        }
+
+                        //$.each([$tr1,$tr2,$tr3,$tr4], function(idx, v){v.css('background-color','#444')});
+                        $tbody.append($tr1).append($tr2).append($tr3).append($tr4);
+                        $tbody.append($('<tr>').append($('<td colspan="5" style="height:30px">')));//.append($('<hr>').css('border-color','#444'))))
+
+                    });
+                }catch(e){console.log("error in renderTrainDom()"+e)};
                 return $table;
+
             }
 
             var generateTable = function (data) {
