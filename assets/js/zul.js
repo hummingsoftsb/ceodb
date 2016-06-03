@@ -1206,7 +1206,7 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
                 if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
                     //alert(that.data.data.items[i].kind);
                     //alert(that.data.data.items[i].title);
-                    ihtm +="<img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
+                    ihtm +="<img src='"+mpxd.siteurl+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
                     //ihtm2 +="path="+ that.data.data.items[i].path+"' title='"+that.data.data.items[i].title+"' kind='"+that.data.data.items[i].kind+"'";
                     //ihtm +="<div class=\"aslide\" data-duration=\"1\"> <img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' height=\"200px\"/>"+"<div class=\"text\">"+that.data.data.items[i].title+"</div></div>";
                 }
