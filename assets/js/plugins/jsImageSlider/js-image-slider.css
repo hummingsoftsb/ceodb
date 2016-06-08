@@ -7,19 +7,34 @@
 {
     /*width:550px;*/
     width:100%;
+    /*Added By Sebin*/
+    /*Starts here...*/
+    height: 100%;
+    /*Ends here...*/
     margin:0 auto; /*center-aligned*/
 }
 
 #slider, #slider .sliderInner {
     /*width:550px; Must be the same size as the slider Frame*/
     width:100%;/* Must be the same size as the slider Frame */
-    height:306px;
     border-radius:3px;
+    /*UNCOMMENT THIS FOR ORIGINAL*/
+    /*height: 306px;*/
+    /*Added By Sebin*/
+    /*Starts here...*/
+    padding-top:39.7%;
+    height: 100%;
+    margin:0 auto;
+    background-size: cover !important;
+    background-position: center center !important;
+    /*Ends here...*/
 }
 
 .mcSlc, .mcBox {
     width:100% !important; /*newly added*/
+    padding-top:39.7%;
     background-size: cover !important;
+    background-position: center center !important;
 }
 
 
