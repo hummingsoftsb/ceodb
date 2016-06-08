@@ -5,16 +5,20 @@
 }
 #sliderFrame 
 {
-    width:550px;
+    /*width:550px;*/
+    width:100%;
     margin:0 auto; /*center-aligned*/
 }
 
 #slider, #slider .sliderInner {
-    width:550px;height:306px;/* Must be the same size as the slider images */
+    /*width:550px; Must be the same size as the slider Frame*/
+    width:100%;/* Must be the same size as the slider Frame */
+    height:306px;
     border-radius:3px;
 }
 
 .mcSlc, .mcBox {
+    width:100% !important; /*newly added*/
     background-size: cover !important;
 }
 
