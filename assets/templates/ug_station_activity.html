@@ -7,7 +7,7 @@
 				$("tr.bbb"+4).hide();
 				console.log( "ready!" );
 			});
-			
+
             function showdiv() {
 			var MyRows = $('table#station_box').find('tbody').find('tr');
 			for (var i = 0; i < MyRows.length; i++) {
@@ -17,13 +17,13 @@
 			$("tr.bbb"+3).slideUp( "slow" );
 			$("tr.bbb"+4).slideUp( "slow" );
 			} else if($.trim(MyIndexValue)=='Excavation'){
-			
+
             } else if($.trim(MyIndexValue)=='RC Structure'){
-			
+
 			}else{}
 			}
 			}
-			
+
 			$('')
       </script>
    </head>
@@ -42,7 +42,7 @@
 	var levels = {"Station Box": "st","Entrance": "et","Vent Shaft": "vs"};
     %>
 
-	
+
     <!-- Nav tab -->
     <ul class="nav nav-tabs" role="tablist" id="mytab">
         <li class="active"><a href="#station-box" role="tab" data-toggle="tab">Station Box</a></li>
@@ -52,14 +52,14 @@
 
     <!-- tab-content -->
     <div class="tab-content tab-style">
-        
-        
-        
+
+
+
         <div class="tab-pane active" id="station-box">
 			<!--content-->
 			<div class="panel-group" id="accordion1">
 				<%var count = 0; for (var i in raw["Station Box"]) { count++;
-				var row = raw["Station Box"][i];			
+				var row = raw["Station Box"][i];
 				%>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -105,12 +105,12 @@
 			</div>
 			<!--content ends-->
         </div>
-        
+
         <div class="tab-pane" id="entrance">
 			<!--content-->
 			<div class="panel-group" id="accordion2">
 				<%var count = 0; for (var i in raw["Entrance"]) { count++;
-				var row = raw["Entrance"][i];			
+				var row = raw["Entrance"][i];
 				%>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -156,12 +156,12 @@
 			</div>
 			<!--content ends-->
         </div>
-        
+
         <div class="tab-pane" id="vent-shaft">
 			<!--content-->
 			<div class="panel-group" id="accordion3">
 				<%var count = 0; for (var i in raw["Vent Shaft"]) { count++;
-				var row = raw["Vent Shaft"][i];			
+				var row = raw["Vent Shaft"][i];
 				%>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -207,7 +207,7 @@
 			</div>
 			<!--content ends-->
         </div>
-        
+
     </div>
 </div>
 
@@ -224,7 +224,7 @@
 					<thead>
 					<tr><th>Activity</th><th style="color: #ffd461;text-align: right;">Accumulated</th><th style="color: #FFAF78;text-align: right;">Current Week</th><th colspan="2" style="text-align: center;">Total Progress</th>
 					</tr>
-					</thead>					
+					</thead>
 					 <tbody><tr>
 						<td style="">Column Construction 1</td>
 						<td style="color: #ffd461; text-align: right;">1,542</td>
@@ -232,8 +232,8 @@
 						<td style="text-align: right;">98%</td>
 						<td style="text-align: right;">96%</td>
 					</tr>
-					
-					
+
+
 					 <tr>
 						<td style="">Column Construction 2</td>
 						<td style="color: #ffd461; text-align: right;">357</td>
@@ -241,8 +241,8 @@
 						<td style="text-align: right;">92%</td>
 						<td style="text-align: right;">85%</td>
 					</tr>
-					
-					
+
+
 					 <tr>
 						<td style="">Column Construction 3</td>
 						<td style="color: #ffd461; text-align: right;">243</td>
@@ -250,9 +250,9 @@
 						<td style="text-align: right;">94%</td>
 						<td style="text-align: right;">84%</td>
 					</tr>
-					
-					
-					
+
+
+
 					</tbody>
 				</table>
 			</div>
@@ -283,7 +283,7 @@ if(typeof items === "object"){
 					<thead>
 					<tr><th>Activity</th><th style="color: #ffd461;text-align: right;">Accumulated</th><th style="color: #FFAF78;text-align: right;">Current Week</th><th colspan="2" style="text-align: center;">Total Progress</th>
 					</tr>
-					</thead>					
+					</thead>
 					 <tbody>
 					 <%for (var k in items.data) { var item=items.data[k]; %>
 					 <tr>
@@ -294,7 +294,7 @@ if(typeof items === "object"){
 						<td style="text-align: right;"><%=item[4]%>%</td>
 					</tr>
 					<%}%>
-					
+
 					</tbody>
 				</table>
 			</div>

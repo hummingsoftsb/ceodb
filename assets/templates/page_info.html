@@ -4,45 +4,76 @@
     <i class="header-icon fa fa-archive"></i>
 </div>
 <div class="content" style="background: none;/*#1d2a34*/ " data-arrange="1">
-    <table style="border-bottom: 1px solid #15A6E9">
-        <td style="">
-            <h1 class="excel-d1" style="color: #ffd461; font-size: 350%;text-align: center;"><%=data.data.name%></h1>
-        </td>
+    <table>
         <td>
-            <h4 class="excel-d2" style="text-align: left; font-size: 100%"><%=data.data.contractor%></h4>
+            <h4 class="excel-d2" style="text-align: left; font-size: 100%; "><%=data.data.contractor%></h4>
         </td>
     </table>
 
 
     <%if(data.data.station){%>
 
-    <div>
+    <div class="table-bordered">
+        <div style="float: left">
         <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">Station</p></h1>
-        <table class="table table-bordered" style="font-size: 160%; font-weight: 600;">
+        <table class="table" style="font-size: 160%; font-weight: 600;">
             <!--tr><th>X</th><th>Y</th></tr-->
             <%_.each(data.data.station, function(row) {%>
-            <tr class="excel-dx">
-                <td class="excel-d3" style="color: #009e8c;"><a href="javascript:void(0);" onClick="loadPage('<%=String.prototype.toSlug(row)%>/index')"><%=row%> <i class="loadpage fa fa-link"></i></a></td>
+            <tr class="excel-dx" style="border: none;">
+                <td class="excel-d3" style="color: #009933; border: none; font-size: 14px; font: normal;"><%=row%></td>
             </tr>
             <%});%>
         </table>
-        <div style="text-align:right; margin-top:4px;"><a href="javascript:void(0);" style="color: #9EDD2E;" onClick="loadPage('<%=data.data.piers_url%>')">Pier Chart <i class="loadpage fa fa-link"></i></a></div>
+        </div>
+        <div  style="float:right;">
+        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">MSPR</p></h1>
+        <table class="table" style="font-size: 160%; font-weight: 600;">
+            <!--tr><th>X</th><th>Y</th></tr-->
+            <tr class="excel-dx" style="border: none;">
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 1</td>
+            </tr>
+            <tr class="excel-dx" style="border: none;">
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 2</td>
+            </tr>
+            <tr class="excel-dx" style="border: none;">
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 3</td>
+            </tr>
+        </table>
+        </div>
+        <!--<div style="text-align:right; padding-top:10px;"><a href="javascript:void(0);" style="color: #9EDD2E;" onClick="loadPage('<%=data.data.piers_url%>')">Pier Chart <i class="loadpage fa fa-link"></i></a></div>-->
     </div>
     <%}%>
-    
+
     <%if(data.data.depot){%>
 
-    <div>
-        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">Depot</p></h1>
-        <table class="table table-bordered" style="font-size: 160%; font-weight: 600;">
-            <!--tr><th>X</th><th>Y</th></tr-->
-            <%_.each(data.data.depot, function(row) {%>
-            <tr class="excel-dx">
-                <td class="excel-d3" style="color: #009e8c;"><%=row%></td>
-            </tr>
-            <%});%>
-        </table>
+    <div class="table-bordered">
 
+        <div style="float: left">
+            <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">Depot</p></h1>
+            <table class="table" style="font-size: 160%; font-weight: 600;">
+                <!--tr><th>X</th><th>Y</th></tr-->
+                <%_.each(data.data.depot, function(row) {%>
+                <tr class="excel-dx" style="border: none;">
+                    <td class="excel-d3" style="color: #009933; border: none; font-size: 14px; font: normal;"><%=row%></td>
+                </tr>
+                <%});%>
+            </table>
+        </div>
+        <div  style="float:right;">
+            <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">MSPR</p></h1>
+            <table class="table" style="font-size: 160%; font-weight: 600;">
+                <!--tr><th>X</th><th>Y</th></tr-->
+                <tr class="excel-dx" style="border: none;">
+                    <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 1</td>
+                </tr>
+                <tr class="excel-dx" style="border: none;">
+                    <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 2</td>
+                </tr>
+                <tr class="excel-dx" style="border: none;">
+                    <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 3</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <%}%>
 </div>
