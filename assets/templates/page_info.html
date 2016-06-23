@@ -6,7 +6,7 @@
 <div class="content" style="background: none;/*#1d2a34*/ " data-arrange="1">
     <table>
         <td>
-            <h4 class="excel-d2" style="text-align: left; font-size: 100%; "><%=data.data.contractor%></h4>
+            <h4 class="excel-d2" style="text-align: left; font-size: 160%; "><%=data.data.contractor%></h4>
         </td>
     </table>
 
@@ -15,28 +15,28 @@
 
     <div class="table-bordered">
         <div style="float: left">
-        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">Station</p></h1>
+        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9; font-weight: bold">Station</p></h1>
         <table class="table" style="font-size: 160%; font-weight: 600;">
             <!--tr><th>X</th><th>Y</th></tr-->
             <%_.each(data.data.station, function(row) {%>
             <tr class="excel-dx" style="border: none;">
-                <td class="excel-d3" style="color: #009933; border: none; font-size: 14px; font: normal;"><%=row%></td>
+                <td class="excel-d3" style="color: #009933; border: none; font-size: 16px; font: normal;"><%=row%></td>
             </tr>
             <%});%>
         </table>
         </div>
         <div  style="float:right;">
-        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9">MSPR</p></h1>
+        <h1 style="margin-top: 15px;"><p class="" style="color: #15A6E9; font-weight: bold">MSPR</p></h1>
         <table class="table" style="font-size: 160%; font-weight: 600;">
             <!--tr><th>X</th><th>Y</th></tr-->
             <tr class="excel-dx" style="border: none;">
-                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 1</td>
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 16px; font: normal;">MSPR 1</td>
             </tr>
             <tr class="excel-dx" style="border: none;">
-                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 2</td>
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 16px; font: normal;">MSPR 2</td>
             </tr>
             <tr class="excel-dx" style="border: none;">
-                <td class="excel-d3" style="color:#009933; border: none; font-size: 14px; font: normal;">MSPR 3</td>
+                <td class="excel-d3" style="color:#009933; border: none; font-size: 16px; font: normal;">MSPR 3</td>
             </tr>
         </table>
         </div>

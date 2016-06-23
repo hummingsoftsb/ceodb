@@ -1099,8 +1099,8 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
             title: {
                 text: currentProgress + '%',
                 style: {
-                    color: '#9EDD2E',
-                    fontSize: '120%',
+                    color: '#ffc000',
+                    fontSize: '260%',
                     fontWeight: 'bold'
                 },
                 align: 'center',
@@ -1132,12 +1132,12 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
                         {
                             name: 'Completed',
                             y: currentProgress,
-                            color: '#15A6E9'
+                            color: '#e6e6e6'
                         },
                         {
                             name: 'Remaining',
                             y: remainingProgress,
-                            color: 'rgba(0,0,0,0.2)'
+                            color: '#7f7f7f'
                         },
                     ]
                 }]
