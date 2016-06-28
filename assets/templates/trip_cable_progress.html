@@ -1,0 +1,100 @@
+<!--Page Created By Sebin-->
+<style>
+    .it_cs_legend{
+        margin-bottom: 25px;
+    }
+    .it_cs_legend ul li {
+        padding-right: 30px;
+        float:left;
+        display: inline-block;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--<div class="it_cs_legend"><ul><li><i class="fa fa-circle" style="color: #008000"></i> Completed</li><li><i class="fa fa-circle" style="color: #ffff00"></i> In Progress</li><li><i class="fa fa-circle" style="color: #ff0000"></i> Handed Over with Snig list</li></ul></div>-->
+	<!--h2>Header h2</h2-->
+    <!--Sebin-->
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+    <tr>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Station/Block</th>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">33KV AC/750V DC</th>
+        <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Cable Installation</th>
+        <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Testing</th>
+        <th rowspan="2" class="color-beige" colspan="2" style="text-align: center; vertical-align: middle;">Energization</th>
+    </tr>
+    <tr>
+        <th style="text-align: center; color: #FFAF78;">Laying</th>
+        <th style="text-align: center; color: #FFAF78;">Termination</th>
+        <th style="text-align: center; color: #009e8c;">PAT</th>
+        <th style="text-align: center; color: #009e8c;">SAT</th>
+    </tr>
+	</thead>
+        <!--<tbody>-->
+        <!--<%_.each(data.data[2].data, function(i) {%>-->
+        <!--<tr>-->
+            <!--<td rowspan="2"><%=i['station_from']%> - <%=i['station_to']%></td>-->
+            <!--<td>33KV AC</td>-->
+            <!--<td><%=i['33kv_laying_status']%></td>-->
+            <!--<td><%=i['33kv_termination_status']%></td>-->
+            <!--<td><%=i['33kv_pat']%></td>-->
+            <!--<td><%=i['33kv_sat']%></td>-->
+            <!--<td><%=i['33kv_energized_date']%></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>750V DC</td>-->
+            <!--<td><%=i['750v_laying_status']%></td>-->
+            <!--<td><%=i['750v_termination_status']%></td>-->
+            <!--<td><%=i['750v_pat']%></td>-->
+            <!--<td><%=i['750v_sat']%></td>-->
+            <!--<td><%=i['750v_energized_date']%></td>-->
+        <!--</tr>-->
+        <!--<%})%>-->
+        <!--</tbody>-->
+        <tbody>
+        <%_.each(data.data[2].data, function(i) {%>
+        <tr>
+            <td rowspan="2"><%=i['station_from']%> - <%=i['station_to']%></td>
+            <td class="color-beige">33KV AC</td>
+            <td style="text-align: center;color:<%if(i['33kv_laying_status']=='N/A'){%>#2ACD4A<%}%>"><%if(i['33kv_laying_status']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_laying_status']=='Completed'){%>#2acd4a<%}else if(i['33kv_laying_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['33kv_termination_status']=='N/A'){%>#2ACD4A<%}%>"><%if(i['33kv_termination_status']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_termination_status']=='Completed'){%>#2acd4a<%}else if(i['33kv_termination_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['33kv_pat']=='N/A'){%>#2ACD4A<%}%>"><%if(i['33kv_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_pat']=='Completed'){%>#2acd4a<%}else if(i['33kv_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['33kv_sat']=='N/A'){%>#2ACD4A<%}%>"><%if(i['33kv_sat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_sat']=='Completed'){%>#2acd4a<%}else if(i['33kv_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+
+            <!--<td><%=i['33kv_laying_status']%></td>
+            <td><%=i['33kv_termination_status']%></td>
+            <td><%=i['33kv_pat']%></td>
+            <td><%=i['33kv_sat']%></td>-->
+            <td><%=i['33kv_energized_date']%></td>
+        </tr>
+        <tr>
+            <td class="color-beige">750V DC</td>
+            <td style="text-align: center;color:<%if(i['750v_laying_status']=='N/A'){%>#2ACD4A<%}%>"><%if(i['750v_laying_status']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_laying_status']=='Completed'){%>#2acd4a<%}else if(i['750v_laying_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_termination_status']=='N/A'){%>#2ACD4A<%}%>"><%if(i['750v_termination_status']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_termination_status']=='Completed'){%>#2acd4a<%}else if(i['33kv_termination_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_pat']=='N/A'){%>#2ACD4A<%}%>"><%if(i['750v_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_pat']=='Completed'){%>#2acd4a<%}else if(i['750v_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_sat']=='N/A'){%>#2ACD4A<%}%>"><%if(i['750v_sat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_sat']=='Completed'){%>#2acd4a<%}else if(i['750v_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+
+            <!--<td><%=i['750v_laying_status']%></td>
+            <td><%=i['750v_termination_status']%></td>
+            <td><%=i['750v_pat']%></td>
+            <td><%=i['750v_sat']%></td>-->
+            <td><%=i['750v_energized_date']%></td>
+        </tr>
+        <%})%>
+        </tbody>
+	</table>
+    <div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>
+        <i class="fa fa-circle" style="color:#efe24b"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
+        <i class="fa fa-circle" style="color:#E83737"></i><span style="color: #efefef">&nbsp;Pending&nbsp;&nbsp;</span>
+    </div>
+</div>

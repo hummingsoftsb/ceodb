@@ -387,7 +387,6 @@ class Dashboard_model extends CI_Model
         $query = $this->db->get();
 
         //$query = $this->db->get_where('items', array('slug' => $item));
-
         if ($query) return $query->result_array();
     }
 
@@ -479,7 +478,6 @@ class Dashboard_model extends CI_Model
 
     public function getPortlet($slug, $page)
     {
-
         //$this->db->select('*');
         $this->db->select('items_meta.id as id,slug,pages.id as page,type,meta_key,portlet_configuration.value as value, items_meta.meta_group_id, items_meta.portlet_id, items.id as item_id, items_meta.pdf_order as order');
         $this->db->from('items');
@@ -512,7 +510,7 @@ class Dashboard_model extends CI_Model
             $return[$k]['order'] = $result['order'];
         }
 
-        //var_dump($return);
+//        var_dump($return);
         return $return;
     }
 
@@ -1217,5 +1215,152 @@ public function getOverallProgress($data_date){
         }
         return $outFully;
     }
+    //Author : Ancy Mathew
+    //Usage : Slug name using slug id.
+    //Created on : 17/06/2016
+    public function get_slug($slug_id)
+    {
+        $sql = "select \"slug\" from \"items\" where \"id\" = '$slug_id'";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
+    //Author : Sebin Thomas, Ancy Mathew
+    //Usage : Retrives PSDS testing and Commission reports based on and latest date
+    //Created on : 20/06/2016
+    public function get_psds_test_comm($ring_no,$date = FALSE){
+        $i=0;
+        $a=array();
+        $test_completion=array(
+            "value"=>array()
+        );
+        if ($date) { //If date is selected
+            $sql = "SELECT \"RING_NUMBER\", \"TNB_SSU_NAME\", \"ENERGIZED_DATE\", \"STATION_NAME\",\"STATION_CODE\",\"INSTAL_STATUS\", \"33KV_PAT\", \"750V_PAT\", \"PSCADA_PAT\", \"33KV_SAT\",\"750V_SAT\", \"PSCADA_SAT\", \"33KV_FORECAST_DATE\", \"750V_FORECAST_DATE\",\"PSCADA_FORECAST_DATE\", \"33KV_ACTUAL_DATE\", \"750V_ACTUAL_DATE\",\"PSCADA_ACTUAL_DATE\", \"DATA_DATE\", \"AC_OR_DC_ONE\", \"AC_OR_DC_TWO\",\"AC_OR_DC_THREE\" FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
+        }else {
+            $sql = "SELECT \"RING_NUMBER\", \"TNB_SSU_NAME\", \"ENERGIZED_DATE\", \"STATION_NAME\",\"STATION_CODE\",\"INSTAL_STATUS\", \"33KV_PAT\", \"750V_PAT\", \"PSCADA_PAT\", \"33KV_SAT\",\"750V_SAT\", \"PSCADA_SAT\", \"33KV_FORECAST_DATE\", \"750V_FORECAST_DATE\",\"PSCADA_FORECAST_DATE\", \"33KV_ACTUAL_DATE\", \"750V_ACTUAL_DATE\",\"PSCADA_ACTUAL_DATE\", \"DATA_DATE\", \"AC_OR_DC_ONE\", \"AC_OR_DC_TWO\",\"AC_OR_DC_THREE\" FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no'";
+        }
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+
+        foreach($result as $val){
+            $a[$i]=array(
+                "ring_number" =>$val['RING_NUMBER'],
+                "tnb_ssu_name"=>$val['TNB_SSU_NAME'],
+                "energized_date" =>$val['ENERGIZED_DATE'],
+                "station_name"=> $val['STATION_NAME'],
+                "station_code" => $val['STATION_CODE'],
+                "install_status" => ($val['INSTAL_STATUS']==1)?'Completed':(($val['INSTAL_STATUS']==2)?'In Progress' :(($val['INSTAL_STATUS']==3)?'Pending':(($val['INSTAL_STATUS']==-1)?'N/A':'-'))),
+                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':'-'))),
+                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':'-'))),
+                "pscada_pat" => ($val['PSCADA_PAT']==1)?'Completed':($val['PSCADA_PAT']==2?'In Progress' :($val['PSCADA_PAT']==3?'Pending':($val['PSCADA_PAT']==-1?'N/A':'-'))),
+                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':'-'))),
+                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':'-'))),
+                "pscada_sat" => ($val['PSCADA_SAT']==1)?'Completed':($val['PSCADA_SAT']==2?'In Progress' :($val['PSCADA_SAT']==3?'Pending':($val['PSCADA_SAT']==-1?'N/A':'-'))),
+                "33kv_forecast_date" =>($val['33KV_FORECAST_DATE']==null || $val['33KV_FORECAST_DATE']=="")?($val['33KV_PAT']==-1 && $val['33KV_SAT']==-1)?'N/A':'-':$val['33KV_FORECAST_DATE'],
+                "750v_forecast_date" =>($val['750V_FORECAST_DATE']==null || $val['750V_FORECAST_DATE']=="")?($val['750V_PAT']==-1 && $val['750V_SAT']==-1)?'N/A':'-':$val['750V_FORECAST_DATE'],
+                "pscada_forecast_date" =>($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=="")?($val['PSCADA_PAT']==-1 && $val['PSCADA_SAT']==-1)?'N/A':'-':$val['PSCADA_FORECAST_DATE'],
+                "33kv_actual_date" => ($val['33KV_ACTUAL_DATE']==null || $val['33KV_ACTUAL_DATE']=="")?($val['33KV_PAT']==-1 && $val['33KV_SAT']==-1 && ($val['33KV_FORECAST_DATE']==null || $val['33KV_FORECAST_DATE']==""))?'N/A':(($val['33KV_PAT']==null || $val['33KV_PAT']=="") && ($val['750V_SAT']==null || $val['33KV_SAT']=="") && ($val['33KV_FORECAST_DATE']==null || $val['33KV_FORECAST_DATE']=="")?'-':'Pending'):$val['33KV_ACTUAL_DATE'],
+                "750v_actual_date" => ($val['750V_ACTUAL_DATE']==null || $val['750V_ACTUAL_DATE']=="")?($val['750V_PAT']==-1 && $val['750V_SAT']==-1 && ($val['750V_FORECAST_DATE']==null || $val['750V_FORECAST_DATE']==""))?'N/A':(($val['750V_PAT']==null || $val['750V_PAT']=="") && ($val['750V_SAT']==null || $val['750V_SAT']=="") && ($val['750V_FORECAST_DATE']==null || $val['750V_FORECAST_DATE']=="")?'-':'Pending'):$val['750V_ACTUAL_DATE'],
+                "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=="")?($val['PSCADA_PAT']==-1 && $val['PSCADA_SAT']==-1 && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']==""))?'N/A':(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=="") && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=="") && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=="")?'-':'Pending'):$val['PSCADA_ACTUAL_DATE'],
+                "ac_or_dc_one" =>$val['AC_OR_DC_ONE'],
+                "ac_or_dc_two" =>$val['AC_OR_DC_TWO'],
+                "ac_or_dc_three"=>$val['AC_OR_DC_THREE']
+            );
+            $i++;
+        }
+        $test_completion["value"]=json_encode($a);
+        return $test_completion;
+    }
+    //Author : Ancy Mathew
+    //Modified by: Sebin Thomas
+    //Usage : Retrives PSDS TRIP Cable Status reports based on and latest date
+    //Created on : 20/06/2016
+    public function get_psds_trip_status($ring_no,$date = FALSE){
+        $i=0;$a=array();
+        $cable_status=array(
+            "value"=>array()
+        );
+        if ($date) { //If date is selected
+            $sql = "select \"STATION_FROM\",\"STATION_TO\",\"33KV_LAYING_STATUS\",\"750V_LAYING_STATUS\",\"33KV_TERMINATION_STATUS\",\"750V_TERMINATION_STATUS\",\"33KV_PAT\",\"750V_PAT\",\"33KV_SAT\",\"750V_SAT\",\"33KV_ENERGIZED_DATE\",\"750V_ENERGIZED_DATE\" from \"tbl_trip_status\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
+        }else {
+            $sql = "select \"STATION_FROM\",\"STATION_TO\",\"33KV_LAYING_STATUS\",\"750V_LAYING_STATUS\",\"33KV_TERMINATION_STATUS\",\"750V_TERMINATION_STATUS\",\"33KV_PAT\",\"750V_PAT\",\"33KV_SAT\",\"750V_SAT\",\"33KV_ENERGIZED_DATE\",\"750V_ENERGIZED_DATE\" from \"tbl_trip_status\" where \"RING_NUMBER\"='$ring_no'";
+        }
+        $query = $this->db->query($sql);
+        $result1 = $query->result_array();
+        foreach($result1 as $val){
+            $a[$i]=array(
+                "station_from"=>$val['STATION_FROM'],
+                "station_to" =>$val['STATION_TO'],
+                "33kv_laying_status" => ($val['33KV_LAYING_STATUS']==1)?'Completed':($val['33KV_LAYING_STATUS']==2?'In Progress' :($val['33KV_LAYING_STATUS']==3?'Pending':($val['33KV_LAYING_STATUS']==-1?'N/A':'-'))),
+                "750v_laying_status" => ($val['750V_LAYING_STATUS']==1)?'Completed':($val['750V_LAYING_STATUS']==2?'In Progress' :($val['750V_LAYING_STATUS']==3?'Pending':($val['750V_LAYING_STATUS']==-1?'N/A':'-'))),
+                "33kv_termination_status" => ($val['33KV_TERMINATION_STATUS']==1)?'Completed':($val['33KV_TERMINATION_STATUS']==2?'In Progress' :($val['33KV_TERMINATION_STATUS']==3?'Pending':($val['33KV_TERMINATION_STATUS']==-1?'N/A':'-'))),
+                "750v_termination_status" => ($val['750V_TERMINATION_STATUS']==1)?'Completed':($val['750V_TERMINATION_STATUS']==2?'In Progress' :($val['750V_TERMINATION_STATUS']==3?'Pending':($val['750V_TERMINATION_STATUS']==-1?'N/A':'-'))),
+                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':'-'))),
+                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':'-'))),
+                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':'-'))),
+                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':'-'))),
+                "33kv_energized_date" =>($val['33KV_ENERGIZED_DATE']==null || $val['33KV_ENERGIZED_DATE']=="")?(($val['33KV_LAYING_STATUS']==1 && $val['33KV_TERMINATION_STATUS']==1 && $val['33KV_PAT']==1 && $val['33KV_SAT']==1)?'Energized':" "):$val['33KV_ENERGIZED_DATE'],
+                "750v_energized_date" =>($val['750V_ENERGIZED_DATE']==null || $val['750V_ENERGIZED_DATE']=="")?(($val['750V_LAYING_STATUS']==1 && $val['750V_TERMINATION_STATUS']==1 && $val['750V_PAT']==1 && $val['750V_SAT']==1)?'Energized':" "):$val['750V_ENERGIZED_DATE']
+            );
+            $i++;
+        }
+        $cable_status['value']=json_encode($a);
+        return $cable_status;
+    }
+    //coded by :ANCY MATHEW
+    //used to get comments in PS AND DS
+    //Created on : 22/06/2016
+    public function get_comments_ps()
+    {
+        $comments_ps=array();
+        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", \"TIMESTAMP\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\"";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $i=0;
+        foreach($result as $val){
+            $comments_ps[$i]["MESSAGE_ID"] =$val['MESSAGE_ID'];
+            $comments_ps[$i]["MESSAGE"] =$val['MESSAGE'];
+            $comments_ps[$i]["DATA_DATE"] =$val['TIMESTAMP'];
+            $i++;
+        }
+        return $comments_ps;
+    }
+    //    Author:ANCY MATHEW 23/06/2016
+    //    Usage : Store ps and ds Comments
+    //    Created:
+    public function set_psds_comments($data){
+//        print_r($data);
+        $this->db->insert('tbl_psds_comment', $data);
+        return $this->db->affected_rows();
+
+    }
+    //    Author:ANCY MATHEW
+    //    Usage : Summary PS&DS
+    //    Created: 24/06/2016
+    public function get_status_ps(){
+        $status_ps=array();
+        $sql = "SELECT \"SUMMARY\", \"PROGRESS_COMPLETION\", \"PROGRESS_COMPLETION_EF\", \"PROGRESS_COMPLETION_LF\",\"AC_PROGRESS_COMPLETION\", \"AC_EF\", \"AC_LF\", \"DC_PROGRESS_COMPLETION\",\"DC_EF\", \"DC_LF\", \"DATA_DATE\"FROM \"tbl_psds_summary\" ORDER BY \"ORDER_ID\"";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $i=0;
+        foreach($result as $val){
+            $status_ps[$i]["summary"] =$val['SUMMARY'];
+            $status_ps[$i]["progress_completion"] =$val['PROGRESS_COMPLETION'];
+            $status_ps[$i]["progress_completion_ef"] =$val['PROGRESS_COMPLETION_EF'];
+            $status_ps[$i]["ac_progress_completion"] =$val['AC_PROGRESS_COMPLETION'];
+            $status_ps[$i]["ac_ef"] =$val['AC_EF'];
+            $status_ps[$i]["ac_lf"] =$val['AC_LF'];
+            $status_ps[$i]["dc_progress_completion"] =$val['DC_PROGRESS_COMPLETION'];
+            $status_ps[$i]["dc_ef"] =$val['DC_EF'];
+            $status_ps[$i]["dc_lf"] =$val['DC_LF'];
+            $status_ps[$i]["data_date"] =$val['DATA_DATE'];
+            $i++;
+        }
+        return $status_ps;
+    }
+
+
+
+
 
 }

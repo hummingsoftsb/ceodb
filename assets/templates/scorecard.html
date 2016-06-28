@@ -70,7 +70,7 @@ var el = $(".blink");
                 %>
                 <tr class="excel-dx">
                     <td class="numbers-1 excel-d1">
-                        <a class="" href="javascript:void(0);" onclick="loadPage('<%=row.url%>')"><%=row.item%><i class="loadpage fa fa-link"></i></a>
+                        <a class="" href="javascript:void(0);" onclick="<%if(row.url=='sbk-s-05/home'){%>location.href='../sbk-s-05/home'<%}else{%>loadPage('<%=row.url%>')<%}%>"><%=row.item%><i class="loadpage fa fa-link"></i></a>
                         <br><p style="font-size: 12px;"><%=row.name%></p>
                     </td>
                     <td class="numbers-1 excel-d2" style="color: #009e8c;"><%=row.early%></td>

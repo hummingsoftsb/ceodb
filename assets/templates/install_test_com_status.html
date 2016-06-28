@@ -1,0 +1,187 @@
+<!--Page Created By Sebin-->
+<style>
+    .it_cs_legend{
+        margin-bottom: 25px;
+    }
+    .it_cs_legend ul li {
+        padding-right: 30px;
+        float:left;
+        display: inline-block;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% }  %>
+    <a href="#modal_ring_comment" data-toggle="modal" style="font-size: 20px; color: #ffd461;margin-left: 7px;" title="Add Comment"><i class="fa fa-comments-o blink"></i></a>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<!--<div style="font-size: 13px;">-->
+<!--<a href="#" style="float: right; color: #ffd461; margin-right: 48px; font-weight: 600;"><i class="fa fa-comments-o faa-flash animated"></i> Add Comment</a>-->
+<!--</div>-->
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--<div class="it_cs_legend"><ul><li><i class="fa fa-circle" style="color: #008000"></i> Completed</li><li><i class="fa fa-circle" style="color: #ffff00"></i> In Progress</li><li><i class="fa fa-circle" style="color: #ff0000"></i> Handed Over with Snig list</li></ul></div>-->
+	<!--h2>Header h2</h2-->
+    <!--Sebin-->
+	<table class="table table-bordered table-condensed table-hover" style="">
+	<thead>
+    <tr>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Station</th>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Installation</th>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">AC/DC</th>
+        <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Testing</th>
+        <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Energization</th>
+    </tr>
+    <tr>
+        <th style="text-align: center; color: #009e8c;">PAT</th>
+        <th style="text-align: center; color: #009e8c;">SAT</th>
+        <th style="text-align: center; color: #FFAF78;">Forecast</th>
+        <th style="text-align: center; color: #FFAF78;">Actual</th>
+    </tr>
+	</thead>
+        <!--<tbody>-->
+        <!--<%_.each(data.data[1].data, function(i) {%>-->
+        <!--<tr>-->
+            <!--<%var rspan; if(i['ac_or_dc_three']!=null){rspan=3}else{rspan=2}%>-->
+            <!--<td rowspan="<%=rspan%>"><b><%=i['station_code']%></b><br><%=i['station_name']%></td>-->
+            <!--<td rowspan="<%=rspan%>"><%=i['install_status']%></td>-->
+            <!--<td><%=i['ac_or_dc_one']%></td>-->
+            <!--<td><%=i['33kv_pat']%></td>-->
+            <!--<td><%=i['33kv_sat']%></td>-->
+            <!--<td><%=i['33kv_forecast_date']%></td>-->
+            <!--<td><%=i['33kv_actual_date']%></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><%=i['ac_or_dc_two']%></td>-->
+            <!--<td><%=i['750v_pat']%></td>-->
+            <!--<td><%=i['750v_sat']%></td>-->
+            <!--<td><%=i['750v_forecast_date']%></td>-->
+            <!--<td><%=i['750v_actual_date']%></td>-->
+        <!--</tr>-->
+        <!--<%if(i['ac_or_dc_three']!=null){%>-->
+        <!--<tr>-->
+            <!--<td><%=i['ac_or_dc_three']%></td>-->
+            <!--<td><%=i['pscada_pat']%></td>-->
+            <!--<td><%=i['pscada_sat']%></td>-->
+            <!--<td><%=i['pscada_forecast_date']%></td>-->
+            <!--<td><%=i['pscada_actual_date']%></td>-->
+        <!--</tr>-->
+        <!--<%}%>-->
+        <!--<%})%>-->
+        <!--</tbody>-->
+
+
+        <tbody>
+        <%_.each(data.data[1].data, function(i) {%>
+        <tr>
+            <%var rspan; if(i['ac_or_dc_three']!=null){rspan=3}else{rspan=2}%>
+            <td rowspan="<%=rspan%>"><b><%=i['station_code']%></b><br><%=i['station_name']%></td>
+            <!--<td rowspan="<%=rspan%>"><%=i['install_status']%></td>-->
+            <td rowspan="<%=rspan%>" style="text-align: center"><i class="fa fa-circle" style="color:<%if(i['install_status']=='Completed'){%>#2acd4a<%}else if(i['install_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i></td>
+            <td class="color-beige"><%=i['ac_or_dc_one']%></td>
+            <td style="text-align: center;color:<%if(i['33kv_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_pat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_pat']=='Completed'){%>#2acd4a<%}else if(i['33kv_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <!--<td><i class="fa fa-circle"></i></td>-->
+            <!--<td><%=i['33kv_sat']%></td>-->
+            <td style="text-align: center;color:<%if(i['33kv_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_sat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_sat']=='Completed'){%>#2acd4a<%}else if(i['33kv_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="color:<%if(i['33kv_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['33kv_forecast_date']%></td>
+            <td style="color:<%if(i['33kv_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['33kv_actual_date']%></td>
+        </tr>
+        <tr>
+            <td class="color-beige"><%=i['ac_or_dc_two']%></td>
+            <!-- <td><%=i['750v_pat']%></td>
+             <td><%=i['750v_sat']%></td>-->
+            <td style="text-align: center;color:<%if(i['750v_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_pat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_pat']=='Completed'){%>#2acd4a<%}else if(i['750v_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_sat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_sat']=='Completed'){%>#2acd4a<%}else if(i['750v_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="color:<%if(i['750v_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['750v_forecast_date']%></td>
+            <td style="color:<%if(i['750v_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['750v_actual_date']%></td>
+        </tr>
+        <%if(i['ac_or_dc_three']!=null){%>
+        <tr>
+            <td class="color-beige"><%=i['ac_or_dc_three']%></td>
+            <!--<td><%=i['pscada_pat']%></td>
+            <td><%=i['pscada_sat']%></td>-->
+            <td style="text-align: center;color:<%if(i['pscada_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_pat']=='N/A'){%>'N/A'<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_pat']=='Completed'){%>#2acd4a<%}else if(i['pscada_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['pscada_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_sat']=='N/A'){%>'N/A'<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_sat']=='Completed'){%>#2acd4a<%}else if(i['pscada_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="color:<%if(i['pscada_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['pscada_forecast_date']%></td>
+            <td style="color:<%if(i['pscada_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['pscada_actual_date']%></td>
+        </tr>
+        <%}%>
+        <%})%>
+        </tbody>
+	</table>
+    <div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>
+        <i class="fa fa-circle" style="color:#efe24b"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
+        <i class="fa fa-circle" style="color:#E83737"></i><span style="color: #efefef">&nbsp;Pending&nbsp;&nbsp;</span>
+    </div>
+</div>
+<!--Model: Starts-->
+<div class="modal" id="modal_ring_comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><i class="fa fa-comments"></i> Add Comment</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 20px;">
+                <div class="table-container1" style="max-width: 500px; text-align: center; margin: auto; ">
+                    <textarea cols="28" rows="5" placeholder="Your Comment...." maxlength="100" id="ring_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cmnt_ring" class="btn btn-success pull-right" style="margin-right: 22px;">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="status_box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 450px;">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="table-container1" style="max-width: 300px; text-align: center; margin: auto; ">
+                    <span id="save_status" style="padding-top: 15px;padding-bottom: 15px"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-success" style="margin-left: 45%; margin-right: 50%;">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Model: Ends-->
+<script>
+    $(function(){
+        var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
+        $('#ring_comment').keyup(function(){
+            if($(this).val().trim().length>0){
+                $(this).css("border-color", "rgba(21, 166, 233, 0.2)");$(this).next('small').remove();
+            }else{
+                $(this).css("border-color","rgb(194, 67, 71)");$(this).next('small').remove();$(this).after($err);
+            }
+        });
+        $("#cmnt_ring").click(function(){
+            if($("#ring_comment").val()!=""){
+                $('#ring_comment').css("border-color", "rgba(21, 166, 233, 0.2)");$('#ring_comment').next('small').remove();
+                mpxd.getJSONData("commentRing/get?r=1&comments=" + $('#ring_comment').val(), function (d) {
+                    if(d==1){
+                        $("#modal_ring_comment").modal('hide');
+                        $('#ring_comment').val('');
+                        $("#save_status").text('').text("Comment saved successfully.");
+                        $("#status_box").modal('show');
+                    }else{
+                        $("#save_status").text('').text("Unable to save the Comment. Try Later.");
+                    }
+                });
+            }else{
+                $('#ring_comment').css("border-color","rgb(194, 67, 71)");$('#ring_comment').next('small').remove();$('#ring_comment').after($err);
+            }
+        });
+        $('#modal_ring_comment').on('hidden.bs.modal', function (e) {
+            $('#ring_comment').css("border-color", "rgba(21, 166, 233, 0.2)");$('#ring_comment').next('small').remove();
+        })
+    });
+</script>

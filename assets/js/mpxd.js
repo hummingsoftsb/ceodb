@@ -28,12 +28,15 @@ mpxd.templateURLs = {
     "scorecard": {"templateURL": "assets/templates/scorecard.html"},
     "syspackage": {"templateURL": "assets/templates/syspackage.html"},
     "page_info": {"templateURL": "assets/templates/page_info.html"},
+    "page_info_ring": {"templateURL": "assets/templates/page_info_ring.html"},
     "progress": {"templateURL": "assets/templates/progress.html"},
     "commercial": {"templateURL": "assets/templates/commercial.html"},
     "hsse": {"templateURL": "assets/templates/hsse.html"},
     "kpi": {"templateURL": "assets/templates/kpi.html"},
     "kpi_station": {"templateURL": "assets/templates/kpi_station.html"},
 	"kpi_system": {"templateURL": "assets/templates/kpi_system.html"},
+    "it_cs_stations":{"templateURL": "assets/templates/install_test_com_status.html"},
+    "trip_cable_progress":{"templateURL": "assets/templates/trip_cable_progress.html"},
     "kad": {"templateURL": "assets/templates/kad.html"},
     "kad2": {"templateURL": "assets/templates/kad2.html"},
     "slider": {"templateURL": "assets/templates/slider.html"},
@@ -194,16 +197,15 @@ mpxd.storePortletToArray = function(p) {
 
 mpxd.storeDatasourceToArray = function(p, s) {
 	try {
-	var json = $.parseJSON(p.value);
-	var jsonstatic = $.parseJSON(s.value);
-	var result = {};
-	$.extend(true, result,jsonstatic,json);
+        var json = $.parseJSON(p.value);
+        var jsonstatic = $.parseJSON(s.value);
+        var result = {};
+        $.extend(true, result,jsonstatic,json);
 	} catch(e) { console.log("Parse JSON error at mpxd.storeDatasourceToArray");console.log(e); }
 	var name = p.name;
 	var arr = {"name":name, "data":result};
 	mpxd.datasource.push(arr);
 	mpxd.datasourceAss[name] = arr;
-	
 	//mpxd.datasourceAss
 }
 
@@ -276,7 +278,6 @@ mpxd.getJSONData = function(data, callback){
 }
 
 mpxd.generatePortletContent = function (data) {
-
 	/*var lookup = {};
 	$.each(portletArray, function(idx, d) { 
 		lookup[d.id] = portletArray[idx];
@@ -295,12 +296,9 @@ mpxd.generatePortletContent = function (data) {
 		//var pointer = mpxd.datasourceAss
 		
 		var result = undefined;
-		
-		
-		
+
 		
 		$.each(mpxd.datasource, function(idx, k){
-		
 			if ((typeof k.data[currentSlug] != "undefined") && (typeof k.data[currentSlug][path[0]] != "undefined")) {
 				/* Traverse through datasource using key provided in items_meta */
 				if (path.length < 1) { result = k.data[currentSlug]; return; } else {

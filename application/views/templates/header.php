@@ -25,6 +25,7 @@
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/leaflet.awesome-markers.css" />
 		<link media="screen, print" rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/flick/jquery-ui.css" />
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/plugin/wb-popover/jquery.webui-popover.css" />
+        <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome-animation.min.css" rel="stylesheet" type="text/css" />
         <!--<link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/css/pushmenu.css">-->
 		<script>
                         var permission = <?php echo json_encode($permission); ?>;

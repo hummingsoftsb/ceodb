@@ -5,12 +5,20 @@
 		<meta charset="utf-8">
 		<meta name="mobile-web-app-capable" content="yes">
 		<title>MRT Line</title>
-		
+         <link href="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.css" rel="stylesheet" type="text/css" />
 		 <link href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.css">
+        <link href="<?php echo $this->config->base_url(); ?>assets/plugin/basicmodal/css/basic.css" rel="stylesheet" type="text/css" />
+
 
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/js/d3.v3.min.js"></script>
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/js/plugins/jquery/jquery.min.js"></script>
+        <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.js"></script>
+
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/zoomooz/jquery.zoomooz.min.js"></script>
+        <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/plugin/basicmodal/js/jquery.simplemodal.js"></script>
+
 		<style type="text/css">
 			/* No style rules here yet */	
 
@@ -67,7 +75,12 @@
 			svg .glow-grey.on {
 				fill: #fff;
 			}
-			
+            svg .glow-darkgray.on {
+                fill: #837b7b;
+            }
+            svg .glow-kavi.on {
+                fill: #d44c01;
+            }
 			svg .parkingletter {
 				fill: #000;
 				font-family: "Century Gothic";
@@ -153,7 +166,7 @@
 				text-align: center;
 				position: absolute;
 				top: -52px;
-				left: 139px;
+				left: 680px;
 			}
 			
 			#navbar a, figure {
@@ -314,7 +327,41 @@
 				text-decoration: none;
 				color: #a6c3ff;
 			}
-			
+            .nav-img-container i {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                margin-left: 44px;
+                margin-bottom: 20px;
+            }
+        #nav_drop{
+            font-size: 16px;
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+        }
+            #nav_drop th {
+                padding-top: 11px;
+                padding-bottom: 11px;
+                background-color: #292929;
+                border-bottom: 1px solid #fff;
+                color: white;
+            }
+            #nav_drop td, #nav_drop th {
+                /*border: 1px solid #ddd;*/
+                color: white;
+                text-align: left;
+                padding: 8px;
+            }
+            #nav_drop tr:first-child,#nav_drop tr:last-child{
+                background-color: #0b8baf;
+            }
+            #nav_drop tr:nth-child(2),#nav_drop tr:nth-child(4),#nav_drop tr:nth-child(5){
+                background-color: #5fa6af;
+            }
+            #nav_drop tr:nth-child(3){
+                background-color: #0b8baf;
+            }
 		</style>
 		<script>
 			//alert(window.orientation);
@@ -473,7 +520,6 @@
 							});
 						}
 						var allowedPage = allowedPageToString();
-                        console.log(allowedPage);
 						$('a').on('click', function(e){
 							clickedLinkCheck($(this).attr("href"),allowedPage);
 							e.preventDefault();
@@ -494,6 +540,9 @@
 							location.href=href;
 						}
 					}
+//                    $('#simplemodal-container').mCustomScrollbar({
+//                        theme:"rounded-dark"
+//                    });
 					console.log( "done" );
 				});
 			});
@@ -613,7 +662,7 @@
 			
 		</nav>
 	<div id="container" style="position:relative; margin:auto;">	
-	<div id="navbarcontainer" style="position:absolute; top:65px; z-index:1; width:1280px;">
+	<div id="navbarcontainer" style="position:absolute; top:65px; z-index:100; width:1280px;">
 		<div style="position:relative">
 			<!-- <ul class="nav">
 				<li><a href="#" class=""><i class="icon-wrench"></i></a></li>
@@ -624,20 +673,107 @@
 			
 			 <div id="navbar">
 				<!--<a href="./graph_din.html"><img src="<?php echo $this->config->base_url(); ?>assets/img/construction.png" /></a>-->
-				
-				<a href="/mpxd/programme/scurve"><img src="<?php echo $this->config->base_url(); ?>assets/img/programme2.png" /></a>
-				<!--<a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
-				<a class="nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/safety3.png" /></a>
-				<a href="/mpxd/procurement/summary"><img src="<?php echo $this->config->base_url(); ?>assets/img/procurement.png" /></a>
-				<a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/logout.png" onclick="location.href='/mpxd/logout'"/></a>
+                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-right" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+				<!--<a href="#"><img src="<?php //echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
+                 <div class="fim-dropdown">
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-right" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+                     <div class="inner">
+                         <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
+                         <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
+                         <!--                         <img style="width: 100%;" src="--><?php //echo $this->config->base_url(); ?><!--assets/img/demo.png" />-->
+                         <table id="nav_drop">
+                             <thead>
+                             <tr>
+                                 <th>Activities</th>
+                                 <th colspan="2">Percentage</th>
+                             </tr>
+                             </thead>
+                             <tbody id="status_container">
+<!--                             <tr>-->
+<!--                                 <td>Overall Installation PS&DS</td>-->
+<!--                                 <td colspan="2">79.50%</td>-->
+<!--                             </tr>-->
+<!--                             <tr>-->
+<!--                                 <td rowspan="2">Installation & Termination for TRIP cable Northern</td>-->
+<!--                                 <td style="background-color: #f79b3b"><b>33KV AC</b></td>-->
+<!--                                 <td style="background-color: #f79b3b"><b>750V DC</b></td>-->
+<!--                             </tr>-->
+<!--                             <tr>-->
+<!--                                 <td>100%</td>-->
+<!--                                 <td>96.40%</td>-->
+<!--                             </tr>-->
+<!--                             <tr>-->
+<!--                                 <td rowspan="2">Installation & Termination for TRIP cable Southern</td>-->
+<!--                                 <td style="background-color: #f79b3b"><b>33KV AC</b></td>-->
+<!--                                 <td style="background-color: #f79b3b"><b>750V DC</b></td>-->
+<!--                             </tr>-->
+<!--                             <tr>-->
+<!--                                 <td>95.02%</td>-->
+<!--                                 <td>23.13%</td>-->
+<!--                             </tr>-->
+<!--                             <tr>-->
+<!--                                 <td>Overall T&C for PS&DS</td>-->
+<!--                                 <td colspan="2">42.44%</td>-->
+<!--                             </tr>-->
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+                 <div class="fim-dropdown">
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: red"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
+                     <div class="inner">
+                         <table id="nav_drop">
+                             <thead>
+                             <tr>
+                                 <th style="text-align: center;">Activities/Progress</th>
+                             </tr>
+                             </thead>
+                             <tbody>
+                             <tr style="background-color: #fff">
+                                 <td>
+                                     <ul id="comment_container" style="padding-left: 13px; color:#000;"></ul>
+                                 </td>
+                             </tr>
+                             <tr style="background-color: #fff;"><td style="padding: 0px; padding-right: 10px !important; padding-bottom: 4px;">
+                                     <a id="comment_more" href="javascript:;" class="pull-right" style="text-decoration: none;"><i class="fa fa-plus"></i> more..</a>
+                                     <!-- modal content -->
+                                     <div id="basic-modal-content">
+                                         <table id="nav_drop">
+                                             <thead>
+                                             <tr>
+                                                 <th style="text-align: center;">Activities/Progress</th>
+                                             </tr>
+                                             </thead>
+                                             <tbody>
+                                                 <tr style="background-color: #fff">
+                                                     <td>
+                                                         <ul id="comment_full_container" style="padding-left: 13px; color:#000;"></ul>
+                                                     </td>
+                                                 </tr>
+                                             </tbody>
+                                         </table>
+                                     </div>
+
+                                     <!-- preload the images -->
+                                     <div style='display:none'>
+                                         <img src='img/basic/x.png' alt='' />
+                                     </div>
+                              </td></tr>
+<!--                             <tr style="background-color: #fff;"><td style="padding: 0px; padding-right: 10px !important; padding-bottom: 4px;"><button id="abc" class="btn btn-primary">More</button></td></tr>-->
+                             </tbody>
+                         </table>
+
+                     </div>
+                 </div>
+				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i class="fa fa-arrow-up" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
 			</div> 
 			
 		</div>
-		<img src="<?php echo $this->config->base_url(); ?>assets/img/Dashboard-topbar.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
+		<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_home_top.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
 		
 		
 	</div>
-	<img src="<?php echo $this->config->base_url(); ?>assets/img/guideways-cleaned-opacity9.jpg" alt="" id="mapimg" style="width: 1280px; height:800px; position:absolute;"/>
+	<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_guideways.jpg" alt="" id="mapimg" style="width: 1280px; height:800px; position:absolute;"/>
 	<div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
 		
 		<!-- text href -->
@@ -709,22 +845,21 @@
 		<a title="Kajang" href="<?php echo $this->config->base_url(); ?>kajang/index" style="position: absolute; top: 478px; left: 1203px; height: 15px; width: 15px;"></a>
 		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 455px; left: 1137px; height: 19px; width: 20px;"></a>
 		
-		<a title="Electric Trains" href="<?php echo $this->config->base_url(); ?>sbk-s-01/index" style="position: absolute; top: 492px; left: 555px; height: 52px; width: 45px;"></a>
-		<a title="Depot Equipment &amp; Maintenance Vehicle" href="<?php echo $this->config->base_url(); ?>sbk-s-02/index" style="position: absolute; top: 492px; left: 606px; height: 52px; width: 45px;"></a>
-		<a title="Signalling &amp; Train Control System" href="<?php echo $this->config->base_url(); ?>sbk-s-03/index" style="position: absolute; top: 492px; left: 657px; height: 52px; width: 45px;"></a>
-		<a title="Platform Screen Door" href="<?php echo $this->config->base_url(); ?>sbk-s-04/index" style="position: absolute; top: 492px; left: 708px; height: 52px; width: 45px;"></a>
+<!--		<a title="Electric Trains" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-01/index" style="position: absolute; top: 492px; left: 555px; height: 52px; width: 45px;"></a>-->
+<!--		<a title="Depot Equipment &amp; Maintenance Vehicle" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-02/index" style="position: absolute; top: 492px; left: 606px; height: 52px; width: 45px;"></a>-->
+<!--		<a title="Signalling &amp; Train Control System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-03/index" style="position: absolute; top: 492px; left: 657px; height: 52px; width: 45px;"></a>-->
+<!--		<a title="Platform Screen Door" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-04/index" style="position: absolute; top: 492px; left: 708px; height: 52px; width: 45px;"></a>-->
 <!--		<a title="Power Supply and Distribution System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-05/index" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>-->
-        <a title="Power Supply and Distribution System" href="<?php echo $this->config->base_url(); ?>sbk-s-05/home" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>
-		<a title="Trackworks" href="<?php echo $this->config->base_url(); ?>sbk-s-06/index" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>
-		<a title="Telecommunication System" href="<?php echo $this->config->base_url(); ?>sbk-s-07/index" style="position: absolute; top: 556px; left: 504px; height: 55px; width: 45px;"></a>
-		<a title="Facility SCADA" href="<?php echo $this->config->base_url(); ?>sbk-s-08/index" style="position: absolute; top: 556px; left: 555px; height: 55px; width: 45px;"></a>
-		<a title="Automatic Fare Collection System" href="<?php echo $this->config->base_url(); ?>sbk-s-09/index" style="position: absolute; top: 556px; left: 606px; height: 55px; width: 45px;"></a>
-		<a title="Electronic Access Control System" href="<?php echo $this->config->base_url(); ?>sbk-s-10/index" style="position: absolute; top: 556px; left: 657px; height: 55px; width: 45px;"></a>
-		<a title="Building Management System" href="<?php echo $this->config->base_url(); ?>sbk-s-11/index" style="position: absolute; top: 556px; left: 708px; height: 55px; width: 45px;"></a>
-		<a title="Government Integrated Radio Network" href="<?php echo $this->config->base_url(); ?>sbk-s-12/index" style="position: absolute; top: 556px; left: 759px; height: 55px; width: 45px;"></a>
-		<a title="Information Technology System" href="<?php echo $this->config->base_url(); ?>sbk-s-13/index" style="position: absolute; top: 556px; left: 810px; height: 55px; width: 45px;"></a>
-		<a title="Commercial Mobile Telecommunication System" href="<?php echo $this->config->base_url(); ?>sbk-s-14/index" style="position: absolute; top: 556px; left: 861px; height: 55px; width: 45px;"></a>
-		
+<!--		<a title="Trackworks" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-06/index" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>-->
+<!--		<a title="Telecommunication System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-07/index" style="position: absolute; top: 556px; left: 504px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Facility SCADA" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-08/index" style="position: absolute; top: 556px; left: 555px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Automatic Fare Collection System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-09/index" style="position: absolute; top: 556px; left: 606px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Electronic Access Control System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-10/index" style="position: absolute; top: 556px; left: 657px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Building Management System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-11/index" style="position: absolute; top: 556px; left: 708px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Government Integrated Radio Network" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-12/index" style="position: absolute; top: 556px; left: 759px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Information Technology System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-13/index" style="position: absolute; top: 556px; left: 810px; height: 55px; width: 45px;"></a>-->
+<!--		<a title="Commercial Mobile Telecommunication System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-14/index" style="position: absolute; top: 556px; left: 861px; height: 55px; width: 45px;"></a>-->
+<!--		-->
 		<a title="MSPR1" href="<?php echo $this->config->base_url(); ?>mspr1/index" style="position: absolute; top: 400px; left: 20px; height: 40px; width: 40px;"></a>
 		<a title="MSPR4" href="<?php echo $this->config->base_url(); ?>mspr4/index" style="position: absolute; top: 475px; left: 425px; height: 40px; width: 60px;"></a>
 		<a title="MSPR6" href="<?php echo $this->config->base_url(); ?>mspr6/index" style="position: absolute; top: 300px; left: 710px; height: 30px; width: 40px;"></a>
@@ -743,88 +878,82 @@
 	
 	
 	<div style="position:absolute; z-index:2; top: 125px;left: 179px;">
-		<span class="header-left" style="font-size:72px;" id="overall_early"></span>
+<!--		<span class="header-left" style="font-size:72px;" id="overall_early"></span>-->
 		<!-- <span class="subheader-left" style="">%</span> -->
 	</div>
-	
+
 	<div style="position:absolute; z-index:2; top: 209px; right: 1029px;">
-		<span class="header-left" style="font-size:37px;" id="overall_variance"></span>
+<!--		<span class="header-left" style="font-size:37px;" id="overall_variance"></span>-->
 		<!-- <span class="subheader-left" style="">%</span> -->
 	</div>
 	
 	<div style="position:absolute; z-index:2; top: 95px; left: 134px;">
-		<span class="header-left"><i class="fa fa-calendar" style="color:#77DD77; margin-right:7px;"></i></span><span class="header-left" style="font-size:12px; color:#77DD77; line-height:20px" id="overall_date">As of <span style="color: #f3b308" id="progress_date"></span></span>		
+		<span class="header-left"><i class="fa fa-calendar" style="color:#77DD77; margin-right:7px;"></i></span><span class="header-left" style="font-size:12px; color:#77DD77; line-height:20px" id="overall_date">As of <span style="color: #f3b308" id="progress_date"></span></span>
 	</div>
-	
-	<div style="position:absolute; z-index:2; top: 88px;left: 807px;">
-		<span class="header-left"><i class="fa fa-calendar" style="color:#77DD77; margin-right:7px;"></i></span><span class="header-left" style="font-size:12px; color:#77DD77; line-height:20px">As of <span id="financial_date" style="color: #f3b308">30 September 2014</span></span>		
-	</div>
-	
-	<div style="position:absolute; z-index:2; top: 112px;left: 639px;">
-		<span class="header-left" style="font-size:24px;" id="project_spend_to_date"><?php echo number_format($data['project_spend_to_date'], 2, '.', ','); ?> Bil</span>
-	</div>
-	
-	<div style="position:absolute; z-index:2; top: 162px;left: 830px;">
-		<span class="header-left" style="font-size:24px;" id="pdp_reimbursables"><?php echo number_format($data['pdp_reimbursables'], 2, '.', ',');?> Mil</span>
-	</div>
-	
-	<div style="position:absolute; z-index:2; top: 112px;left: 830px;">
-		<span class="header-left" style="font-size:24px;" id="awarded_packages"><?php echo number_format($data['awarded_packages'], 2, '.', ','); ?> Bil</span>
-	</div>
-	
-	
-	<div style="position:absolute; z-index:2;top: 162px;left: 988px;">
-		<span class="header-left" style="font-size:24px;" title="" id="retention_sum"><?php echo number_format($data['retention_sum'], 2, '.', ','); ?> Mil</span>
-	</div>
-	
-	
-	<div style="position:absolute; z-index:2;top: 112px;left: 988px;">
-		<span class="header-left" style="font-size:24px;" title="" id="wpcs_payment"><?php echo number_format($data['wpcs_payment'], 2, '.', ','); ?> Bil</span>
-	</div>
-	
-	
-	<div style="position:absolute; z-index:2;top: 162px;left: 1132px;">
-		<span class="header-left" style="font-size:24px;" id="contingency_sum"><?php echo number_format($data['contingency_sum'], 2, '.', ','); ?> Mil</span>
-	</div>
-	
-	<div style="position:absolute; z-index:2; top: 112px;left: 1132px;">
-		<span class="header-left" style="font-size:24px;" id="variation_orders"><?php echo number_format($data['variation_orders'], 2, '.', ','); ?> Mil</span>
-	</div>
+<!---->
+<!--	<div style="position:absolute; z-index:2; top: 88px;left: 807px;">-->
+<!--		<span class="header-left"><i class="fa fa-calendar" style="color:#77DD77; margin-right:7px;"></i></span><span class="header-left" style="font-size:12px; color:#77DD77; line-height:20px">As of <span id="financial_date" style="color: #f3b308">30 September 2014</span></span>-->
+<!--	</div>-->
+<!--	-->
+<!--	<div style="position:absolute; z-index:2; top: 112px;left: 639px;">-->
+<!--		<span class="header-left" style="font-size:24px;" id="project_spend_to_date">--><?php //echo number_format($data['project_spend_to_date'], 2, '.', ','); ?><!-- Bil</span>-->
+<!--	</div>-->
+<!---->
+<!--	<div style="position:absolute; z-index:2; top: 162px;left: 830px;">-->
+<!--		<span class="header-left" style="font-size:24px;" id="pdp_reimbursables">--><?php //echo number_format($data['pdp_reimbursables'], 2, '.', ',');?><!-- Mil</span>-->
+<!--	</div>-->
+<!---->
+<!--	<div style="position:absolute; z-index:2; top: 112px;left: 830px;">-->
+<!--		<span class="header-left" style="font-size:24px;" id="awarded_packages">--><?php //echo number_format($data['awarded_packages'], 2, '.', ','); ?><!-- Bil</span>-->
+<!--	</div>-->
+<!---->
+<!---->
+<!--	<div style="position:absolute; z-index:2;top: 162px;left: 988px;">-->
+<!--		<span class="header-left" style="font-size:24px;" title="" id="retention_sum">--><?php //echo number_format($data['retention_sum'], 2, '.', ','); ?><!-- Mil</span>-->
+<!--	</div>-->
+<!---->
+<!---->
+<!--	<div style="position:absolute; z-index:2;top: 112px;left: 988px;">-->
+<!--		<span class="header-left" style="font-size:24px;" title="" id="wpcs_payment">--><?php //echo number_format($data['wpcs_payment'], 2, '.', ','); ?><!-- Bil</span>-->
+<!--	</div>-->
+<!---->
+<!---->
+<!--	<div style="position:absolute; z-index:2;top: 162px;left: 1132px;">-->
+<!--		<span class="header-left" style="font-size:24px;" id="contingency_sum">--><?php //echo number_format($data['contingency_sum'], 2, '.', ','); ?><!-- Mil</span>-->
+<!--	</div>-->
+<!---->
+<!--	<div style="position:absolute; z-index:2; top: 112px;left: 1132px;">-->
+<!--		<span class="header-left" style="font-size:24px;" id="variation_orders">--><?php //echo number_format($data['variation_orders'], 2, '.', ','); ?><!-- Mil</span>-->
+<!--	</div>-->
 	
 	<div style="position:absolute; z-index:2; top: 441px;left: 21px;">
-		<a href="<?php echo $this->config->base_url(); ?>v1/index" class="pkg_title">V1</a>
+		<a href="<?php echo $this->config->base_url(); ?>r1/index" class="pkg_title">R1</a>
 	</div>	
 	<div style="position:absolute; z-index:2; top: 608px;left: 161px;">
-		<a href="<?php echo $this->config->base_url(); ?>v2/index" class="pkg_title">V2</a>
+		<a href="<?php echo $this->config->base_url(); ?>r2/index" class="pkg_title">R2</a>
 	</div>
-	<div style="position:absolute; z-index:2; top: 540px;left: 400px;">
-		<a href="<?php echo $this->config->base_url(); ?>v3/index" class="pkg_title">V3</a>
+	<div style="position:absolute; z-index:2; top: 497px;left: 443px;">
+		<a href="<?php echo $this->config->base_url(); ?>r3/index" class="pkg_title">R3</a>
 	</div>
-	<div style="position:absolute; z-index:2; top: 460px;left: 495px;">
-		<a href="<?php echo $this->config->base_url(); ?>v4/index" class="pkg_title">V4</a>
+	<div style="position: absolute; z-index: 2; top: 364px; left: 555px;">
+		<a href="<?php echo $this->config->base_url(); ?>r4/index" class="pkg_title">R4</a>
 	</div>	
-	<div style="position:absolute; z-index:2; top: 377px;left: 573px;">
-		<a href="<?php echo $this->config->base_url(); ?>ug/index" class="pkg_title">UG</a>
+	<div style="position: absolute; z-index: 2; top: 315px; left: 647px;">
+		<a href="<?php echo $this->config->base_url(); ?>r5/index" class="pkg_title">R5</a>
 	</div>
-	<div style="position:absolute; z-index:2; top: 385px;left: 731px;">
-		<a href="<?php echo $this->config->base_url(); ?>v5/index" class="pkg_title">V5</a>
+	<div style="position: absolute; z-index: 2; top: 385px; left: 835px;">
+		<a href="<?php echo $this->config->base_url(); ?>r6/index" class="pkg_title">R6</a>
 	</div>
-	<div style="position:absolute; z-index:2; top: 465px;left: 893px;">
-		<a href="<?php echo $this->config->base_url(); ?>v6/index" class="pkg_title">V6</a>
-	</div>
-	<div style="position:absolute; z-index:2; top: 540px;left: 1033px;">
-		<a href="<?php echo $this->config->base_url(); ?>v7/index" class="pkg_title">V7</a>
-	</div>
-	<div style="position:absolute; z-index:2; top: 595px;left: 1136px;">
-		<a href="<?php echo $this->config->base_url(); ?>v8/index" class="pkg_title">V8</a>
+	<div style="position: absolute; z-index: 2; top: 527px; left: 1087px;">
+		<a href="<?php echo $this->config->base_url(); ?>r7/index" class="pkg_title">R7</a>
 	</div>
 	<!-- <div style="position:absolute; z-index:2; top: 608px;left: 503px;">
 		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
 	</div> -->
 	<!-- V1 -->
-	<div style="position:absolute; z-index:2; top: 437px;left: 635px;">
-		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
-	</div>
+<!--	<div style="position:absolute; z-index:2; top: 437px;left: 635px;">-->
+<!--		<a href="--><?php //echo $this->config->base_url(); ?><!--systems/summary" class="pkg_title">SBK-S</a>-->
+<!--	</div>-->
 	<div style="position:absolute; z-index:2; top: 350px;left: 200px;">
 		<a href="<?php echo $this->config->base_url(); ?>north/index" class="pkg_title2">North</a>
 	</div>
@@ -866,7 +995,31 @@
 			if (data['overall_actual'] > 99) $('#overall_actual').css({ "fontSize" : "59px", "marginTop" : "31px"});
 			if (data['overall_variance'] > 99) $('#overall_variance').css({ "fontSize" : "59px", "marginTop" : "10px", "marginLeft" : "-8px"});
 			if (data['overall_early'] > 99) $('#overall_early').css({ "fontSize" : "59px", "marginTop" : "6px", "marginLeft" : "-8px"});
-		
+            //Modified By Ancy mathew
+            //Usage : Append cooments
+            //Starts here
+            var g='',gd='';
+            if(data['comments'].length>5) {
+                for (var i = 0; i < 5; i++) {gd += ' <li style="padding: 5px; color:#000">' + data['comments'][i]['MESSAGE'] + '</li>';}
+                for(comment in data['comments']){g+=' <li style="padding: 5px; color:#000">'+data['comments'][comment]['MESSAGE']+'</li>';}
+                $("#comment_container").append(gd);
+                $("#comment_full_container").append(g);
+            }else{
+                for(comment in data['comments']){g+=' <li style="padding: 5px; color:#000">'+data['comments'][comment]['MESSAGE']+'</li>';}
+                $("#comment_container").append(g);
+                $("#comment_more").css("visibility", "hidden");
+            }
+            var st='';
+            for(stat in data['summary']){
+                if(data['summary'][stat]['ac_progress_completion']==null ){
+                    st+='<tr> <td>'+data['summary'][stat]['summary']+'</td><td colspan="2">'+data['summary'][stat]['progress_completion']+'%</td></tr>';
+                }
+                else{
+                    st+='<tr> <td rowspan="2">'+data['summary'][stat]['summary']+'</td><td style="background-color: #f79b3b">33KV AC</td><td style="background-color: #f79b3b">750V DC</td></tr><tr><td>'+data['summary'][stat]['ac_progress_completion']+'%</td><td>'+data['summary'][stat]['dc_progress_completion']+'%</td></tr>';
+                }
+            }
+            $("#status_container").append(st);
+            //Ends here
 			$('#overall_actual').text(data['overall_actual']);
 			//$('#overall_variance').text(data['overall_variance'].toFixed(0));
 			$('#overall_variance').text(data['overall_variance']);
@@ -878,8 +1031,6 @@
 			//Width and height
 			var w = $i.width();
 			var h = $i.height();
-			
-			
 			var station_circle_size = 9;
 			var parking_box_size = 15;
 			//var parking_box_height = 10;
@@ -916,8 +1067,8 @@
 			[80.48333333333333,49.03703703703704,90, "v7"],
 			[88.16666666666667,54.48888888888889,71, "v8"],
 			[90.71666666666667,56.38518518518518,90, "v8"],
-			[94.1,59.88148148148148,90, "v8"],     
-			/* Legend */             [58.2,80.6, 10, 1],[51.4,80.6, 50, 1],[44.3,80.6, 100, 1],
+			[94.1,59.88148148148148,90, "v8"],
+			/* Legend */             [40,74.2, 9, 1],[51.4,74.2, 19, 1],[61.6,74.2, 39, 1],[47,77.1, 59, 1],[56.3,77.1, 100, 1],
 			// /* Legend */             [33.4,81.8, 10, 1],[26.2,81.8, 50, 1],[18.5,81.8, 100, 1], V2
 			/* System */
 			// [46.57000,79.95, 100, "sbk-s-01"],
@@ -935,21 +1086,20 @@
 			// [70.99000,79.95, 100, "sbk-s-13"],
 			// [73.02500,79.95, 100, "sbk-s-14"]
 			// V1
-			[44.65,64.2, 100, "sbk-s-01"],
-			[48.65,64.2, 100, "sbk-s-02"],
-			[52.65,64.2, 100, "sbk-s-03"],
-			[56.65,64.2, 100, "sbk-s-04"],
-//            [60.65,64.2, 100, "sbk-s-05"],
-			[60.65,64.2, 100, "sbk-s-05"],
-			[64.65,64.2, 100, "sbk-s-06"],//aaa
-			[40.65,72.4, 100, "sbk-s-07"],
-			[44.65,72.4, 100, "sbk-s-08"],
-			[48.65,72.4, 100, "sbk-s-09"],
-			[52.65,72.4, 100, "sbk-s-10"],
-			[56.65,72.4, 100, "sbk-s-11"],
-			[60.65,72.4, 100, "sbk-s-12"],
-			[64.65,72.4, 100, "sbk-s-13"],
-			[68.65,72.4, 100, "sbk-s-14"]
+//			[44.65,64.2, 100, "sbk-s-01"],
+//			[48.65,64.2, 100, "sbk-s-02"],
+//			[52.65,64.2, 100, "sbk-s-03"],
+//			[56.65,64.2, 100, "sbk-s-04"],
+//			[60.65,64.2, 100, "sbk-s-05"],
+//			[64.65,64.2, 100, "sbk-s-06"],//aaa
+//			[40.65,72.4, 100, "sbk-s-07"],
+//			[44.65,72.4, 100, "sbk-s-08"],
+//			[48.65,72.4, 100, "sbk-s-09"],
+//			[52.65,72.4, 100, "sbk-s-10"],
+//			[56.65,72.4, 100, "sbk-s-11"],
+//			[60.65,72.4, 100, "sbk-s-12"],
+//			[64.65,72.4, 100, "sbk-s-13"],
+//			[68.65,72.4, 100, "sbk-s-14"]
 			 ];
 			parkings = [
 			[2.7000000000000003,49.36296296296297,68],
@@ -1053,9 +1203,11 @@
 					//if (status < 60) { c += "glow-yellow"; } else
 					//{ c += "glow-green"; }
 					if ((typeof d[3] != "undefined") && (d[3] == 1)) {
-					c += " legend "; 
+					c += " legend ";
+                    if (status < 10) { c += "glow-darkgray"; } else
+                    if (status < 20) { c += "glow-yellow"; } else
 					if (status < 40) { c += "glow-red"; } else
-					if (status < 60) { c += "glow-yellow"; } else
+					if (status < 60) { c += "glow-kavi"; } else
 					{ c += "glow-green"; }
 					}
 					return c;
@@ -1303,7 +1455,6 @@
 			processVariance('sbk-s-02', parseFloat(data['SBK-S-02']));
 			processVariance('sbk-s-03', parseFloat(data['SBK-S-03']));
 			processVariance('sbk-s-04', parseFloat(data['SBK-S-04']));
-//            processVariance('sbk-s-05', parseFloat(data['SBK-S-05']));
 			processVariance('sbk-s-05', parseFloat(data['SBK-S-05']));
 			processVariance('sbk-s-06', parseFloat(data['SBK-S-06']));
 			processVariance('sbk-s-07', parseFloat(data['SBK-S-07']));
@@ -1576,9 +1727,23 @@ function detectIE() {
 	} else {
 		return detectIE.isIE;
 	}
+
+
 }
+        jQuery(function ($) {
+            // Load dialog on page load
+            //$('#basic-modal-content').modal();
+            // Load dialog on click
+            $('#comment_more').click(function (e) {
+                $(".fim-dropdown").removeClass('active');
+                $('#basic-modal-content').modal();
+
+                return false;
+            });
+        });
 		</script>
 		<!-- <script src="./lib/cssParser.js"></script>
 		<script src="./lib/css-filters-polyfill.js"></script> -->
 	</body>
+
 </html>

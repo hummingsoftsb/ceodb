@@ -843,6 +843,7 @@ function iterate(data) {
 }
 
 function getJSON(slug, callback) {
+
     $.getJSON("/mpxd/api/" + slug, function(data) {
         callback(data)
     });
@@ -1187,7 +1188,6 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
         var ihtm="";
         var that = this;
         var html = mpxd.getTemplate(that.data.type);
-
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
@@ -1305,7 +1305,10 @@ mpxd.constructors.page_info = function(data) {
     //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
-
+mpxd.constructors.page_info_ring = function(data) {
+    //console.log(data);
+    mpxd.modules.general.GenerateGeneralview(data);
+}
 mpxd.constructors.page_info_station = function(data) {
     //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
@@ -1397,6 +1400,12 @@ mpxd.constructors.kpi_station = function(data) {
 }
 
 mpxd.constructors.kpi_system = function(data) {
+    mpxd.modules.general.GenerateGeneralview(data);
+}
+mpxd.constructors.it_cs_stations = function(data) {
+    mpxd.modules.general.GenerateGeneralview(data);
+}
+mpxd.constructors.trip_cable_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1567,7 +1576,7 @@ function compareDates(start, end) {
  }
  */
 function generateSideMenu(data) {
-
+//console.log(data);
     jQuery(document).ready(function() {
         jQuery("#menuzord").menuzord({
             align: "right",
@@ -1633,7 +1642,13 @@ function generateSideMenu(data) {
 
         /* Format: 0=item.name, 1=item.id, 2=item.url */
         var html = '';
-        var onclick = ((typeof item.outurl == "undefined") ? (item.url == "#" ? "" : "loadPage(\'{2}\')") : "location.href=\'" + baseURL + item.outurl + "\'");
+        var onclick='';
+        if(item.url == "sbk-s-05/home"){
+             onclick = ("location.href=\'" + baseURL + item.url + "\'");
+        }
+        else {
+             onclick = ((typeof item.outurl == "undefined") ? (item.url == "#" ? "" : "loadPage(\'{2}\')") : "location.href=\'" + baseURL + item.outurl + "\'");
+        }
         //var onclick = (item.outurl == "#" ? "" : "location.href=");
         switch (item.level) {
             case 0:

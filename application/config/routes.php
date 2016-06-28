@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
+$route['sbk-s-05/home'] = 'dashboard/psdsFront';
 $route['api/(:any)'] = 'dashboard/api/$1';
 $route['fetchComment'] = 'dashboard/fetchComment';
 $route['rComment'] = 'dashboard/revComment';
@@ -50,11 +51,13 @@ $route['outStandingProgress'] = 'dashboard/OutStandingProgress';
 $route['gettrainData'] = 'dashboard/trainDataGet';
 $route['getCompletedT'] = 'dashboard/fullyCompletedTrain';
 $route['addComment/(:any)'] = 'dashboard/addComment/$1';
+$route['commentRing/(:any)'] = 'dashboard/ringComment';
 $route['setapi/(:any)'] = 'dashboard/setapi/$1';
 $route['portlet/(:any)'] = 'dashboard/portlet/$1';
 $route['draw'] = 'dashboard/draw';
 $route['save'] = 'dashboard/save';
 $route['front'] = 'dashboard/front';
+
 $route['login'] = 'dashboard/login';
 $route['logout'] = 'dashboard/logout';
 $route['debug'] = 'dashboard/debug';

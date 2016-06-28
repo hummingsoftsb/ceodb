@@ -931,8 +931,8 @@ mpxd.modules.train_manufacturing_progress_table.train_progress = Backbone.View.e
                 $subdContainer.find('.table-container').html('');
             }
             var renderKJD = function (data) {
-                console.log("Sebin");
-                console.log(data);
+                //console.log("Sebin");
+                //console.log(data);
                 var newdata = [];
                 $.each(data, function (idx, i) {
                     var color = '#0f9';
@@ -3457,16 +3457,24 @@ function generateBreadcrumbs(id) {
     var crumbs = [];
     var page = pages_lookup_id[id];
     var parentid = page.parent;
-    var url = page.url;
+    var url = page.url
+    //alert('imcalled'+url);
 
-    crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + page.name + '</a>');
+    crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + page.name + '</a>'); // last value in breadcrumbs
     while (parentid != 0) {
         url = pages_lookup_id[parentid].url;
-        if (url != '#')
-            crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + pages_lookup_id[parentid].name + '</a>');
+        if (url != '#') {
+            //alert('im called'+url);
+            if (url == 'sbk-s-05/home') {
+                crumbs.push('<a href="javascript:void(0);" onclick="window.location.href=\'../sbk-s-05/home\'">' + pages_lookup_id[parentid].name + '</a>');
+            }
+            else {
+                crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + pages_lookup_id[parentid].name + '</a>');
+            }
+        }
         else
             crumbs.push('<a href="javascript:void(0);" style="cursor:default;color:#B2B2B2">' + pages_lookup_id[parentid].name + '</a>');
-        parentid = pages_lookup_id[parentid].parent;
+            parentid = pages_lookup_id[parentid].parent;
     }
     crumbs = crumbs.reverse();
 
@@ -3672,7 +3680,7 @@ function getRoute() {
     var l = location.href;
     var find = "/mpxd/";
     var start = l.indexOf(find);
-
+//alert (start);
     var currentRoute = l.substr(start + find.length);
     var currentRoute = currentRoute.substr(0, (currentRoute.indexOf('#') == -1) ? currentRoute.length : currentRoute.indexOf('#'));
     return currentRoute;
