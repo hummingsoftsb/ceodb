@@ -1004,7 +1004,7 @@ mpxd.modules.gallery.GalleryView = Backbone.View.extend({
 				//breadcrumbAutoHideTopLevel: true,
 				theme: 'default',
 				i18n: { breadcrumbHome: that.data.data.title },
-				albumSorting: 'standard',
+				dataSorting: 'standard',
 				touchAutoOpenDelay: -1,
 			});
 		}
