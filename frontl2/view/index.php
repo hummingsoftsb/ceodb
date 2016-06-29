@@ -1,6 +1,6 @@
 <!-- to use scroller : class="col-md-12 scroll_set_1" -->
 <?php include 'template/default_header.php' ?>
-<title>CEODB L2</title>
+<title>MPXD</title>
 <div id="wrapper" class="">
 	<div id="wrapper_landing_page">
 		<!-- -- -->
@@ -26,7 +26,7 @@
 							<span class="hm_button"><i class="fa fa-plus-square" aria-hidden="true"></i> HSSE</span>
 							<span class="hm_button"><i class="fa fa-cube" aria-hidden="true"></i> Procument</span>
 							<span class="hm_button"><i class="fa fa-money" aria-hidden="true"></i> Commercial</span>
-							<span class="hm_button"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</span>
+							<span class="hm_button" onclick="location.href='/mpxd/logout'"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</span>
 							<span class="hm_user_profile">
 								<i class="fa fa-user" aria-hidden="true"></i> Profile 
 								<i class="fa fa-caret-down" aria-hidden="true"></i>

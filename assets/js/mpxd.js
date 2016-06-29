@@ -339,7 +339,7 @@ mpxd.generatePortletContent = function (data) {
 
 /* misc. functions. Put in seperate file if need arises */
 var gridster;
-var editing = true;
+var editing = false;
 
 
 function selectPort(port) {
