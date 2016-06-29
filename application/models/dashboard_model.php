@@ -1313,7 +1313,7 @@ public function getOverallProgress($data_date){
     public function get_comments_ps()
     {
         $comments_ps=array();
-        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", \"TIMESTAMP\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\"";
+        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", \"TIMESTAMP\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\" desc";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i=0;
