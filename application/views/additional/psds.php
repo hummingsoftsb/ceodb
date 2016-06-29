@@ -4,7 +4,7 @@
 		<meta name="viewport" content ="width=device-width,initial-scale=0.8,user-scalable=yes"/>
 		<meta charset="utf-8">
 		<meta name="mobile-web-app-capable" content="yes">
-		<title>MRT Line</title>
+		<title>SBK-S-05 - MPXD</title>
          <link href="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.css" rel="stylesheet" type="text/css" />
 		 <link href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.css">
@@ -339,11 +339,13 @@
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
+            font-family: ‘Impact, Charcoal, sans-serif !important;
+            font-size: 13px;
         }
             #nav_drop th {
                 padding-top: 11px;
                 padding-bottom: 11px;
-                background-color: #292929;
+                background-color: #192f46;
                 border-bottom: 1px solid #fff;
                 color: white;
             }
@@ -361,6 +363,46 @@
             }
             #nav_drop tr:nth-child(3){
                 background-color: #0b8baf;
+            }
+            .table thead > tr > th, .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td, .table-bordered, .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+                border-color: rgba(0,0,0,0.2);
+                border-color: rgba(21, 166, 233, 0.2);
+                line-height: 20px;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            .table {
+                margin-bottom: 0;
+            }
+            .table-bordered {
+                border: 1px solid #dddddd;
+            }
+            .table {
+                width: 100%;
+            }
+            table {
+                max-width: 100%;
+                background-color: transparent;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+                border: 1px solid #dddddd;
+            }
+            .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
+                padding: 8px;
+                line-height: 1.428571429;
+                vertical-align: top;
+                border-top: 1px solid #dddddd;
+                font-family: ‘Impact, Charcoal, sans-serif !important;
+                color: #FFF;
+                font-size: 13px;
+            }
+            .table tbody > tr > td{
+                color: #000e17;
+                word-break: break-all;
             }
 		</style>
 		<script>
@@ -722,43 +764,43 @@
                  <div class="fim-dropdown">
 				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: red"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
                      <div class="inner">
-                         <table id="nav_drop">
+                         <table id="table-comment" class="table table-bordered table-condensed table-hover" style="text-align: center">
                              <thead>
-                             <tr>
-                                 <th style="text-align: center;">Activities/Progress</th>
+                             <tr style="background-color: #192f46;">
+                                 <th colspan="3" style="text-align: center;">Activities/Progress</th>
+                             </tr>
+                             <tr style="background-color: #0b8baf;">
+                                 <th style="text-align: center;">Ring</th>
+                                 <th style="text-align: center;">Comment</th>
+                                 <th style="text-align: center;">Date</th>
                              </tr>
                              </thead>
-                             <tbody>
-                             <tr style="background-color: #fff">
-                                 <td>
-                                     <ul id="comment_container" style="padding-left: 13px; color:#000;"></ul>
-                                 </td>
-                             </tr>
-                             <tr style="background-color: #fff;"><td style="padding: 0px; padding-right: 10px !important; padding-bottom: 4px;">
-                                     <a id="comment_more" href="javascript:;" class="pull-right" style="text-decoration: none;"><i class="fa fa-plus"></i> more..</a>
-                                     <!-- modal content -->
-                                     <div id="basic-modal-content">
-                                         <table id="nav_drop">
-                                             <thead>
-                                             <tr>
-                                                 <th style="text-align: center;">Activities/Progress</th>
-                                             </tr>
-                                             </thead>
-                                             <tbody>
-                                                 <tr style="background-color: #fff">
-                                                     <td>
-                                                         <ul id="comment_full_container" style="padding-left: 13px; color:#000;"></ul>
-                                                     </td>
+                             <tbody style="background-color: #fff;" id="comment_container">
+                                 <tr><td colspan="3"  style="padding: 0px; padding-right: 10px !important; padding-bottom: 4px;">
+                                         <a id="comment_more" href="javascript:;" class="pull-right" style="text-decoration: none;"><i class="fa fa-plus"></i> more..</a>
+                                         <!-- modal content -->
+                                         <div id="basic-modal-content">
+                                             <table id="table-comment" class="table table-bordered table-condensed table-hover" style="text-align: center">
+                                                 <thead>
+                                                 <tr style="background-color: #192f46;">
+                                                     <th colspan="3" style="text-align: center;">Activities/Progress</th>
                                                  </tr>
-                                             </tbody>
-                                         </table>
-                                     </div>
+                                                 <tr style="background-color: #0b8baf;">
+                                                     <th style="text-align: center;">Ring</th>
+                                                     <th style="text-align: center;">Comment</th>
+                                                     <th style="text-align: center;">Date</th>
+                                                 </tr>
+                                                 </thead>
+                                                 <tbody style="background-color: #fff;" id="comment_full_container">
+                                                 </tbody>
+                                             </table>
+                                         </div>
 
-                                     <!-- preload the images -->
-                                     <div style='display:none'>
-                                         <img src='img/basic/x.png' alt='' />
-                                     </div>
-                              </td></tr>
+                                         <!-- preload the images -->
+                                         <div style='display:none'>
+                                             <img src='img/basic/x.png' alt='' />
+                                         </div>
+                                  </td></tr>
 <!--                             <tr style="background-color: #fff;"><td style="padding: 0px; padding-right: 10px !important; padding-bottom: 4px;"><button id="abc" class="btn btn-primary">More</button></td></tr>-->
                              </tbody>
                          </table>
@@ -1000,12 +1042,12 @@
             //Starts here
             var g='',gd='';
             if(data['comments'].length>5) {
-                for (var i = 0; i < 5; i++) {gd += ' <li style="padding: 5px; color:#000">' + data['comments'][i]['MESSAGE'] + '</li>';}
-                for(comment in data['comments']){g+=' <li style="padding: 5px; color:#000">'+data['comments'][comment]['MESSAGE']+'</li>';}
-                $("#comment_container").append(gd);
+                for (var i = 0; i < 5; i++) {gd += ' <tr><td>R'+data['comments'][i]['ring']+'</td><td style="width: 70%;">' + data['comments'][i]['message'] + '</td><td>'+data['comments'][i]['timestamp']+'</td><tr>';}
+                for(comment in data['comments']){g+=' <tr><td>R'+data['comments'][comment]['ring']+'</td><td style="width: 70%;">' + data['comments'][comment]['message'] + '</td><td>'+data['comments'][comment]['timestamp']+'</td><tr>';}
+                $("#comment_container").prepend(gd);
                 $("#comment_full_container").append(g);
             }else{
-                for(comment in data['comments']){g+=' <li style="padding: 5px; color:#000">'+data['comments'][comment]['MESSAGE']+'</li>';}
+                for(comment in data['comments']){g+=' <tr><td>R'+data['comments'][comment]['ring']+'</td><td style="width: 70%;">' + data['comments'][comment]['message'] + '</td><td>'+data['comments'][comment]['timestamp']+'</td><tr>';}
                 $("#comment_container").append(g);
                 $("#comment_more").css("visibility", "hidden");
             }
@@ -1015,7 +1057,7 @@
                     st+='<tr> <td>'+data['summary'][stat]['summary']+'</td><td colspan="2">'+data['summary'][stat]['progress_completion']+'%</td></tr>';
                 }
                 else{
-                    st+='<tr> <td rowspan="2">'+data['summary'][stat]['summary']+'</td><td style="background-color: #f79b3b">33KV AC</td><td style="background-color: #f79b3b">750V DC</td></tr><tr><td>'+data['summary'][stat]['ac_progress_completion']+'%</td><td>'+data['summary'][stat]['dc_progress_completion']+'%</td></tr>';
+                    st+='<tr> <td rowspan="2">'+data['summary'][stat]['summary']+'</td><td style="background-color: #f79b3b"><b>33KV AC</b></td><td style="background-color: #f79b3b"><b>750V DC</b></td></tr><tr><td>'+data['summary'][stat]['ac_progress_completion']+'%</td><td>'+data['summary'][stat]['dc_progress_completion']+'%</td></tr>';
                 }
             }
             $("#status_container").append(st);

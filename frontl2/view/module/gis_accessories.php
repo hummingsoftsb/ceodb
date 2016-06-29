@@ -126,7 +126,7 @@
 			<span class="set15">P</span>
 		</div>
 		<div id="pl_package">
-			<span class="set1">V201</span>
+			<span style="cursor: pointer" onclick="location.href='/mpxd/v1/index'" class="set1">V201</span>
 			<span class="set2">V202</span>
 			<span class="set3">V203</span>
 			<span class="set4">UG</span>
