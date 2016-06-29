@@ -1085,6 +1085,7 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
         var remainingProgress = 100 - currentProgress;
         template = _.template(html, {data: that.data});
         that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         that.$el.find('#chart_' + that.data.id).highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -1099,8 +1100,8 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
             title: {
                 text: currentProgress + '%',
                 style: {
-                    color: '#9EDD2E',
-                    fontSize: '250%',
+                    color: '#ffc000',
+                    fontSize: '260%',
                     fontWeight: 'bold'
                 },
                 align: 'center',
@@ -1127,17 +1128,17 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
             },
             series: [{
                     type: 'pie',
-                    innerSize: '98%',
+                    innerSize: '88%',
                     data: [
                         {
                             name: 'Completed',
                             y: currentProgress,
-                            color: '#15A6E9'
+                            color: '#e6e6e6'
                         },
                         {
                             name: 'Remaining',
                             y: remainingProgress,
-                            color: 'rgba(0,0,0,0.2)'
+                            color: '#7f7f7f'
                         },
                     ]
                 }]
