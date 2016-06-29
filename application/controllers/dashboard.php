@@ -194,6 +194,7 @@ class Dashboard extends CI_Controller {
             foreach ($d as $kk => $dd)
                 $data['data'][$kk] = $dd;
         }
+		return redirect('../mpxd/frontl2/view/');
         $this->load->view('dashboard/front', $data);
     }
 
