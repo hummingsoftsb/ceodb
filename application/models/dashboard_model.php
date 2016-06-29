@@ -491,6 +491,7 @@ class Dashboard_model extends CI_Model
 
         //$query = $this->db->get_where('items', array('slug' => $item));
         $results = $query->result_array();
+
         $return = array();
 
         foreach ($results as $k => $result) {
@@ -1312,15 +1313,14 @@ public function getOverallProgress($data_date){
     public function get_comments_ps()
     {
         $comments_ps=array();
-        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", to_char(\"TIMESTAMP\", 'DD Mon YYYY') as date,\"RING_NUMBER\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\" desc";
+        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", \"TIMESTAMP\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\"";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i=0;
         foreach($result as $val){
-            $comments_ps[$i]["message_id"] =$val['MESSAGE_ID'];
-            $comments_ps[$i]["message"] =$val['MESSAGE'];
-            $comments_ps[$i]["timestamp"] =$val['date'];
-            $comments_ps[$i]["ring"] =$val['RING_NUMBER'];
+            $comments_ps[$i]["MESSAGE_ID"] =$val['MESSAGE_ID'];
+            $comments_ps[$i]["MESSAGE"] =$val['MESSAGE'];
+            $comments_ps[$i]["DATA_DATE"] =$val['TIMESTAMP'];
             $i++;
         }
         return $comments_ps;

@@ -7,8 +7,10 @@
         <!--jsImageslider-->
         <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/js/plugins/jsImageSlider/js-image-slider.css" />
 		<!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+
+
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
         <!--<link rel=icon type=image/ico href="<?php echo $this->config->base_url(); ?>assets/favicon.html"/>-->
         <link media="screen, print" href=<?php echo $this->config->base_url(); ?>assets/css/stylesheets.css rel=stylesheet type=text/css />
@@ -23,6 +25,7 @@
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/leaflet.awesome-markers.css" />
 		<link media="screen, print" rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/flick/jquery-ui.css" />
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/plugin/wb-popover/jquery.webui-popover.css" />
+        <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome-animation.min.css" rel="stylesheet" type="text/css" />
         <!--<link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/css/pushmenu.css">-->
 		<script>
                         var permission = <?php echo json_encode($permission); ?>;

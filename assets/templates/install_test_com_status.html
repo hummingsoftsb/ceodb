@@ -163,12 +163,10 @@
                 $(this).css("border-color","rgb(194, 67, 71)");$(this).next('small').remove();$(this).after($err);
             }
         });
-
         $("#cmnt_ring").click(function(){
             if($("#ring_comment").val()!=""){
                 $('#ring_comment').css("border-color", "rgba(21, 166, 233, 0.2)");$('#ring_comment').next('small').remove();
-
-                mpxd.getJSONData("commentRing/get?r="+$("#page_title").text().trim().substring(1,3)+"&comments=" + $('#ring_comment').val(), function (d) {
+                mpxd.getJSONData("commentRing/get?r=1&comments=" + $('#ring_comment').val(), function (d) {
                     if(d==1){
                         $("#modal_ring_comment").modal('hide');
                         $('#ring_comment').val('');

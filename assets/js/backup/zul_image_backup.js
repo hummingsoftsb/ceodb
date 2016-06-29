@@ -843,7 +843,6 @@ function iterate(data) {
 }
 
 function getJSON(slug, callback) {
-
     $.getJSON("/mpxd/api/" + slug, function(data) {
         callback(data)
     });
@@ -958,81 +957,51 @@ mpxd.modules.gallery.GalleryView = Backbone.View.extend({
 
         template = _.template(html, {data: that.data});
         that.$el.html(template);
-		that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});		
+		that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+		images = that.data.data.items;
 		
-		if(typeof that.data.data.items === 'object') // Local repository format
-		{
-			images = that.data.data.items;
-		
-			var nano_items = [];
-			for(var i=0;i<images.length;i++){
-				image = images[i];
-				if(image.kind == 'album'){
-					nano_items.push({
-						"src":  mpxd.siteurl+image.path,
-						"srct":  mpxd.siteurl+image.path,
-						"title":  image.title,
-						"ID":  image.id,
-						"kind":  image.kind,
-					});
-				}
-				else if(image.kind == 'image'){
-					nano_items.push({
-						"src":  mpxd.siteurl+image.path,
-						"srct":  mpxd.siteurl+image.path,
-						"title":  image.title,
-						"albumID":  image.id,
-					});
-				}
+		var nano_items = [];
+		for(var i=0;i<images.length;i++){
+			image = images[i];
+			if(image.kind == 'album'){
+				nano_items.push({
+					"src":  mpxd.siteurl+image.path,
+					"srct":  mpxd.siteurl+image.path,
+					"title":  image.title,
+					"ID":  image.id,
+					"kind":  image.kind,
+				});
 			}
-			
-			that.$el.find("#nanoGallery2").nanoGallery({
-				items: nano_items,
-				//kind: 'picasa',
-				//userID: '106498362119815035474',
-				//userID: '111186676244625461692',
-				//albumList: that.data.data.albumList,
-				whiteList: that.data.data.keyword,
-				//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
-				//thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
-				thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
-				//thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
-				paginationMaxLinesPerPage: 2,
-				imageTransition: 'slide',
-				thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
-				galleryFullpageButton: false,
-				//breadcrumbAutoHideTopLevel: true,
-				theme: 'default',
-				i18n: { breadcrumbHome: that.data.data.title },
-				dataSorting: 'standard',
-				touchAutoOpenDelay: -1,
-			});
+			else if(image.kind == 'image'){
+				nano_items.push({
+					"src":  mpxd.siteurl+image.path,
+					"srct":  mpxd.siteurl+image.path,
+					"title":  image.title,
+					"albumID":  image.id,
+				});
+			}
 		}
-		else { // Picasa repository
-			that.$el.find("#nanoGallery2").nanoGallery({
-				kind: 'picasa',
-				userID: '106498362119815035474',
-				//userID: '111186676244625461692',
-				//albumList: that.data.data.albumList,
-				whiteList: that.data.data.keyword,
-				//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
-				//thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
-				thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
-				//thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
-				paginationMaxLinesPerPage: 2,
-				imageTransition: 'slide',
-				thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
-				galleryFullpageButton: false,
-				//breadcrumbAutoHideTopLevel: true,
-				theme: 'default',
-				i18n: { breadcrumbHome: that.data.data.title },
-				albumSorting: 'standard',
-				touchAutoOpenDelay: -1,
-			});
-		}
-		
-		
-        
+        that.$el.find("#nanoGallery2").nanoGallery({
+			items: nano_items,
+            //kind: 'picasa',
+            //userID: '106498362119815035474',
+            //userID: '111186676244625461692',
+			//albumList: that.data.data.albumList,
+			whiteList: that.data.data.keyword,
+			//album: that.data.data.album + "&authkey=" + that.data.data.authkey,
+            //thumbnailL1Width: '340 XS100 SM100', thumbnailL1Height: '240 XS100 SM100',
+            thumbnailWidth: 'auto', thumbnailHeight: '200 XS80 SM150 LA250 XL290',
+            //thumbnailHoverEffect: [{name: 'imageScale150', duration: 700}, {name: 'labelAppear75', duration: 400}, {name: 'descriptionAppear', duration: 1000}],
+            paginationMaxLinesPerPage: 2,
+            imageTransition: 'slide',
+            thumbnailLabel: {display: true, align: 'center', position: 'overImageOnBottom'},
+            galleryFullpageButton: false,
+			//breadcrumbAutoHideTopLevel: true,
+			theme: 'default',
+			i18n: { breadcrumbHome: that.data.data.title },
+			albumSorting: 'standard',
+			touchAutoOpenDelay: -1,
+        });
     }
 });
 
@@ -1174,49 +1143,22 @@ mpxd.modules.progress.initializeProgress = function() {
  */
 
 mpxd.modules.general = {};
-
 mpxd.modules.general.GeneralView = Backbone.View.extend({
     initialize: function(options) {
         //console.log(options);
-        //console.log('im called here');
         this.data = options.data;
         this.render();
 		if (typeof options.callback == "function") options.callback(this.data);
         //this.type = options.data.type;
     },
     render: function() {
-        var ihtm="";
         var that = this;
         var html = mpxd.getTemplate(that.data.type);
+
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 		if(that.data.type === 'slider'){
-            // modified by agaile to show image slider from local repository : 31/05/2016 : START
-            //console.log('slider_agaile');
-            //console.log(that.data.data.items);
-            var lg = that.data.data.items.length;
-            //console.log('inside loop');
-            for( var i=0; i<lg; i ++)
-            {
-                //if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind=="image")) {
-                //    console.log('Image Path :  https://mpxd.mymrt.com.my/'+that.data.data.items[i].path + '  Image Title :  '+that.data.data.items[i].title );
-                //}
-                //alert('twist');
-                if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
-                    //alert(that.data.data.items[i].kind);
-                    //alert(that.data.data.items[i].title);
-                    ihtm +="<img src='"+mpxd.siteurl+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
-                    //ihtm2 +="path="+ that.data.data.items[i].path+"' title='"+that.data.data.items[i].title+"' kind='"+that.data.data.items[i].kind+"'";
-                    //ihtm +="<div class=\"aslide\" data-duration=\"1\"> <img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' height=\"200px\"/>"+"<div class=\"text\">"+that.data.data.items[i].title+"</div></div>";
-                }
-            }
-            //console.log('cond array');
-            //console.log(f_image);
-            //console.log('cond var');
-            //console.log(ihtm);
-            //console.log(ihtm2);
-            /*
 			that.$el.find('#slider_' + that.data.id).googleslides({
 				userid: '106498362119815035474',
 				albumid: that.data.data.album,
@@ -1229,10 +1171,6 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
 				time: 5000, // Time to show each photo before advancing (in milliseconds).
 				fadespeed: 1000 // Fade in/out speed (in milliseconds).
 			});
-            */
-           $('#slider').append(ihtm);
-            imageSlider.reload();
-            // modified by agaile : 31/05/2016 : END
 		}
     }
 });
@@ -1252,43 +1190,6 @@ mpxd.modules.general.initializeGeneralview = function(type) {
     }
 }
 
-/* Added by Agaile on 02/06/2016
-* usage: to make the image slider
-* Inherited from zul's code with some modifications and improvisations*/
-
-// START : HERE
-
-// mpxd.modules.general.twist = Backbone.View.extend({
-//    initialize: function(options) {
-//        this.data = options.data;
-//        this.render();
-//        if (typeof options.callback == "function") options.callback(this.data);
-//    },
-//    render: function() {
-//        var that = this;
-//        var html = mpxd.getTemplate(that.data.type);
-//        template = _.template(html, {data: that.data});
-//        that.$el.html(template);
-//        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-//        if(that.data.type === 'slider'){
-//            var lg = that.data.data.items.length;
-//            for( var i=0; i<lg; i ++)
-//            {
-//                if((that.data.data.items[i].id == 1) && (that.data.data.items[i].kind== "image")){
-//                    ihtm +="<img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' alt='"+that.data.data.items[i].title+"'/>";
-//                    //ihtm2 +="path="+ that.data.data.items[i].path+"' title='"+that.data.data.items[i].title+"' kind='"+that.data.data.items[i].kind+"'";
-//                    //ihtm +="<div class=\"aslide\" data-duration=\"1\"> <img src='https://mpxd.mymrt.com.my/"+ that.data.data.items[i].path+"' height=\"200px\"/>"+"<div class=\"text\">"+that.data.data.items[i].title+"</div></div>";
-//                }
-//            }
-//            $('#slider').append(ihtm);
-//        }
-//    }
-//});
-
-// END : HERE
-
-
-
 /*
  **********************
  Constructors
@@ -1305,16 +1206,14 @@ mpxd.constructors.page_info = function(data) {
     //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
-mpxd.constructors.page_info_ring = function(data) {
-    //console.log(data);
-    mpxd.modules.general.GenerateGeneralview(data);
-}
+
 mpxd.constructors.page_info_station = function(data) {
     //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
 mpxd.constructors.syspackage = function(data) {
+    //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1336,7 +1235,6 @@ mpxd.constructors.hsse = function(data) {
 
 mpxd.constructors.kpi = function(data) {
     //console.log(data);
-    //console.log('here');
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1351,12 +1249,9 @@ mpxd.constructors.kad2 = function(data) {
 }
 
 mpxd.constructors.slider = function(data) {
-
-    //console.log('im called everytme');
 	//mpxd.modules.gallery.getJSON('106498362119815035474',data.data.album,data.data.authkey).done(mpxd.modules.gallery.getFeatured);
 	//mpxd.modules.gallery.getFeatured(mpxd.modules.gallery.getJSON('106498362119815035474',data.data.album,data.data.authkey));
     mpxd.modules.general.GenerateGeneralview(data);
-    //mpxd.modules.general.twist(data);
 }
 
 mpxd.constructors.procurement_awarded_table = function(data) {
@@ -1400,12 +1295,7 @@ mpxd.constructors.kpi_station = function(data) {
 }
 
 mpxd.constructors.kpi_system = function(data) {
-    mpxd.modules.general.GenerateGeneralview(data);
-}
-mpxd.constructors.it_cs_stations = function(data) {
-    mpxd.modules.general.GenerateGeneralview(data);
-}
-mpxd.constructors.trip_cable_progress = function(data) {
+    //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
 }
 
@@ -1458,7 +1348,6 @@ function compareDate(end) {
     var stDate = new Date();
     var enDate = GetDate(end);
     var compDate = enDate - stDate;
-
     var day = parseInt(compDate / 1000 / 60 / 60 / 24);
 
     if (compDate >= 0)
@@ -1474,6 +1363,7 @@ function compareDates(start, end) {
     var enDate = GetDate(end);
     var compDate = enDate - stDate;
     var week = (compDate / 1000 / 60 / 60 / 24 / 7);
+
     if (compDate >= 0)
         return week.toFixed(2);
     else {
@@ -1576,7 +1466,7 @@ function compareDates(start, end) {
  }
  */
 function generateSideMenu(data) {
-//console.log(data);
+
     jQuery(document).ready(function() {
         jQuery("#menuzord").menuzord({
             align: "right",
@@ -1642,13 +1532,7 @@ function generateSideMenu(data) {
 
         /* Format: 0=item.name, 1=item.id, 2=item.url */
         var html = '';
-        var onclick='';
-        if(item.url == "sbk-s-05/home"){
-             onclick = ("location.href=\'" + baseURL + item.url + "\'");
-        }
-        else {
-             onclick = ((typeof item.outurl == "undefined") ? (item.url == "#" ? "" : "loadPage(\'{2}\')") : "location.href=\'" + baseURL + item.outurl + "\'");
-        }
+        var onclick = ((typeof item.outurl == "undefined") ? (item.url == "#" ? "" : "loadPage(\'{2}\')") : "location.href=\'" + baseURL + item.outurl + "\'");
         //var onclick = (item.outurl == "#" ? "" : "location.href=");
         switch (item.level) {
             case 0:
