@@ -168,15 +168,21 @@
 				top: -52px;
 				left: 680px;
 			}
+            #navbar-left {
+                text-align: center;
+                position: absolute;
+                top: -52px;
+                left: 110px;
+            }
 			
-			#navbar a, figure {
+			#navbar a, figure, #navbar-left a {
 				display: inline-block;
 				margin: 0;
 				padding: 0;
 				margin-right: -2px;
 			}
 			
-			#navbar figcaption {
+			#navbar figcaption, #navbar-left figcaption  {
 				font-size: 11px;
 				margin: 0;
 				font-family: Arial;
@@ -184,19 +190,19 @@
 				color: #fff;
 			}
 			
-			#navbar figure {
+			#navbar figure, #navbar-left figure {
 				padding: 5px;
 				width: 90px;
 			}
 			
-			#navbar figure:hover img {
+			#navbar figure:hover img, #navbar-left figure:hover img {
 				transform: scale(1.1);
 				-ms-transform: scale(1.1);
 				-webkit-transform: scale(1.1);
 				-moz-transform: scale(1.1);
 				-o-transform: scale(1.1);
 			}
-			#navbar img {
+			#navbar img, #navbar-left img {
 				width: 80px;
 				transition: transform 0.2s;
 				-webkit-transition: -webkit-transform 0.2s;
@@ -204,7 +210,7 @@
 				-o-transition: -o-transform 0.2s;
 			}
 
-			#navbar a.nopointer {
+			#navbar a.nopointer, #navbar-left a.nopointer {
 				cursor: default;
 			}
 			
@@ -712,13 +718,16 @@
 				<li><a href="#" class=""><i class="icon-money"></i></a></li>
 				<li><a href="#" class=""><i class="icon-h-sign"></i></a></li>
 			</ul> -->
-			
+			<div id="navbar-left">
+                <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/home.png" onclick="location.href='/mpxd/front'"/></a>
+                <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/logout_de.png" onclick="location.href='/mpxd/logout'"/></a>
+			</div>
 			 <div id="navbar">
 				<!--<a href="./graph_din.html"><img src="<?php echo $this->config->base_url(); ?>assets/img/construction.png" /></a>-->
-                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-right" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
 				<!--<a href="#"><img src="<?php //echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-right" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
                      <div class="inner">
                          <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
                          <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
@@ -762,7 +771,7 @@
                      </div>
                  </div>
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: red"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: rgb(229, 0, 0)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
                      <div class="inner">
                          <table id="table-comment" class="table table-bordered table-condensed table-hover" style="text-align: center">
                              <thead>
@@ -807,15 +816,15 @@
 
                      </div>
                  </div>
-				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i class="fa fa-arrow-up" style="color: green"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
+				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
 			</div> 
 			
 		</div>
-		<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_home_top.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
+		<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_home_top_de.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
 		
 		
 	</div>
-	<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_guideways.jpg" alt="" id="mapimg" style="width: 1280px; height:800px; position:absolute;"/>
+	<img src="<?php echo $this->config->base_url(); ?>assets/img/psds_guideways_de.jpg" alt="" id="mapimg" style="width: 1280px; height:800px; position:absolute;"/>
 	<div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
 		
 		<!-- text href -->
@@ -1009,9 +1018,9 @@
 <area  alt="" title="" href="http://www.image-maps.com/" shape="rect" coords="786,639,885,674" style="outline:none;" target="_self"     />
  -->
 	<div id="reset" style="display:none; position: absolute; top: 579px; left: 710px;z-index: 5;"><img src="<?php echo $this->config->base_url(); ?>assets/img/reset.png" style="width: 43px;"/></div>
-	<div id="onschedule" class="togglebutton" style="top:558px; left:580px;"  ></div>
-	<div id="critical" class="togglebutton" style=" top:558px; left:679px;"  ></div>
-	<div id="delayed" class="togglebutton" style="top:558px; left:780px;"  ></div>
+<!--	<div id="onschedule" class="togglebutton" style="top:558px; left:580px;"  ></div>-->
+<!--	<div id="critical" class="togglebutton" style=" top:558px; left:679px;"  ></div>-->
+<!--	<div id="delayed" class="togglebutton" style="top:558px; left:780px;"  ></div>-->
 	<!--<map name="imgmap" id="ImageMapsCom-image-maps-2014-06-21-092652">
 	<area  alt="" title="" href="http://www.image-maps.com/" shape="rect" coords="1097,193,1205,228" style="outline:none;" target="_self"    onclick="alert('asd');" />
 	<area  alt="" title="" href="http://www.image-maps.com/" shape="rect" coords="1096,282,1205,315" style="outline:none;" target="_self"     />
@@ -1078,6 +1087,7 @@
 			//var parking_box_height = 10;
 			//[[44.21666666666667,81.65925925925926],[55.31666666666667,81.6],[63.93333333333333,81.62962962962963]]
 			//Data
+
 			stations = [
 			[5.066666666666666,50.162962962962965,93, "v1"],
 			[5.916666666666667,54.04444444444444,95, "v1"],
@@ -1178,6 +1188,11 @@
 			[-23,155,20,"dpt1"],
 			[249,140,70,"dpt2"]
 			]
+            legend_arrows = [
+                ["M1675 971q0 51-37 90l-75 75q-38 38-91 38-54 0-90-38l-294-293v704q0 52-37.5 84.5t-90.5 32.5h-128q-53 0-90.5-32.5t-37.5-84.5v-704l-294 293q-36 38-90 38t-90-38l-75-75q-38-38-38-90 0-53 38-91l651-651q35-37 90-37 54 0 91 37l651 651q37 39 37 91z","#0c8233","translate(405,664) scale(.01)"],
+                ["M1675 971q0 51-37 90l-75 75q-38 38-91 38-54 0-90-38l-294-293v704q0 52-37.5 84.5t-90.5 32.5h-128q-53 0-90.5-32.5t-37.5-84.5v-704l-294 293q-36 38-90 38t-90-38l-75-75q-38-38-38-90 0-53 38-91l651-651q35-37 90-37 54 0 91 37l651 651q37 39 37 91z","#0c8233","translate(678,665) scale(.01) rotate(90, 0, 0)"],
+                ["M1675 971q0 51-37 90l-75 75q-38 38-91 38-54 0-90-38l-294-293v704q0 52-37.5 84.5t-90.5 32.5h-128q-53 0-90.5-32.5t-37.5-84.5v-704l-294 293q-36 38-90 38t-90-38l-75-75q-38-38-38-90 0-53 38-91l651-651q35-37 90-37 54 0 91 37l651 651q37 39 37 91z","hsl(0, 100%, 43%)","translate(940,684) scale(.01) rotate(180, 0, 0)"]
+            ];
 			
 			/*for (var i = 0; i < parkings.length; i++) {
 				UpperRange = 100;
@@ -1194,8 +1209,6 @@
 						.style("position","absolute")
 						.style("top","0")
 						.style("left","-1");
-						
-						
 
 			var v1 = svg.selectAll("path")
 			.data(paths)
@@ -1228,8 +1241,26 @@
 			.attr('id',function(d,i) {
 				return "path"+i;
 			});
-			
-						
+
+            try {
+                var arrows = svg.selectAll(".arrow")
+                    .data(legend_arrows)
+                    .enter()
+                    .append("path")
+                    .attr("d", function (d, i) {
+                        return d[0];
+                    })
+                    .attr('id', function (d, i) {
+                        return "legend_arrow_" + i;
+                    })
+                    .attr("fill", function (d, i) {
+                        return d[1];
+                    })
+                    .attr("transform", function (d, i) {
+                        return d[2];
+                    });
+            }catch(e){console.log("arrow exe."+ e)};
+
 			//Draw big circles
 			var bigcircles = svg.selectAll(".bigcircle")
 			    .data(stations)
@@ -1366,8 +1397,7 @@
 					return c;
 			})
 			.text("P");          // define the text to display
-				   
-			
+
 			
 			//var depotgroup1 = svg.append('g');
 			//var depotgroup2 = svg.append('g');
@@ -1474,8 +1504,7 @@
 			});
 			//Turn on everything
 			turnonall();
-			
-			
+
 			
 			
 			/*var v1 = parseFloat(data['V1']);
