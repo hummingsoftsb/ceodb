@@ -44,7 +44,7 @@
 			
 			
 	<div id="plate_system">
-		<div id="donut_plate">
+		<div id="donut_plate" style="z-index: 3000;">
 			<div id="dp_db_donut_0" class="dp_top"></div>
 			<div id="dp_db_donut_1" class="dp_bottom"></div>
 			<div id="dp_db_donut_2" class="dp_bottom"></div>
