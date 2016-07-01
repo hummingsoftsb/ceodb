@@ -1207,6 +1207,7 @@ mpxd.constructors.train_progress = function (data) {
 
 }
 
+
 /*
  mpxd.modules.manufacturing_progress_chart = {}
  mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend({
@@ -2870,7 +2871,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
          }(Highcharts));*/
     }
 });
-
+// modified by agaile on 01/07/2016 for removing the dummy data
 mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
     initialize: function (options) {
         //console.log(options);
@@ -2965,17 +2966,20 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             },
             series: [{
                 name: 'Early',
-                data: that.data.earlyData,
+                //data: that.data.earlyData,
+                data: '',
                 color: '#04B152',
                 enableMouseTracking: false
             }, {
                 name: 'Late',
-                data: that.data.delayedData,
+                //data: that.data.delayedData,
+                data: '',
                 color: '#0070C0',
                 enableMouseTracking: false
             }, {
                 name: 'Actual',
-                data: that.data.actualData,
+                //data: that.data.actualData,
+                data: '',
                 color: '#FF0000'
             }],
             plotOptions: {
@@ -3005,6 +3009,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
     }
 });
 
+// modification end
 
 mpxd.modules.scurve.initializeScurve = function (callback) {
     /* Initialize template */

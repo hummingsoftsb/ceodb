@@ -1070,6 +1070,8 @@ mpxd.modules.gallery.getJSON = function(userid,albumid,key) {
  *******************
  */
 
+// modified by agaile to remove dummy data on 01/07/2016
+
 mpxd.modules.progress = {};
 mpxd.modules.progress.ProgressView = Backbone.View.extend({
     initialize: function(options) {
@@ -1097,7 +1099,8 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
                 spacingRight: 0
             },
             title: {
-                text: currentProgress + '%',
+                //text: currentProgress + '%',
+                text:  '0 %',
                 style: {
                     color: '#ffc000',
                     fontSize: '260%',
@@ -1122,7 +1125,7 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
                         }
                     },
                     startAngle: 0,
-                    endAngle: 360,
+                    endAngle: 360
                 }
             },
             series: [{
@@ -1131,12 +1134,14 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
                     data: [
                         {
                             name: 'Completed',
-                            y: currentProgress,
+                            //y: currentProgress,
+                            y: 0,
                             color: '#e6e6e6'
                         },
                         {
                             name: 'Remaining',
-                            y: remainingProgress,
+                            //y: remainingProgress,
+                            y: 100,
                             color: '#7f7f7f'
                         },
                     ]
@@ -1144,10 +1149,12 @@ mpxd.modules.progress.ProgressView = Backbone.View.extend({
             ,
             credits: {
                 enabled: false
-            },
+            }
         });
     }
 });
+
+// modification end
 
 mpxd.modules.progress.GenerateProgress = function(items) {
     mpxd.modules.progress.initializeProgress();
