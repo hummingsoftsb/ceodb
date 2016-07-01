@@ -211,7 +211,7 @@ $(document).ready(function(){
 	
 	var json = [ 
 		{"chart_title":"System Overall","chart_id":"db_donut_0","chart_value":"80","set_donut":"1"},
-		{"chart_title":"SYS 201","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd/sbk-s-01/index"},
+		{"chart_title":"SYS 201","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-01/index"},
 		{"chart_title":"SYS 202","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"#"},
 		{"chart_title":"SYS 203","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"#"},
 		{"chart_title":"SYS 204","chart_id":"db_donut_4","chart_value":"49","set_donut":"2","url":"#"},
