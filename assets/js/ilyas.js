@@ -2763,7 +2763,8 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
                 x: -20 //center
             },
             xAxis: {
-                categories: that.data.categories,
+                //categories: that.data.categories,
+                categories: '',
                 tickInterval: 3,
                 labels: {
                     rotation: 270,
