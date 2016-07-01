@@ -11,47 +11,13 @@
 	<th></th><th style="color: #ffd461;text-align: right;">Baseline</th><th style="color: #FFAF78;">KPI<br>Target</th><th style="color: #009e8c;text-align: right;">Actual</th>
 	<th style="text-align: center;">Shortfall</th><th style="text-align: center;">Actual<br> Progress</th>
 	</thead>
-	<%if (data.data.length == 0) {%>
-		<tr><td colspan="6" style="text-align: center;">Nil</td></tr>
-	<%}%>
-	<%for (var i in data.data) { if(Object.prototype.toString.call(data.data[i]) == "[object Object]") { /*Do nothing*/} else {%>
-	<%
-	var actual = data.data[i][3];
-	var target = data.data[i][2];
-	var baseline = data.data[i][1];
-	
-	var checkdata3 = (data.data[i][3] == parseInt(data.data[i][3]));
-	var checkdata2 = (data.data[i][2] == parseInt(data.data[i][2]));
-	var checkdata1 = (data.data[i][1] == parseInt(data.data[i][1]));
-
-	var progress = 'N/A';
-	var overall = 'N/A';
-	var shortfall = 'N/A';
-	/*
-	if(baseline != 0)
-		overall = Math.round((actual/baseline)*100) + "%";
-	if(target != 0){
-		progress = ((actual/baseline)*100).toFixed(1) + "%";
-                if(target != "-")
-                    shortfall = actual - target;
-		}
-	*/
-	if((baseline != 0) && (checkdata3 == true) && (checkdata1 == true)){
-		overall = ((actual/baseline)*100).toFixed(1) + "%";
-		console.log(checkdata3 == true) && (checkdata2 == true);
-	}
-	if((target > 0) && (checkdata3 == true) && (checkdata2 == true)){
-		shortfall = actual - target;
-	}
-	%>
 	 <tr>
-		<td style=""><%=data.data[i][0]%></td>
-		<td style="color: #ffd461; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][1])%></td>
-		<td style="color: #FFAF78; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][2])%></td>
-		<td style="color: #009e8c; text-align: right;"><%=String.prototype.numberWithCommas(data.data[i][3])%></td>
-		<td style="text-align: right;"><%=String.prototype.numberWithCommas(shortfall)%></td>
-		<td style="text-align: right;"><%=overall%></td>
+		<td style=""></td>
+		<td style="color: #ffd461; text-align: right;"></td>
+		<td style="color: #FFAF78; text-align: right;"></td>
+		<td style="color: #009e8c; text-align: right;"></td>
+		<td style="text-align: right;"></td>
+		<td style="text-align: right;"></td>
 	</tr>
-	<%}}%>
 	</table>
 </div>
