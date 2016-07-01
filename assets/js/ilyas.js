@@ -1156,7 +1156,8 @@ mpxd.constructors.train_progress = function (data) {
             spacingRight: 0
         },
         title: {
-            text: currentProgress + '%',
+            //text: currentProgress + '%',
+            text: '0 %',
             style: {
                 color: '#9EDD2E',
                 fontSize: '250%',
@@ -1190,13 +1191,16 @@ mpxd.constructors.train_progress = function (data) {
             data: [
                 {
                     name: 'Completed',
-                    y: currentProgress,
+                    //y: currentProgress,
+                    y: 0,
                     color: '#15A6E9'
                 },
                 {
                     name: 'Remaining',
-                    y: remainingProgress,
-                    color: 'rgba(0,0,0,0.2)'
+                    //y: remainingProgress,
+                    y: 100,
+                    //color: 'rgba(0,0,0,0.2)'
+                    color: '#fff'
                 },
             ]
         }],
