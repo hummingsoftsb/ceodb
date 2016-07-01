@@ -1434,13 +1434,14 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
                 open_item['xAxis']['categories'].push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
                 xAxis.push(((parseInt(result[i]['TRAIN_NO']) < 10) ? '0' : '') + parseInt(result[i]['TRAIN_NO']));
             }
+            // modified to remove the dummy data : agaile
             open = (JSON.parse(JSON.stringify(result)));
-            for (var j in open) {
-                openJobs.push(parseInt(result[j]['OPEN_JOBS']));
-                closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
-
-            }
-
+            //for (var j in open) {
+            //    openJobs.push(parseInt(result[j]['OPEN_JOBS']));
+            //    closedJobs.push(parseInt(result[j]['CLOSED_JOBS']));
+            //
+            //}
+            // modified end
             //alert(openJobs);
             //alert(closedJobs);
             //var openJobs   = [ 0, 0, 62, 62, 57, 77, 89, 51, 52, 42, 72, 38, 35, 58, 58, 55, 61, 54, 62, 50, 52, 67, 38, 0, 55, 43, 45, 46, 59];
@@ -1658,12 +1659,14 @@ mpxd.modules.manufacturing_progress_chart.train_progress = Backbone.View.extend(
         var jobsdone = [];
         mpxd.getJSONData("outStandingProgress" + c_data_date + "", function (result) {
             outstanding = (JSON.parse(JSON.stringify(result)));
-            for (var j in outstanding) {
-                if (!isNaN(parseInt(result[j]['JOBS_DONE']))) {
-                    jobsdone.push(parseInt(result[j]['JOBS_DONE']));
-                }
-                target.push(parseInt(result[j]['TARGET']));
-            }
+            // modified by agaile to remove dummy data
+            //for (var j in outstanding) {
+            //    if (!isNaN(parseInt(result[j]['JOBS_DONE']))) {
+            //        jobsdone.push(parseInt(result[j]['JOBS_DONE']));
+            //    }
+            //    target.push(parseInt(result[j]['TARGET']));
+            //}
+            // modified end
             overall_progress['series'].push({
                 name: 'Jobs done',
                 data: jobsdone

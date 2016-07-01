@@ -24,8 +24,10 @@
 	</thead>
 	<%
 	/* Faking it */
-	data.data = [["Phase 1","22-Mar-16","27-Jun-16","25-Sep-16"],["Phase 2","18-Oct-16","30-Oct-16","28-Apr-17"]]
-	
+	<!--data.data = [["Phase 1","22-Mar-16","27-Jun-16","25-Sep-16"],["Phase 2","18-Oct-16","30-Oct-16","28-Apr-17"]]-->
+         <!--modified by agaile to remove dummy data-->
+	data.data = [["Phase 1","-","-","-"],["Phase 2","-","-","-"]]
+
 	if (data.data.length == 0) {%>
 		<tr><td colspan="6" style="text-align: center;">Nil</td></tr>
 	<%}%>
@@ -46,9 +48,13 @@
 	 <tr style="text-align: center">
 		<td rowspan="3"><%=data.data[i][0]%></td>
          <!--Modified by Sebin-->
-         <td colspan="2"><h2 data-value="<%=satleft %>" class="numbers excel-d2 <%=((satleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((satleft)/7)%> Weeks" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%> "><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>
-		<td colspan="2"><h2 class="numbers excel-d2 <%=((sitleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((sitleft)/7)%> Weeks" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>" ><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>
-		<td colspan="2"><h2 class="numbers excel-d2 <%=((trialleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((trialleft)/7)%> Weeks" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>" ><%=((trialleft < 1) ? 0 : trialleft)%></h2> <span class="numbers-text">Days left</span></td>
+         <!--<td colspan="2"><h2 data-value="<%=satleft %>" class="numbers excel-d2 <%=((satleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((satleft)/7)%> Weeks" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%> "><%=((satleft < 1) ? 0 : satleft)%></h2> <span class="numbers-text">Days left</span></td>-->
+		<!--<td colspan="2"><h2 class="numbers excel-d2 <%=((sitleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((sitleft)/7)%> Weeks" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>" ><%=((sitleft < 1) ? 0 : sitleft)%></h2> <span class="numbers-text">Days left</span></td>-->
+		<!--<td colspan="2"><h2 class="numbers excel-d2 <%=((trialleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((trialleft)/7)%> Weeks" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>" ><%=((trialleft < 1) ? 0 : trialleft)%></h2> <span class="numbers-text">Days left</span></td>-->
+         <!--Modified by agaile to remove dummy data-->
+         <td colspan="2"><h2 data-value="<%=satleft %>" class="numbers excel-d2 <%=((satleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((satleft)/7)%> Weeks" style="font-size: 250%;<%=((satleft < 1) ? "color: #ff3333" : "")%> ">0</h2> <span class="numbers-text">Days left</span></td>
+         <td colspan="2"><h2 class="numbers excel-d2 <%=((sitleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((sitleft)/7)%> Weeks" style="font-size: 250%;<%=((sitleft < 1) ? "color: #ff3333" : "")%>" >0</h2> <span class="numbers-text">Days left</span></td>
+         <td colspan="2"><h2 class="numbers excel-d2 <%=((trialleft < 1) ? 'wb-pop' : '')%>" data-content="<%=Math.floor((trialleft)/7)%> Weeks" style="font-size: 250%;<%=((trialleft < 1) ? "color: #ff3333" : "")%>" >0</h2> <span class="numbers-text">Days left</span></td>
 	</tr>
 	
 	<tr style="text-align: center">
