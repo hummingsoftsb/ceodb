@@ -25,7 +25,7 @@
 							<span class="hm_button"><i class="fa fa-line-chart" aria-hidden="true"></i> S-Curve</span>
 							<span class="hm_button"><i class="fa fa-cube" aria-hidden="true"></i> Procurement</span>
 							<span class="hm_button"><i class="fa fa-money" aria-hidden="true"></i> Commercial</span>
-							<span class="hm_button"><a href="/mpxd2/logout" class="fa fa-sign-in" aria-hidden="true"></a> Logout</span>
+							<a href="/mpxd2/logout"><span class="hm_button"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</span></a>
 							<span class="hm_user_profile">
 								<i class="fa fa-user" aria-hidden="true"></i> Profile 
 								<i class="fa fa-caret-down" aria-hidden="true"></i>
