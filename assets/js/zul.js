@@ -1238,7 +1238,8 @@ mpxd.modules.general.GeneralView = Backbone.View.extend({
 				fadespeed: 1000 // Fade in/out speed (in milliseconds).
 			});
             */
-           $('#slider').append(ihtm);
+            // modified by agaile to remove the dummy data : 04/07/2016
+           //$('#slider').append(ihtm);
             imageSlider.reload();
             // modified by agaile : 31/05/2016 : END
 		}
