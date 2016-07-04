@@ -192,7 +192,7 @@
     <div id="breadcrumbs_container">
         <ol id="breadcrumbs">
             <li>
-                <a href="../../mpxd/front/">
+                <a href="../../mpxd2/frontl2/view/">
                     <i class="fa fa-home fa-md" style="padding-top:2px;"></i>
                 </a>
             </li>
