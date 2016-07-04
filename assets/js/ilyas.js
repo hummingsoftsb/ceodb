@@ -3686,7 +3686,7 @@ function enableAllTheseDays(date) {
 
 function getRoute() {
     var l = location.href;
-    var find = "/mpxd/";
+    var find = "/mpxd2/";
     var start = l.indexOf(find);
 
     var currentRoute = l.substr(start + find.length);
