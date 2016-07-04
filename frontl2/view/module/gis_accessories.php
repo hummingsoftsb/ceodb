@@ -145,8 +145,8 @@
 		</div>
 		<div id="pl_package">
             <span style="cursor: pointer" onclick="location.href='/mpxd2/v1/index'" class="set1 z3500">V201</span>
-			<span class="set2 z3500">V202</span>
-			<span class="set3 z3500">V203</span>
+			<span style="cursor: pointer" onclick="location.href='/mpxd2/v2/index'" class="set2 z3500">V202</span>
+			<span style="cursor: pointer" onclick="location.href='/mpxd2/v3/index'" class="set3 z3500">V203</span>
 			<span class="set4 z3500">UG</span>
 			<span class="set5 z3500">V204</span>
 			<span class="set6 z3500">V205</span>
@@ -154,7 +154,7 @@
 			<span class="set8 z3500">V207</span>
 			<span class="set9 z3500">V208</span>
 			<span class="set10 z3500">V209</span>
-			<span class="set11 z3500">V210</span>
+			<span style="cursor: pointer" onclick="location.href='/mpxd2/v10/index'" class="set11 z3500">V210</span>
 		</div>
 		<div id="pl_phase">
 			<span class="set1">NORTH</span>
