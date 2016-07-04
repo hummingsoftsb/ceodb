@@ -10,7 +10,8 @@
 <div class="content" style="background: none;/*#1d2a34*/ ">
 	<!--div style="text-align: center;font-weight: bold; font-size:60px;"><%=data.data.currentActual%></div-->
 	<div style="text-align: center;">
-	<div style="max-width: 300px; max-height: 300px; margin-left: auto; margin-right: auto; margin-bottom: 25px;" id="chart_<%=data.id%>_progress"></div>
+	<!--<div style="max-width: 300px; max-height: 300px; margin-left: auto; margin-right: auto; margin-bottom: 25px;" id="chart_<%=data.id%>_progress"></div>-->
+	<div style="max-width: 300px; max-height: 300px; margin-left: auto; margin-right: auto; margin-bottom: 25px;" id="chart_pr_progress"></div>
 	<!--<h4 class="color-beige" style="padding-left: 15px">Actual train completion: <span style="color: #9EDD2E">6.90%</span></h4>-->
 	<!--<h4 class="color-beige total_progress" style="padding-left: 15px">Actual <span class="g_package"></span> Package Progress: <span style="color: #9EDD2E"><%=data.data.currentActual%></span></h4>-->
 	<!--Modified by agaile for removing the dummy data-->
@@ -71,4 +72,68 @@
         $(".g_package").text($('#page_title').text().split('(',1));
 
     </script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+	$el.find('#chart_pr_progress").highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false,
+            margin: [0, 0, 0, 0],
+            spacingTop: 0,
+            spacingBottom: 0,
+            spacingLeft: 0,
+            spacingRight: 0
+        },
+        title: {
+            text: '0 %',
+            style: {
+                color: '#9EDD2E',
+                fontSize: '250%',
+                fontWeight: 'bold'
+            },
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 10
+        },
+        tooltip: {
+            pointFormat: '{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textShadow: '0px 1px 2px black'
+                    }
+                },
+                startAngle: 0,
+                endAngle: 360
+            }
+        },
+        series: [{
+            type: 'pie',
+            innerSize: '98%',
+            data: [
+                {
+                    name: 'Completed',
+                    y: 0,
+                    color: '#15A6E9'
+                },
+                {
+                    name: 'Remaining',
+                    y: 100,
+                    color: '#fff'
+                },
+            ]
+        }],
+        credits: {
+            enabled: false
+        }
+    });
+});
+	</script
 </div>
