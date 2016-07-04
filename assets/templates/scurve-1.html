@@ -33,8 +33,99 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12"><div class="chart chart-scurve" id="chart_<%=data.id%>"></div>
+            <div class="col-xs-12"><div class="chart chart-scurve" id="spl_chart"></div>
             </div>		
         </div>		
     </div>
 </div>
+        <script type="text/javascript">
+            $( document ).ready(function() {
+            $('#spl_chart').highcharts({
+
+                //
+                title: {
+                    text: '',
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    tickInterval: 3,
+                    labels: {
+                        rotation: 270,
+                        //step: 3,
+                        style: {
+                            color: '#ffd461',
+                            font: '11px Trebuchet MS, Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    max: 100,
+                    tickInterval: 10,
+                    labels: {
+                        style: {
+                            color: '#ffd461',
+                            font: '11px Trebuchet MS, Verdana, sans-serif'
+                        }
+                    },
+                    title: {
+                        text: '%',
+                        style: {
+                            color: '#ffd461',
+                            font: '11px Trebuchet MS, Verdana, sans-serif'
+                        },
+                        margin: 0
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#333'
+                    }],
+                    gridLineColor: '#333'
+                },
+                tooltip: {
+                    enabled: true
+                },
+                legend: {
+                    enabled: false,
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Early',
+                    data: '',
+                    color: '#04B152',
+                    enableMouseTracking: false
+                }, {
+                    name: 'Late',
+                    data: '',
+                    color: '#0070C0',
+                    enableMouseTracking: false
+                }, {
+                    name: 'Actual',
+                    data: '',
+                    color: '#FF0000'
+                }],
+                plotOptions: {
+                    series: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    type: 'spline',
+                    backgroundColor: '#222'
+                }
+
+                // till here
+            });
+            });
+        </script>
