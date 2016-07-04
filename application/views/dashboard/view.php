@@ -164,7 +164,7 @@
 					</ul>
             	</div>
             	<div class="logout">
-            		<button class="btn btn-danger" style="" onclick="location.href='/mpxd/logout'">Logout</button>
+            		<button class="btn btn-danger" style="" onclick="location.href='/mpxd2/logout'">Logout</button>
             	</div>
             </div>
 
