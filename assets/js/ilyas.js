@@ -2869,7 +2869,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                renderTo: 'chart_' + that.data.id
+                //renderTo: 'chart_' + that.data.id
             }
 
 
@@ -3006,7 +3006,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                renderTo: 'chart_' + that.data.id
+                //renderTo: 'chart_' + that.data.id
             }
 
 
