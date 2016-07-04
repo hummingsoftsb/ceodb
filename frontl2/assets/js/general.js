@@ -185,9 +185,9 @@ $(document).ready(function(){
 	
 	var json = [ 
 		{"chart_title":"System Overall","chart_name":"poi","chart_id":"db_donut_0","chart_value":"80","set_donut":"1"},
-		{"chart_title":"SYS 201","chart_name":"S&TC","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index"},
-		{"chart_title":"SYS 202","chart_name":"ICSS","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
-		{"chart_title":"SYS 203","chart_name":"ET&DE","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"/mpxd2/sbk-s-01/index"},
+		{"chart_title":"SYS 201","chart_name":"S&TC","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index","title":"Signalling & Train Control System And Platform Screen Doors/ Automatic Platform Gates"},
+		{"chart_title":"SYS 202","chart_name":"ICSS","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index","title":"Integrated Control Supervisory System And Computerised Maintenance Management System"},
+		{"chart_title":"SYS 203","chart_name":"ET&DE","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"/mpxd2/sbk-s-01/index","title":"Electric Trains And Depot Equipment"},
 		{"chart_title":"SYS 204","chart_name":"TW&MV","chart_id":"db_donut_4","chart_value":"49","set_donut":"2","url":"#"},
 		{"chart_title":"SYS 205","chart_name":"PS&DS","chart_id":"db_donut_5","chart_value":"50","set_donut":"2","url":"#"},
 		{"chart_title":"SYS 206","chart_name":"COMMS","chart_id":"db_donut_6","chart_value":"85","set_donut":"2","url":"#"},
@@ -202,6 +202,7 @@ $(document).ready(function(){
 		use_chart_set_donut = b.set_donut;
 		use_chart_name = b.chart_name;
         use_chart_url= b.url;
+        use_chart_title1= b.title;
 		
 		
 		
@@ -252,7 +253,7 @@ $(document).ready(function(){
 			use_chart_circle_data_used = use_chart_value / 100 * use_chart_circle_data_total;
 
 
-            donut_body = '<div><a style="text-decoration: none; color: #fff;" href="'+use_chart_url+'"><span class="donut_title2_name">'+use_chart_title+'</span></a><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="11" y="-24">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
+            donut_body = '<div><a style="text-decoration: none; color: #fff;" href="'+use_chart_url+'" title="'+use_chart_title1+'"><span class="donut_title2_name">'+use_chart_title+'</span></a><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="11" y="-24">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
 				
 				
 			$('#dp_'+use_chart_id+'').append(donut_body);
