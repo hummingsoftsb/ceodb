@@ -1,6 +1,6 @@
 <!-- to use scroller : class="col-md-12 scroll_set_1" -->
 <?php include 'template/default_header.php' ?>
-<title>CEODB L2</title>
+<title>MPXD</title>
 <div id="wrapper" class="">
 	<div id="wrapper_landing_page">
 		<!-- -- -->

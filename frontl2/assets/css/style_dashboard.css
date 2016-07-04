@@ -72,7 +72,12 @@ float - plate_gis and stats
 #pl_phase > div {
 	z-index: 3000;
 }
-
+/*#pl_package {*/
+    /*z-index: 3000;*/
+/*}*/
+#donut_plate{
+    z-index: 3000;
+}
 /*	plate_vector_map
 */
 #plate_vector_map {
@@ -274,7 +279,9 @@ float - plate_gis and stats
 #pl_package span.set9 {top: 68.0%; left: 58.5%;}
 #pl_package span.set10 {top: 94.0%; left: 71.5%;}
 #pl_package span.set11 {top: 94.0%; left: 85.5%;}
-
+.z3500{
+    z-index: 3500;
+}
 
 /*	pl_mspr
 */

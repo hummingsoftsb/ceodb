@@ -201,6 +201,7 @@ $(document).ready(function(){
 		use_chart_value = b.chart_value;
 		use_chart_set_donut = b.set_donut;
 		use_chart_name = b.chart_name;
+        use_chart_url= b.url;
 		
 		
 		
@@ -250,8 +251,8 @@ $(document).ready(function(){
 			use_chart_circle_data_total = 189;
 			use_chart_circle_data_used = use_chart_value / 100 * use_chart_circle_data_total;
 
-			
-			donut_body = '<div><span class="donut_title2_name">'+use_chart_title+'</span><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="11" y="-24">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
+
+            donut_body = '<div><a style="text-decoration: none; color: #fff;" href="'+use_chart_url+'"><span class="donut_title2_name">'+use_chart_title+'</span></a><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="11" y="-24">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
 				
 				
 			$('#dp_'+use_chart_id+'').append(donut_body);
