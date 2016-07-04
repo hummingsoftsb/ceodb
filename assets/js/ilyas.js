@@ -2749,7 +2749,7 @@ mpxd.constructors.viaduct_pier_view = function (items) {
 }
 
 // S curve
-/*
+
 mpxd.modules.scurve = {};
 mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
     initialize: function (options) {
@@ -2856,8 +2856,6 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
                  console.log(this.yData[this.yData.length - 1]);
                  }
                  }, dont uncomment*/
-				 
-				 /*
             }],
             plotOptions: {
                 series: {
@@ -2872,11 +2870,11 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                //renderTo: 'chart_' + that.data.id
+                renderTo: 'chart_' + that.data.id
             }
 
 
-        });*/
+        });
 
         /*chart.tooltip.refresh(chart.series[2].points[that.data.actualData.length - 1]); // onload render tooltip
          (function(chart) {
@@ -2886,7 +2884,7 @@ mpxd.modules.scurve.ScurveView1 = Backbone.View.extend({
     }
 });
 // modified by agaile on 01/07/2016 for removing the dummy data
-/*
+
 mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
     initialize: function (options) {
         //console.log(options);
@@ -3010,7 +3008,7 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
             chart: {
                 type: 'spline',
                 backgroundColor: '#222',
-                //renderTo: 'chart_' + that.data.id
+                renderTo: 'chart_' + that.data.id
             }
 
 
@@ -3026,9 +3024,8 @@ mpxd.modules.scurve.ScurveView2 = Backbone.View.extend({
 
 // modification end
 
-//mpxd.modules.scurve.initializeScurve = function (callback) {
+mpxd.modules.scurve.initializeScurve = function (callback) {
     /* Initialize template */
-/*
     if (typeof mpxd.modules.scurve.initializedFlag == "undefined") {
         mpxd.loadTemplateAsync(["scurve-1", "scurve-2"], callback);
         mpxd.modules.scurve.initializedFlag = true;
@@ -3120,12 +3117,11 @@ mpxd.modules.scurve.GenerateScurve = function (items, componentSelector) {
 
 
     if (view == "1") {
-        return new mpxd.modules.scurve.ScurveView1({data: data, el: el});
+        //return new mpxd.modules.scurve.ScurveView1({data: data, el: el});
     } else if (view == "2") {
-        return new mpxd.modules.scurve.ScurveView2({data: data, el: el, componentSelector: componentSelector});
+        //return new mpxd.modules.scurve.ScurveView2({data: data, el: el, componentSelector: componentSelector});
     }
 }
-*/
 // s curve end
 mpxd.modules.piechart_workpackage = {};
 mpxd.modules.piechart_workpackage.View = Backbone.View.extend({
