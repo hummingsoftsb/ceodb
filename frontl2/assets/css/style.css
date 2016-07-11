@@ -90,22 +90,11 @@ div.header_bottom div {
 
 
 /*date time*/
-#header_datetime {
-	position: absolute;
-	top: 43px;
-	right: 0;
-	padding: 0px 20px 2px;
-	text-align: right;
-	background: #222234;
-	border-bottom-left-radius:5px;
-	z-index: 5000;
-	border-left: 2px solid #334;
-	border-bottom: 2px solid #334;
+div#header_datetime {
+	padding: 10px 0 0 0;
 }
 
 #header_datetime span.hd_label {
-	display: inline-block;
-	padding: 2px 5px 2px 10px;
 	font-size: .8em;
 }
 
@@ -122,7 +111,9 @@ div.header_bottom div {
 	}
 
 .hd_label_today {
+	margin: 0 15px 0 0;
 	color: #ccf;
+	
 }
 .hd_label_data {
 	color: #fca;
