@@ -44,9 +44,10 @@ $route['api/(:any)'] = 'dashboard/api/$1';
 /*$route['fetchComment'] = 'dashboard/fetchComment';
 $route['rComment'] = 'dashboard/revComment';
 $route['manuBaseline'] = 'dashboard/baseline';
-$route['AssemblyBaseline'] = 'dashboard/assemblybaseline';
+$route['AssemblyBaseline'] = 'dashboard/assemblybaseline';*/
 $route['getOverallProgress'] = 'dashboard/OverallProgress';
 $route['outStandingProgress'] = 'dashboard/OutStandingProgress';
+/*
 $route['gettrainData'] = 'dashboard/trainDataGet';
 $route['getCompletedT'] = 'dashboard/fullyCompletedTrain';
 $route['addComment/(:any)'] = 'dashboard/addComment/$1';*/
