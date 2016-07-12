@@ -273,8 +273,8 @@ float - plate_gis and stats
 	font-weight: bold;
 	padding: 2px 5px;
 	border-radius: 3px;
-	background: rgba(0,0,0,.25);
-	border:1px solid rgba(0,0,0,.35);
+	/*background: rgba(0,0,0,.25);*/
+	/*border:1px solid rgba(0,0,0,.35);*/
 	color: #fff;
 }
 #pl_package span.set1 {top: 67.5%; left: 13.0%;}
@@ -329,50 +329,50 @@ float - plate_gis and stats
 #pl_station span {
 	/*display: none;*/
 	position: absolute;
-	font-size: .9em;
+	font-size: 1em;
 	color: #eef;
 	text-shadow:
-	-1px -1px 0 rgba(0,0,0,1),  
-	1px -1px 0 rgba(0,0,0,1),
-	-1px 1px 0 rgba(0,0,0,1),
-	1px 1px 0 rgba(0,0,0,1);
+	-1px -1px 0 rgba(0,0,255,.3),  
+	1px -1px 0 rgba(0,0,255,.3),
+	-1px 1px 0 rgba(0,0,255,.3),
+	1px 1px 0 rgba(0,0,255,.3);
 }
 #pl_station span.set1 {top: 78.6%; left: 6.0%;}
 #pl_station span.set2 {top: 74.3%; left: 8.2%;}
 #pl_station span.set3 {top: 63.1%; left: 10.2%;}
 #pl_station span.set4 {top: 58.5%; left: 11.0%;}
-#pl_station span.set5 {top: 49.1%; left: 9.5%;}
-#pl_station span.set6 {top: 43.1%; left: 8.9%;}
-#pl_station span.set7 {top: 39.1%; left: 10.2%;}
-#pl_station span.set8 {top: 35.1%; left: 11.5%;}
-#pl_station span.set9 {top: 29.6%; left: 12.9%;}
+#pl_station span.set5 {top: 48.5%; left: 9.0%;}
+#pl_station span.set6 {top: 42.5%; left: 8.7%;}
+#pl_station span.set7 {top: 36.5%; right: 91.1%;}
+#pl_station span.set8 {top: 32.1%; right: 89.9%;}
+#pl_station span.set9 {top: 30.8%; left: 12.5%;}
 #pl_station span.set10 {top: 24.2%; right: 87.7%;}
-#pl_station span.set11 {top: 19.0%; right: 82.0%;}
+#pl_station span.set11 {top: 18.5%; right: 82.0%;}
 #pl_station span.set12 {top: 27.6%; left: 17.9%;}
 #pl_station span.set13 {top: 23.8%; left: 22.2%;}
 #pl_station span.set14 {top: 18.3%; left: 24.2%;}
-#pl_station span.set15 {top: 14.4%; right: 76.4%;}
-#pl_station span.set16 {top: 10.9%; right: 74.2%;}
-#pl_station span.set17 {top: 4.0%; right: 70.9%;}
-#pl_station span.set18 {top: 1.0%; left: 29.7%;}
-#pl_station span.set19 {top: 4.0%; left: 31.7%;}
-#pl_station span.set20 {top: 7.0%; left: 33.5%;}
-#pl_station span.set21 {top: 15.8%; left: 38.4%;}
-#pl_station span.set22 {top: 24.9%; left: 39.9%;}
-#pl_station span.set23 {top: 30.6%; left: 41.7%;}
+#pl_station span.set15 {top: 13.0%; right: 76.1%;}
+#pl_station span.set16 {top: 8.7%; right: 73.8%;}
+#pl_station span.set17 {top: 2.0%; right: 70.9%;}
+#pl_station span.set18 {top: 0.0%; left: 29.7%;}
+#pl_station span.set19 {top: 3.0%; left: 31.7%;}
+#pl_station span.set20 {top: 6.0%; left: 33.5%;}
+#pl_station span.set21 {top: 13.0%; left: 38.0%;}
+#pl_station span.set22 {top: 22.5%; left: 39.7%;}
+#pl_station span.set23 {top: 27.6%; left: 41.3%;}
 #pl_station span.set24 {top: 36.9%; right: 55.2%;}
 #pl_station span.set25 {top: 40.2%; right: 50.6%;}
-#pl_station span.set26 {top: 29.1%; left: 53.3%;}
-#pl_station span.set27 {top: 31.8%; left: 55.5%;}
-#pl_station span.set28 {top: 44.5%; right: 40.6%;}
-#pl_station span.set29 {top: 35.5%; left: 62.5%;}
-#pl_station span.set30 {top: 38.5%; left: 64.5%;}
+#pl_station span.set26 {top: 28.7%; left: 53.3%;}
+#pl_station span.set27 {top: 31.4%; left: 55.5%;}
+#pl_station span.set28 {top: 43.8%; right: 40.6%;}
+#pl_station span.set29 {top: 35.0%; left: 62.5%;}
+#pl_station span.set30 {top: 38.2%; left: 64.5%;}
 #pl_station span.set31 {top: 47.3%; left: 68.5%;}
-#pl_station span.set32 {top: 57.0%; right: 31.7%;}
+#pl_station span.set32 {top: 57.0%; right: 32.0%;}
 #pl_station span.set33 {top: 71.5%; right: 30.4%;}
 #pl_station span.set34 {top: 78.0%; right: 30.4%;}
 #pl_station span.set35 {top: 86.3%; right: 26.2%;}
-#pl_station span.set36 {top: 81.0%; right: 20.6%;}
+#pl_station span.set36 {top: 80.2%; right: 18.2%;}
 #pl_station span.set37 {top: 89.8%; left: 82.0%;}
 #pl_station span.set38 {top: 87.1%; left: 84.6%;}
 
@@ -381,13 +381,13 @@ float - plate_gis and stats
 #pl_depot span {
 	/*display: none;*/
 	position: absolute;
-	font-size: .9em;
-	color: #ccf;
+	font-size: 1em;
+	color: #eef;
 	text-shadow:
-	-1px -1px 0 rgba(0,0,0,1),  
-	1px -1px 0 rgba(0,0,0,1),
-	-1px 1px 0 rgba(0,0,0,1),
-	1px 1px 0 rgba(0,0,0,1);
+	-1px -1px 0 rgba(0,0,255,.3),  
+	1px -1px 0 rgba(0,0,255,.3),
+	-1px 1px 0 rgba(0,0,255,.3),
+	1px 1px 0 rgba(0,0,255,.3);
 }
 #pl_depot span.set1 {top: 62.5%; left: 70.0%;}
 
@@ -497,16 +497,16 @@ div#donut_plate > div.dp_bottom {
 	display: block;
 	text-align: center;
 	font-size: .9em;
-	background: rgba(255,255,255,.15);
-	border-top: 1px solid rgba(255,255,255,.5);
+	/*background: rgba(255,255,255,.15);*/
+	/*border-top: 1px solid rgba(255,255,255,.5);*/
 }
 .donut_title2_name {
 	margin-bottom: 3px;
 	display: block;
 	text-align: center;
 	font-size: .9em;
-	background: rgba(255,255,255,.1);
-	border-top: 1px solid rgba(255,255,255,.2);
+	/*background: rgba(255,255,255,.1);*/
+	/*border-top: 1px solid rgba(255,255,255,.2);*/
 }
 
 

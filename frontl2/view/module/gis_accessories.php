@@ -154,7 +154,7 @@
 			<span class="set8">V207</span>
 			<span class="set9">V208</span>
 			<span class="set10">V209</span>
-			<span style="cursor: pointer" onclick="location.href='/mpxd2/v10/index'" class="set11">V210</span>
+			<span class="set11" onclick="location.href='/mpxd2/v10/index'" style="cursor:pointer">V210</span>
 		</div>
 		<div id="pl_phase">
 			<span class="set1">NORTH</span>
