@@ -41,6 +41,7 @@
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 $route['sbk-s-05/home'] = 'dashboard/psdsFront';
+$route['sbk-s-06/home'] = 'dashboard/trackWorksFront';
 $route['api/(:any)'] = 'dashboard/api/$1';
 $route['fetchComment'] = 'dashboard/fetchComment';
 $route['rComment'] = 'dashboard/revComment';

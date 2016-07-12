@@ -773,6 +773,97 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('additional/psds', $data);
     }
+    public function trackWorksFront() {
+        if (!$this->session->userdata('loggedin'))
+            return redirect('/');
+        //header('Content-Type: application/json');
+        /* if (isset($_POST['data1'])) {
+
+          file_put_contents('datatunnel.txt', ($_POST['data1']));
+          file_put_contents('datatunnel2.txt', ($_POST['data2']));
+          die();
+          } */
+        $data = $this->dashboard_model->get_source_archivable(5);
+        $data = json_decode($data[0]['value'], true);
+        $data = $data['programme']['overall_elevated_underground'];
+
+        $comdate = $this->dashboard_model->get_date_list('commercial_front')[0]['date'];
+
+        $comdata = $this->dashboard_model->get_source_archivable(78);
+        $comdata = json_decode($comdata[0]['value'],true);
+        //var_dump($comdata);die();
+        $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
+
+
+
+        //var_dump($date);die();
+//        $data_packages = $this->dashboard_model->get_source_archivable(88); //North
+//        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //South
+        $data_packages = $this->dashboard_model->get_source_archivable(7); //North
+        $data_packages2 = $this->dashboard_model->get_source_archivable(20); //South
+        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //South
+        $data_packages = json_decode($data_packages[0]['value'], true);
+        $data_packages2 = json_decode($data_packages2[0]['value'], true);
+        $data_packages3 = json_decode($data_packages3[0]['value'], true);
+        $data_packages_north = $data_packages['north']['scorecard'];
+        $data_packages_south = $data_packages2['south']['scorecard'];//var_dump($data_packages3);die();
+        $data_packages_system = $data_packages3['systems']['syspackage'];
+
+        $early = round(explode("%", $data['currentEarly'])[0]);
+        $late = round(explode("%", $data['currentLate'])[0]);
+        $actual = round(explode("%", $data['currentActual'])[0]);
+        $var_early = round(explode("w", $data['varLate'])[0]);
+        $var_early = ($var_early > 0 ? "+" . $var_early : $var_early);
+
+        $packages_data = array_merge(
+            (array_map(function($i) {
+                return array($i['item'] => $i['varianceLate']);
+            }, $data_packages_north)), (array_map(function($i) {
+                return array($i['item'] => $i['varianceLate']);
+            }, $data_packages_south)), (array_map(function($i) {
+                return array($i['item'] => $i['varianceLate']);
+            }, $data_packages_system)));//var_dump($packages_data);die();
+
+
+        //print_r(array_keys(json_encode($data[0]['value'])));die();
+        $data = Array('data' => Array(
+            'overall_actual' => $actual,
+            'overall_early' => $early,
+            'overall_late' => $late,
+            'overall_variance' => $var_early,
+            // 'project_spend_to_date' => 9.3, //Bil
+            // 'awarded_packages' => "21.0", //Bil
+            // 'pdp_reimbursables' => 972.5, //Mil
+            // 'wpcs_payment' => 7.5, //Bil
+            // 'retention_sum' => 316.6, //Mil
+            // 'variation_orders' => 198.4, //Mil
+            // 'contingency_sum' => 241.2, //Bil
+            // 'vo_number' => 747,
+            // 'contingency_total' => 3.2, //Bil
+            'progress_date' => $date,
+            'comdate' => $comdate,
+
+            /*
+              'project_value' => 36.6,
+              'vo_value' => 2.5,
+              'claims' => 39.1,
+              'claims_paid' => 13.4,
+              'claims_paid_percent' => 38,
+              'vo_value_percent' => 6.8 */
+        ));
+        //$data = array_merge($data,$comdata);
+        //
+        //var_dump($comdata);die();
+
+        foreach($comdata as $k => $v)
+            $data['data'][$k] = $v;
+
+        foreach ($packages_data as $k => $d) {
+            foreach ($d as $kk => $dd)
+                $data['data'][$kk] = $dd;
+        }
+        $this->load->view('systems/trackworks', $data);
+    }
     public function ringComment(){
         if ($this->input->get()) {
             $data = array(
