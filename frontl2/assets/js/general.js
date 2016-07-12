@@ -12,12 +12,12 @@ $(document).ready(function(){
 			{"vector_track":"v_track_202","vector_status":"2","url":""},
 			{"vector_track":"v_track_203","vector_status":"3","url":""},
 			{"vector_track":"v_track_ug","vector_status":"1","url":""},
-			{"vector_track":"v_track_204","vector_status":"2","url":""},
-			{"vector_track":"v_track_205","vector_status":"3","url":""},
+			{"vector_track":"v_track_204","vector_status":"0","url":""},
+			{"vector_track":"v_track_205","vector_status":"0","url":""},
 			{"vector_track":"v_track_206","vector_status":"0","url":""},
-			{"vector_track":"v_track_207","vector_status":"1","url":""},
-			{"vector_track":"v_track_208","vector_status":"1","url":""},
-			{"vector_track":"v_track_209","vector_status":"1","url":""},
+			{"vector_track":"v_track_207","vector_status":"0","url":""},
+			{"vector_track":"v_track_208","vector_status":"0","url":""},
+			{"vector_track":"v_track_209","vector_status":"0","url":""},
 			{"vector_track":"v_track_210","vector_status":"2","url":""}
 		];
 		for (i = 0; i < json.length; i++) {
@@ -190,8 +190,8 @@ $(document).ready(function(){
 		{"chart_title":"ICSS","chart_name":"Integrated Control Supervisory System & Computerised Maintenance Management System","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
 		{"chart_title":"ET&DE","chart_name":"Electric Train & Depot Equipment","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"/mpxd2/sbk-s-01/index"},
 		{"chart_title":"TW&MV","chart_name":"Trackworks & Maintenance Vehicle / Works Train","chart_id":"db_donut_4","chart_value":"49","set_donut":"2","url":"#"},
-		{"chart_title":"PS&DS","chart_name":"Power Supply & Distribution","chart_id":"db_donut_5","chart_value":"50","set_donut":"2","url":"/mpxd2/sbk-s-05/index"},
-		{"chart_title":"COMMS","chart_name":"Communications, Government Integrated Radio Network & Information Technology System","chart_id":"db_donut_6","chart_value":"85","set_donut":"2","url":"/mpxd2/sbk-s-07/index"},
+		{"chart_title":"PS&DS","chart_name":"Power Supply & Distribution System","chart_id":"db_donut_5","chart_value":"50","set_donut":"2","url":"#"},
+		{"chart_title":"COMMS","chart_name":"Communications, GIRN & IDS","chart_id":"db_donut_6","chart_value":"85","set_donut":"2","url":"/mpxd2/sbk-s-07/index"},
 		{"chart_title":"AFC","chart_name":"Automatic Fare Collection","chart_id":"db_donut_7","chart_value":"17","set_donut":"2","url":"#"}
 	];
 	

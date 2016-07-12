@@ -322,7 +322,7 @@ float - plate_gis and stats
 #pl_mspr span.set12 {top: 47.5%; left: 65.9%;}
 #pl_mspr span.set13 {top: 70.0%; left: 70.2%;}
 #pl_mspr span.set14 {top: 91.0%; left: 78.2%;}
-#pl_mspr span.set15 {top: 83.0%; left: 85.7%;}
+#pl_mspr span.set15 {top: 85.8%; left: 85.5%;}
 
 /*	pl_station
 */
@@ -374,7 +374,7 @@ float - plate_gis and stats
 #pl_station span.set35 {top: 86.3%; right: 26.2%;}
 #pl_station span.set36 {top: 80.2%; right: 18.2%;}
 #pl_station span.set37 {top: 89.8%; left: 82.0%;}
-#pl_station span.set38 {top: 87.1%; left: 84.6%;}
+#pl_station span.set38 {top: 82.0%; left: 85.5%;}
 
 /*	pl_depot
 */
@@ -459,7 +459,7 @@ float - system donut
 #donut_plate {
 	position: absolute;
 	bottom: 1%;
-	left: 18.7%;
+	left: 23.0%;
 	width: 420px;
 	/*height: 400px;*/
 }
@@ -482,7 +482,7 @@ svg.svg_donut_system {
 }
 
 div#donut_plate > div.dp_top {
-	margin-left: 87px;
+	margin-left: 30px;
 	width: 190px;
 	height: 130px;
 }

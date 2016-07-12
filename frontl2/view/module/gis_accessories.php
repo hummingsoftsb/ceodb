@@ -23,7 +23,7 @@
 			<span class="set2">Project Spend To Date</span>
 			<span class="set3">Awarded Package</span>
 			<span class="set4">PDP Reimbursables</span>
-			<span class="set5">WPCS Payment</span>
+			<span class="set5">WPCs Payment</span>
 			<span class="set6">Retention Sum</span>
 			<span class="set7">Variation Orders</span>
 			<span class="set8">Contigency Sum</span>
@@ -88,9 +88,9 @@
 		</div>
 		<div id="pl_station">
 			<span class="set1">Sg. Buloh</span>
-			<span class="set2">Damansara Damai</span>
-			<span class="set3">Sri Damansara West</span>
-			<span class="set4">Sri Damansara East</span>
+			<span class="set2">D'sara Damai</span>
+			<span class="set3">Sri D'sara West</span>
+			<span class="set4">Sri D'sara East</span>
 			<span class="set5">Kepong Sentral</span>
 			<span class="set6">Metro Prima</span>
 			<span class="set7">Kepong Baru</span>

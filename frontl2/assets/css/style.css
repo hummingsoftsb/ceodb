@@ -77,8 +77,13 @@ div.logo_holder div.logo {
 	display: inline-block;
 }
 div.logo_holder div.logo img {
-	height: 20px;
 	padding: 0 5px;
+}
+div.logo_holder div.logo:first-child img {
+	height: 20px;
+}
+div.logo_holder div.logo:last-child img {
+	height: 30px;
 }
 
 .header_bottom {
