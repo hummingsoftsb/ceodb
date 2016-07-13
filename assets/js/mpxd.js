@@ -38,6 +38,7 @@ mpxd.templateURLs = {
     "it_cs_stations":{"templateURL": "assets/templates/install_test_com_status.html"},
     "trip_cable_progress":{"templateURL": "assets/templates/trip_cable_progress.html"},
     "region_progress": {"templateURL": "assets/templates/region_progress.html"},
+    "overall_progress": {"templateURL": "assets/templates/overall_progress.html"},
     "kad": {"templateURL": "assets/templates/kad.html"},
     "kad2": {"templateURL": "assets/templates/kad2.html"},
     "slider": {"templateURL": "assets/templates/slider.html"},
