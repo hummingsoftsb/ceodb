@@ -37,6 +37,7 @@ mpxd.templateURLs = {
 	"kpi_system": {"templateURL": "assets/templates/kpi_system.html"},
     "it_cs_stations":{"templateURL": "assets/templates/install_test_com_status.html"},
     "trip_cable_progress":{"templateURL": "assets/templates/trip_cable_progress.html"},
+    "region_progress": {"templateURL": "assets/templates/region_progress.html"},
     "kad": {"templateURL": "assets/templates/kad.html"},
     "kad2": {"templateURL": "assets/templates/kad2.html"},
     "slider": {"templateURL": "assets/templates/slider.html"},
@@ -87,6 +88,7 @@ mpxd.templateURLs = {
 	"le": {"templateURL": "assets/templates/le.html"},
 	"delivery": {"templateURL": "assets/templates/sys_delivery.html"},
 	"prognosis": {"templateURL": "assets/templates/prognosis.html"}
+
 }
 
 mpxd.templateData = {};

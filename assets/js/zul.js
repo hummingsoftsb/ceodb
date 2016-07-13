@@ -1408,7 +1408,9 @@ mpxd.constructors.it_cs_stations = function(data) {
 mpxd.constructors.trip_cable_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
-
+mpxd.constructors.region_progress = function(data) {
+    mpxd.modules.general.GenerateGeneralview(data);
+}
 mpxd.constructors.schematic = function(data) {
     //console.log(data);
     mpxd.modules.general.GenerateGeneralview(data);
