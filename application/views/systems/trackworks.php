@@ -424,6 +424,9 @@
             #project_progress_container strong i {
                 font-size: 17px;
             }
+            .fim-dropdown > .inner {
+                width:440px;
+            }
 		</style>
 		<script>
 			//alert(window.orientation);

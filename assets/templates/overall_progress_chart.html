@@ -1,0 +1,15 @@
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+	<!--h2>Header h2</h2-->
+	<!--<div class="progress-chart-1" style="width:33.333333%; float:left"></div>-->
+	<div class="progress-chart-2" style="width:100%; float:left"></div>
+	<div class="progress-chart-3" style="width:100%; float:left"></div>
+</div>
