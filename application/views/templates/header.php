@@ -158,6 +158,7 @@
         <!--<script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/tunnel.js></script>-->
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/ilyas.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/zul.js></script>
+        <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/_sn.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/tinybox.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/d3.js></script>

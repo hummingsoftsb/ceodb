@@ -3446,7 +3446,6 @@ for (var i = 0; i < pages.length; i++) {
     pages_lookup_id[pages[i].id] = pages[i];
     pages_lookup_url[pages[i].url] = pages[i];
 }
-console.log(pages_lookup_url);
 function generateBreadcrumbs(id) {
     if (typeof pages_lookup_id[id] == "undefined") {
         console.log("Unable to find page from breadcrumbs!");
