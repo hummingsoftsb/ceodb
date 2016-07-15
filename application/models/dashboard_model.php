@@ -1224,6 +1224,16 @@ public function getOverallProgress($data_date){
         $result = $query->result_array();
         return $result;
     }
+    //Author : Sebin Thomas
+    //Usage : Page Name using slug id.
+    //Created on : 15/07/2016
+    public function get_page($slug_id)
+    {
+        $sql = "select \"page\" from \"pages\" where \"item_id\" = '$slug_id'";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
     //Author : Sebin Thomas, Ancy Mathew
     //Usage : Retrives PSDS testing and Commission reports based on and latest date
     //Created on : 20/06/2016

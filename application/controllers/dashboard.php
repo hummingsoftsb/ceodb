@@ -325,6 +325,44 @@ class Dashboard extends CI_Controller {
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                    case "sbk-s-06":
+                        $page_name= $this->dashboard_model->get_page($itemID);
+                        switch($page_name[0]['page']){
+                            case "index":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "north":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "ug":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "south":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd8":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd9":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd9a":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd10":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd11":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd11a":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd12n":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd12u":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd12s":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd13":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd14":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd15":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                            case "kd16":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        }
                     default:
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                 }
