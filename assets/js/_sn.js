@@ -47,27 +47,10 @@ mpxd.modules.tw_progress_chart.overall_progress = Backbone.View.extend({
                 text: ''
             },
             subtitle: {
-                text: 'Overall '+that.data.data[0].data['sbk-s-06']['progress'][0][0]
+                text: 'Overall '+that.data.data[1].data['region']
             },
             xAxis: {
-                categories: that.data.data[0].data['sbk-s-06']['progress'][0][1],
-                //categories: [
-                //    'Track Survey',
-                //    'Surface Preparation',
-                //    'Long Rail..',
-                //    'Rail & Sleeper..',
-                //    'Rebar & Form..',
-                //    'Concreting',
-                //    'Derailment Wall',
-                //    'Welding..',
-                //    'Rail Alignment',
-                //    'PR Bracket..',
-                //    'PR Install/Align',
-                //    'PR Cover..',
-                //    'Emergency..',
-                //    'Cable Through &..',
-                //    'Commissioning'
-                //],
+                categories: that.data.data[1].data['category'],
                 crosshair: true,
                 labels: {
                     rotation: -45
@@ -102,11 +85,11 @@ mpxd.modules.tw_progress_chart.overall_progress = Backbone.View.extend({
             },
             series: [{
                 name: 'Planned',
-                data: that.data.data[0].data['sbk-s-06']['progress'][0][2]
+                data: that.data.data[1].data['planned']
 
             }, {
                 name: 'Actual',
-                data: that.data.data[0].data['sbk-s-06']['progress'][0][3]
+                data: that.data.data[1].data['actual']
             }]
         });
     }

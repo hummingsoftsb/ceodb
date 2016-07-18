@@ -48,127 +48,17 @@
     </tr>
 	</thead>
         <tbody>
-        <%if(data.data[0].data['sbk-s-06']['progress'][0][0]=="North"){%>
+        <%_.each(data.data[2].data, function(i) {%>
             <tr>
-                <td><a href="kd8">KD8</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
+                <td><a href="<%=i['kd_url']%>"><%=i['kd']%></a></td>
+                <td><%=i['plan']%></td>
+                <td><%=i['actual']%></td>
+                <td><%=i['precent']%></td>
+                <td><%=i['weeks']%></td>
                 <td><i class="fa fa-chevron-down"></i></td>
                 <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
             </tr>
-            <tr>
-                <td><a href="kd9">KD9</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd9a">KD9a</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd10">KD10</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd11">KD11</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd11a">KD11a</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd12n">KD12</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-        <%}else if(data.data[0].data['sbk-s-06']['progress'][0][0]=="Underground"){%>
-            <tr>
-                <td><a href="kd12u">KD12</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-        <%}else if(data.data[0].data['sbk-s-06']['progress'][0][0]=="South"){%>
-            <tr>
-                <td><a href="kd12s">KD12</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd13">KD13</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd14">KD14</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd15">KD15</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-            <tr>
-                <td><a href="kd16">KD16</a></td>
-                <td>100.0</td>
-                <td>100.0</td>
-                <td>0</td>
-                <td>0</td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
-        <%}%>
+        <% })%>
         </tbody>
     <!--<div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>-->
         <!--<i class="fa fa-circle" style="color:#efe24b"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>-->

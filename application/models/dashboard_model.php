@@ -1234,6 +1234,9 @@ public function getOverallProgress($data_date){
         $result = $query->result_array();
         return $result;
     }
+
+    //PS&DS CODE Starts Here//
+
     //Author : Sebin Thomas, Ancy Mathew
     //Usage : Retrives PSDS testing and Commission reports based on and latest date
     //Created on : 20/06/2016
@@ -1367,9 +1370,115 @@ public function getOverallProgress($data_date){
         }
         return $status_ps;
     }
+    //TRACK WORKS CODE Starts Here//
 
+    //    Author: SEBIN THOMAS
+    //    Usage : NORTH, SOUTH, and UG Overall Summary
+    //    Created: 15/07/2016
+    public function get_tw_overall_summary($page,$date = FALSE){
+        $i=0;$a=array();
+        $overall=array(
+            "value"=>array()
+        );
+        if($date) {
+            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+        }else {
+            //~* is used in the query to check caseless(Upper/Lower)
+            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
+        }
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        foreach($result as $val){
+            $a[$i]=array(
+                "kd"=>$val['kd_number'],
+                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($page)=='north'? "kd12n" :(strtolower($page)=='ug'? "kd12u" :(strtolower($page)=='south'? "kd12s":"#"))),
+                "plan"=>$val['tp_plan'],
+                "actual"=>$val['tp_actual'],
+                "precent"=>$val['tp_variance_precent'],
+                "weeks"=>$val['tp_variance_weeks']
+            );
+            $i++;
+        }
+        $overall['value']=json_encode($a);
+        return $overall;
+    }
+    public function get_tw_overall_progress($page,$date = FALSE,$filter){
+        $i=0;$a=array();
+        $overall=array();
+        if($filter) {
+            if ($date) {
+                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+            } else {
+                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' group by \"data_date\" order by \"data_date\" desc limit 1";
+            }
+        }else{
+            if ($date) {
+                if($page=="kd12n") {
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' and \"data_date\"='$date'";
+                }else if($page=="kd12u"){
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') and \"data_date\"='$date'";
+                }else if($page=="kd12s"){
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' and \"data_date\"='$date'";
+                }else{
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' and \"data_date\"='$date'";
+                }
+            } else {
+                if($page=="kd12n") {
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' order by \"data_date\" desc limit 1";
+                }else if($page=="kd12u"){
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') order by \"data_date\" desc limit 1";
+                }else if($page=="kd12s"){
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' order by \"data_date\" desc limit 1";
+                }else{
+                    $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' order by \"data_date\" desc limit 1";
+                }
+            }
+        }
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $a['region'] = $page;
+        $a["category"] = array('Track Survey', 'Surface Preparation', 'Long Rail..', 'Rail & Sleeper..', 'Rebar & Form..', 'Concreting', 'Derailment Wall', 'Welding..', 'Rail Alignment', 'PR Bracket..', 'PR Install/Align', 'PR Cover..', 'Emergency..', 'Cable Through &..', 'Commissioning');
+            foreach ($result as $val) {
+                $a["planned"] = array_map('intval', array($val['ts_plan'], $val['sp_plan'], $val['lrd_plan'], $val['rsa_plan'], $val['rfs_plan'], $val['con_plan'], $val['dw_plan'], $val['wd_plan'], $val['ra_plan'], $val['prbi_plan'], $val['pria_plan'], $val['prci_plan'], $val['ew_plan'], $val['ctc_plan'], $val['comm_plan']));
+                $a["actual"] = array_map('intval', array($val['ts_actual'], $val['sp_actual'], $val['lrd_actual'], $val['rsa_actual'], $val['rfs_actual'], $val['con_actual'], $val['dw_actual'], $val['wd_actual'], $val['ra_actual'], $val['prbi_actual'], $val['pria_actual'], $val['prci_actual'], $val['ew_actual'], $val['ctc_actual'], $val['comm_actual']));
+            }
+        if(!$filter) {
+            foreach ($result as $val) {
+                $a["summary"]=array('ts_plan'=>$val['ts_plan'],'ts_actual'=>$val['ts_actual'],'sp_plan'=>$val['sp_plan'],'sp_actual'=>$val['sp_actual'],'lrd_plan'=> $val['lrd_plan'],'lrd_actual'=> $val['lrd_actual'],'rsa_plan'=> $val['rsa_plan'],'rsa_actual'=> $val['rsa_actual'],'rfs_plan'=> $val['rfs_plan'],'rfs_actual'=> $val['rfs_actual'],'con_plan'=> $val['con_plan'],'con_actual'=> $val['con_actual'],'dw_plan'=> $val['dw_plan'],'dw_actual'=> $val['dw_actual'],'wd_plan'=> $val['wd_plan'],'wd_actual'=> $val['wd_actual'],'ra_plan'=> $val['ra_plan'],'ra_actual'=> $val['ra_actual'],'prbi_plan'=> $val['prbi_plan'],'prbi_actual'=> $val['prbi_actual'],'pria_plan'=> $val['pria_plan'],'pria_actual'=> $val['pria_actual'],'prci_plan'=> $val['prci_plan'],'prci_actual'=> $val['prci_actual'],'ew_plan'=> $val['ew_plan'],'ew_actual'=> $val['ew_actual'],'ctc_plan'=> $val['ctc_plan'],'ctc_actual'=> $val['ctc_actual'],'comm_plan'=> $val['comm_plan'],'comm_actual'=> $val['comm_actual'],'tp_plan'=> $val['tp_plan'],'tp_actual'=> $val['tp_actual'],'tp_variance_precent'=> $val['tp_variance_precent'],'tp_variance_weeks'=> $val['tp_variance_weeks']);
+            }
+        }
+        $overall['value']=json_encode($a);
+        return $overall;
+    }
+    //Done by :Jane Elizabeth Jose
+    //to retrieve track works region data
+    //Created on : 15/07/2016
+    public function get_tw_region_data($date = FALSE){
+        $i=0;
+        $tem_array=array();
+        $region_progress=array(
+            "value"=>array()
+        );
 
-
-
-
+        if ($date) { // if date selected
+            $query = "SELECT * FROM tbl_tw_region_progress WHERE data_data=$date";
+        } else {
+            $query = "SELECT * FROM tbl_tw_region_progress";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach($result as $val){
+            $tem_array[$i]=array(
+                "region"=>$val['region'],
+                "region_url"=> (strtolower($val['region'])=='south')?'south':(strtolower($val['region'])=='north'?'north' :((strtolower($val['region'])=='ugw'?'ug':(strtolower($val['region'])=='ug'?'ug':(strtolower($val['region'])=='underground'?'ug':'ug'))))),
+                "plan" =>$val['plan'],
+                "actual" => $val['actual'],
+                "week_difference" => $val['week_difference'],
+                "data_date" => $val['data_date']
+            );
+            $i++;
+        }
+        $region_progress['value']=json_encode($tem_array);
+        return $region_progress;
+    }
 }
