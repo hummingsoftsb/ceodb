@@ -34,7 +34,13 @@
 	<table class="table table-bordered table-condensed table-hover overall_progress" style="">
 	<thead>
     <tr>
-        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">North Chainage</th>
+        <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;"><% if(data.data[1].data['region'] == 'north'){ %>
+            North
+            <% } else if(data.data[1].data['region'] == 'south'){ %>
+            South
+            <% } else if(data.data[1].data['region'] == 'ug'){%>
+            UG
+            <% } %> Chainage</th>
         <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Total Progress S-Curve</th>
         <th colspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Variance</th>
         <th rowspan="2" class="color-beige" style="text-align: center; vertical-align: middle;">Trend</th>
