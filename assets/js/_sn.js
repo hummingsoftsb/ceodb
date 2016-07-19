@@ -221,10 +221,10 @@ mpxd.modules.track_works.station_list = Backbone.View.extend({
         ];
 
         /*status color*/
-        tw_elem_status_0 = '#889';
-        tw_elem_status_1 = '#9c3';
-        tw_elem_status_2 = '#f70';
-        tw_elem_status_3 = '#f05';
+        tw_elem_status_0 = '#2b908f';
+        tw_elem_status_1 = '#2b908f';
+        tw_elem_status_2 = '#2b908f';
+        tw_elem_status_3 = '#2b908f';
 
         /*alignment*/
         tw_elem_n_station_cube = '37%';

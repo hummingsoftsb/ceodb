@@ -4,7 +4,8 @@
     div#south_station_group {
         margin: 5px;
         padding: 5px 20px;
-        color: rgb(224, 224, 227);
+        color: rgb(255, 212, 97);
+        font-weight: 600;
     }
     span.sg_title {
         display: block;
@@ -77,6 +78,7 @@
         width: 40px;
         height: 12px;
         border:2px dotted #282828;
+        border-radius: 3px;
     }
 
     /*station_line*/
@@ -94,6 +96,7 @@
         top: 59px;
         height: 25px;
         width: 10%;
+        border-radius: 10px;
     }
     .sg_bar_b_s {
         position: absolute;
@@ -102,6 +105,7 @@
         top: 59px;
         height: 25px;
         width: 10%;
+        border-radius: 10px;
     }
 
     /*depot*/
@@ -139,7 +143,8 @@
         text-align: center;
         width: 40px;
         height: 12px;
-        border:3px dashed #fff;
+        border: 3px dashed rgb(158, 246, 245);
+        border-radius: 5px;
     }
 </style>
 <div class="header bg-dot30 excel-normal">
@@ -151,7 +156,6 @@
 	<% } %>
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
- <% console.log(data.data[1].data['region']); %>
 <div class="content" style="background: none;/*#1d2a34*/">
     <div id="content" class="col-md-12">
     <div class="row train_plate">
