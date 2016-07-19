@@ -15,7 +15,7 @@ $(document).ready(function(){
 	$(window).on("load resize",function(){
 		$(".fim-dropdown > .inner").each(function(){
 			var src = $(this).parent().children("a");
-			// Position
+			// Position of the popup
 			var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
 			if (left + $(this).outerWidth() > $(window).width()) {
 				left = $(window).width() - $(this).outerWidth();
