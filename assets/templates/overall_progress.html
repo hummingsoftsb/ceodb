@@ -55,15 +55,20 @@
 	</thead>
         <tbody>
         <%_.each(data.data[2].data, function(i) {%>
-            <tr>
-                <td><a href="<%=i['kd_url']%>"><%=i['kd']%></a></td>
-                <td><%=i['plan']%></td>
-                <td><%=i['actual']%></td>
-                <td><%=i['precent']%></td>
-                <td><%=i['weeks']%></td>
-                <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
-            </tr>
+        <tr>
+            <td><a href="<%=i['kd_url']%>"><%=i['kd']%></a></td>
+            <td><%=i['plan']%></td>
+            <td><%=i['actual']%></td>
+            <td><%=i['precent']%></td>
+            <td><%=i['weeks']%></td>
+            <% if ((i['precent']>=0) || (i['precent']>=0.00)) { %>
+            <td><i class="fa fa-chevron-up"></i></td>
+            <td><i class="fa fa-circle" style="color:#9edd2e"></i></td>
+            <% }else if (i['precent']<0 || (i['precent']<0.00)){ %>
+            <td><i class="fa fa-chevron-down"></i></td>
+            <td><i class="fa fa-circle" style="color:#ff0000"></i></td>
+            <% } %>
+        </tr>
         <% })%>
         </tbody>
     <!--<div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>-->
