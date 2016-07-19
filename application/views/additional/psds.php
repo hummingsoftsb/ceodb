@@ -710,7 +710,7 @@
 			
 		</nav>
 	<div id="container" style="position:relative; margin:auto;">	
-	<div id="navbarcontainer" style="position:absolute; top:65px; z-index:100; width:1280px;">
+	<div id="navbarcontainer" style="position:absolute; top:65px; z-index:98; width:1280px;">
 		<div style="position:relative">
 			<!-- <ul class="nav">
 				<li><a href="#" class=""><i class="icon-wrench"></i></a></li>

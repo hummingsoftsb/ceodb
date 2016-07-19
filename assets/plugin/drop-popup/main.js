@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$(".fim-dropdown > a").click(function(){
+        $('#navbarcontainer').css({'z-index': 100});
 		$(".fim-dropdown").not($(this).parent()[0]).removeClass('active');
 
 		$(this).parent().toggleClass('active');
@@ -7,6 +8,7 @@ $(document).ready(function(){
 	});
 
 	$(document).click(function(e){
+        $('#navbarcontainer').css({'z-index': 98});
 		that = e.target;
 		if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown")) $(".fim-dropdown").removeClass('active');
 	});

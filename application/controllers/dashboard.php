@@ -295,57 +295,67 @@ class Dashboard extends CI_Controller {
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r2":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r3":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r4":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r5":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r6":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1),$date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                     case "r7":
                         $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
                         $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
-//                    case "sbk-s-06":
-//                        $page_name= $this->dashboard_model->get_page($itemID);
-//                        switch($page_name[0]['page']){
-//                            case "index":
-//                                $rdata = $this->dashboard_model->get_tw_region_data($date);
-//                                array_push($data_source,$rdata);
-//                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
-//                            case "north": case "ug": case "south":
-//                                $tdata=$this->dashboard_model->get_tw_overall_summary($page_name[0]['page'], $date, true);
-//                                $cdata=$this->dashboard_model->get_tw_overall_progress($page_name[0]['page'], $date, true);
-//                                array_push($data_source,$cdata,$tdata);
-//                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
-//                                break;
-//                            case "kd8": case "kd9": case "kd9a": case "kd10": case "kd11": case "kd11a": case "kd12n":  case "kd12u": case "kd12s": case "kd13": case "kd14": case "kd15": case "kd16":
-//                                $cdata=$this->dashboard_model->get_tw_overall_progress($page_name[0]['page'], $date, false);
-//                                array_push($data_source,$cdata);
-//                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
-//                                break;
-//                        }
+                        break;
+                    case "sbk-s-06":
+                        $page_name= $this->dashboard_model->get_page($itemID);
+                        switch($page_name[0]['page']){
+                            case "index":
+                                $rdata = $this->dashboard_model->get_tw_region_data($date);
+                                array_push($data_source,$rdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                            case "north": case "ug": case "south":
+                                $tdata=$this->dashboard_model->get_tw_overall_summary($page_name[0]['page'], $date, true);
+                                $cdata=$this->dashboard_model->get_tw_overall_progress($page_name[0]['page'], $date, true);
+                                array_push($data_source,$cdata,$tdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                            case "kd8": case "kd9": case "kd9a": case "kd10": case "kd11": case "kd11a": case "kd12n":  case "kd12u": case "kd12s": case "kd13": case "kd14": case "kd15": case "kd16":
+                                $cdata=$this->dashboard_model->get_tw_overall_progress($page_name[0]['page'], $date, false);
+                                array_push($data_source,$cdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                        }
+                        break;
                     default:
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                        break;
                 }
                 //Ends Here....
                 //var_dump($data);

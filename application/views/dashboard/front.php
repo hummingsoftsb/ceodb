@@ -715,8 +715,8 @@
 		<a title="Platform Screen Door" href="<?php echo $this->config->base_url(); ?>sbk-s-04/index" style="position: absolute; top: 492px; left: 708px; height: 52px; width: 45px;"></a>
 <!--		<a title="Power Supply and Distribution System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-05/index" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>-->
         <a title="Power Supply and Distribution System" href="<?php echo $this->config->base_url(); ?>sbk-s-05/home" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>
-<!--		<a title="Trackworks" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-06/home" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>-->
-        <a title="Trackworks" href="#" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>
+		<a title="Trackworks" href="<?php echo $this->config->base_url(); ?>sbk-s-06/home" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>
+<!--        <a title="Trackworks" href="#" style="position: absolute; top: 492px; left: 810px; height: 52px; width: 45px;"></a>-->
 		<a title="Telecommunication System" href="<?php echo $this->config->base_url(); ?>sbk-s-07/index" style="position: absolute; top: 556px; left: 504px; height: 55px; width: 45px;"></a>
 		<a title="Facility SCADA" href="<?php echo $this->config->base_url(); ?>sbk-s-08/index" style="position: absolute; top: 556px; left: 555px; height: 55px; width: 45px;"></a>
 		<a title="Automatic Fare Collection System" href="<?php echo $this->config->base_url(); ?>sbk-s-09/index" style="position: absolute; top: 556px; left: 606px; height: 55px; width: 45px;"></a>
