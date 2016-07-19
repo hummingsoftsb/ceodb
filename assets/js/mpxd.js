@@ -41,6 +41,7 @@ mpxd.templateURLs = {
     "overall_progress": {"templateURL": "assets/templates/overall_progress.html"},
     "chainage_progress": {"templateURL": "assets/templates/chainage_progress.html"},
     "overall_progress_chart": {"templateURL": "assets/templates/overall_progress_chart.html"},
+    "station_tracklist": {"templateURL": "assets/templates/station_tracklist.html"},
     "kad": {"templateURL": "assets/templates/kad.html"},
     "kad2": {"templateURL": "assets/templates/kad2.html"},
     "slider": {"templateURL": "assets/templates/slider.html"},

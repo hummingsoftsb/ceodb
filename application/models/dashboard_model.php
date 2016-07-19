@@ -338,9 +338,7 @@ class Dashboard_model extends CI_Model
         }
 
     */
-    public function get_date_list($slug)
-    {
-
+    public function get_date_list($slug){
         $this->db->select("to_char(data_sources.date, 'DD-Mon-YY') as date", FALSE); //Postgres
         //$this->db->select("DATE_FORMAT(data_sources.date, '%d-%b-%y') as date", FALSE); //MYSQL
         $this->db->from('data_sources');
@@ -1402,34 +1400,37 @@ public function getOverallProgress($data_date){
         $overall['value']=json_encode($a);
         return $overall;
     }
+    //    Author: SEBIN THOMAS
+    //    Usage : NORTH, SOUTH, and UG Overall Progress, Individual Summary of KD9 - KD16
+    //    Created: 18/07/2016
     public function get_tw_overall_progress($page,$date = FALSE,$filter){
         $i=0;$a=array();
         $overall=array();
-        if($filter) {
+        if($filter){
             if ($date) {
                 $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
             } else {
                 $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' group by \"data_date\" order by \"data_date\" desc limit 1";
             }
-        }else{
+        } else {
             if ($date) {
                 if($page=="kd12n") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' and \"data_date\"='$date'";
-                }else if($page=="kd12u"){
+                } else if ($page=="kd12u"){
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') and \"data_date\"='$date'";
-                }else if($page=="kd12s"){
+                } else if ($page=="kd12s"){
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' and \"data_date\"='$date'";
-                }else{
+                } else {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' and \"data_date\"='$date'";
                 }
             } else {
                 if($page=="kd12n") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' order by \"data_date\" desc limit 1";
-                }else if($page=="kd12u"){
+                } else if ($page=="kd12u"){
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') order by \"data_date\" desc limit 1";
-                }else if($page=="kd12s"){
+                } else if ($page=="kd12s"){
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' order by \"data_date\" desc limit 1";
-                }else{
+                } else {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' order by \"data_date\" desc limit 1";
                 }
             }

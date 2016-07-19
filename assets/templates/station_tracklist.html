@@ -1,0 +1,189 @@
+<style>
+    div#north_station_group,
+    div#underground_station_group,
+    div#south_station_group {
+        margin: 5px;
+        padding: 5px 20px;
+        color: rgb(224, 224, 227);
+    }
+    span.sg_title {
+        display: block;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #fff;
+        padding: 5px 10px 0 10px;
+    }
+
+    div#north_station_group {
+        height: 180px;
+    }
+    div#underground_station_group {
+        overflow: hidden;
+        height: 150px;
+    }
+    #usg_station {
+        /*margin-left: 20.7%;*/
+    }
+    #nsg_station_bar,
+    #ssg_station_bar {
+    }
+    #usg_station_bar {
+        /*margin-left: 20.7%;*/
+    }
+    div#south_station_group {
+        height: 180px;
+    }
+
+
+    .sg_a > div,
+    .sg_bar_a > div,
+    .sg_b > div,
+    .sg_bar_b > div {
+        margin: 0 auto;
+    }
+
+    .sg_a {
+        padding: 10px 15px 0 15px;
+    }
+    .sg_bar_a {
+    }
+    .sg_bar_b {
+    }
+    .sg_b {
+        padding: 0 10px 10px 10px;
+    }
+
+    div.sg_a > div {
+        height: 60px;
+        padding: 0 !important;
+    }
+
+    /*station*/
+    span.sg_a_title {
+        position: absolute;
+        width: 100%;
+        display: block;
+        bottom: 3px;
+        padding: 5px 10px;
+        text-align: center;
+    }
+    span.sg_a_station {
+        z-index: 10;
+        position: absolute;
+        display: block;
+        bottom: -9px;
+        text-align: center;
+        background: #09f;
+        width: 40px;
+        height: 12px;
+        border:2px dotted #282828;
+    }
+
+    /*station_line*/
+
+    div.tw_elem_status_L,
+    div.tw_elem_status_R {
+        padding: 0 10px;
+    }
+
+    .sg_bar_b_n {
+        position: absolute;
+        /*left: 7.3%;*/
+        left: 7.2%;
+        /*top: 0px;*/
+        top: 59px;
+        height: 25px;
+        width: 10%;
+    }
+    .sg_bar_b_s {
+        position: absolute;
+        left: 74.5%;
+        /*top: 0px;*/
+        top: 59px;
+        height: 25px;
+        width: 10%;
+    }
+
+    /*depot*/
+    div.sg_b_depot_plate_n {
+        position: absolute;
+        left: 6%;
+        top: 23px;
+    }
+    div.sg_b_depot_plate_s {
+        position: absolute;
+        left: 83%;
+        top: 23px;
+    }
+
+    span.sg_b_title_n,
+    span.sg_b_title_s {
+        position: absolute;
+        display: block;
+        width: 100px;
+        padding: 10px;
+    }
+    span.sg_b_title_n {
+        left: -27px;
+        top: 59px;
+    }
+    span.sg_b_title_s {
+        left: -10px;
+        top: 55px;
+    }
+    span.sg_b_depot {
+        position: absolute;
+        display: block;
+        /*top: -7px;*/
+        top: 52px;
+        text-align: center;
+        width: 40px;
+        height: 12px;
+        border:3px dashed #fff;
+    }
+</style>
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+	<% if (typeof(data.data[0].date) !== "undefined") { %>
+		<h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+	<% } else {%>
+		<h2><%=data.title%></h2>
+	<% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+ <% console.log(data.data[1].data['region']); %>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <div id="content" class="col-md-12">
+    <div class="row train_plate">
+        <div class="col-md-12">
+            <% if(data.data[1].data['region']=='north'){%>
+            <!-- North Track Works -->
+            <div id="north_station_group" class="row">
+                <div id="nsg_station" class="col-xs-12 col-sm-12 col-md-12 sg_a"></div>
+                <div id="nsg_station_bar" class="col-xs-12 col-sm-12 col-md-12 sg_bar_a"></div>
+                <div id="nsg_depot_bar" class="col-xs-12 col-sm-12 col-md-12 sg_bar_b"></div>
+                <div id="nsg_depot" class="col-xs-12 col-sm-12 col-md-12 sg_b"></div>
+            </div>
+            <!-- -- -- -- -- -->
+            <%}else if(data.data[1].data['region']=='ug'){%>
+            <!-- Underground Track Works -->
+            <div id="underground_station_group" class="row">
+                <div id="usg_station" class="col-xs-12 col-sm-12 col-md-12 sg_a"></div>
+                <div id="usg_station_bar" class="col-xs-12 col-sm-12 col-md-12 sg_bar_a"></div>
+            </div>
+            <!-- -- -- -- -- -->
+            <%}else if(data.data[1].data['region']=='south'){%>
+            <!-- South Track Works -->
+
+            <div id="south_station_group" class="row">
+                <div id="ssg_station" class="col-xs-12 col-sm-12 col-md-12 sg_a"></div>
+                <div id="ssg_station_bar" class="col-xs-12 col-sm-12 col-md-12 sg_bar_a"></div>
+                <div id="ssg_depot_bar" class="col-xs-12 col-sm-12 col-md-12 sg_bar_b"></div>
+                <div id="ssg_depot" class="col-xs-12 col-sm-12 col-md-12 sg_b"></div>
+            </div>
+            <!-- -- -- -- -- -->
+            <%}%>
+        </div>
+    </div>
+    </div>
+</div>
