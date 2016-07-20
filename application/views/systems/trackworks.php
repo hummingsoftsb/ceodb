@@ -932,37 +932,37 @@
 	
 	<div style="position:absolute; z-index:2; top: 452px; left: 10px;">
 <!--		<a href="--><?php //echo $this->config->base_url(); ?><!--r1/index" class="pkg_title">KD8</a>-->
-        <a href="#" class="pkg_title">KD8</a>
+        <a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd8" class="pkg_title">KD8</a>
 	</div>	
 	<div style="position:absolute; z-index:2; top: 520px;left: 29px;">
-		<a href="#" class="pkg_title">KD9A</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd9a" class="pkg_title">KD9A</a>
 	</div>
 	<div style="position:absolute; z-index:2; top: 610px;left: 85px;">
-		<a href="#" class="pkg_title">KD9</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd9" class="pkg_title">KD9</a>
 	</div>
 	<div style="position: absolute; z-index: 2; top: 610px; left: 230px;">
-		<a href="#" class="pkg_title">KD10</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd10" class="pkg_title">KD10</a>
 	</div>	
 	<div style="position: absolute; z-index: 2; top: 520px; left: 435px;">
-		<a href="#" class="pkg_title">KD11</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd11" class="pkg_title">KD11</a>
 	</div>
 	<div style="position: absolute; z-index: 2; top: 400px; left: 530px;">
-		<a href="#" class="pkg_title">KD11A</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd11a" class="pkg_title">KD11A</a>
 	</div>
 	<div style="position: absolute; z-index: 2; top: 306px; left: 605px;">
-		<a href="#" class="pkg_title">KD12</a>
+		<a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd12n" class="pkg_title">KD12</a>
 	</div>
     <div style="position: absolute; z-index: 2; top: 364px; left: 735px;">
-        <a href="#" class="pkg_title">KD13</a>
+        <a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd13" class="pkg_title">KD13</a>
     </div>
     <div style="position: absolute; z-index: 2; top: 420px; left: 884px;">
-        <a href="#" class="pkg_title">KD14</a>
+        <a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd14" class="pkg_title">KD14</a>
     </div>
     <div style="position: absolute; z-index: 2; top: 522px; left: 1054px;">
-        <a href="#" class="pkg_title">KD15</a>
+        <a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd15" class="pkg_title">KD15</a>
     </div>
     <div style="position: absolute; z-index: 2; top: 585px; left: 1202px;">
-        <a href="#" class="pkg_title">KD16</a>
+        <a href="<?php echo $this->config->base_url(); ?>sbk-s-06/kd16" class="pkg_title">KD16</a>
     </div>
 	<!-- <div style="position:absolute; z-index:2; top: 608px;left: 503px;">
 		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
