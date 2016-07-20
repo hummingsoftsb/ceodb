@@ -186,8 +186,8 @@ $(document).ready(function(){
 	
 	var json = [ 
 		{"chart_title":"System Overall","chart_name":"","chart_id":"db_donut_0","chart_value":"80","set_donut":"1","url":"#"},
-		{"chart_title":"S&TC/PSD/APG","chart_name":"Signalling & Train Control, Automatic Platform Gate / Platform Screen Door","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index"},
-		{"chart_title":"ICSS&CMMS","chart_name":"Integrated Control Supervisory System & Computerised Maintenance Management System","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
+		{"chart_title":"S&TC","chart_name":"Signalling & Train Control, Automatic Platform Gate / Platform Screen Door","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index"},
+		{"chart_title":"ICSS","chart_name":"Integrated Control Supervisory System & Computerised Maintenance Management System","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
 		{"chart_title":"ET&DE","chart_name":"Electric Train & Depot Equipment","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"/mpxd2/sbk-s-01/index"},
 		{"chart_title":"TW&MV","chart_name":"Trackworks & Maintenance Vehicle / Works Train","chart_id":"db_donut_4","chart_value":"49","set_donut":"2","url":"#"},
 		{"chart_title":"PS&DS","chart_name":"Power Supply & Distribution System","chart_id":"db_donut_5","chart_value":"50","set_donut":"2","url":"/mpxd2/sbk-s-05/index"},

@@ -460,7 +460,7 @@ float - system donut
 	position: absolute;
 	bottom: 1%;
 	left: 23.0%;
-	width: 420px;
+	width: 500px;
 	/*height: 400px;*/
 }
 	#donut_plate > div#dp_db_donut_5 {
@@ -488,7 +488,7 @@ div#donut_plate > div.dp_top {
 }
 div#donut_plate > div.dp_bottom {
 	display: inline-block;
-	width: 100px;
+	width: 105px;
 	height: 90px;
 }
 	
@@ -508,6 +508,7 @@ div#donut_plate > div.dp_bottom {
 	/*background: rgba(255,255,255,.1);*/
 	/*border-top: 1px solid rgba(255,255,255,.2);*/
 }
+
 
 
 
