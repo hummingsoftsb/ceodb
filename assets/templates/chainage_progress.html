@@ -43,6 +43,11 @@
             </tr>
         </thead>
         <tbody>
+        <% if(typeof data.data[1].data['summary']=='undefined'){%>
+            <tr>
+                <td colspan="6" style="text-align: center; height: 120px; vertical-align: middle">No data to display</td>
+            </tr>
+        <%}else{%>
             <tr>
                 <td><%=data.data[1].data['summary']['tp_plan']%></td>
                 <td><%=data.data[1].data['summary']['tp_actual']%></td>
@@ -56,8 +61,10 @@
                 <td><i class="fa fa-circle" style="color:#ff0000"></i></td>
                 <% } %>
             </tr>
+        <% } %>
         </tbody>
     </table>
+    <% if(typeof data.data[1].data['summary']!='undefined'){%>
     <br>
     <div class="row">
         <div class="col-md-6">
@@ -367,6 +374,7 @@
             </table>
         </div>
     </div>
+    <% } %>
     <!--<div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>-->
         <!--<i class="fa fa-circle" style="color:#efe24b"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>-->
         <!--<i class="fa fa-circle" style="color:#E83737"></i><span style="color: #efefef">&nbsp;Pending&nbsp;&nbsp;</span>-->

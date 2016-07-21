@@ -14,6 +14,7 @@
         <th style="color: #009e8c;text-align: center;">Region</th><th style="color: #FFAF78;text-align: center;">Actual</th><th style="color: #ffd461;text-align: center;">Variance</th>
         </thead>
         <tbody>
+        <% if((Object.keys(data.data[1].data).length)>0){%>
         <%_.each(data.data[1].data, function(i) {%>
         <tr>
             <td style="text-align: center;"><a href="<%=i['region_url']%>"><span style="font-weight: 600;"><%=i['region']%></span></a></td>
@@ -28,7 +29,23 @@
                 <% } %>
             </td>
         </tr>
-        <%})%>
+        <%})}else{%>
+            <tr>
+                <td style="text-align: center;"><a href="north"><span style="font-weight: 600;">North</span></a></td>
+                <td style="color: #FFAF78; text-align: center;">N/A</td>
+                <td style="color: #ffd461; text-align: center;">N/A</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><a href="ug"><span style="font-weight: 600;">UGW</span></a></td>
+                <td style="color: #FFAF78; text-align: center;">N/A</td>
+                <td style="color: #ffd461; text-align: center;">N/A</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><a href="south"><span style="font-weight: 600;">South</span></a></td>
+                <td style="color: #FFAF78; text-align: center;">N/A</td>
+                <td style="color: #ffd461; text-align: center;">N/A</td>
+            </tr>
+        <%}%>
         </tbody>
     </table>
 </div>

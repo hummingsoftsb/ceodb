@@ -1,7 +1,6 @@
 /*Created : Sebin Thomas
 For     : Backbone Constructors, Views and the associated functions
 Date    : 14/07/2016*/
-/*Page included in header */
 
 mpxd.constructors.page_info_ring = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);

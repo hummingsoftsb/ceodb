@@ -144,6 +144,7 @@
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/highcharts/js/highcharts.js></script>
         <!--<script type=text/javascript src=highcharts/js/modules/exporting.js></script>-->
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/highcharts/js/dark-highcharts.js></script>
+        <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/highcharts/js/modules/no-data-to-display.js></script>
         <!--<script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/kpi.js></script>-->
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/jquery.gridster.js></script>
         <script type=text/javascript src=<?php echo $this->config->base_url(); ?>assets/js/history.min.js></script>
