@@ -48,8 +48,13 @@
                 <td><%=data.data[1].data['summary']['tp_actual']%></td>
                 <td><%=data.data[1].data['summary']['tp_variance_precent']%></td>
                 <td><%=data.data[1].data['summary']['tp_variance_weeks']%></td>
+                <% if ((data.data[1].data['summary']['tp_variance_precent']>=0) || (data.data[1].data['summary']['tp_variance_precent']>=0.00)) { %>
+                <td><i class="fa fa-chevron-up"></i></td>
+                <td><i class="fa fa-circle" style="color:#9edd2e"></i></td>
+                <% }else if (data.data[1].data['summary']['tp_variance_precent']<0 || (data.data[1].data['summary']['tp_variance_precent']<0.00)){ %>
                 <td><i class="fa fa-chevron-down"></i></td>
-                <td><i class="fa fa-circle" style="color:#efe24b"></i></td>
+                <td><i class="fa fa-circle" style="color:#ff0000"></i></td>
+                <% } %>
             </tr>
         </tbody>
     </table>

@@ -768,7 +768,7 @@
 			</div> 
 			
 		</div>
-		<img src="<?php echo $this->config->base_url(); ?>assets/img/systems/tw/tw_home_top_new.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
+		<img src="<?php echo $this->config->base_url(); ?>assets/img/systems/tw/tw_home_tp.png" style="position: absolute;top: -77px;width: 1280px; z-index: -1;" />
 		
 		
 	</div>
