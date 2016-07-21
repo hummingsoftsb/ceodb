@@ -3466,6 +3466,8 @@ function generateBreadcrumbs(id) {
             //alert('im called'+url);
             if (url == 'sbk-s-05/home') {
                 crumbs.push('<a href="javascript:void(0);" onclick="window.location.href=\'../sbk-s-05/home\'">' + pages_lookup_id[parentid].name + '</a>');
+            }else if (url == 'sbk-s-06/index') {
+                crumbs.push('<a href="javascript:void(0);" onclick="window.location.href=\'../sbk-s-06/home\'">' + pages_lookup_id[parentid].name + '</a>');
             }
             else {
                 crumbs.push('<a href="javascript:void(0);" onclick="loadPage(\'' + url + '\')">' + pages_lookup_id[parentid].name + '</a>');

@@ -1646,6 +1646,8 @@ function generateSideMenu(data) {
         var onclick='';
         if(item.url == "sbk-s-05/home"){
              onclick = ("location.href=\'" + baseURL + item.url + "\'");
+        }else if(item.url == "sbk-s-06/index"){
+            onclick = ("location.href=\'" + baseURL + "sbk-s-06/home" + "\'");
         }
         else {
              onclick = ((typeof item.outurl == "undefined") ? (item.url == "#" ? "" : "loadPage(\'{2}\')") : "location.href=\'" + baseURL + item.outurl + "\'");
