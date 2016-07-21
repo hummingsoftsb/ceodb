@@ -828,9 +828,9 @@ class Dashboard extends CI_Controller {
         //var_dump($date);die();
 //        $data_packages = $this->dashboard_model->get_source_archivable(88); //North
 //        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //South
-        $data_packages = $this->dashboard_model->get_source_archivable(7); //North
-        $data_packages2 = $this->dashboard_model->get_source_archivable(20); //South
-        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //South
+        $data_packages = $this->dashboard_model->get_source_archivable(115); //SBK-S-06 North
+        $data_packages2 = $this->dashboard_model->get_source_archivable(114); //SBK-S-06  South
+        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //System Summary
         $data_packages = json_decode($data_packages[0]['value'], true);
         $data_packages2 = json_decode($data_packages2[0]['value'], true);
         $data_packages3 = json_decode($data_packages3[0]['value'], true);

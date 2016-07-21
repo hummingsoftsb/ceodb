@@ -113,6 +113,8 @@ mpxd.modules.track_works.station_list = Backbone.View.extend({
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 
         // From Here
+        //Author: Naim
+        //Date  : 20/07/2016
         var json = [ //please sort this by 'item_id'
             {"item_group":"n","item_type":"st","item_id":"NST01","item_status":"1","item_name":"Sungai Buloh"},
             {"item_group":"n","item_type":"st","item_id":"NST02","item_status":"1","item_name":"Kg. Selamat"},
