@@ -63,7 +63,7 @@ mpxd.modules.track_works.overall_progress = Backbone.View.extend({
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Number of Months'
+                    text: 'Total Work'
                 }
             },
             tooltip: {
