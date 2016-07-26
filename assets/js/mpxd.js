@@ -345,7 +345,7 @@ mpxd.generatePortletContent = function (data) {
 
 /* misc. functions. Put in seperate file if need arises */
 var gridster;
-var editing = true;
+var editing = false;
 
 
 function selectPort(port) {
@@ -447,7 +447,7 @@ function drawPortlets(s) {
 			return portlet;
 		},
 		  resize: { enabled: (editing) },
-		 draggable: { handle: ".header-button-move" },
+		  draggable: { handle: ".header-button-move" },
 		  min_cols: 12,
 		  max_cols: 12
 				
