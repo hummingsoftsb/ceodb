@@ -8,6 +8,7 @@
          <link href="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.css" rel="stylesheet" type="text/css" />
 		 <link href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.css">
+        <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/plugin/tooltip/tooltip.css">
         <link href="<?php echo $this->config->base_url(); ?>assets/plugin/basicmodal/css/basic.css" rel="stylesheet" type="text/css" />
 
 
@@ -73,13 +74,14 @@
 			}
 			
 			svg .glow-grey.on {
-				fill: #fff;
+				/*fill: #fff;*/
+                fill: rgb(131, 123, 123);
 			}
             svg .glow-darkgray.on {
                 fill: #837b7b;
             }
             svg .glow-kavi.on {
-                fill: #d44c01;
+                fill: rgb(212, 76, 1);
             }
 			svg .parkingletter {
 				fill: #000;
@@ -99,7 +101,7 @@
 				-webkit-animation-timing-function: ease-in-out;
 				-webkit-animation-direction: alternate;
 				-webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5))
-			
+
 				animation-name: glow-red;
 				animation-duration: 1s;
 				animation-iteration-count: infinite;
@@ -107,7 +109,7 @@
 				animation-direction: alternate;
 				filter: url(#drop-shadow);
 			}
-			
+
 			@-webkit-keyframes glow-red {
 			  0% { fill: hsl(0, 100%, 10%); }
 			  100% { fill: hsl(0, 100%, 63%); }
@@ -118,30 +120,98 @@
 			  100% { fill: hsl(0, 100%, 63%); }
 			}
 			
-			.glow-yellow {
-			  /*-webkit-animation-name: glow-yellow;
+			.glow-yellow-blinking.on {
+			  -webkit-animation-name: glow-yellow;
 			  -webkit-animation-duration: 1s;
 			  -webkit-animation-iteration-count: infinite;
 			  -webkit-animation-timing-function: ease-in-out;
 			  -webkit-animation-direction: alternate;
-			  
+
 			  animation-name: glow-yellow;
 			  animation-duration: 1s;
 			  animation-iteration-count: infinite;
 			  animation-timing-function: ease-in-out;
-			  animation-direction: alternate;*/
+			  animation-direction: alternate;
 			}
 			
 			@-webkit-keyframes glow-yellow {
-			  0% { fill: hsl(59, 100%, 23%); }
-			  100% { fill: hsl(59, 100%, 43%); }
+			  0% { fill: hsl(33, 100%, 30%); }
+			  100% { fill: hsl(33, 100%, 63%); }
 			}
 
 			@keyframes glow-yellow {
-			  0% { fill: hsl(59, 100%, 23%); }
-			  100% { fill: hsl(59, 100%, 43%); }
+			  0% { fill: hsl(33, 100%, 30%); }
+			  100% { fill: hsl(33, 100%, 63%); }
 			}
-			
+            .glow-gray-blinking.on {
+                -webkit-animation-name: glow-gray;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease-in-out;
+                -webkit-animation-direction: alternate;
+
+                animation-name: glow-gray;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                animation-direction: alternate;
+            }
+
+            @-webkit-keyframes glow-gray {
+                0% { fill: hsl(0, 3%, 30%); }
+                100% { fill: hsl(0, 3%, 63%); }
+            }
+
+            @keyframes glow-gray {
+                0% { fill: hsl(0, 3%, 30%); }
+                100% { fill: hsl(0, 3%, 63%); }
+            }
+            .glow-kavi-blinking.on {
+                -webkit-animation-name: glow-kavi;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease-in-out;
+                -webkit-animation-direction: alternate;
+
+                animation-name: glow-kavi;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                animation-direction: alternate;
+            }
+
+            @-webkit-keyframes glow-kavi {
+                0% { fill: hsl(21, 99%, 30%); }
+                100% { fill: hsl(21, 99%, 63%); }
+            }
+
+            @keyframes glow-kavi {
+                0% { fill: hsl(21, 99%, 30%); }
+                100% { fill: hsl(21, 99%, 63%); }
+            }
+            .glow-green-blinking.on {
+                -webkit-animation-name: glow-green;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease-in-out;
+                -webkit-animation-direction: alternate;
+
+                animation-name: glow-green;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                animation-direction: alternate;
+            }
+
+            @-webkit-keyframes glow-green {
+                0% { fill: hsl(134, 82%, 20%); }
+                100% { fill: hsl134, 82%, 53%); }
+            }
+
+            @keyframes glow-green {
+                0% { fill: hsl(134, 82%, 20%); }
+                100% { fill: hsl(134, 82%, 53%); }
+            }
 			
 			
 			.navbaricon {
@@ -863,38 +933,38 @@
 		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 475px; left: 1128px; height: 30px; width: 45px;"></a>
 		
 		<!-- icon href -->
-		<a title="Sungai Buloh" href="<?php echo $this->config->base_url(); ?>sungai-buloh/index" style="position: absolute; top: 400px; left: 63px; height: 15px; width: 15px;"></a>
-		<a title="Kg Selamat" href="<?php echo $this->config->base_url(); ?>kampung-selamat/index" style="position: absolute; top: 430px; left: 74px; height: 15px; width: 15px;"></a>
-		<a title="Kwasa Damansara" href="<?php echo $this->config->base_url(); ?>kwasa-damansara/index" style="position: absolute; top: 518px; left: 120px; height: 15px; width: 15px;"></a>
-		<a title="Kwasa Sentral" href="<?php echo $this->config->base_url(); ?>kwasa-sentral/index" style="position: absolute; top: 553px; left: 112px; height: 15px; width: 15px;"></a>
-		<a title="Kota Damansara" href="<?php echo $this->config->base_url(); ?>kota-damansara/index" style="position: absolute; top: 576px; left: 205px; height: 15px; width: 15px;"></a>
-		<a title="Surian" href="<?php echo $this->config->base_url(); ?>surian/index" style="position: absolute; top: 523px; left: 258px; height: 15px; width: 15px;"></a>
-		<a title="Mutiara Damansara" href="<?php echo $this->config->base_url(); ?>mutiara-damansara/index" style="position: absolute; top: 466px; left: 278px; height: 15px; width: 15px;"></a>
-		<a title="Bandar Utama" href="<?php echo $this->config->base_url(); ?>bandar-utama/index" style="position: absolute; top: 474px; left: 338px; height: 15px; width: 15px;"></a>
-		<a title="TTDI" href="<?php echo $this->config->base_url(); ?>ttdi/index" style="position: absolute; top: 470px; left: 386px; height: 15px; width: 15px;"></a>
-		<a title="Phileo Damansara" href="<?php echo $this->config->base_url(); ?>phileo-damansara/index" style="position: absolute; top: 452px; left: 423px; height: 15px; width: 15px;"></a>
-		<a title="Pusat Bandar Damansara" href="<?php echo $this->config->base_url(); ?>pusat-bandar-damansara/index" style="position: absolute; top: 376px; left: 437px; height: 15px; width: 15px;"></a>
-		<a title="Semantan" href="<?php echo $this->config->base_url(); ?>semantan/index" style="position: absolute; top: 328px; left: 426px; height: 15px; width: 15px;"></a>
-		<a title="Muzium Negara" href="<?php echo $this->config->base_url(); ?>muzium-negara/index" style="position: absolute; top: 290px; left: 524px; height: 15px; width: 15px;"></a>
-		<a title="Pasar Seni" href="<?php echo $this->config->base_url(); ?>pasar-seni/index" style="position: absolute; top: 256px; left: 520px; height: 15px; width: 15px;"></a>
-		<a title="Merdeka" href="<?php echo $this->config->base_url(); ?>merdeka/index" style="position: absolute; top: 233px; left: 549px; height: 15px; width: 15px;"></a>
-		<a title="Bukit Bintang" href="<?php echo $this->config->base_url(); ?>bukit-bintang/index" style="position: absolute; top: 199px; left: 559px; height: 15px; width: 15px;"></a>
-		<a title="Tun Razak Exchange" href="<?php echo $this->config->base_url(); ?>tun-razak-exchange/index" style="position: absolute; top: 203px; left: 600px; height: 15px; width: 15px;"></a>
-		<a title="Cochrane" href="<?php echo $this->config->base_url(); ?>cochrane/index" style="position: absolute; top: 217px; left: 628px; height: 15px; width: 15px;"></a>
-		<a title="Maluri" href="<?php echo $this->config->base_url(); ?>maluri/index" style="position: absolute; top: 230px; left: 650px; height: 15px; width: 15px;"></a>
-		<a title="Taman Pertama" href="<?php echo $this->config->base_url(); ?>taman-pertama/index" style="position: absolute; top: 258px; left: 688px; height: 15px; width: 15px;"></a>
-		<a title="Taman Midah" href="<?php echo $this->config->base_url(); ?>taman-midah/index" style="position: absolute; top: 277px; left: 730px; height: 15px; width: 15px;"></a>
-		<a title="Taman Mutiara" href="<?php echo $this->config->base_url(); ?>taman-mutiara/index" style="position: absolute; top: 283px; left: 773px; height: 15px; width: 15px;"></a>
-		<a title="Taman Connaught" href="<?php echo $this->config->base_url(); ?>taman-connaught/index" style="position: absolute; top: 313px; left: 818px; height: 15px; width: 15px;"></a>
-		<a title="Taman Suntex" href="<?php echo $this->config->base_url(); ?>taman-suntex/index" style="position: absolute; top: 280px; left: 895px; height: 15px; width: 15px;"></a>
-		<a title="Sri Raya" href="<?php echo $this->config->base_url(); ?>sri-raya/index" style="position: absolute; top: 284px; left: 925px; height: 15px; width: 15px;"></a>
-		<a title="Bandar Tun Hussein Onn" href="<?php echo $this->config->base_url(); ?>bandar-tun-hussein-onn/index" style="position: absolute; top: 311px; left: 978px; height: 15px; width: 15px;"></a>
-		<a title="Bukit Dukung" href="<?php echo $this->config->base_url(); ?>bukit-dukung/index" style="position: absolute; top: 353px; left: 999px; height: 15px; width: 15px;"></a>
-		<a title="Taman Koperasi Cuepacs " href="<?php echo $this->config->base_url(); ?>taman-koperasi-cuepacs/index" style="position: absolute; top: 391px; left: 1028px; height: 15px; width: 15px;"></a>
-		<a title="Sungai Kantan" href="<?php echo $this->config->base_url(); ?>sungai-kantan/index" style="position: absolute; top: 434px; left: 1127px; height: 15px; width: 15px;"></a>
-		<a title="Bandar Kajang" href="<?php echo $this->config->base_url(); ?>bandar-kajang/index" style="position: absolute; top: 450px; left: 1160px; height: 15px; width: 15px;"></a>
-		<a title="Kajang" href="<?php echo $this->config->base_url(); ?>kajang/index" style="position: absolute; top: 478px; left: 1203px; height: 15px; width: 15px;"></a>
-		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 455px; left: 1137px; height: 19px; width: 20px;"></a>
+		<a class="tooltip stn1" href="<?php echo $this->config->base_url(); ?>sungai-buloh/index" style="position: absolute; top: 400px; left: 63px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn2" href="<?php echo $this->config->base_url(); ?>kampung-selamat/index" style="position: absolute; top: 430px; left: 74px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn4" href="<?php echo $this->config->base_url(); ?>kwasa-damansara/index" style="position: absolute; top: 518px; left: 120px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn5" href="<?php echo $this->config->base_url(); ?>kwasa-sentral/index" style="position: absolute; top: 553px; left: 112px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn6" href="<?php echo $this->config->base_url(); ?>kota-damansara/index" style="position: absolute; top: 576px; left: 205px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn7" href="<?php echo $this->config->base_url(); ?>surian/index" style="position: absolute; top: 523px; left: 258px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn8" href="<?php echo $this->config->base_url(); ?>mutiara-damansara/index" style="position: absolute; top: 466px; left: 278px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn9" href="<?php echo $this->config->base_url(); ?>bandar-utama/index" style="position: absolute; top: 474px; left: 338px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn10" href="<?php echo $this->config->base_url(); ?>ttdi/index" style="position: absolute; top: 470px; left: 386px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn12" href="<?php echo $this->config->base_url(); ?>phileo-damansara/index" style="position: absolute; top: 452px; left: 423px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn13" href="<?php echo $this->config->base_url(); ?>pusat-bandar-damansara/index" style="position: absolute; top: 376px; left: 437px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn14" href="<?php echo $this->config->base_url(); ?>semantan/index" style="position: absolute; top: 328px; left: 426px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn15" href="<?php echo $this->config->base_url(); ?>muzium-negara/index" style="position: absolute; top: 290px; left: 524px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn16" href="<?php echo $this->config->base_url(); ?>pasar-seni/index" style="position: absolute; top: 256px; left: 520px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn17" href="<?php echo $this->config->base_url(); ?>merdeka/index" style="position: absolute; top: 233px; left: 549px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn18" href="<?php echo $this->config->base_url(); ?>bukit-bintang/index" style="position: absolute; top: 199px; left: 559px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn20" href="<?php echo $this->config->base_url(); ?>tun-razak-exchange/index" style="position: absolute; top: 203px; left: 600px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn21" href="<?php echo $this->config->base_url(); ?>cochrane/index" style="position: absolute; top: 217px; left: 628px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn22" href="<?php echo $this->config->base_url(); ?>maluri/index" style="position: absolute; top: 230px; left: 650px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn23" href="<?php echo $this->config->base_url(); ?>taman-pertama/index" style="position: absolute; top: 258px; left: 688px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn24" href="<?php echo $this->config->base_url(); ?>taman-midah/index" style="position: absolute; top: 277px; left: 730px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn25" href="<?php echo $this->config->base_url(); ?>taman-mutiara/index" style="position: absolute; top: 283px; left: 773px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn26" href="<?php echo $this->config->base_url(); ?>taman-connaught/index" style="position: absolute; top: 313px; left: 818px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn27" href="<?php echo $this->config->base_url(); ?>taman-suntex/index" style="position: absolute; top: 280px; left: 895px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn28" href="<?php echo $this->config->base_url(); ?>sri-raya/index" style="position: absolute; top: 284px; left: 925px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn29" href="<?php echo $this->config->base_url(); ?>bandar-tun-hussein-onn/index" style="position: absolute; top: 311px; left: 978px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn30" href="<?php echo $this->config->base_url(); ?>bukit-dukung/index" style="position: absolute; top: 353px; left: 999px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn31" href="<?php echo $this->config->base_url(); ?>taman-koperasi-cuepacs/index" style="position: absolute; top: 391px; left: 1028px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn33" href="<?php echo $this->config->base_url(); ?>sungai-kantan/index" style="position: absolute; top: 434px; left: 1127px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn34" href="<?php echo $this->config->base_url(); ?>bandar-kajang/index" style="position: absolute; top: 450px; left: 1160px; height: 15px; width: 15px;"></a>
+		<a class="tooltip stn35" href="<?php echo $this->config->base_url(); ?>kajang/index" style="position: absolute; top: 478px; left: 1203px; height: 15px; width: 15px;"></a>
+		<a class="tooltip" title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 455px; left: 1137px; height: 19px; width: 20px;"></a>
 		
 <!--		<a title="Electric Trains" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-01/index" style="position: absolute; top: 492px; left: 555px; height: 52px; width: 45px;"></a>-->
 <!--		<a title="Depot Equipment &amp; Maintenance Vehicle" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-02/index" style="position: absolute; top: 492px; left: 606px; height: 52px; width: 45px;"></a>-->
@@ -917,7 +987,12 @@
 		<a title="MSPR8" href="<?php echo $this->config->base_url(); ?>mspr8/index" style="position: absolute; top: 300px; left: 880px; height: 40px; width: 45px;"></a>
 		<a title="MSPR9" href="<?php echo $this->config->base_url(); ?>mspr9/index" style="position: absolute; top: 497px; left: 1193px; height: 40px; width: 40px;"></a>
 		<a title="MSPR11" href="<?php echo $this->config->base_url(); ?>mspr11/index" style="position: absolute; top: 455px; left: 1060px; height: 18px; width: 70px;"></a>
-		
+
+        <a title="Work Not Yet Started" class="legend-stat" data-value="s_1" href="javascript:void(0);" style="position: absolute; top: 557px; left: 509px; height: 18px; width: 132px;"></a>
+        <a title="Work In Progress" class="legend-stat" data-value="s_2" href="javascript:void(0);" style="position: absolute; top: 557px; left: 656px; height: 18px; width: 117px;"></a>
+        <a title="Testing Completed" class="legend-stat" data-value="s_3" href="javascript:void(0);" style="position: absolute; top: 557px; left: 788px; height: 18px; width: 117px;"></a>
+        <a title="AC Energized" class="legend-stat" data-value="s_4" href="javascript:void(0);" style="position: absolute; top: 581px; left: 600px; height: 18px; width: 94px;"></a>
+        <a title="AC & DC Energized" class="legend-stat" data-value="s_5" href="javascript:void(0);" style="position: absolute; top: 581px; left: 720px; height: 18px; width: 112px;"></a>
 	</div>
 	
 	<div style="position:absolute; top: 258px;left: 129px;"><img src="<?php echo $this->config->base_url(); ?>assets/img/arrow2.png" style="width:20px;"/></div>
@@ -1039,10 +1114,57 @@
                 var date = (typeof d == "undefined") ? new Date() : new Date(d);
                 return date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
             }
+        function tooltip(s,n,f){
+            var d="";
+            if(!f){
+                d+="<span class=\"custom-margin\"> <strong>";
+            }else {
+                d += "<span> <strong>";
+            }
+            d+=n;
+            d+="</strong> <br /> PSCADA : ";
+            d+=typeof s=='undefined'?'-':s[0];
+            d+="</span>";
+            return d;
+        }
 			
 		window.scrollTo(0,1);
 		$(window).load(function(){
 			data = <?php echo json_encode($data); ?>;
+            console.log(data);
+            if((Object.keys(data.i_pscada).length)>0) {
+                $(".stn1").append(tooltip(data.i_pscada['STN 01'],'SUNGAI BULOH',true));
+                $(".stn2").append(tooltip(data.i_pscada['STN 02'],'KG SELAMAT',true));
+                $(".stn4").append(tooltip(data.i_pscada['STN 04'],'KWASA DAMANSARA',true));
+                $(".stn5").append(tooltip(data.i_pscada['STN 05'],'KWASA SENTRAL',true));
+                $(".stn6").append(tooltip(data.i_pscada['STN 06'],'KOTA DAMANSARA',true));
+                $(".stn7").append(tooltip(data.i_pscada['STN 07'],'SURIAN',true));
+                $(".stn8").append(tooltip(data.i_pscada['STN 08'],'MUTIARA DAMANSARA',true));
+                $(".stn9").append(tooltip(data.i_pscada['STN 09'],'BANDAR UTAMA',true));
+                $(".stn10").append(tooltip(data.i_pscada['STN 10'],'TTDI',true));
+                $(".stn12").append(tooltip(data.i_pscada['STN 12'],'PHILEO DAMANSARA',true));
+                $(".stn13").append(tooltip(data.i_pscada['STN 13'],'PUSAT BANDAR DAMANSARA',true));
+                $(".stn14").append(tooltip(data.i_pscada['STN 14'],'SEMANTAN',true));
+                $(".stn15").append(tooltip(data.i_pscada['STN 15'],'MUZIUM NEGARA',true));
+                $(".stn16").append(tooltip(data.i_pscada['STN 16'],'PASAR SENI',true));
+                $(".stn17").append(tooltip(data.i_pscada['STN 17'],'MERDEKA',true));
+                $(".stn18").append(tooltip(data.i_pscada['STN 18'],'BUKIT BINTANG',true));
+                $(".stn20").append(tooltip(data.i_pscada['STN 20'],'TUN RAZAK EXCHANGE',true));
+                $(".stn21").append(tooltip(data.i_pscada['STN 21'],'COCHRANE',true));
+                $(".stn22").append(tooltip(data.i_pscada['STN 22'],'MALURI',true));
+                $(".stn23").append(tooltip(data.i_pscada['STN 23'],'TAMAN PERTAMA',true));
+                $(".stn24").append(tooltip(data.i_pscada['STN 24'],'TAMAN MIDAH',true));
+                $(".stn25").append(tooltip(data.i_pscada['STN 25'],'TAMAN MUTIARA',true));
+                $(".stn26").append(tooltip(data.i_pscada['STN 26'],'TAMAN CONNAUGHT',true));
+                $(".stn27").append(tooltip(data.i_pscada['STN 27'],'TAMAN SUNTEX',true));
+                $(".stn28").append(tooltip(data.i_pscada['STN 28'],'SRI RAYA',true));
+                $(".stn29").append(tooltip(data.i_pscada['STN 29'],'BANDAR TUN HUSSEIN ONN',true));
+                $(".stn30").append(tooltip(data.i_pscada['STN 30'],'BUKIT DUKUNG',true));
+                $(".stn31").append(tooltip(data.i_pscada['STN 31'],'TAMAN KOPERASI CUEPACS',true));
+                $(".stn33").append(tooltip(data.i_pscada['STN 33'],'SUNGAI KANTAN',false));
+                $(".stn34").append(tooltip(data.i_pscada['STN 34'],'BANDAR KAJANG',false));
+                $(".stn35").append(tooltip(data.i_pscada['STN 35'],'KAJANG',false));
+            }
 			if (data['overall_actual'] > 99) $('#overall_actual').css({ "fontSize" : "59px", "marginTop" : "31px"});
 			if (data['overall_variance'] > 99) $('#overall_variance').css({ "fontSize" : "59px", "marginTop" : "10px", "marginLeft" : "-8px"});
 			if (data['overall_early'] > 99) $('#overall_early').css({ "fontSize" : "59px", "marginTop" : "6px", "marginLeft" : "-8px"});
@@ -1089,37 +1211,37 @@
 			//Data
 
 			stations = [
-			[5.066666666666666,50.162962962962965,93, "v1"],
-			[5.916666666666667,54.04444444444444,95, "v1"],
-			[9.466666666666667,64.88888888888889,95, "v1"],
-			[8.883333333333333,69.3037037037037,99, "v2"],
-			[16.166666666666664,72.23703703703703,90, "v2"],
-			[20.233333333333334,65.62962962962963,90, "v2"],
-			[21.883333333333333,58.42962962962963,78, "v3"],
-			[26.55,59.58518518518518,90, "v3"],
-			[30.283333333333335,58.84444444444444,90, "v3"],
-			[33.18333333333333,56.62222222222222,90, "v4"],
-			[34.25,47.17037037037037,90, "v4"],
-			[33.38333333333333,41.15555555555556,96, "v4"],
-			[41.05,36.50370370370371,74, "ug"],
-			[40.71666666666667,32.148148148148145,47, "ug"],
-			[42.983333333333334,29.333333333333332,99, "ug"],
-			[43.78333333333334,25.125925925925923,39, "ug"],
-			[47.099999999999994,25.6,72, "ug"],
-			[49.166666666666664,27.348148148148148,75, "ug"],
-			[50.949999999999996,29.037037037037038,82, "ug"],
-			[53.88333333333334,32.41481481481481,47, "v5"],
-			[57.15,34.785185185185185,84, "v5"],
-			[60.45,35.644444444444446,94, "v5"],
-			[63.96666666666667,39.2,77, "v5"],
-			[70.05,35.288888888888884,78, "v6"],
-			[72.33333333333334,35.7037037037037,90, "v6"],
-			[76.48333333333333,39.08148148148148,90, "v6"],
-			[78.18333333333334,44.32592592592592,90, "v7"],
-			[80.48333333333333,49.03703703703704,90, "v7"],
-			[88.16666666666667,54.48888888888889,71, "v8"],
-			[90.71666666666667,56.38518518518518,90, "v8"],
-			[94.1,59.88148148148148,90, "v8"],
+			[5.066666666666666,50.162962962962965,93, "STN01"],
+			[5.916666666666667,54.04444444444444,95, "STN02"],
+			[9.466666666666667,64.88888888888889,95, "STN04"],
+			[8.883333333333333,69.3037037037037,99, "STN05"],
+			[16.166666666666664,72.23703703703703,90, "STN06"],
+			[20.233333333333334,65.62962962962963,90, "STN07"],
+			[21.883333333333333,58.42962962962963,78, "STN08"],
+			[26.55,59.58518518518518,90, "STN09"],
+			[30.283333333333335,58.84444444444444,90, "STN10"],
+			[33.18333333333333,56.62222222222222,90, "STN12"],
+			[34.25,47.17037037037037,90, "STN13"],
+			[33.38333333333333,41.15555555555556,96, "STN14"],
+			[41.05,36.50370370370371,74, "STN15"],
+			[40.71666666666667,32.148148148148145,47, "STN16"],
+			[42.983333333333334,29.333333333333332,99, "STN17"],
+			[43.78333333333334,25.125925925925923,39, "STN18"],
+			[47.099999999999994,25.6,72, "STN20"],
+			[49.166666666666664,27.348148148148148,75, "STN21"],
+			[50.949999999999996,29.037037037037038,82, "STN22"],
+			[53.88333333333334,32.41481481481481,47, "STN23"],
+			[57.15,34.785185185185185,84, "STN24"],
+			[60.45,35.644444444444446,94, "STN25"],
+			[63.96666666666667,39.2,77, "STN26"],
+			[70.05,35.288888888888884,78, "STN27"],
+			[72.33333333333334,35.7037037037037,90, "STN28"],
+			[76.48333333333333,39.08148148148148,90, "STN29"],
+			[78.18333333333334,44.32592592592592,90, "STN30"],
+			[80.48333333333333,49.03703703703704,90, "STN31"],
+			[88.16666666666667,54.48888888888889,71, "STN33"],
+			[90.71666666666667,56.38518518518518,90, "STN34"],
+			[94.1,59.88148148148148,90, "STN35"],
 			/* Legend */             [40,69.9, 9, 1],[51.4,69.9, 19, 1],[61.6,69.9, 39, 1],[47,72.8, 59, 1],[56.3,72.8, 100, 1],
 			// /* Legend */             [33.4,81.8, 10, 1],[26.2,81.8, 50, 1],[18.5,81.8, 100, 1], V2
 			/* System */
@@ -1172,7 +1294,7 @@
 			//[93.60000000000001,61.86666666666667,73]
 			[93.60000000000001,61.86666666666667,73]
 			];
-			paths = [
+/*			paths = [
 			["M112.55,658.879c-0.843-0.005-1.686-0.011-2.529-0.017     c-0.706-2.075,0.736-3.454,1.64-4.995c3.193-5.437,6.676-10.679,9.419-16.407c5.158-10.769,2.337-20.279-3.837-29.428     c-1.758-2.604-4.034-2.747-6.299-0.631c-3.284,3.065-6.432,6.275-9.737,9.316c-0.852,0.783-1.691,2.711-3.178,1.441     c-1.853-1.58,0.232-2.735,1.104-3.586c4.478-4.372,8.177-9.723,14.403-11.98c0.654-0.237,1.178-0.351,1.208-1.201     c0.1-2.799-5.705-10.712-8.772-11.135c-3.587-0.495-5.109-2.278-5.823-5.663c-0.667-3.166-2.614-5.542-5.636-7.189     c-4.559-2.485-8.169-5.974-11.198-10.362c-6.704-9.713-13.936-19.061-20.854-28.628c-2.084-2.882-3.558-6.103-2.403-9.803     c0.245-0.785,0.565-2.164,1.818-1.883c1.072,0.24,1.558,1.385,1.141,2.392c-1.492,3.603,0.909,6.101,2.555,8.622     c6.916,10.59,15.601,19.893,22.393,30.592c1.825,2.876,4.894,4.549,7.786,6.131c3.776,2.066,6.187,5.116,7.178,9.105     c0.591,2.381,1.69,3.325,3.989,3.573c3.473,0.375,5.553,2.518,6.977,5.647c3.779,8.31,8.045,16.416,11.468,24.866     c2.513,6.205,1.456,12.79-0.705,18.979C121.848,644.682,116.066,651.178,112.55,658.879z",80,false,"v1"],
 			["M261.055,618.955c0.852,0.835,1.704,1.668,2.554,2.5     c0.461,1.761,0.844,3.551,1.399,5.285c3.083,9.637,1.203,17.264-6.606,24.617c-17.919,16.875-35.038,34.603-52.39,52.075     c-4.702,4.734-9.671,7.208-16.457,4.611c-4.329-1.656-9.269-1.97-13.3-4.093c-7.254-3.819-14.717-3.301-22.339-2.786     c-9.002,0.607-17.943-0.125-26.875-1.214c-5.06-0.616-8.533-3.673-9.913-8.049c-3.394-10.759-6.002-21.756-7.106-33.04     c0.848-0.678,1.691-0.78,2.529,0.017c1.917,9.088,3.709,18.204,5.785,27.256c1.839,8.021,4.336,10.209,12.431,11.17     c9.603,1.139,19.268,1.357,28.877,0.428c5.472-0.53,10.493,0.179,15.459,2.379c5.64,2.5,11.616,3.855,17.62,5.253     c3.976,0.925,6.855-0.056,9.456-2.645c19.555-19.462,39.086-38.947,58.582-58.469c2.94-2.943,3.353-6.643,2.744-10.636     C262.758,628.715,260.538,624.062,261.055,618.955z",80,false,"v2"],
 			["M411.223,583.677c-3.313,2.814-7.998,5.854-11.956,5.711c-11.073-0.396-21.756,5.479-32.94,1.662     c-2.487-0.849-5.306-0.689-7.844-1.433c-2.808-0.822-4.624,0.197-6.699,1.952c-6.422,5.429-14.246,6.256-21.869,4.375     c-11.931-2.946-23.614-6.905-35.385-10.491c-5.555-1.692-10.001-0.396-13.784,4.139c-5.756,6.902-11.671,13.681-17.732,20.315     c-2.546,2.787-3.385,5.579-1.958,9.048c0.964,0.717,0.437,2.956,2.548,2.501c-1.505-5.899,1.642-9.835,5.404-13.79     c4.816-5.063,9.363-10.396,13.802-15.795c2.76-3.354,5.831-4.451,10.092-3.393c12.44,3.089,24.451,7.747,36.893,10.614     c7.738,1.785,16.076,1.545,22.898-4.176c1.553-1.304,2.975-2.6,5.293-2.002c10.735,2.766,21.483,2.624,32.402,0.764     c5.684-0.968,11.189-1.293,16.596-4.181c3.207-1.713,6.267-3.759,9.418-5.633c-0.705-0.801-1.356-1.648-1.97-2.526     C413.329,582.027,412.257,582.799,411.223,583.677z",70,false,"v3"],
@@ -1183,7 +1305,39 @@
 			["M966.431,306.521c-1.104-0.156-2.115-1.521-3.017-2.467		c-4.711-4.941-9.93-9.525-13.908-15.005c-5.041-6.941-11.089-7.399-18.376-5.172c-4.182,1.28-8.439,2.38-11.754-2.063		c-0.503-0.674-1.757-1.139-2.645-1.113c-6.282,0.185-12.575-1.581-18.864,0.446c-3.847,1.238-7.924,0.938-11.905,0.456		c-7.125-0.867-13.895,0.282-20.501,3.023c-4.602,1.91-9.388,3.368-14,5.249c-5.804,2.367-12.686,3.281-16.648,8.519		c-2.358,3.116-5.264,5.438-8.313,7.548c0,1.375,0,2.75,0,4.125c3.018-2,5.846-4.249,8.191-7.121		c2.189-2.683,4.542-4.949,7.713-6.062c16.169-5.673,31.469-14.917,49.754-12.02c3.633,0.577,7.291-1.219,10.876-1.104		c6.198,0.198,13.003-2.01,18.22,3.62c1.178,1.273,2.879,1.444,4.653,0.937c2.717-0.778,5.479-1.397,8.229-2.058		c4.629-1.113,8.494-0.745,11.918,3.479c4.81,5.939,10.346,11.288,15.538,16.919c1.263,1.368,2.751,3.353,4.396,2.947		c4.722-1.16,7.009,2.543,10.408,4.167c8.521,4.068,12.295,12.241,14.771,19.795c0.794,2.423,1.616,4.842,2.443,7.26		c0.103-2.321,0.307-4.614,0.692-6.964C990.003,321.548,981.757,308.685,966.431,306.521z",70,true,"v6"],
 			["M1107.292,431.145c-0.445,0.066-0.891,0.132-1.344,0.228		c-3.188,0.674-6.657-0.288-9.767-1.588c-10.738-4.486-21.212-9.531-31.479-15.022c-7.364-3.938-13.378-9.921-20.672-13.823		c-11.312-6.056-21.715-13.573-32.956-19.708c-1.479-0.809-2.661-1.604-3.224-3.479c-4.107-13.664-8.439-27.262-12.576-40.917		c-0.298-0.982-0.622-1.974-0.97-2.969c-0.386,2.35-0.59,4.643-0.692,6.964c3.52,10.297,7.164,20.591,9.489,31.235		c1.564,7.165,5.3,11.381,11.696,15.235c13.348,8.042,27.181,15.328,39.752,24.73c10.815,8.09,23.548,12.971,35.689,18.789		c4.749,2.274,9.95,4.523,14.827,3.579c0.815-0.158,1.565-0.232,2.278-0.258C1107.226,433.152,1107.238,432.138,1107.292,431.145z",70,true,"v7"],			
 			["M1206.75,480.867c-5.438-6.076-10.65-12.367-16.334-18.203		c-4.553-4.677-8.543-4.839-14.48-1.631c-6.539,3.534-9.186,3.101-11.357-4.107c-2.601-8.618-8.693-11.609-16.423-13.037		c-5.756-1.063-10.995-3.118-16.318-5.704c-7.652-3.713-15.293-8.423-24.545-7.039c-0.055,0.993-0.066,2.007,0.053,2.996		c5.984-0.211,8.598,3.994,11.618,8.271c0.479,0.678,0.937,1.373,1.352,2.092c3.184,5.507,7.192,10.371,11.514,15.008		c0.694,0.744,1.28,1.874,2.34,1.151c1.146-0.782,0.918-2.063,0.07-3.063c-1.399-1.651-2.842-3.271-4.329-4.842		c-4.387-4.636-7.02-10.403-10.493-15.763c4.274,0.878,8.205,2.122,11.768,4.276c4.31,2.604,8.775,4.835,13.839,5.359		c8.334,0.863,14.509,3.708,17.512,12.719c2.735,8.203,7.335,9.171,14.631,4.555c3.974-2.514,7.324-2.438,10.848,0.697		c3.251,2.894,6.076,6.147,8.871,9.454c3.243,3.838,6.526,7.642,10.195,11.931C1207.713,483.525,1207.897,482.146,1206.75,480.867z",70,true,"v8"]			
-			];
+			];*/
+            paths = [
+                ["m 67.332931,422.69134 c -4.518327,-6.6048 -7.858515,-14.48015 -5.304392,-16.20095 1.294609,-0.87221 6.592337,-2.83349 4.91789,0.5917 -1.66031,3.39627 2.67555,8.33221 4.285394,10.74559 4.05397,6.07746 6.669809,10.06341 4.895096,11.36111 -2.703786,1.97706 -5.587249,-1.8099 -8.793988,-6.49745 z",80,false,"STN01"],
+                ["m 123.00317,514.6746 c -1.39592,-0.81298 0.45818,-5.43539 0.95937,-8.56968 0.73644,-4.60545 -2.28355,-13.7674 -6.09658,-18.49557 l -2.39012,-2.96377 -5.07156,3.86111 c -3.88031,2.95418 -5.69351,5.46774 -8.04013,6.68127 -1.18147,0.61099 -2.718534,-2.16464 -2.718534,-4.25611 0,-2.44101 1.911464,-2.73169 7.594684,-7.48536 l 6.90025,-5.77164 -1.86682,-3.65928 c -1.42663,-2.79642 -2.87062,-3.97887 -6.12381,-5.01463 -3.84936,-1.22558 -4.38134,-1.79805 -5.55574,-5.9786 -1.097184,-3.90564 -2.140424,-5.18207 -6.721228,-8.22355 -3.4063,-2.26166 -6.97191,-5.88199 -9.58974,-9.73691 -4.166951,-6.13611 -8.333798,-9.609 -6.334448,-11.60834 1.999341,-1.99934 6.166508,1.47317 10.296868,7.06423 2.27189,3.07534 6.54181,7.37271 9.488714,9.54972 3.834494,2.8327 5.890824,5.25372 7.231854,8.51439 1.0437,2.53772 2.53838,4.5602 3.37385,4.56522 4.50234,0.027 7.13401,3.57453 13.9966,18.86736 8.10139,18.05342 8.46788,19.40088 6.93383,25.49312 -1.24584,4.94771 -3.55216,8.74833 -6.26731,7.16702 z",80,false,"STN02"],
+                ["m 112.38387,549.55166 c -1.50904,-2.44168 -2.35007,-15.3532 -0.87297,-18.20959 0.76366,-1.47675 3.78255,-7.3232 5.36295,-8.88203 3.29747,-3.25248 5.60197,-1.67137 5.05121,0.19704 l -1.60873,5.45752 -2.14133,3.62929 c -1.65675,2.80798 -2.06619,4.88543 -1.8093,9.18013 0.3097,5.17731 1.75032,8.11221 -0.37125,8.22189 -1.25105,0.0647 -3.30793,0.89544 -3.61058,0.40575 z",80,false,"STN04"],
+                ["m 182.18321,582.8973 -11.5,-3.84638 c -6.00145,-1.12981 -12.17937,-0.28855 -18.37501,-0.0535 -21.55709,0.81766 -28.02425,-1.33007 -31.60243,-4.84398 -3.23855,-3.18038 -4.60974,-10.82772 -5.24045,-14.17625 -0.44812,-2.37917 4.13957,-3.09038 4.66677,-1.13816 0.41895,1.55138 1.28964,4.30312 1.79411,5.75036 2.78881,8.00051 7.35623,10.53585 33.98184,8.61916 17.15383,-1.23485 19.47202,0.98152 25.46537,3.52544 4.13774,1.49711 14.42514,5.63212 18.36864,4.12683 3.55225,-1.35423 5.73675,2.8042 3.55418,4.04685 -4.78843,2.72631 -9.85989,2.27148 -21.11302,-2.01028 z",80,false,"STN05"],
+                ["m 213.03672,576.49273 c -0.66,-0.66 -3.55703,-3.24807 -3.55703,-3.83073 0,-0.58265 13.40513,-15.02593 24.26763,-25.85442 l 19.75,-19.68816 2.40583,1.98401 2.40582,1.98402 -19.48006,19.27606 c -2.49255,2.79292 -22.99347,23.18513 -25.79219,26.12922 z",80,false,"STN06"],
+                ["m 262.89301,521.71681 c -0.34319,-0.41313 -1.61428,-1.48859 -1.03951,-2.66804 2.06615,-4.23979 1.9377,-8.13097 1.23808,-11.02272 -1.22728,-5.07268 -2.40158,-10.5228 -2.43038,-14.18161 -0.0419,-5.32823 0.1479,-5.71862 6.07875,-12.5 2.87336,-3.28542 8.29192,-9.21525 9.60525,-10.38781 2.05946,-1.83873 3.70622,-0.83381 3.62704,1.24513 l 0.56673,2.51961 -6.14662,6.37381 c -2.04272,2.11821 -6.59118,6.17984 -7.95685,9.77693 -1.19445,3.14611 -0.58429,7.5016 1.66439,15.73476 1.97689,7.23805 -0.73681,12.94305 -2.31043,15.72755 -0.27493,0.48648 -2.10856,0.33085 -2.89645,-0.61761 z",80,false,"STN07"],
+                ["m 313.65418,472.13367 c -8.93121,-2.57802 -24.23703,-10.40586 -27.87589,-3.7502 -0.89926,-1.68029 -0.55318,-5.75625 -0.0926,-6.32571 0.25793,-0.31892 2.92798,-1.67145 3.73182,-1.73338 0.92097,-0.071 2.24941,-0.14314 3.98668,0.1792 4.87501,0.90453 25.88763,7.9561 36.67485,10.59765 3.5345,0.86552 5.85203,1.36819 6.30405,1.80874 1.42366,1.38752 -0.30748,5.43373 -1.97073,5.27378 -8.10053,-2.30506 -13.2279,-3.89858 -20.75818,-6.05008 z",80,false,"STN08"],
+                ["m 348.02431,473.40671 c -0.33429,-1.33189 -2.2514,-1.1928 -1.43413,-2.2645 0.43472,-0.57007 3.0478,-2.27843 3.9732,-2.9855 5.02637,-3.84051 5.819,-3.793 14.89748,-2.10499 4.25769,0.79166 10.67292,1.79995 14.98645,1.4998 2.4964,-0.1737 1.63659,-0.8927 1.63659,0.63308 0,1.33206 0.64785,4.54137 0.30514,4.93393 -0.61539,0.70489 -4.38228,0.30306 -5.16567,0.26229 -6.67247,-0.38782 -13.72927,-2.4536 -19.2605,-2.69837 -1.19412,0.34079 -2.33244,1.54081 -3.90741,2.61399 -2.6048,1.77491 -5.93827,3.63075 -6.72752,3.49798 -0.66529,-0.11192 1.06014,-1.93836 0.69637,-3.38771 z",80,false,"STN09"],
+                ["m 392.02489,469.162 c 0.33545,-2.03455 -2.83331,-2.89272 4.9738,-3.7964 8.30157,-1.41174 12.03981,-3.55815 17.58254,-8.20425 3.61785,-3.03261 7.12358,-4.51075 8.75933,-2.90097 0.26271,2.20732 0.47798,3.61527 -2.36967,5.51499 -4.40499,2.93867 -9.15427,6.64645 -13.95272,8.71662 -5.05545,2.18105 -12.43409,3.23134 -13.70371,2.97184 -1.30615,-0.26697 -0.96735,-1.50556 -1.28957,-2.30183 z",80,false,"STN10"],
+                ["m 434.98344,437.56379 c -2.16364,-17.50926 -0.58966,-28.40735 3.32086,-36.90787 1.38453,-3.00963 4.03508,-9.37475 4.03508,-11.42305 0,-2.08072 -2.09173,-6.53555 -1.31048,-7.75765 0.80473,-1.25885 3.94118,-1.32357 4.90049,-0.36426 0.78189,0.78189 1.93914,6.61476 1.65791,9.60476 -0.37759,4.01466 -2.56798,9.71951 -4.31057,13.70523 -6.43744,13.83063 -2.26621,21.02175 -2.82452,38.79311 -0.40986,6.93753 -2.01757,11.38625 -9.28049,13.51943 -0.76201,0 -1.37195,0.51958 -1.37416,-5.96569 -4.4e-4,-1.3051 2.81609,-0.58688 4.03632,-2.56418 1.52843,-2.47673 1.50225,-7.78569 1.14956,-10.63983 z",80,false,"STN12"],
+                ["m 440.03197,371.96172 c -0.74563,-0.30087 -2.21721,-2.44226 -2.26378,-4.38071 -0.0586,-2.44079 1.41131,-7.76967 2.42639,-11.1158 2.23888,-7.38029 1.99151,-8.15689 -4.01082,-12.59107 -2.49825,-1.84556 -6.81259,-5.43477 -7.55931,-6.49652 -1.0136,-1.44122 0.16704,-2.48566 1.87687,-3.55345 1.59338,-0.99508 4.78988,1.80516 9.50245,5.26466 7.50907,5.51241 8.53037,8.19387 6.35467,16.68441 -1.80786,4.1933 -2.94363,8.6279 -2.92416,13.19194 0.21359,3.07238 -1.29187,3.84813 -3.40231,2.99654 z",80,false,"STN13"],
+                ["m 430.75538,325.1811 c -2.99358,-2.45045 -0.35412,-6.01319 3.21349,-6.01319 1.83098,0 3.70436,-2.5548 6.35537,-9.7632 3.43639,-9.34392 4.42537,-11.02249 11.8321,-8.98709 0.90072,0.24752 3.5945,1.91307 6.6925,2.15705 11.43086,-0.69218 14.83728,-1.60151 21.93226,4.09999 6.91004,5.69509 10.10451,7.61649 16.05219,6.93524 11.64912,-2.17722 17.17415,-7.4127 24.87977,-15.32325 2.07841,-1.39488 0.39718,0.81394 2.12532,0.76395 4.76814,-0.13793 4.75765,0.0488 -4.57591,8.78454 -7.46689,6.98863 -14.89241,10.36682 -23.40468,10.3678 -7.60809,8.8e-4 -9.63031,-0.41447 -16.37783,-6.00242 -4.80616,-3.98021 -8.0959,-5.62131 -14.49967,-4.70283 -4.46511,0.55474 -10.06266,0.98551 -13.11356,-0.85479 -7.45281,-8.05452 -6.62089,15.67324 -14.87491,17.70338 -0.87725,-0.0198 -4.70994,2.08437 -6.23644,0.83482 z",80,false,"STN14"],
+                ["m 528.14961,286.86496 c -0.30769,-3.00493 -0.77414,-1.99723 -0.2015,-3.44221 2.25469,-5.68948 1.3582,-7.48869 -1.00953,-12.21897 -1.26297,-1.96552 -3.05382,-4.65359 -3.8555,-6.20936 -0.73366,-1.4238 -0.51391,-1.59774 0.32417,-2.21056 1.38896,-1.01562 1.92883,-2.30193 3.46321,-0.50326 1.48579,1.74172 3.79542,5.89154 4.88065,7.92612 1.69773,3.18289 2.65157,6.0442 2.09821,9.6156 -0.42741,2.75849 -1.94808,6.45338 -2.14622,7.45579 -0.27021,1.367 -1.80949,0.60082 -3.55349,-0.41315 z",70,true,"STN15"],
+                ["m 525.69888,253.85572 c -0.92596,-1.02319 -1.57057,-2.62918 -1.26691,-3.12357 0.33924,-0.55233 9.31134,-9.70184 13.35809,-11.6444 1.15257,-0.55327 5.96,-2.17112 6.55494,-2.32714 1.20155,-0.3151 4.75812,0.29778 3.52003,1.93375 l 0.29104,2.05573 -6.27177,2.92568 c -1.73444,0.80909 -5.27111,3.33236 -7.78264,5.78159 -1.68484,1.64304 -4.70201,4.68496 -5.47525,5.22767 -1.24849,0.87627 -1.92455,0.27896 -2.92753,-0.82931 z",70,true,"STN16"],
+                ["m 550.39107,227.59249 c -1.58987,-2.46971 1.06305,-16.43579 3.88752,-20.24705 0.4425,-0.59709 3.37067,-3.15631 3.75602,-3.15631 2.16956,0 2.40973,0.29378 1.27331,4.09508 -0.40508,1.35497 -1.70588,4.88319 -2.39044,7.05663 -0.74604,2.36861 -1.57759,9.5157 -1.5117,11.65892 0.0722,2.34794 -0.37252,3.70238 -2.48227,3.70238 -1.39227,0 -2.04191,-2.34766 -2.53244,-3.10965 z",70,true,"STN17"],
+                ["m 589.3152,197.87992 c -7.43928,-3.78353 -12.89711,-4.93638 -17.7216,-3.75366 -2.56901,0.62979 -4.94133,2.19863 -5.54685,2.19776 -0.96304,-10e-4 -4.47069,1.86644 -4.57096,0.88578 l -0.38751,-3.78994 5.85431,-3.68211 c 3.79928,-2.38958 14.35899,-2.10852 22.04494,1.12813 3.34327,1.40789 7.05039,3.42573 8.3342,4.2649 0.44965,0.29391 2.82364,2.06256 3.09841,2.27485 1.08861,0.8411 1.87952,2.62264 0.55216,4.08935 -1.38072,1.52567 -0.92259,1.41998 -2.92393,0.74868 -1.05193,-0.35285 -6.69329,-3.32628 -8.73317,-4.36374 z",70,true,"STN18"],
+                ["m 616.72891,216.11396 c -3.61898,-2.19274 -6.95407,-5.12119 -8.32046,-6.17731 -0.87062,-0.67292 -3.75116,-4.40951 -3.21554,-5.26718 0.79537,-1.2736 4.7362,1.12306 5.79367,1.28749 3.22108,3.39596 10.12427,7.31579 12.0012,9.24989 0.19124,0.4482 1.65985,3.09293 1.65985,3.51982 0,2.09968 -3.33078,-1.58699 -3.57623,-0.29287 -0.08,0.42204 -2.28938,-1.07583 -4.34249,-2.31981 z",70,true,"STN20"],
+                ["m 634.03431,222.96788 c 0.89802,-0.65276 0.19546,-1.48614 1.32959,-1.40965 3.03824,1.78794 14.96247,5.03769 13.1594,8.62586 -0.68067,1.27183 -1.48013,1.55419 -3.70713,0.95523 -2.54615,-1.69582 -9.83331,-4.15342 -12.21299,-5.83257 -1.44476,-1.01945 -0.10707,-1.15619 1.43113,-2.33887 z",70,true,"STN21"],
+                ["m 665.58677,262.23646 c -2.81386,-2.81501 -3.37925,-3.13948 -4.35852,-10.10063 -0.4293,-3.0517 -0.41152,-6.78791 -0.28938,-10.05115 0.0259,-0.69107 0.29826,-3.52011 0.021,-4.34922 -0.4998,-1.49478 -2.87267,-1.22937 -2.7535,-2.16959 0.23228,-1.83262 -0.42827,-3.8964 -0.0604,-4.26427 0.28508,-0.28508 5.08535,1.24295 6.0398,1.8006 2.91057,1.70053 1.84836,3.02903 1.92426,11.28901 0.11614,12.63904 2.03667,16.11237 7.73845,14.22753 2.4828,-0.82074 5.35114,-2.3501 6.49767,-2.54239 0.36101,-0.0605 3.33145,-0.93241 3.74706,-0.94024 1.93947,-0.0365 1.35016,1.22081 1.35016,3.40678 0,2.5785 -2.71362,2.49356 -6.24247,3.64441 -6.62863,1.11234 -10.06562,3.39821 -13.61413,0.0492 z",70,true,"STN22"],
+                ["m 714.24311,278.26538 c -1.33061,-0.50827 -17.79441,-11.99002 -19.35742,-13.34485 -0.35138,-0.30458 -2.99592,-3.90256 -1.36831,-3.98775 l 2.82617,-1.60188 13.16506,9.56725 c 4.30761,3.13041 9.35028,7.74853 16.02617,6.22345 1.07865,-0.24641 0.70834,1.35807 0.70834,2.86814 0,1.34029 -0.32117,1.92392 -1.03986,2.20563 -0.41488,0.16262 -3.43907,0.27093 -4.27959,0.2468 -1.5125,-0.0434 -5.85609,-1.86186 -6.68056,-2.17679 z",70,true,"STN23"],
+                ["m 758.45487,283.2123 c -2.49281,-0.72932 -4.99737,-1.20478 -9.04477,-1.90561 -2.33507,-0.40432 -9.72385,-0.33791 -11.89887,-0.25929 -3.0545,0.11041 -2.27041,-0.97088 -2.27041,-2.41964 0,-1.37512 1.4293,-2.01016 2.53084,-2.35997 0.72959,-0.2317 8.1088,-0.009 9.9053,0.0392 1.12677,0.0303 5.19795,0.2537 9.16263,1.21268 5.0991,1.23338 10.31111,3.39443 11.90969,4.87307 1.36256,1.26032 0.61614,4.41573 -1.11729,4.2656 -0.17857,-0.0155 -4.11366,-1.68141 -4.51045,-1.82699 -0.99837,-0.3663 -2.40452,-0.95717 -4.66667,-1.61901 z",70,true,"STN24"],
+                ["m 813.58474,318.37339 c -0.4544,-0.1438 -3.28458,-0.38143 -5.19364,-1.75692 -2.55244,-1.83905 -7.24207,-6.7064 -8.84802,-8.234 -3.57501,-3.40058 -9.29631,-8.39486 -13.72988,-11.3888 l -9.86877,-6.66425 2.86787,-3.35518 c 1.50722,-1.76331 0.61069,-0.19705 1.83532,0.45835 3.34219,1.78869 10.80819,6.51877 17.85781,13.0692 1.59874,1.48553 9.09478,8.49716 10.06086,9.47469 1.60646,1.62551 3.68876,1.09866 4.08132,2.10344 0.33661,0.86156 1.11379,2.02212 1.0146,3.09588 -0.22928,2.48205 1.01932,3.54469 -0.0775,3.19759 z",70,true,"STN25"],
+                ["m 822.5082,311.33193 c -0.43867,-0.78386 -1.52046,-2.36407 -0.23755,-4.03012 2.06848,-1.73998 6.42007,-4.02021 8.40223,-5.98956 2.43145,-2.41574 4.5496,-5.4945 7.0572,-7.37796 3.27603,-2.43414 5.60987,-2.83975 15.36552,-6.44101 21.0463,-7.76917 25.69391,-8.25689 31.65073,-7.91573 2.66594,0.15268 6.95469,0.5755 7.67209,1.05769 0.62068,0.41718 0.57704,0.80472 0.71423,1.997 0.18588,1.61547 -0.49827,2.28402 -1.48935,2.55936 -0.62052,0.17239 -6.14846,-0.2022 -7.74781,-0.2022 -5.24032,0 -10.02937,1.12104 -28.04897,7.51977 -8.11355,2.88111 -12.26641,4.29725 -15.1384,6.28378 -2.93949,2.15501 -4.56754,5.30866 -7.10991,7.61509 -5.04324,3.77226 -8.68874,6.05877 -8.23124,5.54555 0.26636,-0.2988 -2.33491,0.31441 -2.85877,-0.62166 z",70,true,"STN26"],
+                ["m 902.05554,283.82865 c -0.19775,-0.41656 -0.39431,-2.04283 -0.35811,-3.14283 0.0605,-1.71234 3.00274,-1.67089 7.96699,-1.76387 2.78523,-0.0522 7.21831,0.43618 9.03079,0.72774 3.20842,0.51611 3.03578,2.15258 2.09736,4.21211 -0.58599,1.28623 -1.4355,2.06454 -2.3833,1.26292 -0.77801,-0.65801 -5.509,-1.50886 -7.89071,-1.47906 -6.28482,0.0787 -8.26782,0.59418 -8.46302,0.18299 z",70,true,"STN27"],
+                ["m 954.37001,299.08427 c -10.26758,-11.5112 -11.42897,-12.88139 -15.49454,-12.83419 -1.17057,0.0136 -4.38244,0.92308 -6.02762,1.0497 -3.25919,0.25084 -4.13851,-0.39005 -4.42444,-1.88581 -0.39035,-2.04196 0.70997,-2.27125 2.71241,-2.80555 1.49536,-0.39899 4.41449,-1.05772 6.91988,-1.21727 1.88788,-0.12022 3.51083,0.19305 4.28097,0.27297 4.08144,0.42352 6.57356,3.64364 14.28535,12.9193 5.16118,6.20781 8.42322,9.38042 10.6617,10.36521 0.88536,0.38951 3.05807,0.59312 3.64704,0.59312 3.58653,0 5.59769,2.41436 3.83314,5.10739 -0.87065,1.32878 -0.69344,0.7675 -1.59722,1.24247 -0.70392,0.36993 -2.68726,-1.82052 -4.61446,-2.07352 -1.68247,-0.22088 -3.56001,0.75922 -5.52971,-1.23529 -2.03303,-2.05864 -4.52722,-4.87359 -8.6525,-9.49853 z",70,true,"STN28"],
+                ["m 996.10389,350.11387 c -2.03845,-7.72711 -7.97917,-26.41098 -13.4294,-30.9597 -2.41708,-1.6976 -1.95648,-3.34705 -1.0161,-4.28743 0.8422,-0.84215 4.68719,0.66344 6.63873,3.34575 1.69595,2.23458 5.14112,8.00862 8.59505,18.67093 0.94808,2.92673 2.78249,9.1135 3.10701,10.37266 0.51982,2.01701 0.0151,2.71469 -1.00513,3.46067 -2.3393,1.71057 -1.81246,1.48431 -2.89016,-0.60288 z",70,true,"STN29"],
+                ["m 1012.3771,386.08765 c -6.7808,-4.63733 -7.2027,-5.65514 -9.3648,-12.05358 -0.9867,-5.06018 -2.9866,-12.00886 -3.55396,-13.8257 -1.00273,-3.21091 0.26755,-4.43753 1.89106,-4.86207 2.1529,-0.56301 1.9819,1.00178 3.5251,6.18988 0.6495,2.18331 1.5033,5.07068 2.2206,7.70976 2.0009,7.36087 3.8315,9.88976 8.0665,12.38443 3.6483,2.14899 9.5051,5.05332 10.6044,6.11036 1.2777,1.22866 -0.01,2.47732 -0.7214,3.80844 -0.6425,1.20065 1.563,3.20892 -0.7297,1.79016 -1.9807,-1.22567 -8.1017,-4.8837 -11.9378,-7.25168 z",70,true,"STN30"],
+                ["m 1125.9201,453.36446 c -2.1246,-2.8875 -4.435,-6.64509 -7.0546,-10.39077 -5.1856,-7.4146 -7.2782,-9.0854 -12.6788,-8.209 -2.1268,0.34513 -5.6507,0.20653 -8.8202,-0.83427 -5.3162,-1.74575 -36.4335,-15.44774 -43.5768,-21.52237 -3.1216,-2.65458 -8.4119,-6.2106 -11.8398,-8.28309 -2.6122,-1.57932 -8.8415,-5.54442 -9.6012,-6.26319 -1.0395,-0.98359 -0.3694,-2.57131 0.5469,-3.96972 0.8786,-1.341 1.1936,-1.30664 3.8143,0.31167 7.8412,4.84205 12.4706,7.84896 20.9816,13.98382 5.1831,3.73605 15.5096,9.32728 25.0546,13.75434 7.2432,3.37524 12.9415,7.1935 18.8051,8.05597 1.8914,0.27821 2.2162,-0.54306 4.6859,-0.75076 3.9366,-0.33106 9.4262,0.42805 11.8293,1.16239 3.687,1.12677 4.9284,0.47336 5.4531,4.37573 0.4155,3.0909 -0.5939,5.8311 2.1042,8.55816 2.5513,2.57867 4.1791,5.825 5.8407,7.91918 2.0121,2.53578 4.2843,5.14146 5.0386,6.61175 0.6854,1.3359 -1.0712,3.39181 -3.4666,3.39181 -0.8948,0 -1.5616,-1.28532 -2.347,-2.25358 -0.8118,-1.00072 -3.3216,-3.68051 -4.7693,-5.64807 z",70,true,"STN31"],
+                ["m 1145.9424,446.82586 c -4.8956,0.20352 -14.3146,-4.24449 -14.3889,-5.67477 -0.022,-0.42893 -1.9983,-1.56208 -1.3002,-2.51682 0.707,-0.96685 0.9827,-2.57775 3.5431,-1.68392 1.7884,0.62432 8.1398,4.54365 12.0035,4.86127 3.7396,0.30742 5.9288,0.80009 8.1003,1.46704 4.1712,1.28112 5.656,2.39624 4.6423,4.01949 -0.5904,0.31867 -2.7879,1.86053 -3.2603,2.02038 -1.2116,0.40994 -5.6206,-2.64729 -9.3398,-2.49267 z",70,true,"STN33"],
+                ["m 1185.9023,463.41233 c -4.2328,-2.03502 -4.3115,-1.14586 -9.2856,1.67478 -4.5289,2.56824 -10.0797,2.75051 -12.7934,-2.33116 l -3.1216,-5.84554 0.9661,-3.32426 c 1.3316,-0.52218 3.4893,1.60501 4.2287,2.19629 0.2834,0.22662 1.7389,4.47338 2.038,4.89119 1.7509,2.446 4.5087,1.04858 9.4226,-1.45833 2.1562,-1.1 5.3326,-1.60716 6.8187,-1.60716 3.9523,0 8.7166,4.45257 12.2564,9.26599 1.3722,1.86592 5.8947,6.8609 6.1301,7.64873 0.2603,0.87118 -0.2945,1.49967 -1.1028,2.39287 -0.9045,0.99947 -1.8724,0.39316 -2.2709,0.39316 -4.5599,-4.60256 -7.378,-10.68752 -13.2863,-13.89656 z",70,true,"STN34"]
+            ];
 			depot = [
 			[-23,155,20,"dpt1"],
 			[249,140,70,"dpt2"]
@@ -1225,7 +1379,7 @@
 					{ c += "glow-green"; }*/
 					return c;
 					})
-			.attr("transform",function(d,i){return ((!d[2]) ? "translate(1, -123)" : "")})
+//			.attr("transform",function(d,i){return ((!d[2]) ? "translate(1, -123)" : "")})
 			.attr("d",function(d,i) {
 				return d[0];
 			})/*
@@ -1516,12 +1670,19 @@
 			var v7 = parseFloat(data['V7']);
 			var v8 = parseFloat(data['V8']);*/
 			
-			for (var i = 1; i < 9; i++){
-				var d = parseFloat(data['V'+i]);
-				processVariance('v'+i, d);
+			for (var i = 1; i < 36; i++){
+                var d;
+                if(i<10){
+                    d = parseFloat(data['STN0' + i]);
+                    processVariance('STN0'+i, d);
+                }else {
+                    d = parseFloat(data['STN' + i]);
+                    processVariance('STN'+i, d);
+                }
+
 			}
-			processVariance('dpt1', parseFloat(data['DPT1']));
-			processVariance('dpt2', parseFloat(data['DPT2']));
+			processVariance('dpt1', parseFloat(data['SUBD']));
+			processVariance('dpt2', parseFloat(data['KAJD']));
 			processVariance('sbk-s-01', parseFloat(data['SBK-S-01']));
 			processVariance('sbk-s-02', parseFloat(data['SBK-S-02']));
 			processVariance('sbk-s-03', parseFloat(data['SBK-S-03']));
@@ -1655,30 +1816,54 @@ function groupRemoveClass(g, c) {
 }
 
 function groupGoGrey(g) {
-	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking on');
-	groupAddClass(g, 'glow-grey on');
+	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+	groupAddClass(g, 's_1 glow-grey on');
 }
 
 function groupGoGreen(g) {
-	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking on');
-	groupAddClass(g, 'glow-green on');
+	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+	groupAddClass(g, 's_5 glow-green on');
 }
 
 function groupGoYellow(g) {
-	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking on');
-	groupAddClass(g, 'glow-yellow on');
+	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+	groupAddClass(g, 's_2 glow-yellow on');
 }
 
 function groupGoRed(g) {
-	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking on');
-	groupAddClass(g, 'glow-red on');
+	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+	groupAddClass(g, 's_3 glow-red on');
+}
+function groupGoKavi(g) {
+    groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-kavi glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+    groupAddClass(g, 's_4 glow-kavi on');
 }
 
 function groupGoRedBlink(g) {
-	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking on');
+	groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
 	groupAddClass(g, 'glow-red-blinking on');
 	if (detectIE()) repeatBlink();
 }
+        function groupGoYellowBlink(g) {
+            groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+            groupAddClass(g, 'glow-yellow-blinking on');
+            if (detectIE()) repeatYBlink();
+        }
+        function groupGoGreenBlink(g) {
+            groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+            groupAddClass(g, 'glow-green-blinking on');
+            if (detectIE()) repeatGnBlink();
+        }
+        function groupGoGrayBlink(g) {
+            groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+            groupAddClass(g, 'glow-gray-blinking on');
+            if (detectIE()) repeatGBlink();
+        }
+        function groupGoKaviBlink(g) {
+            groupRemoveClass(g, 'glow-grey glow-green glow-yellow glow-red glow-red-blinking glow-yellow-blinking glow-green-blinking glow-kavi-blinking glow-gray-blinking on');
+            groupAddClass(g, 'glow-kavi-blinking on');
+            if (detectIE()) repeatKBlink();
+        }
 
 function repeatBlink() {
 	d3.selectAll(".glow-red-blinking.on").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(0, 100%, 10%)").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(0, 100%, 63%)").each("end",repeatBlink);
@@ -1686,13 +1871,29 @@ function repeatBlink() {
 
 function stopBlink() {
 	d3.selectAll(".glow-red-blinking").transition().duration(0).style('fill', 'hsl(0, 3%, 30%)');
+    d3.selectAll(".glow-yellow-blinking").transition().duration(0).style('fill', 'hsl(0, 3%, 30%)');
+    d3.selectAll(".glow-gray-blinking").transition().duration(0).style('fill', 'hsl(0, 3%, 30%)');
+    d3.selectAll(".glow-green-blinking").transition().duration(0).style('fill', 'hsl(0, 3%, 30%)');
+    d3.selectAll(".glow-kavi-blinking").transition().duration(0).style('fill', 'hsl(0, 3%, 30%)');
 }
-
+function repeatYBlink() {
+    d3.selectAll(".glow-yellow-blinking.on").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(33, 100%, 30%)").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(33, 100%, 63%)").each("end",repeatYBlink);
+}
+function repeatGBlink() {
+    d3.selectAll(".glow-gray-blinking.on").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(0, 3%, 30%)").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(0, 3%, 63%)").each("end",repeatGBlink);
+}
+function repeatGnBlink() {
+    d3.selectAll(".glow-green-blinking.on").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(134, 82%, 20%)").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(134, 82%, 53%)").each("end",repeatGnBlink);
+}
+function repeatKBlink() {
+    d3.selectAll(".glow-kavi-blinking.on").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(21, 99%, 30%)").transition().duration(1000).ease("ease-in-out").style("fill", "hsl(21, 99%, 63%)").each("end",repeatKBlink);
+}
 function processVariance(g, v) {
-	if (v <= -8) groupGoRedBlink(g);
-	else if (v < -4) groupGoRed(g);
-	else if (v < 0) groupGoYellow(g);
-	else if (v >= 0) groupGoGreen(g);
+	if (v == 1) groupGoGrey(g);
+	else if (v == 2) groupGoYellow(g);
+	else if (v == 3) groupGoRed(g);
+    else if (v == 4) groupGoKavi(g);
+	else if (v == 5) groupGoGreen(g);
 	else groupGoGrey(g);
 }
 
@@ -1718,6 +1919,75 @@ $.fn.removeClassSVG = function(className){
     });
     return this;
 };
+$.fn.svgRemover = function(className) {
+    $(this).each(function () {
+        $(this).attr('class', function (index, classNames) {
+            return classNames.replace(className, '');
+        });
+    });
+};
+
+$(".legend-stat").click(function(){
+   var d=$(this).attr("data-value");
+    switch(d){
+        case 's_1':
+            $("." + d + "").each(function () {
+                var v = $(this).attr('class').split(' ')[1];
+                groupGoGrayBlink(v.split('-')[1]);
+//                groupGoYellow(v.split('-')[1]);
+//                groupGoRed(v.split('-')[1]);
+//                groupGoKavi(v.split('-')[1]);
+//                groupGoGreen(v.split('-')[1]);
+            });
+            $('.s_2').svgRemover('glow-yellow-blinking on');
+            $('.s_3').svgRemover('glow-red-blinking on');
+            $('.s_4').svgRemover('glow-kavi-blinking on');
+            $('.s_5').svgRemover('glow-green-blinking on');
+
+        break;
+        case 's_2':
+            $("." + d + "").each(function () {
+                var v = $(this).attr('class').split(' ')[1];
+                groupGoYellowBlink(v.split('-')[1]);
+            });
+            $('.s_1').svgRemover('glow-gray-blinking on');
+            $('.s_3').svgRemover('glow-red-blinking on');
+            $('.s_4').svgRemover('glow-kavi-blinking on');
+            $('.s_5').svgRemover('glow-green-blinking on');
+        break;
+        case 's_3':
+            $("." + d + "").each(function () {
+                var v = $(this).attr('class').split(' ')[1];
+                    groupGoRedBlink(v.split('-')[1]);
+            });
+            $('.s_1').svgRemover('glow-gray-blinking on');
+            $('.s_2').svgRemover('glow-yellow-blinking on');
+            $('.s_4').svgRemover('glow-kavi-blinking on');
+            $('.s_5').svgRemover('glow-green-blinking on');
+        break;
+        case 's_4':
+            $("." + d + "").each(function () {
+                var v = $(this).attr('class').split(' ')[1];
+                groupGoKaviBlink(v.split('-')[1]);
+            });
+            $('.s_1').svgRemover('glow-gray-blinking on');
+            $('.s_2').svgRemover('glow-yellow-blinking on');
+            $('.s_3').svgRemover('glow-red-blinking on');
+            $('.s_5').svgRemover('glow-green-blinking on');
+        break;
+        case 's_5':
+            $("." + d + "").each(function () {
+                var v = $(this).attr('class').split(' ')[1];
+                groupGoGreenBlink(v.split('-')[1]);
+            });
+            $('.s_1').svgRemover('glow-gray-blinking on');
+            $('.s_2').svgRemover('glow-yellow-blinking on');
+            $('.s_3').svgRemover('glow-red-blinking on');
+            $('.s_4').svgRemover('glow-kavi-blinking on');
+        break;
+
+    }
+});
 
 
 $('#reset').on('click', function() {
@@ -1802,6 +2072,7 @@ function detectIE() {
 
 }
         jQuery(function ($) {
+
             // Load dialog on page load
             //$('#basic-modal-content').modal();
             // Load dialog on click

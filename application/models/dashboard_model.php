@@ -1233,6 +1233,47 @@ public function getOverallProgress($data_date){
         return $result;
     }
 
+    public function get_pscada_status(){
+        $pscada_status=array();
+        $sql = 'SELECT "PSCADA_PAT","PSCADA_SAT","STATION_CODE" FROM  "tbl_testing_and_commission" where "DATA_DATE" IN (SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission") ORDER BY "STATION_CODE"';
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        foreach($result as $val) {
+            $status=($val['PSCADA_SAT']==1 && $val['PSCADA_PAT']==1)?'Completed':(($val['PSCADA_SAT']==null && $val['PSCADA_PAT']==null)?'N/A':'In Progress');
+            $pscada_status[$val['STATION_CODE']] = array($status);
+        }
+        return $pscada_status;
+    }
+    public function get_station_status(){
+        $station_status=array();
+        $sql = 'SELECT "STATION_CODE","STATION_STATUS" FROM "tbl_psds_station_status" WHERE "DATA_DATE" = (SELECT MAX("DATA_DATE") FROM "tbl_psds_station_status") ORDER BY "STATION_CODE"';
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        if(sizeof($result)>0){
+            foreach($result as $val) {
+                if(strlen(str_replace(' ', '', $val['STATION_CODE']))>5){
+                    $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']),0,5))] = $val['STATION_STATUS'];
+                }else {
+                    $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                }
+            }
+        }else{
+            $station_status['SUBD']=0;
+            $station_status['KAJD']=0;
+            $station_status['KWDE2']=0;
+            $station_status['SEMAN']=0;
+            for($i=0;$i<36;$i++){
+                if($i<10){
+                    $station_status['STN0'.$i] = 0;
+                }else {
+                    $station_status['STN' . $i] = 0;
+                }
+
+            }
+        }
+        return $station_status;
+    }
+
     //PS&DS CODE Starts Here//
 
     //Author : Sebin Thomas, Ancy Mathew
@@ -1322,7 +1363,7 @@ public function getOverallProgress($data_date){
     //Created on : 22/06/2016
     public function get_comments_ps(){
         $comments_ps=array();
-        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", to_char(\"TIMESTAMP\", 'DD Mon YYYY') as date,\"RING_NUMBER\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\" desc";
+        $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", to_char(\"TIMESTAMP\", 'DD Mon YYYY') as timestamp,to_char(\"DATE_SELECTED\", 'DD Mon YYYY') as date,\"RING_NUMBER\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\" desc";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i=0;

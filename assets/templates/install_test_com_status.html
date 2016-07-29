@@ -10,6 +10,7 @@
         color: white;
         font-weight: bold;
     }
+    .ui-datepicker{ z-index: 9999 !important;}
 </style>
 <div class="header bg-dot30 excel-normal">
     <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
@@ -129,7 +130,18 @@
             </div>
             <div class="modal-body" style="padding-bottom: 20px;">
                 <div class="table-container1" style="max-width: 500px; text-align: center; margin: auto; ">
-                    <textarea cols="28" rows="5" placeholder="Your Comment...." maxlength="100" id="ring_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
+                    <div class="row"  style="margin-bottom: 15px;">
+                        <div style="top: 5px; margin-bottom: 6px; width: 50%;" class="input-group">
+                            <input style="cursor: pointer;" readonly="true" id="comment_date" class="form-control" type="text" value="" placeholder="Select date" name="comment-date">
+                            <input type="hidden" id="comment_date_selected" value=""/>
+                            <span id="comment_selector" style="cursor: pointer;" class="input-group-addon">
+                                <i id="date_open" class="fa fa-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <textarea cols="28" rows="5" placeholder="Your Comment...." maxlength="100" id="ring_comment" style="border-color: rgba(21, 166, 233, 0.2);" class="form-control"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -154,7 +166,32 @@
 </div>
 <!--Model: Ends-->
 <script>
+
     $(function(){
+        $('#comment_date').datepicker({
+            dateFormat: 'dd-MM-yy',
+            firstDay: 1,
+            beforeShowDay: function(date){
+                var monday = new Date();
+                monday.setHours(0,0,0,0);
+                monday.setDate(monday.getDate() + 1 - (monday.getDay() || 6));
+                var sunday = new Date(monday);
+                sunday.setDate(monday.getDate() + 5);
+                return [(date >= monday && date <= sunday), ''];
+            },
+            nextText: "",
+            prevText: "",
+            altField: '#comment_date_selected',
+            altFormat: "dd-M-y",
+            onSelect: function () {
+                $('#comment_date').css("border-color", "rgba(21, 166, 233, 0.2)");$('#comment_date').parent().next('small').remove();
+            }
+        });
+
+        $('#comment_selector').on('click', function () {
+            $('#comment_date').datepicker("show");
+        });
+
         var $err="<small class='pull-left' style='color:rgb(194, 67, 71)'>*Required</small>";
         $('#ring_comment').keyup(function(){
             if($(this).val().trim().length>0){
@@ -165,21 +202,32 @@
         });
 
         $("#cmnt_ring").click(function(){
+            var flag=0;
+            if($("#comment_date_selected").val()!=""){
+                $('#comment_date').css("border-color", "rgba(21, 166, 233, 0.2)");$('#comment_date').parent().next('small').remove();
+                flag++;
+            }else{
+                $('#comment_date').css("border-color","rgb(194, 67, 71)");$('#comment_date').parent().next('small').remove();$('#comment_date').parent().after($err);
+            }
             if($("#ring_comment").val()!=""){
                 $('#ring_comment').css("border-color", "rgba(21, 166, 233, 0.2)");$('#ring_comment').next('small').remove();
-
-                mpxd.getJSONData("commentRing/get?r="+$("#page_title").text().trim().substring(1,3)+"&comments=" + $('#ring_comment').val(), function (d) {
+                flag++;
+            }else{
+                $('#ring_comment').css("border-color","rgb(194, 67, 71)");$('#ring_comment').next('small').remove();$('#ring_comment').after($err);
+            }
+            if(flag>1){
+                mpxd.getJSONData("commentRing/get?r="+$("#page_title").text().trim().substring(1,3)+"&comments=" + $('#ring_comment').val()+"&date="+$("#comment_date_selected").val(), function (d) {
                     if(d==1){
                         $("#modal_ring_comment").modal('hide');
                         $('#ring_comment').val('');
                         $("#save_status").text('').text("Comment saved successfully.");
                         $("#status_box").modal('show');
+                        $("#comment_date").val('');
+                        $("#comment_date_selected").val('');
                     }else{
                         $("#save_status").text('').text("Unable to save the Comment. Try Later.");
                     }
                 });
-            }else{
-                $('#ring_comment').css("border-color","rgb(194, 67, 71)");$('#ring_comment').next('small').remove();$('#ring_comment').after($err);
             }
         });
         $('#modal_ring_comment').on('hidden.bs.modal', function (e) {

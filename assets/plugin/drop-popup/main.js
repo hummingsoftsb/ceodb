@@ -8,9 +8,11 @@ $(document).ready(function(){
 	});
 
 	$(document).click(function(e){
-        $('#navbarcontainer').css({'z-index': 98});
 		that = e.target;
-		if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown")) $(".fim-dropdown").removeClass('active');
+		if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown")) {
+            $(".fim-dropdown").removeClass('active');
+            $('#navbarcontainer').css({'z-index': 98});
+        }
 	});
 
 

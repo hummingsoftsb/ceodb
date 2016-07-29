@@ -701,7 +701,8 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
-
+    //coded by :Sebin Thomas 22/06/2016
+    //PS&DS Home page data
     public function psdsFront() {
         if (!$this->session->userdata('loggedin'))
             return redirect('/');
@@ -724,24 +725,25 @@ class Dashboard extends CI_Controller {
         //used to get comments in PS AND DS
         $comments = $this->dashboard_model->get_comments_ps();
         $psds_summary=$this->dashboard_model->get_status_ps();
+        $pscada_status=$this->dashboard_model->get_pscada_status();
 
         //var_dump($comdata);die();
         $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
-
+        $data_packages = $this->dashboard_model->get_station_status();
 
 
         //var_dump($date);die();
 //        $data_packages = $this->dashboard_model->get_source_archivable(88); //North
 //        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //South
-        $data_packages = $this->dashboard_model->get_source_archivable(7); //North
-        $data_packages2 = $this->dashboard_model->get_source_archivable(20); //South
-        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //South
-        $data_packages = json_decode($data_packages[0]['value'], true);
-        $data_packages2 = json_decode($data_packages2[0]['value'], true);
-        $data_packages3 = json_decode($data_packages3[0]['value'], true);
-        $data_packages_north = $data_packages['north']['scorecard'];
-        $data_packages_south = $data_packages2['south']['scorecard'];//var_dump($data_packages3);die();
-        $data_packages_system = $data_packages3['systems']['syspackage'];
+//        $data_packages = $this->dashboard_model->get_source_archivable(88); //SBK-S-05 North
+//        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //SBK-S-05 South
+//        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //South
+//        $data_packages = json_decode($data_packages[0]['value'], true);
+//        $data_packages2 = json_decode($data_packages2[0]['value'], true);
+//        $data_packages3 = json_decode($data_packages3[0]['value'], true);
+//        $data_packages_north = $data_packages['north']['scorecard'];
+//        $data_packages_south = $data_packages2['south']['scorecard'];//var_dump($data_packages3);die();
+//        $data_packages_system = $data_packages3['systems']['syspackage'];
 
         $early = round(explode("%", $data['currentEarly'])[0]);
         $late = round(explode("%", $data['currentLate'])[0]);
@@ -749,14 +751,15 @@ class Dashboard extends CI_Controller {
         $var_early = round(explode("w", $data['varLate'])[0]);
         $var_early = ($var_early > 0 ? "+" . $var_early : $var_early);
 
-        $packages_data = array_merge(
-            (array_map(function($i) {
-                return array($i['item'] => $i['varianceLate']);
-            }, $data_packages_north)), (array_map(function($i) {
-                return array($i['item'] => $i['varianceLate']);
-            }, $data_packages_south)), (array_map(function($i) {
-                return array($i['item'] => $i['varianceLate']);
-            }, $data_packages_system)));//var_dump($packages_data);die();
+//        $packages_data = array_merge(
+//            (array_map(function($i) {
+//                return array($i['item'] => $i['status']);
+//            }, $data_packages_north)), (array_map(function($i) {
+//                return array($i['item'] => $i['status']);
+//            }, $data_packages_south)), (array_map(function($i) {
+//                return array($i['item'] => $i['varianceLate']);
+//            }, $data_packages_system)));
+            //var_dump($packages_data);die();
 
 
         //print_r(array_keys(json_encode($data[0]['value'])));die();
@@ -779,7 +782,8 @@ class Dashboard extends CI_Controller {
             //coded by :ANCY MATHEW 22/06/2016
             //used to get comments in PS AND DS
             'comments'=>$comments,
-            'summary'=>$psds_summary
+            'summary'=>$psds_summary,
+            'i_pscada'=>$pscada_status
 
             /*
               'project_value' => 36.6,
@@ -796,9 +800,9 @@ class Dashboard extends CI_Controller {
         foreach($comdata as $k => $v)
             $data['data'][$k] = $v;
 
-        foreach ($packages_data as $k => $d) {
-            foreach ($d as $kk => $dd)
-                $data['data'][$kk] = $dd;
+        foreach ($data_packages as $k => $d) {
+//            foreach ($d as $kk => $dd)
+                $data['data'][$k] = $d;
         }
         $this->load->view('additional/psds', $data);
     }
@@ -896,10 +900,12 @@ class Dashboard extends CI_Controller {
     }
     public function ringComment(){
         if ($this->input->get()) {
+            $date=date_create($this->input->get('date'));
             $data = array(
                 'MESSAGE' => $this->input->get('comments'),
                 'RING_NUMBER' => $this->input->get('r'),
-                'TIMESTAMP' =>date('Y-m-d h:i:s')
+                'TIMESTAMP' =>date('Y-m-d h:i:s'),
+                'DATE_SELECTED' =>date_format($date,'Y/m/d')
             );
             $result = $this->dashboard_model->set_psds_comments($data);
             if($result>0){
