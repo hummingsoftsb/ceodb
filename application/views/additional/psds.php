@@ -760,7 +760,7 @@
                         
    //                      function allowedPageToString(){
    //                          var pages = {};
-   //                          var pageObj = <?php echo $this->session->userdata('allowed_page'); ?>;
+   //                          var pageObj = <?php /*echo $this->session->userdata('allowed_page');*/ ?>;
    //                          for(var k in pageObj){
    //                              pages[k] = pageObj[k].slug +'/'+ pageObj[k].page;
    //                          }
@@ -1934,10 +1934,6 @@ $(".legend-stat").click(function(){
             $("." + d + "").each(function () {
                 var v = $(this).attr('class').split(' ')[1];
                 groupGoGrayBlink(v.split('-')[1]);
-//                groupGoYellow(v.split('-')[1]);
-//                groupGoRed(v.split('-')[1]);
-//                groupGoKavi(v.split('-')[1]);
-//                groupGoGreen(v.split('-')[1]);
             });
             $('.s_2').svgRemover('glow-yellow-blinking on');
             $('.s_3').svgRemover('glow-red-blinking on');
