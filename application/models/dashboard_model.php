@@ -1295,9 +1295,9 @@ public function getOverallProgress($data_date){
             "value"=>array()
         );
         if ($date) { //If date is selected
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
+            $sql = "SELECT * FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
         }else {
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.'';
+            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
@@ -1307,7 +1307,7 @@ public function getOverallProgress($data_date){
                 "ring_number" =>$val['RING_NUMBER'],
                 "station_name"=> $val['STATION_NAME'],
                 "station_code" => $val['STATION_CODE'],
-                "install_status" => ($val['INSTALL_STATUS']==1)?'Completed':(($val['INSTALL_STATUS']==2)?'In Progress' :(($val['INSTALL_STATUS']==3)?'Pending':(($val['INSTALL_STATUS']==-1)?'N/A':'-'))),
+                "install_status" => ($val['INSTALL_STATUS']==1)?'Completed':(($val['INSTALL_STATUS']==2)?'In Progress' :(($val['INSTALL_STATUS']==3)?'Pending':(($val['INSTALL_STATUS']==-1)?'N/A':(($val['INSTALL_STATUS']==4)?'Handed Over':'-')))),
                 "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':'-'))),
                 "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':'-'))),
                 "pscada_pat" => ($val['PSCADA_PAT']==1)?'Completed':($val['PSCADA_PAT']==2?'In Progress' :($val['PSCADA_PAT']==3?'Pending':($val['PSCADA_PAT']==-1?'N/A':'-'))),
@@ -1322,7 +1322,7 @@ public function getOverallProgress($data_date){
                 "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=="")?($val['PSCADA_ACTUAL_STATUS']==1?'Energized':($val['PSCADA_ACTUAL_STATUS']==2?'Pending':($val['PSCADA_ACTUAL_STATUS']==3?'N/A':'-'))):$val['PSCADA_ACTUAL_DATE'],
                 "ac_or_dc_one" =>"33KV",
                 "ac_or_dc_two" =>"750V",
-                "ac_or_dc_three" =>(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=='') && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=='') && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=='') && ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=='') && ($val['PSCADA_ACTUAL_STATUS']==null || $val['PSCADA_ACTUAL_STATUS']==''))?null:'PSCADA'
+                "ac_or_dc_three" =>(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=='') && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=='') && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=='') && ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=='') && ($val['PSCADA_ACTUAL_STATUS']==null || $val['PSCADA_ACTUAL_STATUS']==''))?'PSCADA':'PSCADA'
             );
             $i++;
         }
@@ -1332,7 +1332,7 @@ public function getOverallProgress($data_date){
     //Author : Ancy Mathew
     //Modified by: Sebin Thomas
     //Usage : Retrives PSDS TRIP Cable Status reports based on and latest date
-    //Created on : 20/06/2016
+    //Created on : 02/08/2016
     /**
      * @param $ring_no
      * @param bool $date
@@ -1344,7 +1344,7 @@ public function getOverallProgress($data_date){
             "value"=>array()
         );
         if ($date) { //If date is selected
-            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='.$ring_no.'  AND tts."DATA_DATE"='.$date.'';
+            $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date'";
 //            $sql = 'select * from "tbl_trip_status" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
         }else {
             $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='.$ring_no.'  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
