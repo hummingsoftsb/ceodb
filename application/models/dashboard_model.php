@@ -1447,18 +1447,25 @@ public function getOverallProgress($data_date){
         $overall=array(
             "value"=>array()
         );
+        if($page=='north' || $page=='south'){
+            $sub=" "."and \"kd_number\" != 'KD12'";
+        }else if($page=='ug'){
+            $sub=" "."or \"kd_number\" ~* 'KD12'";
+        }else{
+            $sub="";
+        }
         if($date) {
-            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
         }else {
             //~* is used in the query to check caseless(Upper/Lower)
-            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
         foreach($result as $val){
             $a[$i]=array(
                 "kd"=>$val['kd_number'],
-                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($page)=='north'? "kd12n" :(strtolower($page)=='ug'? "kd12u" :(strtolower($page)=='south'? "kd12s":"#"))),
+                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($val['region'])=='north'? "kd12n" :(strtolower($val['region'])=='ug'? "kd12u" :(strtolower($val['region'])=='south'? "kd12s":(strtolower($val['region'])=='ugw'? "kd12u":"#")))),
                 "plan"=>$val['tp_plan'],
                 "actual"=>$val['tp_actual'],
                 "precent"=>$val['tp_variance_precent'],
@@ -1482,10 +1489,17 @@ public function getOverallProgress($data_date){
         $i=0;$a=array();
         $overall=array();
         if($filter){
+            if($page=='north' || $page=='south'){
+                $sub=" "."and \"kd_number\" != 'KD12'";
+            }else if($page=='ug'){
+                $sub=" "."or \"kd_number\" ~* 'KD12'";
+            }else{
+                $sub="";
+            }
             if ($date) {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
             } else {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' group by \"data_date\" order by \"data_date\" desc limit 1";
+                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." group by \"data_date\" order by \"data_date\" desc limit 1";
             }
         } else {
             if ($date) {
