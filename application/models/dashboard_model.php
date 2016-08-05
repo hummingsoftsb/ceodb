@@ -1433,7 +1433,61 @@ public function getOverallProgress($data_date){
         return $status_ps;
     }
     //TRACK WORKS CODE Starts Here//
+    //    Author: ANCY MATHEW
+    //    Usage : NORTH, SOUTH, and UG KEydate status
+    //    Created: 08/04/2016
+    /**
+     * @param $page
+     * @param bool $date
+     * @return array
+     */
+    public function get_keydate_status(){
+        $keydate_status=array();
+        $sql = 'SELECT region, kd_number,tp_plan, tp_actual,CASE WHEN cast(tp_plan as float) = 100 AND cast(tp_actual as float) = 100 THEN 1 WHEN cast(tp_plan as float) != 100 AND cast(tp_actual as float) != 100  THEN 2 ELSE 0 END FROM tbl_tw_progress';
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
 
+      if(sizeof($result)>0){
+          $a=0;
+          $b=0;
+          foreach($result as $val) {
+              if (strtoupper($val['kd_number']) == "KD12") {
+                  $b += (33.333*$val['tp_actual'])/$val['tp_plan'];
+              } else {
+                  switch ($val['case']) {
+                      case 1:
+                          $station_status[$val['kd_number']] = 0;
+                          break;
+                      case 0:
+                          if ($val['tp_actual'] >= 50) {
+                              $station_status[$val['kd_number']] = 1;
+                          } else {
+                              $station_status[$val['kd_number']] = -1;
+                          }
+                          break;
+                      case 2:
+                          if ((($val['tp_actual'] * 100) / $val['tp_plan']) >= 50) {
+                              $station_status[$val['kd_number']] = 1;
+                          } else {
+                              $station_status[$val['kd_number']] = -1;
+                          }
+                          break;
+                      default :
+                          $station_status[$val['kd_number']] = 2;
+                  }
+              }
+          }
+          $station_status[$val['kd_number']] =(ceil($b)>=100)?0:((ceil($b)>=50)?1:((ceil($b)<50)?-1:2));
+          }
+        else{
+            $station_status['KD9a']=2;
+            $station_status['KD11a']=2;
+            for($i=8;$i<17;$i++){
+                    $station_status['KD'.$i] = 2;
+            }
+        }
+        return $station_status;
+    }
     //    Author: SEBIN THOMAS
     //    Usage : NORTH, SOUTH, and UG Overall Summary
     //    Created: 15/07/2016

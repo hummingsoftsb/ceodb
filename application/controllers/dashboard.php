@@ -826,14 +826,14 @@ class Dashboard extends CI_Controller {
         $comdata = json_decode($comdata[0]['value'],true);
         //var_dump($comdata);die();
         $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
-
+        $data_packages = $this->dashboard_model->get_keydate_status();
 
 
         //var_dump($date);die();
 //        $data_packages = $this->dashboard_model->get_source_archivable(88); //North
 //        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //South
 
-        $data_packages = $this->dashboard_model->get_source_archivable(115); //SBK-S-06 North
+        /*$data_packages = $this->dashboard_model->get_source_archivable(115); //SBK-S-06 North
         $data_packages2 = $this->dashboard_model->get_source_archivable(114); //SBK-S-06  South
         $data_packages3 = $this->dashboard_model->get_source_archivable(29); //System Summary
         $data_packages = json_decode($data_packages[0]['value'], true);
@@ -841,7 +841,7 @@ class Dashboard extends CI_Controller {
         $data_packages3 = json_decode($data_packages3[0]['value'], true);
         $data_packages_north = $data_packages['north']['scorecard'];
         $data_packages_south = $data_packages2['south']['scorecard'];//var_dump($data_packages3);die();
-        $data_packages_system = $data_packages3['systems']['syspackage'];
+        $data_packages_system = $data_packages3['systems']['syspackage'];*/
 
         $early = round(explode("%", $data['currentEarly'])[0]);
         $late = round(explode("%", $data['currentLate'])[0]);
@@ -849,14 +849,14 @@ class Dashboard extends CI_Controller {
         $var_early = round(explode("w", $data['varLate'])[0]);
         $var_early = ($var_early > 0 ? "+" . $var_early : $var_early);
 
-        $packages_data = array_merge(
+        /*$packages_data = array_merge(
             (array_map(function($i) {
                 return array($i['item'] => $i['varianceLate']);
             }, $data_packages_north)), (array_map(function($i) {
                 return array($i['item'] => $i['varianceLate']);
             }, $data_packages_south)), (array_map(function($i) {
                 return array($i['item'] => $i['varianceLate']);
-            }, $data_packages_system)));//var_dump($packages_data);die();
+            }, $data_packages_system)));//var_dump($packages_data);die();*/
 
 
         //print_r(array_keys(json_encode($data[0]['value'])));die();
@@ -892,9 +892,8 @@ class Dashboard extends CI_Controller {
         foreach($comdata as $k => $v)
             $data['data'][$k] = $v;
 
-        foreach ($packages_data as $k => $d) {
-            foreach ($d as $kk => $dd)
-                $data['data'][$kk] = $dd;
+        foreach ($data_packages as $k => $d) {
+            $data['data'][$k] = $d;
         }
         $this->load->view('systems/trackworks', $data);
     }
