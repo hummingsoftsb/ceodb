@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -1009,6 +1010,7 @@
 		window.scrollTo(0,1);
 		$(window).load(function(){
 			data = <?php echo json_encode($data); ?>;
+            console.log(data);
             $('#project_progress_container').circleProgress({
                 value: (data['overall_actual']/100),
                 fill: { gradient: ['#07c6c1','#0681c4'] },
@@ -1498,8 +1500,8 @@
 				var d = parseFloat(data['KD'+i]);
 				processVariance('kd'+i, d);
 			}
-            processVariance('kd9a', parseFloat(data['KD9A']));
-            processVariance('kd11a', parseFloat(data['KD11A']));
+            processVariance('kd9a', parseFloat(data['KD9a']));
+            processVariance('kd11a', parseFloat(data['KD11a']));
 			processVariance('dpt1', parseFloat(data['DPT1']));
 			processVariance('dpt2', parseFloat(data['DPT2']));
 			processVariance('sbk-s-01', parseFloat(data['SBK-S-01']));
@@ -1669,10 +1671,10 @@ function stopBlink() {
 }
 
 function processVariance(g, v) {
-	if (v <= -8) groupGoRedBlink(g);
-	else if (v < -4) groupGoRed(g);
-	else if (v < 0) groupGoYellow(g);
-	else if (v >= 0) groupGoGreen(g);
+	if (v == 0)groupGoGreen(g);
+	else if (v == 1) groupGoYellow(g);
+	else if (v == -1) groupGoRedBlink(g);
+	else if (v == 2 ) groupGoGrey(g);
 	else groupGoGrey(g);
 }
 
