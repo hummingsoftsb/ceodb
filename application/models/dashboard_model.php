@@ -1477,7 +1477,7 @@ public function getOverallProgress($data_date){
                   }
               }
           }
-          $station_status[$val['kd_number']] =(ceil($b)>=100)?0:((ceil($b)>=50)?1:((ceil($b)<50)?-1:2));
+          $station_status["KD12"] =(ceil($b)>=100)?0:((ceil($b)>=50)?1:((ceil($b)<50)?-1:2));
           }
         else{
             $station_status['KD9a']=2;
