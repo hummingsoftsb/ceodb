@@ -1295,9 +1295,9 @@ public function getOverallProgress($data_date){
             "value"=>array()
         );
         if ($date) { //If date is selected
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
+            $sql = "SELECT * FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
         }else {
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.'';
+            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
@@ -1307,13 +1307,13 @@ public function getOverallProgress($data_date){
                 "ring_number" =>$val['RING_NUMBER'],
                 "station_name"=> $val['STATION_NAME'],
                 "station_code" => $val['STATION_CODE'],
-                "install_status" => ($val['INSTALL_STATUS']==1)?'Completed':(($val['INSTALL_STATUS']==2)?'In Progress' :(($val['INSTALL_STATUS']==3)?'Pending':(($val['INSTALL_STATUS']==-1)?'N/A':'-'))),
-                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':'-'))),
-                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':'-'))),
-                "pscada_pat" => ($val['PSCADA_PAT']==1)?'Completed':($val['PSCADA_PAT']==2?'In Progress' :($val['PSCADA_PAT']==3?'Pending':($val['PSCADA_PAT']==-1?'N/A':'-'))),
-                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':'-'))),
-                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':'-'))),
-                "pscada_sat" => ($val['PSCADA_SAT']==1)?'Completed':($val['PSCADA_SAT']==2?'In Progress' :($val['PSCADA_SAT']==3?'Pending':($val['PSCADA_SAT']==-1?'N/A':'-'))),
+                "install_status" => ($val['INSTALL_STATUS']==1)?'Completed':(($val['INSTALL_STATUS']==2)?'In Progress' :(($val['INSTALL_STATUS']==3)?'Pending':(($val['INSTALL_STATUS']==-1)?'N/A':(($val['INSTALL_STATUS']==4)?'Handed Over':'-')))),
+                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':($val['33KV_PAT']==4?'Handed Over':'-')))),
+                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':($val['750V_PAT']==4?'Handed Over':'-')))),
+                "pscada_pat" => ($val['PSCADA_PAT']==1)?'Completed':($val['PSCADA_PAT']==2?'In Progress' :($val['PSCADA_PAT']==3?'Pending':($val['PSCADA_PAT']==-1?'N/A':($val['PSCADA_PAT']==4?'Handed Over':'-')))),
+                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':($val['33KV_SAT']==4?'Handed Over':'-')))),
+                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':($val['750V_SAT']==4?'Handed Over':'-')))),
+                "pscada_sat" => ($val['PSCADA_SAT']==1)?'Completed':($val['PSCADA_SAT']==2?'In Progress' :($val['PSCADA_SAT']==3?'Pending':($val['PSCADA_SAT']==-1?'N/A':($val['PSCADA_SAT']==4?'Handed Over':'-')))),
                 "33kv_forecast_date" =>($val['33KV_FORECAST_DATE']==null || $val['33KV_FORECAST_DATE']=="")?($val['33KV_PAT']==-1 && $val['33KV_SAT']==-1)?'N/A':'-':$val['33KV_FORECAST_DATE'],
                 "750v_forecast_date" =>($val['750V_FORECAST_DATE']==null || $val['750V_FORECAST_DATE']=="")?($val['750V_PAT']==-1 && $val['750V_SAT']==-1)?'N/A':'-':$val['750V_FORECAST_DATE'],
                 "pscada_forecast_date" =>($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=="")?($val['PSCADA_PAT']==-1 && $val['PSCADA_SAT']==-1)?'N/A':'-':$val['PSCADA_FORECAST_DATE'],
@@ -1322,7 +1322,7 @@ public function getOverallProgress($data_date){
                 "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=="")?($val['PSCADA_ACTUAL_STATUS']==1?'Energized':($val['PSCADA_ACTUAL_STATUS']==2?'Pending':($val['PSCADA_ACTUAL_STATUS']==3?'N/A':'-'))):$val['PSCADA_ACTUAL_DATE'],
                 "ac_or_dc_one" =>"33KV",
                 "ac_or_dc_two" =>"750V",
-                "ac_or_dc_three" =>(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=='') && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=='') && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=='') && ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=='') && ($val['PSCADA_ACTUAL_STATUS']==null || $val['PSCADA_ACTUAL_STATUS']==''))?null:'PSCADA'
+                "ac_or_dc_three" =>(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=='') && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=='') && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=='') && ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=='') && ($val['PSCADA_ACTUAL_STATUS']==null || $val['PSCADA_ACTUAL_STATUS']==''))?'PSCADA':'PSCADA'
             );
             $i++;
         }
@@ -1332,7 +1332,7 @@ public function getOverallProgress($data_date){
     //Author : Ancy Mathew
     //Modified by: Sebin Thomas
     //Usage : Retrives PSDS TRIP Cable Status reports based on and latest date
-    //Created on : 20/06/2016
+    //Created on : 02/08/2016
     /**
      * @param $ring_no
      * @param bool $date
@@ -1344,7 +1344,7 @@ public function getOverallProgress($data_date){
             "value"=>array()
         );
         if ($date) { //If date is selected
-            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='.$ring_no.'  AND tts."DATA_DATE"='.$date.'';
+            $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date'";
 //            $sql = 'select * from "tbl_trip_status" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
         }else {
             $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='.$ring_no.'  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
@@ -1501,18 +1501,25 @@ public function getOverallProgress($data_date){
         $overall=array(
             "value"=>array()
         );
+        if($page=='north' || $page=='south'){
+            $sub=" "."and \"kd_number\" != 'KD12'";
+        }else if($page=='ug'){
+            $sub=" "."or \"kd_number\" ~* 'KD12'";
+        }else{
+            $sub="";
+        }
         if($date) {
-            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
         }else {
             //~* is used in the query to check caseless(Upper/Lower)
-            $sql = "SELECT \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
         foreach($result as $val){
             $a[$i]=array(
                 "kd"=>$val['kd_number'],
-                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($page)=='north'? "kd12n" :(strtolower($page)=='ug'? "kd12u" :(strtolower($page)=='south'? "kd12s":"#"))),
+                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($val['region'])=='north'? "kd12n" :(strtolower($val['region'])=='ug'? "kd12u" :(strtolower($val['region'])=='south'? "kd12s":(strtolower($val['region'])=='ugw'? "kd12u":"#")))),
                 "plan"=>$val['tp_plan'],
                 "actual"=>$val['tp_actual'],
                 "precent"=>$val['tp_variance_precent'],
@@ -1536,10 +1543,17 @@ public function getOverallProgress($data_date){
         $i=0;$a=array();
         $overall=array();
         if($filter){
+            if($page=='north' || $page=='south'){
+                $sub=" "."and \"kd_number\" != 'KD12'";
+            }else if($page=='ug'){
+                $sub=" "."or \"kd_number\" ~* 'KD12'";
+            }else{
+                $sub="";
+            }
             if ($date) {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' and \"data_date\"='$date'";
+                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
             } else {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page' group by \"data_date\" order by \"data_date\" desc limit 1";
+                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." group by \"data_date\" order by \"data_date\" desc limit 1";
             }
         } else {
             if ($date) {

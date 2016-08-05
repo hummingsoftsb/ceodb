@@ -83,12 +83,12 @@
             <%var rspan; if(i['ac_or_dc_three']!=null){rspan=3}else{rspan=2}%>
             <td rowspan="<%=rspan%>"><b><%=i['station_code']%></b><br><%=i['station_name']%></td>
             <!--<td rowspan="<%=rspan%>"><%=i['install_status']%></td>-->
-            <td rowspan="<%=rspan%>" style="text-align: center"><i class="fa fa-circle" style="color:<%if(i['install_status']=='Completed'){%>#2acd4a<%}else if(i['install_status']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i></td>
+            <td rowspan="<%=rspan%>" style="text-align: center"><i class="fa fa-circle" style="color:<%if(i['install_status']=='Completed'){%>#2acd4a<%}else if(i['install_status']=='In Progress'){%>#efe24b<%}else if(i['install_status']=='Handed Over'){%>#0070C0<%}else{%>#E83737<%}%>;"></i></td>
             <td class="color-beige"><%=i['ac_or_dc_one']%></td>
-            <td style="text-align: center;color:<%if(i['33kv_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_pat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_pat']=='Completed'){%>#2acd4a<%}else if(i['33kv_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['33kv_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_pat']=='N/A'){%>N/A<%}else if(i['33kv_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_pat']=='Completed'){%>#2acd4a<%}else if(i['33kv_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
             <!--<td><i class="fa fa-circle"></i></td>-->
             <!--<td><%=i['33kv_sat']%></td>-->
-            <td style="text-align: center;color:<%if(i['33kv_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_sat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_sat']=='Completed'){%>#2acd4a<%}else if(i['33kv_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['33kv_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_sat']=='N/A'){%>N/A<%}else if(i['33kv_sat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_sat']=='Completed'){%>#2acd4a<%}else if(i['33kv_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
             <td style="color:<%if(i['33kv_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['33kv_forecast_date']%></td>
             <td style="color:<%if(i['33kv_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['33kv_actual_date']%></td>
         </tr>
@@ -96,8 +96,8 @@
             <td class="color-beige"><%=i['ac_or_dc_two']%></td>
             <!-- <td><%=i['750v_pat']%></td>
              <td><%=i['750v_sat']%></td>-->
-            <td style="text-align: center;color:<%if(i['750v_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_pat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_pat']=='Completed'){%>#2acd4a<%}else if(i['750v_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
-            <td style="text-align: center;color:<%if(i['750v_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_sat']=='N/A'){%>N/A<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_sat']=='Completed'){%>#2acd4a<%}else if(i['750v_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_pat']=='N/A'){%>N/A<%}else if(i['750v_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_pat']=='Completed'){%>#2acd4a<%}else if(i['750v_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['750v_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['750v_sat']=='N/A'){%>N/A<%}else if(i['750v_sat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['750v_sat']=='Completed'){%>#2acd4a<%}else if(i['750v_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
             <td style="color:<%if(i['750v_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['750v_forecast_date']%></td>
             <td style="color:<%if(i['750v_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['750v_actual_date']%></td>
         </tr>
@@ -106,8 +106,8 @@
             <td class="color-beige"><%=i['ac_or_dc_three']%></td>
             <!--<td><%=i['pscada_pat']%></td>
             <td><%=i['pscada_sat']%></td>-->
-            <td style="text-align: center;color:<%if(i['pscada_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_pat']=='N/A'){%>'N/A'<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_pat']=='Completed'){%>#2acd4a<%}else if(i['pscada_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
-            <td style="text-align: center;color:<%if(i['pscada_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_sat']=='N/A'){%>'N/A'<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_sat']=='Completed'){%>#2acd4a<%}else if(i['pscada_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['pscada_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_pat']=='N/A'){%>'N/A'<%}else if(i['pscada_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_pat']=='Completed'){%>#2acd4a<%}else if(i['pscada_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
+            <td style="text-align: center;color:<%if(i['pscada_sat']=='N/A'){%>#ffd461<%}%>"><%if(i['pscada_sat']=='N/A'){%>'N/A'<%}else if(i['pscada_sat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['pscada_sat']=='Completed'){%>#2acd4a<%}else if(i['pscada_sat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
             <td style="color:<%if(i['pscada_forecast_date']=='N/A'){%>#ffd461<%}%>"><%=i['pscada_forecast_date']%></td>
             <td style="color:<%if(i['pscada_actual_date']=='N/A'){%>#ffd461<%}%>"><%=i['pscada_actual_date']%></td>
         </tr>
@@ -118,6 +118,7 @@
     <div style="text-align: right; margin-top: 15px;"> <i class="fa fa-circle" style="color:#2acd4a"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>
         <i class="fa fa-circle" style="color:#efe24b"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
         <i class="fa fa-circle" style="color:#E83737"></i><span style="color: #efefef">&nbsp;Pending&nbsp;&nbsp;</span>
+        <i class="fa fa-circle" style="color:#0070C0"></i><span style="color: #efefef">&nbsp;Handed Over&nbsp;&nbsp;</span>
     </div>
 </div>
 <!--Model: Starts-->

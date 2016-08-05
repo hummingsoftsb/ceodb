@@ -20,12 +20,10 @@
             <td style="text-align: center;"><a href="<%=i['region_url']%>"><span style="font-weight: 600;"><%=i['region']%></span></a></td>
             <td style="color: #ffd461; text-align: center;"><%=i['actual']%></td>
             <td style="color: #FFAF78; text-align: center;"><%=i['week_difference']%>
-                <% if (i['week_difference']>0) { %>
-                <i class="fa fa-arrow-up" style="color: #ff4500; float: right;padding-right: 30px;"></i>
+                <% if (i['week_difference']>=0) { %>
+                <i class="fa fa-arrow-up" style="color: #9EDD2E; float: right;padding-right: 30px;"></i>
                 <% } else if(i['week_difference']<0) { %>
                 <i class="fa fa-arrow-down" style="color: #ff4500; float: right;padding-right: 30px;"></i>
-                <% } else if(i['week_difference']==0 || i['week_difference']==0.00) {%>
-                <i class="fa fa-arrow-right" style="color: #ff4500; float: right;padding-right: 30px;"></i>
                 <% } %>
             </td>
         </tr>
