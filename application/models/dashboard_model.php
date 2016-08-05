@@ -1629,4 +1629,9 @@ public function getOverallProgress($data_date){
         $region_progress['value']=json_encode($tem_array);
         return $region_progress;
     }
+    public function get_tw_overall_percentage(){
+        $query = 'SELECT * FROM "tbl_tw_overall_percentage" WHERE "data_date" = (SELECT MAX("data_date") FROM "tbl_tw_overall_percentage")';
+        $query = $this->db->query($query);
+        return $query->result_array();
+    }
 }
