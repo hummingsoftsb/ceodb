@@ -29,9 +29,24 @@ mpxd.constructors.overall_progress_chart = function (data) {
     var el = "#portlet_" + data.id;
     return new mpxd.modules.track_works.overall_progress({data: data, el: el});
 }
-
-
+mpxd.constructors.trainborne = function (data) {
+    var el = "#portlet_" + data.id;
+    return new mpxd.modules.signal_train_control_system.detail_progress({data: data, el: el});
+}
+mpxd.constructors.stcs_map = function (data) {
+    var el = "#portlet_" + data.id;
+    return new mpxd.modules.signal_train_control_system.map({data: data, el: el});
+}
+mpxd.constructors.stcs_map_bg = function (data) {
+    var el = "#portlet_" + data.id;
+    return new mpxd.modules.signal_train_control_system.map_bg({data: data, el: el});
+}
+mpxd.constructors.trainborne_overall_et = function (data) {
+    var el = "#portlet_" + data.id;
+    return new mpxd.modules.signal_train_control_system.overall_progress({data: data, el: el});
+}
 mpxd.modules.track_works = {}
+mpxd.modules.signal_train_control_system = {}
 mpxd.modules.track_works.overall_progress = Backbone.View.extend({
     initialize: function (options) {
         this.data = options.data;
@@ -457,5 +472,70 @@ mpxd.modules.track_works.station_list = Backbone.View.extend({
             }
         }
         //Upto Here
+    }
+});
+mpxd.modules.signal_train_control_system.detail_progress = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate(that.data.type);
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+
+        var d = $.Deferred();
+        var y = ['rgb(255, 221, 32)','rgb(240, 178, 15)'];
+        var g = ['rgb(77, 180, 77)','green'];
+        d3.xml("/mpxd/assets/img/systems/stcs/mrt_train_diagram_3.svg", "image/svg+xml", function (error, xml) {
+
+            if (error) throw console.log("error")
+            document.getElementById('tc1').appendChild(xml.documentElement);
+            var a = document.getElementById('svg4265');
+            d3.select("#path4836").style("fill", y[0]);
+            d3.select("#path5007").style("fill", y[1]);
+            d3.select("#path5009").style("fill", y[1]);
+            d3.select("#path4981").style("fill", y[1]);
+        });
+    }
+});
+mpxd.modules.signal_train_control_system.map = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate(that.data.type);
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+
+    }
+});
+mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate(that.data.type);
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+
+    }
+});
+mpxd.modules.signal_train_control_system.overall_progress = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate(that.data.type);
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+
     }
 });
