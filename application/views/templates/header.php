@@ -181,7 +181,7 @@
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script>
 
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/paging.js"></script>
-
+        <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/masonry/masonry.js"></script>
         <!--Picasa slider-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/picasa-slider/jquery.googleslides.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/picasa-slider/jquery.googleslides.js"></script>

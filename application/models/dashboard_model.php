@@ -338,7 +338,8 @@ class Dashboard_model extends CI_Model
         }
 
     */
-    public function get_date_list($slug){
+    public function get_date_list($slug)
+    {
         $this->db->select("to_char(data_sources.date, 'DD-Mon-YY') as date", FALSE); //Postgres
         //$this->db->select("DATE_FORMAT(data_sources.date, '%d-%b-%y') as date", FALSE); //MYSQL
         $this->db->from('data_sources');
@@ -777,7 +778,8 @@ class Dashboard_model extends CI_Model
 //    Author:Sebin Thomas
 //    Usage : Get Comments
 //    Created:
-    public function getComment(){
+    public function getComment()
+    {
         $this->db->select('*');
         $this->db->from('prognosis');
         $this->db->order_by('timestamp', 'DESC');
@@ -787,15 +789,18 @@ class Dashboard_model extends CI_Model
     //    Author:Sebin Thomas
 //    Usage : Get Comments
 //    Created:
-    public function removeComment($comment_id){
+    public function removeComment($comment_id)
+    {
         $this->db->where('id', $comment_id);
         $ret = $this->db->delete('prognosis');
-        return $ret;    }
+        return $ret;
+    }
 //    Author:AncY Mathew
 //    Usage : Baseline and forecast table data
 //    Created: 29/04/2016
-    public function getBaselineM($data_date){
-        $manufacture=array();
+    public function getBaselineM($data_date)
+    {
+        $manufacture = array();
         /*$this->db->select('*');
         $this->db->from('tbl_manf_baseline_forecast');
         $this->db->where_in('DATA_DATE',$data_date);
@@ -805,16 +810,16 @@ class Dashboard_model extends CI_Model
         $sql = "select a.\"TRAIN_NO\",a.\"BASE_DATE\",COALESCE(a.\"FORE_DATE\",'ROLLED_OUT') as fore_cast ,a.\"REV_INT\",b.\"DATA_DATE\",b.\"CAR1_NO\",b.\"CAR1_PERC\",b.\"CAR2_NO\",b.\"CAR2_PERC\",b.\"CAR3_NO\",b.\"CAR3_PERC\",b.\"CAR4_NO\",b.\"CAR4_PERC\",b.\"CAR1_ROLL_OUT\",b.\"CAR2_ROLL_OUT\",b.\"CAR3_ROLL_OUT\",b.\"CAR4_ROLL_OUT\" from \"tbl_manf_baseline_forecast\" a LEFT OUTER JOIN \"tbl_puzhen_manufacture\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and a.\"DATA_DATE\" = b.\"DATA_DATE\"  where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        $i=0;
-        foreach($result as $key=> $val){
-            $manufacture[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
-            $manufacture[$i]["BASE_DATE"] =$val['BASE_DATE'];
-            $manufacture[$i]["FORE_DATE"] =$val['fore_cast'];
-            $manufacture[$i]["REV_INT"] =$val['REV_INT'];
-            $manufacture[$i]["CAR1_PERC"] =$val['CAR1_PERC'];
-            $manufacture[$i]["CAR2_PERC"] =$val['CAR2_PERC'];
-            $manufacture[$i]["CAR3_PERC"] =$val['CAR3_PERC'];
-            $manufacture[$i]["CAR4_PERC"] =$val['CAR4_PERC'];
+        $i = 0;
+        foreach ($result as $key => $val) {
+            $manufacture[$i]["TRAIN_NO"] = $val['TRAIN_NO'];
+            $manufacture[$i]["BASE_DATE"] = $val['BASE_DATE'];
+            $manufacture[$i]["FORE_DATE"] = $val['fore_cast'];
+            $manufacture[$i]["REV_INT"] = $val['REV_INT'];
+            $manufacture[$i]["CAR1_PERC"] = $val['CAR1_PERC'];
+            $manufacture[$i]["CAR2_PERC"] = $val['CAR2_PERC'];
+            $manufacture[$i]["CAR3_PERC"] = $val['CAR3_PERC'];
+            $manufacture[$i]["CAR4_PERC"] = $val['CAR4_PERC'];
             $i++;
         }
         return $manufacture;
@@ -829,29 +834,29 @@ class Dashboard_model extends CI_Model
             "assembly" => array(),
             "subd" => array(),
             "kjd" => array(),
-            "fore_date"=>array()
+            "fore_date" => array()
 
         );
-       /* $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ROLL_OUT,CAR2_ROLL_OUT,CAR3_ROLL_OUT,CAR4_ROLL_OUT');
-        $this->db->from('tbl_puzhen_manufacture');
-        $this->db->where_in('DATA_DATE',$data_date);
-        $this->db->order_by('TRAIN_NO');*/
+        /* $this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ROLL_OUT,CAR2_ROLL_OUT,CAR3_ROLL_OUT,CAR4_ROLL_OUT');
+         $this->db->from('tbl_puzhen_manufacture');
+         $this->db->where_in('DATA_DATE',$data_date);
+         $this->db->order_by('TRAIN_NO');*/
         $sql = "select a.\"TRAIN_NO\",a.\"CAR1_NO\",a.\"CAR1_PERC\",a.\"CAR2_NO\",a.\"CAR2_PERC\",a.\"CAR3_NO\",a.\"CAR3_PERC\",a.\"CAR4_NO\",a.\"CAR4_PERC\",a.\"CAR1_ROLL_OUT\",a.\"CAR2_ROLL_OUT\",a.\"CAR3_ROLL_OUT\",a.\"CAR4_ROLL_OUT\",COALESCE(b.\"FORE_DATE\",'ROLLED_OUT') as fore_cast from \"tbl_puzhen_manufacture\" a LEFT OUTER JOIN \"tbl_manf_baseline_forecast\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and  a.\"DATA_DATE\" = b.\"DATA_DATE\" where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
         $query = $this->db->query($sql);
         $result = $query->result_array();
-      /*  $query = $this->db->get();
-        $result=$query->result_array();*/
+        /*  $query = $this->db->get();
+          $result=$query->result_array();*/
 
         /*$this->db->select('TRAIN_NO,CAR1_NO,CAR1_PERC,CAR2_NO,CAR2_PERC,CAR3_NO,CAR3_PERC,CAR4_NO,CAR4_PERC,CAR1_ARRIVED,CAR2_ARRIVED,CAR3_ARRIVED,CAR4_ARRIVED');
         $this->db->from('tbl_SMH_Assmbly_Progress');
         $this->db->where_in("DATA_DATE",$data_date);
         $query = $this->db->get();*/
         $sql = "select a.\"TRAIN_NO\",a.\"CAR1_NO\",a.\"CAR1_PERC\",a.\"CAR2_NO\",a.\"CAR2_PERC\",a.\"CAR3_NO\",a.\"CAR3_PERC\",a.\"CAR4_NO\",a.\"CAR4_PERC\",a.\"CAR1_ARRIVED\",a.\"CAR2_ARRIVED\",a.\"CAR3_ARRIVED\",a.\"CAR4_ARRIVED\",COALESCE(b.\"FORE_DATE\",'ROLLED_OUT') as fore_cast from \"tbl_SMH_Assmbly_Progress\" a LEFT OUTER JOIN \"tbl_assembly_baseline_forecast\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and a.\"DATA_DATE\" = b.\"DATA_DATE\"  where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
-       // echo 'take';
+        // echo 'take';
         //echo $sql;
         $query = $this->db->query($sql);
-       /* $result = $query->result_array();*/
-        $result1=$query->result_array();
+        /* $result = $query->result_array();*/
+        $result1 = $query->result_array();
 //        $this->db->select('TRAIN_FROM,TRAIN_TO,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS,H_MANUFACTURED,H_ASSEMBLY');
 //        $this->db->from('tbl_SUBD_DT_CS');
 //        $this->db->where_in("DATA_DATE",$data_date);
@@ -865,13 +870,13 @@ class Dashboard_model extends CI_Model
 
         $this->db->select('TRAIN_NUMBER,CAR1,CAR2,CAR3,CAR4,DATE_DELIVERED,COMMENTS');
         $this->db->from('tbl_KJD_DT_CS');
-        $this->db->where_in("DATA_DATE",$data_date);
+        $this->db->where_in("DATA_DATE", $data_date);
         //$this->db->order_by('KJD_MASTER_ID');
         $query = $this->db->get();
         //$sql = "Select \"TRAIN_NUMBER\",\"TRAIN_TO\",COALESCE(\"CAR1\",'1000') AS CAR1,COALESCE(\"CAR2\",'1001') AS CAR2,COALESCE(\"CAR3\",'1002') AS CAR3,COALESCE(\"CAR4\",'1003') AS CAR4,\"DATE_DELIVERED\",\"COMMENTS\",\"H_MANUFACTURED\",\"H_ASSEMBLY\" from \"tbl_KJD_DT_CS\" WHERE \"DATA_DATE\"='$data_date' order by \"TRAIN_FROM\"";
         //echo $sql;
         //$query = $this->db->query($sql);
-        $kjd=$query->result_array();
+        $kjd = $query->result_array();
         /*$sql = "select \"TRAIN_NO\",\"FORE_DATE\" from tbl_assembly_baseline_forecast where \"DATA_DATE\"='$data_date' order by \"TRAIN_NO\"";
         $query = $this->db->query($sql);
         $final = $query->result_array();
@@ -881,153 +886,153 @@ class Dashboard_model extends CI_Model
             $i++;
             $i++;
         }*/
-        foreach($result as $key=> $val){
-                $rel["manufacturing"]["Train ".$val['TRAIN_NO']]=array(
-                    "cars"=>array(
-                        $val['CAR1_NO']=>array(
-                            "progress"=>($val['CAR1_PERC']==null)?0:$val['CAR1_PERC'],
-                            "rollout"=>($val['CAR1_ROLL_OUT']==null)?'':$val['CAR1_ROLL_OUT'],
-                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
-                        ),
-                        $val['CAR2_NO']=>array(
-                            "progress"=>($val['CAR2_PERC']==null)?0:$val['CAR2_PERC'],
-                            "rollout"=>($val['CAR2_ROLL_OUT']==null)?'':$val['CAR2_ROLL_OUT'],
-                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
-                        ),
-                        $val['CAR3_NO']=>array(
-                            "progress"=>($val['CAR3_PERC']==null)?0:$val['CAR3_PERC'],
-                            "rollout"=>($val['CAR3_ROLL_OUT']==null)?'':$val['CAR3_ROLL_OUT'],
-                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
-                        ),
-                        $val['CAR4_NO']=>array(
-                            "progress"=>($val['CAR4_PERC']==null)?0:$val['CAR4_PERC'],
-                            "rollout"=>($val['CAR4_ROLL_OUT']==null)?'':$val['CAR4_ROLL_OUT'],
-                            "foreDate"=>($val['fore_cast']==null)?'':$val['fore_cast']
-                        )
+        foreach ($result as $key => $val) {
+            $rel["manufacturing"]["Train " . $val['TRAIN_NO']] = array(
+                "cars" => array(
+                    $val['CAR1_NO'] => array(
+                        "progress" => ($val['CAR1_PERC'] == null) ? 0 : $val['CAR1_PERC'],
+                        "rollout" => ($val['CAR1_ROLL_OUT'] == null) ? '' : $val['CAR1_ROLL_OUT'],
+                        "foreDate" => ($val['fore_cast'] == null) ? '' : $val['fore_cast']
+                    ),
+                    $val['CAR2_NO'] => array(
+                        "progress" => ($val['CAR2_PERC'] == null) ? 0 : $val['CAR2_PERC'],
+                        "rollout" => ($val['CAR2_ROLL_OUT'] == null) ? '' : $val['CAR2_ROLL_OUT'],
+                        "foreDate" => ($val['fore_cast'] == null) ? '' : $val['fore_cast']
+                    ),
+                    $val['CAR3_NO'] => array(
+                        "progress" => ($val['CAR3_PERC'] == null) ? 0 : $val['CAR3_PERC'],
+                        "rollout" => ($val['CAR3_ROLL_OUT'] == null) ? '' : $val['CAR3_ROLL_OUT'],
+                        "foreDate" => ($val['fore_cast'] == null) ? '' : $val['fore_cast']
+                    ),
+                    $val['CAR4_NO'] => array(
+                        "progress" => ($val['CAR4_PERC'] == null) ? 0 : $val['CAR4_PERC'],
+                        "rollout" => ($val['CAR4_ROLL_OUT'] == null) ? '' : $val['CAR4_ROLL_OUT'],
+                        "foreDate" => ($val['fore_cast'] == null) ? '' : $val['fore_cast']
+                    )
                 )
             );
         }
         foreach ($result1 as $key => $val1) {
             $rel["assembly"]["Train " . $val1['TRAIN_NO']] = array(
-                "delivery"=>"",
+                "delivery" => "",
                 "cars" => array(
                     $val1['CAR1_NO'] => array(
-                        "progress" =>($val1['CAR1_PERC']==null)?0:$val1['CAR1_PERC'],
+                        "progress" => ($val1['CAR1_PERC'] == null) ? 0 : $val1['CAR1_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR1_ARRIVED']==null)?'':$val1['CAR1_ARRIVED'],
-                        "foreDateA"=>($val1['fore_cast']==null)?'':$val1['fore_cast']
+                        "arrived" => ($val1['CAR1_ARRIVED'] == null) ? '' : $val1['CAR1_ARRIVED'],
+                        "foreDateA" => ($val1['fore_cast'] == null) ? '' : $val1['fore_cast']
                     ),
                     $val1['CAR2_NO'] => array(
-                        "progress" =>($val1['CAR2_PERC']==null)?0:$val1['CAR2_PERC'],
+                        "progress" => ($val1['CAR2_PERC'] == null) ? 0 : $val1['CAR2_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR2_ARRIVED']==null)?'':$val1['CAR2_ARRIVED'],
-                        "foreDateA"=>($val1['fore_cast']==null)?'':$val1['fore_cast']
+                        "arrived" => ($val1['CAR2_ARRIVED'] == null) ? '' : $val1['CAR2_ARRIVED'],
+                        "foreDateA" => ($val1['fore_cast'] == null) ? '' : $val1['fore_cast']
                     ),
                     $val1['CAR3_NO'] => array(
-                        "progress" =>($val1['CAR3_PERC']==null)?0:$val1['CAR3_PERC'],
+                        "progress" => ($val1['CAR3_PERC'] == null) ? 0 : $val1['CAR3_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR3_ARRIVED']==null)?'':$val1['CAR3_ARRIVED'],
-                        "foreDateA"=>($val1['fore_cast']==null)?'':$val1['fore_cast']
+                        "arrived" => ($val1['CAR3_ARRIVED'] == null) ? '' : $val1['CAR3_ARRIVED'],
+                        "foreDateA" => ($val1['fore_cast'] == null) ? '' : $val1['fore_cast']
                     ),
                     $val1['CAR4_NO'] => array(
-                        "progress" =>($val1['CAR4_PERC']==null)?0:$val1['CAR4_PERC'],
+                        "progress" => ($val1['CAR4_PERC'] == null) ? 0 : $val1['CAR4_PERC'],
                         "rollout" => "",
-                        "arrived" => ($val1['CAR4_ARRIVED']==null)?'':$val1['CAR4_ARRIVED'],
-                        "foreDateA"=>($val1['fore_cast']==null)?'':$val1['fore_cast']
+                        "arrived" => ($val1['CAR4_ARRIVED'] == null) ? '' : $val1['CAR4_ARRIVED'],
+                        "foreDateA" => ($val1['fore_cast'] == null) ? '' : $val1['fore_cast']
                     )
 
                 )
             );
         }
 
-        foreach($subd as $key=> $subd_val){
-            if($subd_val["TRAIN_FROM"]!='' && $subd_val["TRAIN_TO"]!=''){
-                $rel["subd"]["Train " . $subd_val['TRAIN_FROM']." - Train ". $subd_val['TRAIN_TO']] = array(
-                    "delivery"=>$subd_val["DATE_DELIVERED"],
-                    "testingcompleted"=>$subd_val['COMMENTS'],
+        foreach ($subd as $key => $subd_val) {
+            if ($subd_val["TRAIN_FROM"] != '' && $subd_val["TRAIN_TO"] != '') {
+                $rel["subd"]["Train " . $subd_val['TRAIN_FROM'] . " - Train " . $subd_val['TRAIN_TO']] = array(
+                    "delivery" => $subd_val["DATE_DELIVERED"],
+                    "testingcompleted" => $subd_val['COMMENTS'],
                     "cars" => array(
-                        " ".$subd_val['car1'] => array(
+                        " " . $subd_val['car1'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
+                                "manufacturing" => "",
+                                "assembly" => "",
                             )
                         ),
-                        " ".$subd_val['car2'] => array(
+                        " " . $subd_val['car2'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
+                                "manufacturing" => "",
+                                "assembly" => "",
                             )
                         ),
-                        " ".$subd_val['car3'] => array(
+                        " " . $subd_val['car3'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
+                                "manufacturing" => "",
+                                "assembly" => "",
                             )
                         ),
-                        " ".$subd_val['car4'] => array(
+                        " " . $subd_val['car4'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>"",
-                                "assembly"=>"",
+                                "manufacturing" => "",
+                                "assembly" => "",
                             )
                         )
 
                     )
                 );
-            }else {
+            } else {
                 $rel["subd"]["Train " . $subd_val['TRAIN_FROM']] = array(
-                    "delivery"=>$subd_val["DATE_DELIVERED"],
-                    "testingcompleted"=>($subd_val['COMMENTS']==null)?'':$subd_val['COMMENTS'],
+                    "delivery" => $subd_val["DATE_DELIVERED"],
+                    "testingcompleted" => ($subd_val['COMMENTS'] == null) ? '' : $subd_val['COMMENTS'],
                     "cars" => array(
-                        " ".$subd_val['car1'] => array(
+                        " " . $subd_val['car1'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR1']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR1'],
-                                "assembly"=>($subd_val['TRAIN_SMH_CAR1']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR1'],
-                                "car"=>$subd_val['car1']
+                                "manufacturing" => ($subd_val['TRAIN_PUZHEN_CAR1'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_PUZHEN_CAR1'],
+                                "assembly" => ($subd_val['TRAIN_SMH_CAR1'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_SMH_CAR1'],
+                                "car" => $subd_val['car1']
                             )
                         ),
-                        " ".$subd_val['car2'] => array(
+                        " " . $subd_val['car2'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR2']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR2'],
-                                "assembly"=>($subd_val['TRAIN_SMH_CAR2']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR2'],
-                                "car"=>$subd_val['car2']
+                                "manufacturing" => ($subd_val['TRAIN_PUZHEN_CAR2'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_PUZHEN_CAR2'],
+                                "assembly" => ($subd_val['TRAIN_SMH_CAR2'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_SMH_CAR2'],
+                                "car" => $subd_val['car2']
                             )
                         ),
-                        " ".$subd_val['car3'] => array(
+                        " " . $subd_val['car3'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
-                                "assembly"=>($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR3'],
-                                "car"=>$subd_val['car3']
+                                "manufacturing" => ($subd_val['TRAIN_PUZHEN_CAR3'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
+                                "assembly" => ($subd_val['TRAIN_SMH_CAR3'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_SMH_CAR3'],
+                                "car" => $subd_val['car3']
                             )
                         ),
-                        " ".$subd_val['car4'] => array(
+                        " " . $subd_val['car4'] => array(
                             "progress" => "",
                             "rollout" => "",
                             "arrived" => "",
                             "history" => array(
-                                "manufacturing"=>($subd_val['TRAIN_PUZHEN_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
-                                "assembly"=>($subd_val['TRAIN_SMH_CAR3']==null)?'N/A':"Train " . $subd_val['TRAIN_SMH_CAR3'],
-                                "car"=>$subd_val['car4']
+                                "manufacturing" => ($subd_val['TRAIN_PUZHEN_CAR3'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_PUZHEN_CAR3'],
+                                "assembly" => ($subd_val['TRAIN_SMH_CAR3'] == null) ? 'N/A' : "Train " . $subd_val['TRAIN_SMH_CAR3'],
+                                "car" => $subd_val['car4']
                             )
                         )
 
@@ -1035,7 +1040,7 @@ class Dashboard_model extends CI_Model
                 );
             }
         }
-        foreach($kjd as $key=> $kjd_val){
+        foreach ($kjd as $key => $kjd_val) {
 //        if($kjd_val["TRAIN_FROM"]!='' && $kjd_val["TRAIN_TO"]!=''){
 //            $rel["kjd"]["Train " . $kjd_val['TRAIN_FROM']." - Train ". $kjd_val['TRAIN_TO']] = array(
 //                "delivery"=>$kjd_val["DATE_DELIVERED"],
@@ -1066,25 +1071,25 @@ class Dashboard_model extends CI_Model
 //            );
 //        }else {
             $rel["kjd"]["Train " . $kjd_val['TRAIN_NUMBER']] = array(
-                "delivery"=>$kjd_val["DATE_DELIVERED"],
-                "testingcompleted"=>$kjd_val['COMMENTS'],
+                "delivery" => $kjd_val["DATE_DELIVERED"],
+                "testingcompleted" => $kjd_val['COMMENTS'],
                 "cars" => array(
-                    " ".$kjd_val['CAR1'] => array(
+                    " " . $kjd_val['CAR1'] => array(
                         "progress" => "",
                         "rollout" => "",
                         "arrived" => ""
                     ),
-                    " ".$kjd_val['CAR2'] => array(
+                    " " . $kjd_val['CAR2'] => array(
                         "progress" => "",
                         "rollout" => "",
                         "arrived" => ""
                     ),
-                    " ".$kjd_val['CAR3'] => array(
+                    " " . $kjd_val['CAR3'] => array(
                         "progress" => "",
                         "rollout" => "",
                         "arrived" => ""
                     ),
-                    " ".$kjd_val['CAR4'] => array(
+                    " " . $kjd_val['CAR4'] => array(
                         "progress" => "",
                         "rollout" => "",
                         "arrived" => ""
@@ -1093,43 +1098,46 @@ class Dashboard_model extends CI_Model
                 )
             );
 //        }
-    }
+        }
         return $rel;
     }
-public function getOverallProgress($data_date){
+
+    public function getOverallProgress($data_date)
+    {
         $overall = array();
         $this->db->select('TRAIN_NO,OPEN_JOBS,CLOSED_JOBS');
         $this->db->from('tbl_overall_progress');
-        $this->db->where_in("DATA_DATE",$data_date);
+        $this->db->where_in("DATA_DATE", $data_date);
         $this->db->order_by('TRAIN_NO');
         $query = $this->db->get();
-        $result=$query->result_array();
-        $i=0;
-        foreach($result as $key=> $val){
-            $overall[$i]["OPEN_JOBS"] =$val['OPEN_JOBS'];
-            $overall[$i]["CLOSED_JOBS"] =$val['CLOSED_JOBS'];
-            $overall[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
+        $result = $query->result_array();
+        $i = 0;
+        foreach ($result as $key => $val) {
+            $overall[$i]["OPEN_JOBS"] = $val['OPEN_JOBS'];
+            $overall[$i]["CLOSED_JOBS"] = $val['CLOSED_JOBS'];
+            $overall[$i]["TRAIN_NO"] = $val['TRAIN_NO'];
             $i++;
         }
         return $overall;
 //        return
     }
 
-    public function getOutStandingProgress($data_date){
+    public function getOutStandingProgress($data_date)
+    {
         $outstand = array();
-        $sql="select \"OUT_DATE\",\"JOBS_DONE\",\"TARGET\" FROM tbl_outstanding_item_progress WHERE \"DATA_DATE\"='$data_date' ORDER BY TO_DATE(\"OUT_DATE\", 'DD-Mon-YYYY')";
-/*        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
-        $this->db->from('tbl_outstanding_item_progress');
-        $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by((to_date("OUT_DATE", 'DD-Mon-YYYY')));
-        $query = $this->db->get();*/
+        $sql = "select \"OUT_DATE\",\"JOBS_DONE\",\"TARGET\" FROM tbl_outstanding_item_progress WHERE \"DATA_DATE\"='$data_date' ORDER BY TO_DATE(\"OUT_DATE\", 'DD-Mon-YYYY')";
+        /*        $this->db->select('OUT_DATE,JOBS_DONE,TARGET');
+                $this->db->from('tbl_outstanding_item_progress');
+                $this->db->where_in("DATA_DATE",$data_date);
+                $this->db->order_by((to_date("OUT_DATE", 'DD-Mon-YYYY')));
+                $query = $this->db->get();*/
         $query = $this->db->query($sql);
-        $result=$query->result_array();
-        $i=0;
-        foreach($result as $key=> $val){
-            $outstand[$i]["JOBS_DONE"] =$val['JOBS_DONE'];
-            $outstand[$i]["TARGET"] =$val['TARGET'];
-            $outstand[$i]["OUT_DATE"] =$val['OUT_DATE'];
+        $result = $query->result_array();
+        $i = 0;
+        foreach ($result as $key => $val) {
+            $outstand[$i]["JOBS_DONE"] = $val['JOBS_DONE'];
+            $outstand[$i]["TARGET"] = $val['TARGET'];
+            $outstand[$i]["OUT_DATE"] = $val['OUT_DATE'];
             $i++;
         }
         return $outstand;
@@ -1149,30 +1157,30 @@ public function getOverallProgress($data_date){
 //    Created: 29/04/2016
     public function getBaselineAssembly($data_date)
     {
-        $manufacture=array();
+        $manufacture = array();
         $sql = "select a.\"TRAIN_NO\",a.\"BASE_DATE\",COALESCE(a.\"FORE_DATE\",'ROLLED_OUT') as fore_cast ,a.\"REV_INT\",b.\"DATA_DATE\",b.\"CAR1_NO\",b.\"CAR2_NO\",b.\"CAR3_NO\",b.\"CAR4_NO\",b.\"CAR4_PERC\" , b.\"CAR3_PERC\" ,b.\"CAR2_PERC\" , b.\"CAR1_PERC\" from \"tbl_assembly_baseline_forecast\" a LEFT OUTER JOIN \"tbl_SMH_Assmbly_Progress\" b on a.\"TRAIN_NO\" = b.\"TRAIN_NO\" and a.\"DATA_DATE\" = b.\"DATA_DATE\"  where a.\"DATA_DATE\" = '$data_date' order by a.\"TRAIN_NO\"";
         //echo $sql;
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        $i=0;
-        foreach($result as $key=> $val){
-            $manufacture[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
-            $manufacture[$i]["BASE_DATE"] =$val['BASE_DATE'];
-            $manufacture[$i]["FORE_DATE"] =$val['fore_cast'];
-            $manufacture[$i]["REV_INT"] =$val['REV_INT'];
-            $manufacture[$i]["CAR1_PERC"] =$val['CAR1_PERC'];
-            $manufacture[$i]["CAR2_PERC"] =$val['CAR2_PERC'];
-            $manufacture[$i]["CAR3_PERC"] =$val['CAR3_PERC'];
-            $manufacture[$i]["CAR4_PERC"] =$val['CAR4_PERC'];
+        $i = 0;
+        foreach ($result as $key => $val) {
+            $manufacture[$i]["TRAIN_NO"] = $val['TRAIN_NO'];
+            $manufacture[$i]["BASE_DATE"] = $val['BASE_DATE'];
+            $manufacture[$i]["FORE_DATE"] = $val['fore_cast'];
+            $manufacture[$i]["REV_INT"] = $val['REV_INT'];
+            $manufacture[$i]["CAR1_PERC"] = $val['CAR1_PERC'];
+            $manufacture[$i]["CAR2_PERC"] = $val['CAR2_PERC'];
+            $manufacture[$i]["CAR3_PERC"] = $val['CAR3_PERC'];
+            $manufacture[$i]["CAR4_PERC"] = $val['CAR4_PERC'];
             $i++;
         }
         return $manufacture;
-       /* $this->db->select('*');
-        $this->db->from('tbl_assembly_baseline_forecast');
-        $this->db->where_in("DATA_DATE",$data_date);
-        $this->db->order_by('TRAIN_NO');
-        $query = $this->db->get();
-        return $query->result_array();*/
+        /* $this->db->select('*');
+         $this->db->from('tbl_assembly_baseline_forecast');
+         $this->db->where_in("DATA_DATE",$data_date);
+         $this->db->order_by('TRAIN_NO');
+         $query = $this->db->get();
+         return $query->result_array();*/
     }
 
 //    Author:Agaile Victor
@@ -1190,24 +1198,24 @@ public function getOverallProgress($data_date){
 
     public function getFullyCompletedTrain($data_date)
     {
-        $outFully=array();
+        $outFully = array();
         //$sql = "select \"TRAIN_NO\"from tbl_testing_completion where \"Static_Total\"=\"Static_Pass\" and \"Dynamic_Total\"=\"Dynamic_Pass\" and \"SAT_Total\"=\"SAT_Pass\" and \"SIT_Total\" = \"SIT_Pass\" and \"IT_Total\"=\"IT_Pass\" and \"TRAIN_NO\" in(select \"TRAIN_NO\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"OPEN_JOBS\" =0 and \"CLOSED_JOBS\" !=0 order by \"TRAIN_NO\")and \"DATA_DATE\" = '$data_date'";
         $sql = "select \"TRAIN_NO\" from tbl_testing_completion where \"Static_Total\"=\"Static_Pass\" and COALESCE(\"Static_Incomplete\",'0')='0' and COALESCE(\"Static_Fail\",'0') = '0' and \"Dynamic_Total\"=\"Dynamic_Pass\" and COALESCE(\"Dynamic_Incomplete\",'0')='0' and COALESCE(\"Dynamic_Fail\",'0')='0' and \"SAT_Total\"=\"SAT_Pass\" and COALESCE(\"SAT_Incomplete\",'0')='0' and COALESCE(\"SAT_Fail\",'0')='0' and \"SIT_Total\" = \"SIT_Pass\" and COALESCE(\"SIT_Incomplete\",'0')='0' and COALESCE(\"SIT_Fail\",'0')='0'  and \"IT_Total\"=\"IT_Pass\" and COALESCE(\"IT_Incomplete\",'0')='0' and COALESCE(\"IT_Fail\",'0')='0' and \"TRAIN_NO\" in(select \"TRAIN_NO\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 and \"OPEN_JOBS\" =0 order by \"TRAIN_NO\")and \"DATA_DATE\" = '$data_date' order by \"TRAIN_NO\"";
         $query = $this->db->query($sql);
         $final = $query->result_array();
-        $i=0;
-        foreach($final as $key=> $val){
-            $outFully[$i]["TRAIN_NO"] =$val['TRAIN_NO'];
+        $i = 0;
+        foreach ($final as $key => $val) {
+            $outFully[$i]["TRAIN_NO"] = $val['TRAIN_NO'];
             $i++;
         }
         $trainData = "select \"TRAIN_NO\",\"OPEN_JOBS\",\"CLOSED_JOBS\" from tbl_overall_progress  where \"DATA_DATE\" = '$data_date' and \"CLOSED_JOBS\" !=0 and \"OPEN_JOBS\" =0 order by \"TRAIN_NO\"";
         $query = $this->db->query($trainData);
         $finalData = $query->result_array();
-        $j=0;
-        foreach($finalData as $key=> $val){
-            $outFully[$j]["TRAIN_NUMBER"] =$val['TRAIN_NO'];
-            $outFully[$j]["OPEN_JOBS"] =$val['OPEN_JOBS'];
-            $outFully[$j]["CLOSED_JOBS"] =$val['CLOSED_JOBS'];
+        $j = 0;
+        foreach ($finalData as $key => $val) {
+            $outFully[$j]["TRAIN_NUMBER"] = $val['TRAIN_NO'];
+            $outFully[$j]["OPEN_JOBS"] = $val['OPEN_JOBS'];
+            $outFully[$j]["CLOSED_JOBS"] = $val['CLOSED_JOBS'];
             $j++;
         }
         return $outFully;
@@ -1237,39 +1245,42 @@ public function getOverallProgress($data_date){
         return $result;
     }
 
-    public function get_pscada_status(){
-        $pscada_status=array();
+    public function get_pscada_status()
+    {
+        $pscada_status = array();
         $sql = 'SELECT "PSCADA_PAT","PSCADA_SAT","STATION_CODE" FROM  "tbl_testing_and_commission" where "DATA_DATE" IN (SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission") ORDER BY "STATION_CODE"';
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        foreach($result as $val) {
-            $status=($val['PSCADA_SAT']==1 && $val['PSCADA_PAT']==1)?'Completed':(($val['PSCADA_SAT']==null && $val['PSCADA_PAT']==null)?'N/A':'In Progress');
+        foreach ($result as $val) {
+            $status = ($val['PSCADA_SAT'] == 1 && $val['PSCADA_PAT'] == 1) ? 'Completed' : (($val['PSCADA_SAT'] == null && $val['PSCADA_PAT'] == null) ? 'N/A' : 'In Progress');
             $pscada_status[$val['STATION_CODE']] = array($status);
         }
         return $pscada_status;
     }
-    public function get_station_status(){
-        $station_status=array();
+
+    public function get_station_status()
+    {
+        $station_status = array();
         $sql = 'SELECT "STATION_CODE","STATION_STATUS" FROM "tbl_psds_station_status" WHERE "DATA_DATE" = (SELECT MAX("DATA_DATE") FROM "tbl_psds_station_status") ORDER BY "STATION_CODE"';
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        if(sizeof($result)>0){
-            foreach($result as $val) {
-                if(strlen(str_replace(' ', '', $val['STATION_CODE']))>5){
-                    $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']),0,5))] = $val['STATION_STATUS'];
-                }else {
+        if (sizeof($result) > 0) {
+            foreach ($result as $val) {
+                if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
+                    $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
+                } else {
                     $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
                 }
             }
-        }else{
-            $station_status['SUBD']=0;
-            $station_status['KAJD']=0;
-            $station_status['KWDE2']=0;
-            $station_status['SEMAN']=0;
-            for($i=0;$i<36;$i++){
-                if($i<10){
-                    $station_status['STN0'.$i] = 0;
-                }else {
+        } else {
+            $station_status['SUBD'] = 0;
+            $station_status['KAJD'] = 0;
+            $station_status['KWDE2'] = 0;
+            $station_status['SEMAN'] = 0;
+            for ($i = 0; $i < 36; $i++) {
+                if ($i < 10) {
+                    $station_status['STN0' . $i] = 0;
+                } else {
                     $station_status['STN' . $i] = 0;
                 }
 
@@ -1288,45 +1299,46 @@ public function getOverallProgress($data_date){
      * @param bool $date
      * @return array
      */
-    public function get_psds_test_comm($ring_no,$date = FALSE){
-        $i=0;
-        $a=array();
-        $test_completion=array(
-            "value"=>array()
+    public function get_psds_test_comm($ring_no, $date = FALSE)
+    {
+        $i = 0;
+        $a = array();
+        $test_completion = array(
+            "value" => array()
         );
         if ($date) { //If date is selected
             $sql = "SELECT * FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
-        }else {
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
+        } else {
+            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"=' . $ring_no . ' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
-        foreach($result as $val){
-            $a[$i]=array(
-                "ring_number" =>$val['RING_NUMBER'],
-                "station_name"=> $val['STATION_NAME'],
+        foreach ($result as $val) {
+            $a[$i] = array(
+                "ring_number" => $val['RING_NUMBER'],
+                "station_name" => $val['STATION_NAME'],
                 "station_code" => $val['STATION_CODE'],
-                "install_status" => ($val['INSTALL_STATUS']==1)?'Completed':(($val['INSTALL_STATUS']==2)?'In Progress' :(($val['INSTALL_STATUS']==3)?'Pending':(($val['INSTALL_STATUS']==-1)?'N/A':(($val['INSTALL_STATUS']==4)?'Handed Over':'-')))),
-                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':($val['33KV_PAT']==4?'Handed Over':'-')))),
-                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':($val['750V_PAT']==4?'Handed Over':'-')))),
-                "pscada_pat" => ($val['PSCADA_PAT']==1)?'Completed':($val['PSCADA_PAT']==2?'In Progress' :($val['PSCADA_PAT']==3?'Pending':($val['PSCADA_PAT']==-1?'N/A':($val['PSCADA_PAT']==4?'Handed Over':'-')))),
-                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':($val['33KV_SAT']==4?'Handed Over':'-')))),
-                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':($val['750V_SAT']==4?'Handed Over':'-')))),
-                "pscada_sat" => ($val['PSCADA_SAT']==1)?'Completed':($val['PSCADA_SAT']==2?'In Progress' :($val['PSCADA_SAT']==3?'Pending':($val['PSCADA_SAT']==-1?'N/A':($val['PSCADA_SAT']==4?'Handed Over':'-')))),
-                "33kv_forecast_date" =>($val['33KV_FORECAST_DATE']==null || $val['33KV_FORECAST_DATE']=="")?($val['33KV_PAT']==-1 && $val['33KV_SAT']==-1)?'N/A':'-':$val['33KV_FORECAST_DATE'],
-                "750v_forecast_date" =>($val['750V_FORECAST_DATE']==null || $val['750V_FORECAST_DATE']=="")?($val['750V_PAT']==-1 && $val['750V_SAT']==-1)?'N/A':'-':$val['750V_FORECAST_DATE'],
-                "pscada_forecast_date" =>($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=="")?($val['PSCADA_PAT']==-1 && $val['PSCADA_SAT']==-1)?'N/A':'-':$val['PSCADA_FORECAST_DATE'],
-                "33kv_actual_date" => ($val['33KV_ACTUAL_DATE']==null || $val['33KV_ACTUAL_DATE']=="")?($val['33KV_ACTUAL_STATUS']==1?'Energized':($val['33KV_ACTUAL_STATUS']==2?'Pending':($val['33KV_ACTUAL_STATUS']==3?'N/A':'-'))):$val['33KV_ACTUAL_DATE'],
-                "750v_actual_date" => ($val['750V_ACTUAL_DATE']==null || $val['750V_ACTUAL_DATE']=="")?($val['750V_ACTUAL_STATUS']==1?'Energized':($val['750V_ACTUAL_STATUS']==2?'Pending':($val['750V_ACTUAL_STATUS']==3?'N/A':'-'))):$val['750V_ACTUAL_DATE'],
-                "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=="")?($val['PSCADA_ACTUAL_STATUS']==1?'Energized':($val['PSCADA_ACTUAL_STATUS']==2?'Pending':($val['PSCADA_ACTUAL_STATUS']==3?'N/A':'-'))):$val['PSCADA_ACTUAL_DATE'],
-                "ac_or_dc_one" =>"33KV",
-                "ac_or_dc_two" =>"750V",
-                "ac_or_dc_three" =>(($val['PSCADA_PAT']==null || $val['PSCADA_PAT']=='') && ($val['PSCADA_SAT']==null || $val['PSCADA_SAT']=='') && ($val['PSCADA_FORECAST_DATE']==null || $val['PSCADA_FORECAST_DATE']=='') && ($val['PSCADA_ACTUAL_DATE']==null || $val['PSCADA_ACTUAL_DATE']=='') && ($val['PSCADA_ACTUAL_STATUS']==null || $val['PSCADA_ACTUAL_STATUS']==''))?'PSCADA':'PSCADA'
+                "install_status" => ($val['INSTALL_STATUS'] == 1) ? 'Completed' : (($val['INSTALL_STATUS'] == 2) ? 'In Progress' : (($val['INSTALL_STATUS'] == 3) ? 'Pending' : (($val['INSTALL_STATUS'] == -1) ? 'N/A' : (($val['INSTALL_STATUS'] == 4) ? 'Handed Over' : '-')))),
+                "33kv_pat" => ($val['33KV_PAT'] == 1) ? 'Completed' : ($val['33KV_PAT'] == 2 ? 'In Progress' : ($val['33KV_PAT'] == 3 ? 'Pending' : ($val['33KV_PAT'] == -1 ? 'N/A' : ($val['33KV_PAT'] == 4 ? 'Handed Over' : '-')))),
+                "750v_pat" => ($val['750V_PAT'] == 1) ? 'Completed' : ($val['750V_PAT'] == 2 ? 'In Progress' : ($val['750V_PAT'] == 3 ? 'Pending' : ($val['750V_PAT'] == -1 ? 'N/A' : ($val['750V_PAT'] == 4 ? 'Handed Over' : '-')))),
+                "pscada_pat" => ($val['PSCADA_PAT'] == 1) ? 'Completed' : ($val['PSCADA_PAT'] == 2 ? 'In Progress' : ($val['PSCADA_PAT'] == 3 ? 'Pending' : ($val['PSCADA_PAT'] == -1 ? 'N/A' : ($val['PSCADA_PAT'] == 4 ? 'Handed Over' : '-')))),
+                "33kv_sat" => ($val['33KV_SAT'] == 1) ? 'Completed' : ($val['33KV_SAT'] == 2 ? 'In Progress' : ($val['33KV_SAT'] == 3 ? 'Pending' : ($val['33KV_SAT'] == -1 ? 'N/A' : ($val['33KV_SAT'] == 4 ? 'Handed Over' : '-')))),
+                "750v_sat" => ($val['750V_SAT'] == 1) ? 'Completed' : ($val['750V_SAT'] == 2 ? 'In Progress' : ($val['750V_SAT'] == 3 ? 'Pending' : ($val['750V_SAT'] == -1 ? 'N/A' : ($val['750V_SAT'] == 4 ? 'Handed Over' : '-')))),
+                "pscada_sat" => ($val['PSCADA_SAT'] == 1) ? 'Completed' : ($val['PSCADA_SAT'] == 2 ? 'In Progress' : ($val['PSCADA_SAT'] == 3 ? 'Pending' : ($val['PSCADA_SAT'] == -1 ? 'N/A' : ($val['PSCADA_SAT'] == 4 ? 'Handed Over' : '-')))),
+                "33kv_forecast_date" => ($val['33KV_FORECAST_DATE'] == null || $val['33KV_FORECAST_DATE'] == "") ? ($val['33KV_PAT'] == -1 && $val['33KV_SAT'] == -1) ? 'N/A' : '-' : $val['33KV_FORECAST_DATE'],
+                "750v_forecast_date" => ($val['750V_FORECAST_DATE'] == null || $val['750V_FORECAST_DATE'] == "") ? ($val['750V_PAT'] == -1 && $val['750V_SAT'] == -1) ? 'N/A' : '-' : $val['750V_FORECAST_DATE'],
+                "pscada_forecast_date" => ($val['PSCADA_FORECAST_DATE'] == null || $val['PSCADA_FORECAST_DATE'] == "") ? ($val['PSCADA_PAT'] == -1 && $val['PSCADA_SAT'] == -1) ? 'N/A' : '-' : $val['PSCADA_FORECAST_DATE'],
+                "33kv_actual_date" => ($val['33KV_ACTUAL_DATE'] == null || $val['33KV_ACTUAL_DATE'] == "") ? ($val['33KV_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['33KV_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['33KV_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['33KV_ACTUAL_DATE'],
+                "750v_actual_date" => ($val['750V_ACTUAL_DATE'] == null || $val['750V_ACTUAL_DATE'] == "") ? ($val['750V_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['750V_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['750V_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['750V_ACTUAL_DATE'],
+                "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE'] == null || $val['PSCADA_ACTUAL_DATE'] == "") ? ($val['PSCADA_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['PSCADA_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['PSCADA_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['PSCADA_ACTUAL_DATE'],
+                "ac_or_dc_one" => "33KV",
+                "ac_or_dc_two" => "750V",
+                "ac_or_dc_three" => (($val['PSCADA_PAT'] == null || $val['PSCADA_PAT'] == '') && ($val['PSCADA_SAT'] == null || $val['PSCADA_SAT'] == '') && ($val['PSCADA_FORECAST_DATE'] == null || $val['PSCADA_FORECAST_DATE'] == '') && ($val['PSCADA_ACTUAL_DATE'] == null || $val['PSCADA_ACTUAL_DATE'] == '') && ($val['PSCADA_ACTUAL_STATUS'] == null || $val['PSCADA_ACTUAL_STATUS'] == '')) ? 'PSCADA' : 'PSCADA'
             );
             $i++;
         }
-        $test_completion["value"]=json_encode($a);
+        $test_completion["value"] = json_encode($a);
         return $test_completion;
     }
     //Author : Ancy Mathew
@@ -1338,37 +1350,39 @@ public function getOverallProgress($data_date){
      * @param bool $date
      * @return array
      */
-    public function get_psds_trip_status($ring_no,$date = FALSE){
-        $i=0;$a=array();
-        $cable_status=array(
-            "value"=>array()
+    public function get_psds_trip_status($ring_no, $date = FALSE)
+    {
+        $i = 0;
+        $a = array();
+        $cable_status = array(
+            "value" => array()
         );
         if ($date) { //If date is selected
             $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date'";
 //            $sql = 'select * from "tbl_trip_status" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
-        }else {
-            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='.$ring_no.'  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
+        } else {
+            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"=' . $ring_no . '  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
         }
         $query = $this->db->query($sql);
         $result1 = $query->result_array();
-        foreach($result1 as $val){
-            $a[$i]=array(
-                "station_from"=>$val['STATION_FROM'],
-                "station_to" =>$val['STATION_TO'],
-                "33kv_laying_status" => ($val['33KV_LAYING']==1)?'Completed':($val['33KV_LAYING']==2?'In Progress' :($val['33KV_LAYING']==3?'Pending':($val['33KV_LAYING']==-1?'N/A':'-'))),
-                "750v_laying_status" => ($val['750V_LAYING']==1)?'Completed':($val['750V_LAYING']==2?'In Progress' :($val['750V_LAYING']==3?'Pending':($val['750V_LAYING']==-1?'N/A':'-'))),
-                "33kv_termination_status" => ($val['33KV_TERMINATION']==1)?'Completed':($val['33KV_TERMINATION']==2?'In Progress' :($val['33KV_TERMINATION']==3?'Pending':($val['33KV_TERMINATION']==-1?'N/A':'-'))),
-                "750v_termination_status" => ($val['750V_TERMINATION']==1)?'Completed':($val['750V_TERMINATION']==2?'In Progress' :($val['750V_TERMINATION']==3?'Pending':($val['750V_TERMINATION']==-1?'N/A':'-'))),
-                "33kv_pat" => ($val['33KV_PAT']==1)?'Completed':($val['33KV_PAT']==2?'In Progress' :($val['33KV_PAT']==3?'Pending':($val['33KV_PAT']==-1?'N/A':'-'))),
-                "750v_pat" => ($val['750V_PAT']==1)?'Completed':($val['750V_PAT']==2?'In Progress' :($val['750V_PAT']==3?'Pending':($val['750V_PAT']==-1?'N/A':'-'))),
-                "33kv_sat" => ($val['33KV_SAT']==1)?'Completed':($val['33KV_SAT']==2?'In Progress' :($val['33KV_SAT']==3?'Pending':($val['33KV_SAT']==-1?'N/A':'-'))),
-                "750v_sat" => ($val['750V_SAT']==1)?'Completed':($val['750V_SAT']==2?'In Progress' :($val['750V_SAT']==3?'Pending':($val['750V_SAT']==-1?'N/A':'-'))),
-                "33kv_energized_date" =>($val['33KV_ENERGIZED_DATE']==null || $val['33KV_ENERGIZED_DATE']=="")?($val['33KV_ENERGIZED_STATUS']==1?'Energized':($val['33KV_ENERGIZED_STATUS']==2?'Pending':($val['33KV_ENERGIZED_STATUS']==3?'N/A':'-'))):$val['33KV_ENERGIZED_DATE'],
-                "750v_energized_date" =>($val['750V_ENERGIZED_DATE']==null || $val['750V_ENERGIZED_DATE']=="")?($val['750V_ENERGIZED_STATUS']==1?'Energized':($val['750V_ENERGIZED_STATUS']==2?'Pending':($val['750V_ENERGIZED_STATUS']==3?'N/A':'-'))):$val['750V_ENERGIZED_DATE']
+        foreach ($result1 as $val) {
+            $a[$i] = array(
+                "station_from" => $val['STATION_FROM'],
+                "station_to" => $val['STATION_TO'],
+                "33kv_laying_status" => ($val['33KV_LAYING'] == 1) ? 'Completed' : ($val['33KV_LAYING'] == 2 ? 'In Progress' : ($val['33KV_LAYING'] == 3 ? 'Pending' : ($val['33KV_LAYING'] == -1 ? 'N/A' : '-'))),
+                "750v_laying_status" => ($val['750V_LAYING'] == 1) ? 'Completed' : ($val['750V_LAYING'] == 2 ? 'In Progress' : ($val['750V_LAYING'] == 3 ? 'Pending' : ($val['750V_LAYING'] == -1 ? 'N/A' : '-'))),
+                "33kv_termination_status" => ($val['33KV_TERMINATION'] == 1) ? 'Completed' : ($val['33KV_TERMINATION'] == 2 ? 'In Progress' : ($val['33KV_TERMINATION'] == 3 ? 'Pending' : ($val['33KV_TERMINATION'] == -1 ? 'N/A' : '-'))),
+                "750v_termination_status" => ($val['750V_TERMINATION'] == 1) ? 'Completed' : ($val['750V_TERMINATION'] == 2 ? 'In Progress' : ($val['750V_TERMINATION'] == 3 ? 'Pending' : ($val['750V_TERMINATION'] == -1 ? 'N/A' : '-'))),
+                "33kv_pat" => ($val['33KV_PAT'] == 1) ? 'Completed' : ($val['33KV_PAT'] == 2 ? 'In Progress' : ($val['33KV_PAT'] == 3 ? 'Pending' : ($val['33KV_PAT'] == -1 ? 'N/A' : '-'))),
+                "750v_pat" => ($val['750V_PAT'] == 1) ? 'Completed' : ($val['750V_PAT'] == 2 ? 'In Progress' : ($val['750V_PAT'] == 3 ? 'Pending' : ($val['750V_PAT'] == -1 ? 'N/A' : '-'))),
+                "33kv_sat" => ($val['33KV_SAT'] == 1) ? 'Completed' : ($val['33KV_SAT'] == 2 ? 'In Progress' : ($val['33KV_SAT'] == 3 ? 'Pending' : ($val['33KV_SAT'] == -1 ? 'N/A' : '-'))),
+                "750v_sat" => ($val['750V_SAT'] == 1) ? 'Completed' : ($val['750V_SAT'] == 2 ? 'In Progress' : ($val['750V_SAT'] == 3 ? 'Pending' : ($val['750V_SAT'] == -1 ? 'N/A' : '-'))),
+                "33kv_energized_date" => ($val['33KV_ENERGIZED_DATE'] == null || $val['33KV_ENERGIZED_DATE'] == "") ? ($val['33KV_ENERGIZED_STATUS'] == 1 ? 'Energized' : ($val['33KV_ENERGIZED_STATUS'] == 2 ? 'Pending' : ($val['33KV_ENERGIZED_STATUS'] == 3 ? 'N/A' : '-'))) : $val['33KV_ENERGIZED_DATE'],
+                "750v_energized_date" => ($val['750V_ENERGIZED_DATE'] == null || $val['750V_ENERGIZED_DATE'] == "") ? ($val['750V_ENERGIZED_STATUS'] == 1 ? 'Energized' : ($val['750V_ENERGIZED_STATUS'] == 2 ? 'Pending' : ($val['750V_ENERGIZED_STATUS'] == 3 ? 'N/A' : '-'))) : $val['750V_ENERGIZED_DATE']
             );
             $i++;
         }
-        $cable_status['value']=json_encode($a);
+        $cable_status['value'] = json_encode($a);
         return $cable_status;
     }
     //coded by :ANCY MATHEW
@@ -1377,17 +1391,18 @@ public function getOverallProgress($data_date){
     /**
      * @return array
      */
-    public function get_comments_ps(){
-        $comments_ps=array();
+    public function get_comments_ps()
+    {
+        $comments_ps = array();
         $sql = "SELECT \"MESSAGE_ID\", \"MESSAGE\", to_char(\"TIMESTAMP\", 'DD Mon YYYY') as timestamp,to_char(\"DATE_SELECTED\", 'DD Mon YYYY') as date,\"RING_NUMBER\" FROM \"tbl_psds_comment\" ORDER BY \"TIMESTAMP\" desc";
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        $i=0;
-        foreach($result as $val){
-            $comments_ps[$i]["message_id"] =$val['MESSAGE_ID'];
-            $comments_ps[$i]["message"] =$val['MESSAGE'];
-            $comments_ps[$i]["timestamp"] =$val['date'];
-            $comments_ps[$i]["ring"] =$val['RING_NUMBER'];
+        $i = 0;
+        foreach ($result as $val) {
+            $comments_ps[$i]["message_id"] = $val['MESSAGE_ID'];
+            $comments_ps[$i]["message"] = $val['MESSAGE'];
+            $comments_ps[$i]["timestamp"] = $val['date'];
+            $comments_ps[$i]["ring"] = $val['RING_NUMBER'];
             $i++;
         }
         return $comments_ps;
@@ -1399,7 +1414,8 @@ public function getOverallProgress($data_date){
      * @param $data
      * @return mixed
      */
-    public function set_psds_comments($data){
+    public function set_psds_comments($data)
+    {
 //        print_r($data);
         $this->db->insert('tbl_psds_comment', $data);
         return $this->db->affected_rows();
@@ -1411,23 +1427,24 @@ public function getOverallProgress($data_date){
     /**
      * @return array
      */
-    public function get_status_ps(){
-        $status_ps=array();
+    public function get_status_ps()
+    {
+        $status_ps = array();
         $sql = 'SELECT * FROM "tbl_psds_summary" WHERE "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_psds_summary")';
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        $i=0;
-        foreach($result as $val){
-            $status_ps[$i]["summary"] =$val['SUMMARY'];
-            $status_ps[$i]["progress_completion"] =$val['PROGRESS_COMPLETION'];
-            $status_ps[$i]["progress_completion_ef"] =$val['PROGRESS_COMPLETION_EF'];
-            $status_ps[$i]["ac_progress_completion"] =$val['AC_PROGRESS_COMPLETION'];
-            $status_ps[$i]["ac_ef"] =$val['AC_EF'];
-            $status_ps[$i]["ac_lf"] =$val['AC_LF'];
-            $status_ps[$i]["dc_progress_completion"] =$val['DC_PROGRESS_COMPLETION'];
-            $status_ps[$i]["dc_ef"] =$val['DC_EF'];
-            $status_ps[$i]["dc_lf"] =$val['DC_LF'];
-            $status_ps[$i]["data_date"] =$val['DATA_DATE'];
+        $i = 0;
+        foreach ($result as $val) {
+            $status_ps[$i]["summary"] = $val['SUMMARY'];
+            $status_ps[$i]["progress_completion"] = $val['PROGRESS_COMPLETION'];
+            $status_ps[$i]["progress_completion_ef"] = $val['PROGRESS_COMPLETION_EF'];
+            $status_ps[$i]["ac_progress_completion"] = $val['AC_PROGRESS_COMPLETION'];
+            $status_ps[$i]["ac_ef"] = $val['AC_EF'];
+            $status_ps[$i]["ac_lf"] = $val['AC_LF'];
+            $status_ps[$i]["dc_progress_completion"] = $val['DC_PROGRESS_COMPLETION'];
+            $status_ps[$i]["dc_ef"] = $val['DC_EF'];
+            $status_ps[$i]["dc_lf"] = $val['DC_LF'];
+            $status_ps[$i]["data_date"] = $val['DATA_DATE'];
             $i++;
         }
         return $status_ps;
@@ -1441,49 +1458,49 @@ public function getOverallProgress($data_date){
      * @param bool $date
      * @return array
      */
-    public function get_keydate_status(){
-        $keydate_status=array();
+    public function get_keydate_status()
+    {
+        $keydate_status = array();
         $sql = 'SELECT region, kd_number,tp_plan, tp_actual,CASE WHEN cast(tp_plan as float) = 100 AND cast(tp_actual as float) = 100 THEN 1 WHEN cast(tp_plan as float) != 100 AND cast(tp_actual as float) != 100  THEN 2 ELSE 0 END FROM tbl_tw_progress';
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
-      if(sizeof($result)>0){
-          $a=0;
-          $b=0;
-          foreach($result as $val) {
-              if (strtoupper($val['kd_number']) == "KD12") {
-                  $b += (33.333*$val['tp_actual'])/$val['tp_plan'];
-              } else {
-                  switch ($val['case']) {
-                      case 1:
-                          $station_status[$val['kd_number']] = 0;
-                          break;
-                      case 0:
-                          if ($val['tp_actual'] >= 50) {
-                              $station_status[$val['kd_number']] = 1;
-                          } else {
-                              $station_status[$val['kd_number']] = -1;
-                          }
-                          break;
-                      case 2:
-                          if ((($val['tp_actual'] * 100) / $val['tp_plan']) >= 50) {
-                              $station_status[$val['kd_number']] = 1;
-                          } else {
-                              $station_status[$val['kd_number']] = -1;
-                          }
-                          break;
-                      default :
-                          $station_status[$val['kd_number']] = 2;
-                  }
-              }
-          }
-          $station_status[$val['kd_number']] =(ceil($b)>=100)?0:((ceil($b)>=50)?1:((ceil($b)<50)?-1:2));
-          }
-        else{
-            $station_status['KD9a']=2;
-            $station_status['KD11a']=2;
-            for($i=8;$i<17;$i++){
-                    $station_status['KD'.$i] = 2;
+        if (sizeof($result) > 0) {
+            $a = 0;
+            $b = 0;
+            foreach ($result as $val) {
+                if (strtoupper($val['kd_number']) == "KD12") {
+                    $b += (33.333 * $val['tp_actual']) / $val['tp_plan'];
+                } else {
+                    switch ($val['case']) {
+                        case 1:
+                            $station_status[$val['kd_number']] = 0;
+                            break;
+                        case 0:
+                            if ($val['tp_actual'] >= 50) {
+                                $station_status[$val['kd_number']] = 1;
+                            } else {
+                                $station_status[$val['kd_number']] = -1;
+                            }
+                            break;
+                        case 2:
+                            if ((($val['tp_actual'] * 100) / $val['tp_plan']) >= 50) {
+                                $station_status[$val['kd_number']] = 1;
+                            } else {
+                                $station_status[$val['kd_number']] = -1;
+                            }
+                            break;
+                        default :
+                            $station_status[$val['kd_number']] = 2;
+                    }
+                }
+            }
+            $station_status["KD12"] = (ceil($b) >= 100) ? 0 : ((ceil($b) >= 50) ? 1 : ((ceil($b) < 50) ? -1 : 2));
+        } else {
+            $station_status['KD9a'] = 2;
+            $station_status['KD11a'] = 2;
+            for ($i = 8; $i < 17; $i++) {
+                $station_status['KD' . $i] = 2;
             }
         }
         return $station_status;
@@ -1496,38 +1513,40 @@ public function getOverallProgress($data_date){
      * @param bool $date
      * @return array
      */
-    public function get_tw_overall_summary($page,$date = FALSE){
-        $i=0;$a=array();
-        $overall=array(
-            "value"=>array()
+    public function get_tw_overall_summary($page, $date = FALSE)
+    {
+        $i = 0;
+        $a = array();
+        $overall = array(
+            "value" => array()
         );
-        if($page=='north' || $page=='south'){
-            $sub=" "."and \"kd_number\" != 'KD12'";
-        }else if($page=='ug'){
-            $sub=" "."or \"kd_number\" ~* 'KD12'";
-        }else{
-            $sub="";
+        if ($page == 'north' || $page == 'south') {
+            $sub = " " . "and \"kd_number\" != 'KD12'";
+        } else if ($page == 'ug') {
+            $sub = " " . "or \"kd_number\" ~* 'KD12'";
+        } else {
+            $sub = "";
         }
-        if($date) {
-            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
-        }else {
+        if ($date) {
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " and \"data_date\"='$date'";
+        } else {
             //~* is used in the query to check caseless(Upper/Lower)
-            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
+            $sql = "SELECT \"region\", \"kd_number\", \"tp_plan\", \"tp_actual\", \"tp_variance_precent\", \"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " and \"data_date\" in (SELECT max(\"data_date\") FROM \"tbl_tw_progress\")";
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        foreach($result as $val){
-            $a[$i]=array(
-                "kd"=>$val['kd_number'],
-                "kd_url"=>(strtolower($val['kd_number'])!='kd12')?strtolower($val['kd_number']):(strtolower($val['region'])=='north'? "kd12n" :(strtolower($val['region'])=='ug'? "kd12u" :(strtolower($val['region'])=='south'? "kd12s":(strtolower($val['region'])=='ugw'? "kd12u":"#")))),
-                "plan"=>$val['tp_plan'],
-                "actual"=>$val['tp_actual'],
-                "precent"=>$val['tp_variance_precent'],
-                "weeks"=>$val['tp_variance_weeks']
+        foreach ($result as $val) {
+            $a[$i] = array(
+                "kd" => $val['kd_number'],
+                "kd_url" => (strtolower($val['kd_number']) != 'kd12') ? strtolower($val['kd_number']) : (strtolower($val['region']) == 'north' ? "kd12n" : (strtolower($val['region']) == 'ug' ? "kd12u" : (strtolower($val['region']) == 'south' ? "kd12s" : (strtolower($val['region']) == 'ugw' ? "kd12u" : "#")))),
+                "plan" => $val['tp_plan'],
+                "actual" => $val['tp_actual'],
+                "precent" => $val['tp_variance_precent'],
+                "weeks" => $val['tp_variance_weeks']
             );
             $i++;
         }
-        $overall['value']=json_encode($a);
+        $overall['value'] = json_encode($a);
         return $overall;
     }
     //    Author: SEBIN THOMAS
@@ -1539,39 +1558,41 @@ public function getOverallProgress($data_date){
      * @param $filter
      * @return array
      */
-    public function get_tw_overall_progress($page,$date = FALSE,$filter){
-        $i=0;$a=array();
-        $overall=array();
-        if($filter){
-            if($page=='north' || $page=='south'){
-                $sub=" "."and \"kd_number\" != 'KD12'";
-            }else if($page=='ug'){
-                $sub=" "."or \"kd_number\" ~* 'KD12'";
-            }else{
-                $sub="";
+    public function get_tw_overall_progress($page, $date = FALSE, $filter)
+    {
+        $i = 0;
+        $a = array();
+        $overall = array();
+        if ($filter) {
+            if ($page == 'north' || $page == 'south') {
+                $sub = " " . "and \"kd_number\" != 'KD12'";
+            } else if ($page == 'ug') {
+                $sub = " " . "or \"kd_number\" ~* 'KD12'";
+            } else {
+                $sub = "";
             }
             if ($date) {
-                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." and \"data_date\"='$date'";
+                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " and \"data_date\"='$date'";
             } else {
-                    $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'".$sub." group by \"data_date\" order by \"data_date\" desc limit 1";
+                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " group by \"data_date\" order by \"data_date\" desc limit 1";
             }
         } else {
             if ($date) {
-                if($page=="kd12n") {
+                if ($page == "kd12n") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' and \"data_date\"='$date'";
-                } else if ($page=="kd12u"){
+                } else if ($page == "kd12u") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') and \"data_date\"='$date'";
-                } else if ($page=="kd12s"){
+                } else if ($page == "kd12s") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' and \"data_date\"='$date'";
                 } else {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' and \"data_date\"='$date'";
                 }
             } else {
-                if($page=="kd12n") {
+                if ($page == "kd12n") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'north' order by \"data_date\" desc limit 1";
-                } else if ($page=="kd12u"){
+                } else if ($page == "kd12u") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and (\"region\" ~* 'ug' or \"region\" ~* 'ugw' or \"region\" ~* 'underground') order by \"data_date\" desc limit 1";
-                } else if ($page=="kd12s"){
+                } else if ($page == "kd12s") {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* 'kd12' and \"region\" ~* 'south' order by \"data_date\" desc limit 1";
                 } else {
                     $sql = "SELECT \"ts_plan\", \"ts_actual\", \"sp_plan\", \"sp_actual\", \"lrd_plan\",\"lrd_actual\", \"rsa_plan\", \"rsa_actual\", \"rfs_plan\", \"rfs_actual\", \"con_plan\", \"con_actual\", \"dw_plan\", \"dw_actual\", \"wd_plan\", \"wd_actual\", \"ra_plan\",\"ra_actual\", \"prbi_plan\", \"prbi_actual\", \"pria_plan\", \"pria_actual\", \"prci_plan\",\"prci_actual\", \"ew_plan\", \"ew_actual\", \"ctc_plan\", \"ctc_actual\", \"comm_plan\",\"comm_actual\",\"tp_plan\",\"tp_actual\",\"tp_variance_precent\",\"tp_variance_weeks\" FROM \"tbl_tw_progress\" WHERE \"kd_number\" ~* '$page' order by \"data_date\" desc limit 1";
@@ -1582,16 +1603,16 @@ public function getOverallProgress($data_date){
         $result = $query->result_array();
         $a['region'] = $page;
         $a["category"] = array('Track Survey', 'Surface Preparation', 'Long Rail..', 'Rail & Sleeper..', 'Rebar & Form..', 'Concreting', 'Derailment Wall', 'Welding..', 'Rail Alignment', 'PR Bracket..', 'PR Install/Align', 'PR Cover..', 'Emergency..', 'Cable Through &..', 'Commissioning');
+        foreach ($result as $val) {
+            $a["planned"] = array_map('intval', array($val['ts_plan'], $val['sp_plan'], $val['lrd_plan'], $val['rsa_plan'], $val['rfs_plan'], $val['con_plan'], $val['dw_plan'], $val['wd_plan'], $val['ra_plan'], $val['prbi_plan'], $val['pria_plan'], $val['prci_plan'], $val['ew_plan'], $val['ctc_plan'], $val['comm_plan']));
+            $a["actual"] = array_map('intval', array($val['ts_actual'], $val['sp_actual'], $val['lrd_actual'], $val['rsa_actual'], $val['rfs_actual'], $val['con_actual'], $val['dw_actual'], $val['wd_actual'], $val['ra_actual'], $val['prbi_actual'], $val['pria_actual'], $val['prci_actual'], $val['ew_actual'], $val['ctc_actual'], $val['comm_actual']));
+        }
+        if (!$filter) {
             foreach ($result as $val) {
-                $a["planned"] = array_map('intval', array($val['ts_plan'], $val['sp_plan'], $val['lrd_plan'], $val['rsa_plan'], $val['rfs_plan'], $val['con_plan'], $val['dw_plan'], $val['wd_plan'], $val['ra_plan'], $val['prbi_plan'], $val['pria_plan'], $val['prci_plan'], $val['ew_plan'], $val['ctc_plan'], $val['comm_plan']));
-                $a["actual"] = array_map('intval', array($val['ts_actual'], $val['sp_actual'], $val['lrd_actual'], $val['rsa_actual'], $val['rfs_actual'], $val['con_actual'], $val['dw_actual'], $val['wd_actual'], $val['ra_actual'], $val['prbi_actual'], $val['pria_actual'], $val['prci_actual'], $val['ew_actual'], $val['ctc_actual'], $val['comm_actual']));
-            }
-        if(!$filter) {
-            foreach ($result as $val) {
-                $a["summary"]=array('ts_plan'=>$val['ts_plan'],'ts_actual'=>$val['ts_actual'],'sp_plan'=>$val['sp_plan'],'sp_actual'=>$val['sp_actual'],'lrd_plan'=> $val['lrd_plan'],'lrd_actual'=> $val['lrd_actual'],'rsa_plan'=> $val['rsa_plan'],'rsa_actual'=> $val['rsa_actual'],'rfs_plan'=> $val['rfs_plan'],'rfs_actual'=> $val['rfs_actual'],'con_plan'=> $val['con_plan'],'con_actual'=> $val['con_actual'],'dw_plan'=> $val['dw_plan'],'dw_actual'=> $val['dw_actual'],'wd_plan'=> $val['wd_plan'],'wd_actual'=> $val['wd_actual'],'ra_plan'=> $val['ra_plan'],'ra_actual'=> $val['ra_actual'],'prbi_plan'=> $val['prbi_plan'],'prbi_actual'=> $val['prbi_actual'],'pria_plan'=> $val['pria_plan'],'pria_actual'=> $val['pria_actual'],'prci_plan'=> $val['prci_plan'],'prci_actual'=> $val['prci_actual'],'ew_plan'=> $val['ew_plan'],'ew_actual'=> $val['ew_actual'],'ctc_plan'=> $val['ctc_plan'],'ctc_actual'=> $val['ctc_actual'],'comm_plan'=> $val['comm_plan'],'comm_actual'=> $val['comm_actual'],'tp_plan'=> $val['tp_plan'],'tp_actual'=> $val['tp_actual'],'tp_variance_precent'=> $val['tp_variance_precent'],'tp_variance_weeks'=> $val['tp_variance_weeks']);
+                $a["summary"] = array('ts_plan' => $val['ts_plan'], 'ts_actual' => $val['ts_actual'], 'sp_plan' => $val['sp_plan'], 'sp_actual' => $val['sp_actual'], 'lrd_plan' => $val['lrd_plan'], 'lrd_actual' => $val['lrd_actual'], 'rsa_plan' => $val['rsa_plan'], 'rsa_actual' => $val['rsa_actual'], 'rfs_plan' => $val['rfs_plan'], 'rfs_actual' => $val['rfs_actual'], 'con_plan' => $val['con_plan'], 'con_actual' => $val['con_actual'], 'dw_plan' => $val['dw_plan'], 'dw_actual' => $val['dw_actual'], 'wd_plan' => $val['wd_plan'], 'wd_actual' => $val['wd_actual'], 'ra_plan' => $val['ra_plan'], 'ra_actual' => $val['ra_actual'], 'prbi_plan' => $val['prbi_plan'], 'prbi_actual' => $val['prbi_actual'], 'pria_plan' => $val['pria_plan'], 'pria_actual' => $val['pria_actual'], 'prci_plan' => $val['prci_plan'], 'prci_actual' => $val['prci_actual'], 'ew_plan' => $val['ew_plan'], 'ew_actual' => $val['ew_actual'], 'ctc_plan' => $val['ctc_plan'], 'ctc_actual' => $val['ctc_actual'], 'comm_plan' => $val['comm_plan'], 'comm_actual' => $val['comm_actual'], 'tp_plan' => $val['tp_plan'], 'tp_actual' => $val['tp_actual'], 'tp_variance_precent' => $val['tp_variance_precent'], 'tp_variance_weeks' => $val['tp_variance_weeks']);
             }
         }
-        $overall['value']=json_encode($a);
+        $overall['value'] = json_encode($a);
         return $overall;
     }
     //Done by :Jane Elizabeth Jose
@@ -1601,11 +1622,12 @@ public function getOverallProgress($data_date){
      * @param bool $date
      * @return array
      */
-    public function get_tw_region_data($date = FALSE){
-        $i=0;
-        $tem_array=array();
-        $region_progress=array(
-            "value"=>array()
+    public function get_tw_region_data($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $region_progress = array(
+            "value" => array()
         );
 
         if ($date) { // if date selected
@@ -1615,29 +1637,37 @@ public function getOverallProgress($data_date){
         }
         $query = $this->db->query($query);
         $result = $query->result_array();
-        foreach($result as $val){
-            $tem_array[$i]=array(
-                "region"=>$val['region'],
-                "region_url"=> (strtolower($val['region'])=='south')?'south':(strtolower($val['region'])=='north'?'north' :((strtolower($val['region'])=='ugw'?'ug':(strtolower($val['region'])=='ug'?'ug':(strtolower($val['region'])=='underground'?'ug':'ug'))))),
-                "plan" =>$val['plan'],
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "region" => $val['region'],
+                "region_url" => (strtolower($val['region']) == 'south') ? 'south' : (strtolower($val['region']) == 'north' ? 'north' : ((strtolower($val['region']) == 'ugw' ? 'ug' : (strtolower($val['region']) == 'ug' ? 'ug' : (strtolower($val['region']) == 'underground' ? 'ug' : 'ug'))))),
+                "plan" => $val['plan'],
                 "actual" => $val['actual'],
                 "week_difference" => $val['week_difference'],
                 "data_date" => $val['data_date']
             );
             $i++;
         }
-        $region_progress['value']=json_encode($tem_array);
+        $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
+    }
+    public function get_tw_overall_percentage()
+    {
+        $query = 'SELECT * FROM "tbl_tw_overall_percentage" WHERE "data_date" = (SELECT MAX("data_date") FROM "tbl_tw_overall_percentage")';
+        $query = $this->db->query($query);
+        return $query->result_array();
+
     }
     //STCS CODE Starts Here//
     //    Author: ANCY MATHEW
     //    Usage : Train progress of STCS
     //    Created: 09/04/2016
-    public function get_stcs_trian_progree($date = FALSE){
-        $i=0;
-        $tem_array=array();
-        $train_stcs_progress=array(
-            "value"=>array()
+    public function get_stcs_trian_progree($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $train_stcs_progress = array(
+            "value" => array()
         );
         if ($date) { // if date selected
             $query = "SELECT train_number, static_test_perc, dynamic_test_perc, overall_stat_perc FROM tbl_stcs_train_status where data_date=$date";
@@ -1646,26 +1676,27 @@ public function getOverallProgress($data_date){
         }
         $query = $this->db->query($query);
         $result = $query->result_array();
-        foreach($result as $val){
-            $tem_array[$i]=array(
-                "train_number"=>$val['train_number'],
-                "status" =>$val['overall_stat_perc'],
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "train_number" => $val['train_number'],
+                "status" => $val['overall_stat_perc'],
                 "static" => $val['static_test_perc'],
                 "dynamic" => $val['dynamic_test_perc']
             );
             $i++;
         }
-        $train_stcs_progress['value']=json_encode($tem_array);
+        $train_stcs_progress['value'] = json_encode($tem_array);
         return $train_stcs_progress;
     }
     //    Author: ANCY MATHEW
     //    Usage : Get issue  of STCS
     //    Created: 09/04/2016
-    public function get_stcs_comments($date = FALSE){
-        $i=0;
-        $tem_array=array();
-        $train_stcs_comment=array(
-            "value"=>array()
+    public function get_stcs_comments($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $train_stcs_comment = array(
+            "value" => array()
         );
         if ($date) { // if date selected
             $query = "SELECT comment_id,comment, station_code, time_stamp, date_selected FROM tbl_stcs_comments where date_selected=$date";
@@ -1674,29 +1705,30 @@ public function getOverallProgress($data_date){
         }
         $query = $this->db->query($query);
         $result = $query->result_array();
-        foreach($result as $val){
-            $tem_array[$i]=array(
-                "comment_id"=>$val['comment_id'],
-                "comment" =>$val['comment'],
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "comment_id" => $val['comment_id'],
+                "comment" => $val['comment'],
                 "station_code" => $val['station_code'],
                 "time_stamp" => $val['time_stamp']
             );
             $i++;
         }
-        $train_stcs_comment['value']=json_encode($tem_array);
+        $train_stcs_comment['value'] = json_encode($tem_array);
         return $train_stcs_comment;
     }
     //    Author: ANCY MATHEW
     //    Usage : Station Progress of STCS
     //    Created: 09/04/2016
-    public function get_stcs_station_progres($date = FALSE){
-        $i=0;
-        $tem_array=array(
-            "wayside"=>array(),
-            "roomside"=>array()
+    public function get_stcs_station_progres($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array(
+            "wayside" => array(),
+            "roomside" => array()
         );
-        $station_stcs_progress=array(
-            "value"=>array()
+        $station_stcs_progress = array(
+            "value" => array()
         );
         if ($date) { // if date selected
             $query = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where data_date='2016-04-03' ";
@@ -1705,43 +1737,44 @@ public function getOverallProgress($data_date){
         }
         $query = $this->db->query($query);
         $result = $query->result_array();
-        foreach($result as $val){
-            if($val['stat_install_type']==1)
-            {
-                $tem_array[$i]=array(
-                        "roomside"=>array(
-                        "station_name"=>$val['station_name'],
-                        "stat_status" =>$val['stat_status'],
+        foreach ($result as $val) {
+            if ($val['stat_install_type'] == 1) {
+                $tem_array[$i] = array(
+                    "roomside" => array(
+                        "station_name" => $val['station_name'],
+                        "stat_status" => $val['stat_status'],
                         "stat_progress_perc" => $val['stat_progress_perc'],
                         "equip_name" => $val['equip_name'],
-                        "equip_progress" =>$val['equip_progress'],
+                        "equip_progress" => $val['equip_progress'],
                         "PAT_status" => $val['PAT_status'],
                         "SAT_status" => $val['SAT_status']
-                ));
+                    ));
+                $i++;
+            } else {
+                $tem_array[$i] = array(
+                    "wayside" => array(
+                        "station_name" => $val['station_name'],
+                        "stat_status" => $val['stat_status'],
+                        "stat_progress_perc" => $val['stat_progress_perc'],
+                        "equip_name" => $val['equip_name'],
+                        "equip_progress" => $val['equip_progress'],
+                        "PAT_status" => $val['PAT_status'],
+                        "SAT_status" => $val['SAT_status']
+                    ));
                 $i++;
             }
-            else{
-            $tem_array[$i]=array(
-                "wayside"=>array(
-                    "station_name"=>$val['station_name'],
-                    "stat_status" =>$val['stat_status'],
-                    "stat_progress_perc" => $val['stat_progress_perc'],
-                    "equip_name" => $val['equip_name'],
-                    "equip_progress" =>$val['equip_progress'],
-                    "PAT_status" => $val['PAT_status'],
-                    "SAT_status" => $val['SAT_status']
-                ));
-            $i++;
-            }
         }
-        $station_stcs_progress['value']=json_encode($tem_array);
+        $station_stcs_progress['value'] = json_encode($tem_array);
         return $station_stcs_progress;
     }
     //    Author:ANCY MATHEW 10/08/2016
     //    Usage : Store STCS Comments
-    public function set_stcs_comments($data){
+    public function set_stcs_comments($data)
+    {
         $this->db->insert('tbl_stcs_comments', $data);
         return $this->db->affected_rows();
 
     }
+
+
 }

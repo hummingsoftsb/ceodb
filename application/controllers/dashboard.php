@@ -825,8 +825,12 @@ class Dashboard extends CI_Controller {
         $comdata = $this->dashboard_model->get_source_archivable(78);
         $comdata = json_decode($comdata[0]['value'],true);
         //var_dump($comdata);die();
-        $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
+//        $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
+        $data_date = $this->dashboard_model->get_tw_overall_percentage();
+        $date = (sizeof($data_date)>0)? $data_date[0]['data_date']:date("d-M-Y");
         $data_packages = $this->dashboard_model->get_keydate_status();
+
+        $overall_percent = $this->dashboard_model->get_tw_overall_percentage();
 
 
         //var_dump($date);die();
@@ -894,6 +898,13 @@ class Dashboard extends CI_Controller {
 
         foreach ($data_packages as $k => $d) {
             $data['data'][$k] = $d;
+        }
+        if(sizeof($overall_percent)>0) {
+            foreach ($overall_percent as $k => $d) {
+                foreach ($d as $kk => $dd) {
+                    $data['data'][$kk] = $dd;
+                }
+            }
         }
         $this->load->view('systems/trackworks', $data);
     }

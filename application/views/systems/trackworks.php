@@ -419,7 +419,7 @@
                 width: 100%;
                 text-align: center;
                 line-height: 40px;
-                font-size: 40px;
+                font-size: 30px;
                 color: rgb(243, 179, 8);
             }
             #project_progress_container strong i {
@@ -736,7 +736,7 @@
 			</div>
 			 <div id="navbar">
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" id="design_p" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                      <div class="inner">
                          <table id="nav_drop">
                              <thead>
@@ -763,9 +763,9 @@
                      </div>
                  </div>
                  <div class="fim-dropdown">
-				    <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/procurement.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
+				    <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/procurement.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" id="proc_p" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                  </div>
-				<a class="nav-img-container" href="<?php echo $this->config->base_url(); ?>sbk-s-06/index"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-down" style="color: rgb(243, 179, 8)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
+				<a class="nav-img-container" href="<?php echo $this->config->base_url(); ?>sbk-s-06/index"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-down" style="color: rgb(243, 179, 8)"></i><br><span class="pull-left" id="install_p" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 			</div> 
 			
 		</div>
@@ -1011,15 +1011,19 @@
 		$(window).load(function(){
 			data = <?php echo json_encode($data); ?>;
             console.log(data);
+            $("#design_p").text((typeof data['design_percentage']=='undefined')?'0.0%':data['design_percentage']+'%');
+            $("#proc_p").text((typeof data['proc_percentage']=='undefined')?'0.0%':data['proc_percentage']+'%');
+            $("#install_p").text((typeof data['install_percentage']=='undefined')?'0.0%':data['install_percentage']+'%');
+            $overall=(parseFloat((typeof data['design_percentage']=='undefined')?0:data['design_percentage'])+parseFloat((typeof data['proc_percentage']=='undefined')?0:data['proc_percentage'])+parseFloat((typeof data['install_percentage']=='undefined')?0:data['install_percentage']))/3;
             $('#project_progress_container').circleProgress({
-                value: (data['overall_actual']/100),
+                value: ($overall/100),
                 fill: { gradient: ['#07c6c1','#0681c4'] },
                 size: 150,
                 emptyFill: 'rgb(199, 69, 58)',//'rgb(244, 67, 54)',
                 thickness: 20,
                 startAngle: -1.5
             }).on('circle-animation-progress', function(event, progress) {
-                $(this).find('strong').html(parseInt(data['overall_actual'] * progress) + '<i>%</i>');
+                $(this).find('strong').html(($overall * progress).toFixed(2) + '<i>%</i>');
             });
         if (data['overall_actual'] > 99) $('#overall_actual').css({ "fontSize" : "59px", "marginTop" : "31px"});
 			if (data['overall_variance'] > 99) $('#overall_variance').css({ "fontSize" : "59px", "marginTop" : "10px", "marginLeft" : "-8px"});

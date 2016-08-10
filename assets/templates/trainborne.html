@@ -1,0 +1,118 @@
+<style>
+    .grid-item { background-color: red;padding: 10px; width: 90px;}
+</style>
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <% if (typeof(data.data[0].date) !== "undefined") { %>
+    <h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+    <% } else {%>
+    <h2><%=data.title%></h2>
+    <% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <!--h2>Header h2</h2-->
+    <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;">
+        <table class="table table-bordered table-condensed table-hover" style="width: 100%">
+<!--            <tr>
+                <td rowspan="3" id="tc1" style="width: 40%"></td>
+                <td>Detail Progress</td>
+            </tr>
+            <tr>
+                <td colspan="1" style="text-align: center; vertical-align: middle;"></td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center; vertical-align: middle;"><a href="#" style="font-weight: 600;"> View Overall Detail Progress </a></td>
+            </tr>-->
+
+            <tr>
+                <td colspan="3" id="tc1" style="width: 40%; height: 140px;"><a href="progress"><b><i class="fa fa-search"></i> View All</b></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><i class="fa fa-square" style="padding-right: 3px; color: rgb(77, 180, 77);"></i> Completed</td>
+                <td style="text-align: center"><i class="fa fa-square" style="padding-right: 3px; color: rgb(255, 221, 32);"></i> In Progress</td>
+                <td style="text-align: center"><i class="fa fa-square" style="padding-right: 3px; color: red;"></i> Pending</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center"><b style="color: rgb(255, 175, 120)">Overall Electric Trains</b></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" rowspan="2" style="text-align: center; vertical-align: middle; color: rgb(255, 212, 97);">Installation</td>
+                <td class="tg-yw4l" colspan="2" style="text-align: center; color: rgb(0, 158, 140);">Testing & Commission</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" style="text-align: center; color: rgb(255, 175, 120);">Static</td>
+                <td class="tg-yw4l" style="text-align: center; color: rgb(255, 175, 120);">Dynamic</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" style="text-align: center;">100%</td>
+                <td class="tg-yw4l" style="text-align: center;">80%</td>
+                <td class="tg-yw4l" style="text-align: center;">67%</td>
+            </tr>
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">8</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">9</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">10</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">11</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">12</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">13</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : url('../assets/img/systems/stcs/train.svg') no-repeat">14</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">15</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">16</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">17</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">18</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">19</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">20</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">21</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">22</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">23</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">24</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">25</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">26</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">27</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">28</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">29</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">30</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">31</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">32</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">33</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">34</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">35</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">36</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">37</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">38</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">39</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">40</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">41</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">42</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">43</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">44</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">45</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">46</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">47</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">48</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">49</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">50</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">51</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">52</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">53</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">54</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">55</td>-->
+                <!--<td style="width: 14.28%; padding: 14px; background : #fff url('../assets/img/systems/stcs/train.svg') no-repeat">56</td>-->
+            <!--</tr>-->
+        </table>
+    </div>
+</div>

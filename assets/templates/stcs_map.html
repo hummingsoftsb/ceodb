@@ -1,0 +1,68 @@
+<style>
+
+    span.text-content span {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    span.text-content {
+        background: rgba(0,0,0,0.5);
+        font-weight: 600;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        display: table;
+        height: 320px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        -webkit-transition: opacity 500ms;
+        -moz-transition: opacity 500ms;
+        -o-transition: opacity 500ms;
+        transition: opacity 500ms;
+    }
+
+    .wrapper_img:hover span.text-content {
+        opacity: 1;
+    }
+</style>
+
+<div class="header bg-dot30 excel-normal">
+    <!--img src="/mpxd/assets/img/icons/line_chart-26.png" style="float: left;margin-right: 13px;"-->
+    <% if (typeof(data.data[0].date) !== "undefined") { %>
+    <h2><%=data.title%></h2> <h2 class="asof">(As of <%=data.data[0].date%>)</h2>
+    <% } else {%>
+    <h2><%=data.title%></h2>
+    <% } %>
+    <i class="header-icon fa fa-check-square-o"></i>
+</div>
+<div class="content" style="background: none;/*#1d2a34*/">
+    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+        <a href="map">
+            <div  class="wrapper_img" style="border: 3px solid #000; border-radius: 4px; background-color: rgba(16, 19, 32, 0.72);">
+                <img src="../assets/img/systems/stcs/map_md.png" alt="Signaling & Train Control System" width="100%">
+                <span class="text-content"><span><i class="fa fa-search"></i> Click to view</span></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- MODAL START -->
+<!--
+<div class="modal" id="stcs_map_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Signaling $ Train Control System Map</h4>
+            </div>
+            <div class="modal-body clearfix" style="padding:0; background: #222; overflow:hidden">
+                <img src="../assets/img/systems/stcs/map_md.png" width="100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>-->

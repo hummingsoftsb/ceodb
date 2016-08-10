@@ -91,7 +91,11 @@ mpxd.templateURLs = {
 	"train_manufacturing_progress": {"templateURL": "assets/templates/sys_train_manufacturing_progress.html"},
 	"le": {"templateURL": "assets/templates/le.html"},
 	"delivery": {"templateURL": "assets/templates/sys_delivery.html"},
-	"prognosis": {"templateURL": "assets/templates/prognosis.html"}
+	"prognosis": {"templateURL": "assets/templates/prognosis.html"},
+    "trainborne": {"templateURL": "assets/templates/trainborne.html"},
+    "stcs_map": {"templateURL": "assets/templates/stcs_map.html"},
+    "stcs_map_bg": {"templateURL": "assets/templates/stcs_map_bg.html"},
+    "trainborne_overall_et": {"templateURL": "assets/templates/trainborne_overall_et.html"}
 
 }
 
@@ -345,7 +349,7 @@ mpxd.generatePortletContent = function (data) {
 
 /* misc. functions. Put in seperate file if need arises */
 var gridster;
-var editing = false;
+var editing = true;
 
 
 function selectPort(port) {
