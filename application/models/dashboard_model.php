@@ -1629,4 +1629,119 @@ public function getOverallProgress($data_date){
         $region_progress['value']=json_encode($tem_array);
         return $region_progress;
     }
+    //STCS CODE Starts Here//
+    //    Author: ANCY MATHEW
+    //    Usage : Train progress of STCS
+    //    Created: 09/04/2016
+    public function get_stcs_trian_progree($date = FALSE){
+        $i=0;
+        $tem_array=array();
+        $train_stcs_progress=array(
+            "value"=>array()
+        );
+        if ($date) { // if date selected
+            $query = "SELECT train_number, static_test_perc, dynamic_test_perc, overall_stat_perc FROM tbl_stcs_train_status where data_date=$date";
+        } else {
+            $query = "SELECT train_number, static_test_perc, dynamic_test_perc, overall_stat_perc FROM tbl_stcs_train_status";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach($result as $val){
+            $tem_array[$i]=array(
+                "train_number"=>$val['train_number'],
+                "status" =>$val['overall_stat_perc'],
+                "static" => $val['static_test_perc'],
+                "dynamic" => $val['dynamic_test_perc']
+            );
+            $i++;
+        }
+        $train_stcs_progress['value']=json_encode($tem_array);
+        return $train_stcs_progress;
+    }
+    //    Author: ANCY MATHEW
+    //    Usage : Get issue  of STCS
+    //    Created: 09/04/2016
+    public function get_stcs_comments($date = FALSE){
+        $i=0;
+        $tem_array=array();
+        $train_stcs_comment=array(
+            "value"=>array()
+        );
+        if ($date) { // if date selected
+            $query = "SELECT comment_id,comment, station_code, time_stamp, date_selected FROM tbl_stcs_comments where date_selected=$date";
+        } else {
+            $query = "SELECT comment_id,comment, station_code, time_stamp, date_selected FROM tbl_stcs_comments";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach($result as $val){
+            $tem_array[$i]=array(
+                "comment_id"=>$val['comment_id'],
+                "comment" =>$val['comment'],
+                "station_code" => $val['station_code'],
+                "time_stamp" => $val['time_stamp']
+            );
+            $i++;
+        }
+        $train_stcs_comment['value']=json_encode($tem_array);
+        return $train_stcs_comment;
+    }
+    //    Author: ANCY MATHEW
+    //    Usage : Station Progress of STCS
+    //    Created: 09/04/2016
+    public function get_stcs_station_progres($date = FALSE){
+        $i=0;
+        $tem_array=array(
+            "wayside"=>array(),
+            "roomside"=>array()
+        );
+        $station_stcs_progress=array(
+            "value"=>array()
+        );
+        if ($date) { // if date selected
+            $query = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where data_date='2016-04-03' ";
+        } else {
+            $query = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status ";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach($result as $val){
+            if($val['stat_install_type']==1)
+            {
+                $tem_array[$i]=array(
+                        "roomside"=>array(
+                        "station_name"=>$val['station_name'],
+                        "stat_status" =>$val['stat_status'],
+                        "stat_progress_perc" => $val['stat_progress_perc'],
+                        "equip_name" => $val['equip_name'],
+                        "equip_progress" =>$val['equip_progress'],
+                        "PAT_status" => $val['PAT_status'],
+                        "SAT_status" => $val['SAT_status']
+                ));
+                $i++;
+            }
+            else{
+            $tem_array[$i]=array(
+                "wayside"=>array(
+                    "station_name"=>$val['station_name'],
+                    "stat_status" =>$val['stat_status'],
+                    "stat_progress_perc" => $val['stat_progress_perc'],
+                    "equip_name" => $val['equip_name'],
+                    "equip_progress" =>$val['equip_progress'],
+                    "PAT_status" => $val['PAT_status'],
+                    "SAT_status" => $val['SAT_status']
+                ));
+            $i++;
+            }
+        }
+        $station_stcs_progress['value']=json_encode($tem_array);
+        return $station_stcs_progress;
+    }
+    //    Author:ANCY MATHEW 10/08/2016
+    //    Usage : Store STCS Comments
+    public function set_stcs_comments($data){
+        $this->db->insert('tbl_stcs_comments', $data);
+        return $this->db->affected_rows();
+
+    }
 }
