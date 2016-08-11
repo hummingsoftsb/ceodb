@@ -353,6 +353,26 @@ class Dashboard extends CI_Controller {
                                 break;
                         }
                         break;
+                    case "sbk-s-03":
+                        $page_name= $this->dashboard_model->get_page($itemID);
+                        switch($page_name[0]['page']) {
+                            case "index":
+                                $rdata = $this->dashboard_model->get_stcs_train_total_progress($date);
+                                array_push($data_source,$rdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                            case "map":
+                                $trdata = $this->dashboard_model->get_stcs_station_progres($date);
+                                $redata = $this->dashboard_model->get_region_progress($date);
+                                $commentdata = $this->dashboard_model->get_stcs_comments($date);
+                                array_push($data_source,$trdata,$redata,$commentdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                            default:
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                        }
+                        break;
                     default:
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;

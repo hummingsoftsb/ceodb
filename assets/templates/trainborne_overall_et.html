@@ -1,8 +1,212 @@
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .row::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    [class*="col-"] {
+        float: left;
+        padding: 4px;
+    }
+    .col-1 {width: 6.33%;}
+    .col-2 {width: 12.33%;}
+
+    html {
+        font-family: "Lucida Sans", sans-serif;
+    }
+    .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .menu li {
+        padding: 10px;
+        margin-bottom: 7px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-align: center;
+        font-family: Arial Black;
+        font-size: 14px;
+        color: black;
+    }
+    .menu li a {
+        color: black !important;
+    }
+    .menu li:hover {
+        background-color: #0099cc;
+    }
+    .legend {
+        margin-top: 0px ;
+        margin-right: 95px;
+        margin-bottom: 9px;
+        text-align: right;
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+</style>
+
 <div class="header bg-dot30 excel-normal">
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
 <div class="content" style="background: none;/*#1d2a34*/">
     <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+        <div class="legend"> <i class="fa fa-square" style="color:#6BDD5A"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>
+            <i class="fa fa-square" style="color:#f9f55c"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
+            <i class="fa fa-square" style="color:#FF360E"></i><span style="color: #efefef">&nbsp;Not Completed&nbsp;&nbsp;</span>
+        </div>
+        <div class="row" style="display: none">
+            <table align="center" class="table table-bordered " style="background-color:transparent;width: 15% ">
+                <thead>
+                <tr>
+                    <th rowspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Summary progress</th>
+                    <th colspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Installation</th>
+                    <th colspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="text-align: center; color: #FFFFFF;">Room</th>
+                    <th style="text-align: center; color: #FFFFFF;">Wayside</th>
+                    <th style="text-align: center; color: #FFFFFF;">PAT Status</th>
+                    <th style="text-align: center; color: #FFFFFF;">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
 
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-1 menu">
+            </div>
+
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a class="tooltip">1</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">8</a></li>
+                    <li style="background-color: #FF360E"><a href="#">15</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">22</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">29</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">36</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">43</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">50</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">2</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">9</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">16</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">23</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">30</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">37</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">44</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">51</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">3</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">10</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">17</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">24</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">31</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">38</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">45</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">52</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">4</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">11</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">18</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">25</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">32</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">39</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">46</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">53</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">5</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">12</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">19</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">26</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">33</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">40</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">47</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">54</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">6</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">13</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">20</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">27</a></li>
+                    <li style="background-color: #f9f55c"><a href="#">34</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">41</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">48</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">55</a></li>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <li style="background-color: #C0C0C0"><a href="#">7</a></li>
+                    <li style="background-color: #FF360E"><a href="#">14</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">21</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">28</a></li>
+                    <li style="background-color :#f9f55c"><a href="#">35</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">42</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">49</a></li>
+                    <li style="background-color: #6BDD5A"><a href="#">56</a></li>
+                </ul>
+            </div>
+</div>
     </div>
 </div>

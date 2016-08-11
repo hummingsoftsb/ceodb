@@ -1775,6 +1775,60 @@ class Dashboard_model extends CI_Model
         return $this->db->affected_rows();
 
     }
+    public function get_stcs_train_total_progress($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $train_progress = array(
+            "value" => array()
+        );
+        if ($date) { // if date selected
+            $query = "SELECT round(avg( static_test_perc),2) as static, round(avg(dynamic_test_perc),2) as dynamic, round(avg(overall_stat_perc),2) as overall FROM tbl_stcs_train_status where data_date=$date";
+        } else {
+            $query = "SELECT round(avg( static_test_perc),2) as static, round(avg(dynamic_test_perc),2) as dynamic, round(avg(overall_stat_perc),2) as overall FROM tbl_stcs_train_status";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "static" => $val['static'],
+                "dynamic" => $val['dynamic'],
+                "overall" => $val['overall']
+            );
+            $i++;
+        }
+        $train_progress['value'] = json_encode($tem_array);
+        return $train_progress;
+    }
+    public function get_region_progress($date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $region_progress = array(
+            "value" => array()
+        );
+        if ($date) { // if date selected
+            $query = "SELECT region_no, station_no, station_progress, roomside_progress, wayside_progress,\"PAT_progress\", \"SAT_progress\", data_date FROM tbl_stcs_region_progress where data_date=$date";
+        } else {
+            $query = "SELECT region_no, station_no, station_progress, roomside_progress, wayside_progress,\"PAT_progress\", \"SAT_progress\", data_date FROM tbl_stcs_region_progress";
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "region_no" => $val['region_no'],
+                "station_no" => $val['station_no'],
+                "station_progress" => $val['station_progress'],
+                "roomside_progress" => $val['roomside_progress'],
+                "wayside_progress" => $val['wayside_progress'],
+                "PAT_progress" => $val['PAT_progress'],
+                "SAT_progress" => $val['SAT_progress'],
+                "data_date" => $val['data_date']
+            );
 
-
+            $i++;
+        }
+        $region_progress['value'] = json_encode($tem_array);
+        return $region_progress;
+    }
 }
