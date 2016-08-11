@@ -510,6 +510,18 @@ mpxd.modules.signal_train_control_system.map = Backbone.View.extend({
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+        console.log($(window).width());
+        if($(window).width() > 1900) {
+            that.$el.find('.text-content').css({"height":426})
+        }else if($(window).width() > 1700) {
+            that.$el.find('.text-content').css({"height":372})
+        }else if($(window).width() > 1600) {
+            that.$el.find('.text-content').css({"height":350})
+        }else if($(window).width() > 1500) {
+            that.$el.find('.text-content').css({"height":313})
+        }
+
+
 
     }
 });
