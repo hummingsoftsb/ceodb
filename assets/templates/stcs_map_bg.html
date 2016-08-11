@@ -1,62 +1,388 @@
 <style>
+   .fwfs{
+       font-size: 20px;
+       font-weight: 600;
+   }
+   .text-red{
+       color: hsl(0, 100%, 43%);
+   }
+   .text-green{
+       color: hsl(134, 60%, 53%);
+   }
+   .text-yellow{
+       color: rgb(255, 170, 66);
+   }
+   .pkg_title{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 25px;
+       font-weight: 500;
+       text-decoration: none;
+       color: #FFF;
+   }
+   .pkg_title_sub{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 14px;
+       font-weight: 600;
+       text-decoration: none;
+   }
+   .pkg_title2{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 40px;
+       font-weight: 500;
+       text-decoration: none;
+       color: #a6c3ff;
+   }
+    svg .smallcircle {
+        fill: #cccccc;
+    }
 
-    span.text-content span {
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-    }
-    span.text-content {
-        background: rgba(0,0,0,0.5);
-        font-weight: 600;
-        font-size: 16px;
-        color: white;
-        cursor: pointer;
-        display: table;
-        height: 320px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        opacity: 0;
-        -webkit-transition: opacity 500ms;
-        -moz-transition: opacity 500ms;
-        -o-transition: opacity 500ms;
-        transition: opacity 500ms;
+    svg .bigcircle {
+        fill: hsl(0, 3%, 30%);
     }
 
-    .wrapper_img:hover span.text-content {
-        opacity: 1;
+    svg .bigparking {
+        fill: hsl(0, 3%, 30%);
     }
+
+    svg .smallparking {
+        fill: #cccccc;
+    }
+
+    svg .glow-red.on {
+        fill: hsl(0, 100%, 43%);
+    }
+
+    svg .glow-green.on {
+        fill: hsl(134, 82%, 30%);
+    }
+
+    svg .glow-yellow.on {
+        fill: rgb(255, 170, 66);
+    }
+
+    svg .glow-grey.on {
+        /*fill: #fff;*/
+        fill: rgb(131, 123, 123);
+    }
+    svg .glow-darkgray.on {
+        fill: #837b7b;
+    }
+    svg .glow-kavi.on {
+        fill: rgb(212, 76, 1);
+    }
+    svg .parkingletter {
+        fill: #000;
+        font-family: "Century Gothic";
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    svg .blurred {
+        opacity: 0.2;
+    }
+
+    .glow-red-blinking.on {
+        -webkit-animation-name: glow-red;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+        -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5))
+
+    animation-name: glow-red;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        filter: url(#drop-shadow);
+    }
+
+    @-webkit-keyframes glow-red {
+        0% { fill: hsl(0, 100%, 10%); }
+        100% { fill: hsl(0, 100%, 63%); }
+    }
+
+    @keyframes glow-red {
+        0% { fill: hsl(0, 100%, 10%); }
+        100% { fill: hsl(0, 100%, 63%); }
+    }
+
+    .glow-yellow-blinking.on {
+        -webkit-animation-name: glow-yellow;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+
+        animation-name: glow-yellow;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @-webkit-keyframes glow-yellow {
+        0% { fill: hsl(33, 100%, 30%); }
+        100% { fill: hsl(33, 100%, 63%); }
+    }
+
+    @keyframes glow-yellow {
+        0% { fill: hsl(33, 100%, 30%); }
+        100% { fill: hsl(33, 100%, 63%); }
+    }
+    .glow-gray-blinking.on {
+        -webkit-animation-name: glow-gray;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+
+        animation-name: glow-gray;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @-webkit-keyframes glow-gray {
+        0% { fill: hsl(0, 3%, 30%); }
+        100% { fill: hsl(0, 3%, 63%); }
+    }
+
+    @keyframes glow-gray {
+        0% { fill: hsl(0, 3%, 30%); }
+        100% { fill: hsl(0, 3%, 63%); }
+    }
+    .glow-kavi-blinking.on {
+        -webkit-animation-name: glow-kavi;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+
+        animation-name: glow-kavi;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @-webkit-keyframes glow-kavi {
+        0% { fill: hsl(21, 99%, 30%); }
+        100% { fill: hsl(21, 99%, 63%); }
+    }
+
+    @keyframes glow-kavi {
+        0% { fill: hsl(21, 99%, 30%); }
+        100% { fill: hsl(21, 99%, 63%); }
+    }
+    .glow-green-blinking.on {
+        -webkit-animation-name: glow-green;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+
+        animation-name: glow-green;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @-webkit-keyframes glow-green {
+        0% { fill: hsl(134, 82%, 20%); }
+        100% { fill: hsl134, 82%, 53%); }
+    }
+
+    @keyframes glow-green {
+        0% { fill: hsl(134, 82%, 20%); }
+        100% { fill: hsl(134, 82%, 53%); }
+    }
+
 </style>
-
 <div class="header bg-dot30 excel-normal">
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
-<div class="content" style="background: none;/*#1d2a34*/">
-    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
-        <a href="map">
-            <div  class="wrapper_img" style="border: 3px solid #000; border-radius: 4px; background-color: rgba(16, 19, 32, 0.72);">
-                <img src="../assets/img/systems/stcs/map_md.png" alt="Signaling & Train Control System" width="100%">
-                <span class="text-content"><span><i class="fa fa-search"></i> Click to view</span></span>
-            </div>
-        </a>
-    </div>
-</div>
-<!-- MODAL START -->
-<!--
-<div class="modal" id="stcs_map_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:100%">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Signaling $ Train Control System Map</h4>
-            </div>
-            <div class="modal-body clearfix" style="padding:0; background: #222; overflow:hidden">
-                <img src="../assets/img/systems/stcs/map_md.png" width="100%">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
-            </div>
+<div id="container" class="content" style="background: none;/*#1d2a34*/ margin-top: 0px;">
+    <div class="col-sm-12">
+        <img src="../assets/img/systems/stcs/stcs_cleaned_map.jpg" alt="" id="mapimg" style="width: 1280px; height:600px; position:absolute;"/>
+        <div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
+
+            <!-- text href -->
+            <a title="Sungai Buloh" href="#" style="position: absolute; top: 294px; left: 87px; height: 15px; width: 72px;"></a>
+            <a title="Kg Selamat" href="#" style="position: absolute; top: 324px; left: 93px; height: 15px; width: 72px;"></a>
+            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 412px; left: 140px; height: 23px; width: 72px;"></a>
+            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 453px; left: 121px; height: 15px; width: 72px;"></a>
+            <a title="Kota Damansara" href="#" style="position: absolute; top: 484px; left: 219px; height: 15px; width: 72px;"></a>
+            <a title="Surian" href="#" style="position: absolute; top: 423px; left: 215px; height: 15px; width: 46px;"></a>
+            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 363px; left: 217px; height: 15px; width: 72px;"></a>
+            <a title="Bandar Utama" href="#" style="position: absolute; top: 352px; left: 296px; height: 15px; width: 72px;"></a>
+            <a title="TTDI" href="#" style="position: absolute; top: 352px; left: 367px; height: 15px; width: 32px;"></a>
+            <a title="Phileo Damansara" href="#" style="position: absolute; top: 329px; left: 373px; height: 15px; width: 72px;"></a>
+            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 274px; left: 365px; height: 15px; width: 72px;"></a>
+            <a title="Semantan" href="#" style="position: absolute; top: 227px; left: 362px; height: 15px; width: 72px;"></a>
+            <a title="Muzium Negara" href="#" style="position: absolute; top: 189px; left: 437px; height: 15px; width: 90px;"></a>
+            <a title="Pasar Seni" href="#" style="position: absolute; top: 160px; left: 458px; height: 15px; width: 61px;"></a>
+            <a title="Merdeka" href="#" style="position: absolute; top: 131px; left: 497px; height: 15px; width: 60px;"></a>
+            <a title="Bukit Bintang" href="#" style="position: absolute; top: 98px; left: 514px; height: 15px; width: 60px;"></a>
+            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 83px; left: 611px; height: 15px; width: 60px;"></a>
+            <a title="Cochrane" href="#" style="position: absolute; top: 106px; left: 646px; height: 15px; width: 60px;"></a>
+            <a title="Maluri" href="#" style="position: absolute; top: 140px; left: 609px; height: 15px; width: 47px;"></a>
+            <a title="Taman Pertama" href="#" style="position: absolute; top: 135px; left: 668px; height: 15px; width: 60px;"></a>
+            <a title="Taman Midah" href="#" style="position: absolute; top: 157px; left: 716px; height: 15px; width: 60px;"></a>
+            <a title="Taman Mutiara" href="#" style="position: absolute; top: 171px; left: 786px; height: 15px; width: 60px;"></a>
+            <a title="Taman Connaught" href="#" style="position: absolute; top: 234px; left: 767px; height: 15px; width: 60px;"></a>
+            <a title="Taman Suntex" href="#" style="position: absolute; top: 168px; left: 845px; height: 15px; width: 48px;"></a>
+            <a title="Sri Raya" href="#" style="position: absolute; top: 167px; left: 919px; height: 15px; width: 60px;"></a>
+            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 208px; left: 998px; height: 15px; width: 71px;"></a>
+            <a title="Bukit Dukung" href="#" style="position: absolute; top: 250px; left: 1017px; height: 15px; width: 55px;"></a>
+            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 285px; left: 1053px; height: 15px; width: 85px;"></a>
+            <a title="Sungai Kantan" href="#" style="position: absolute; top: 316px; left: 1119px; height: 15px; width: 50px;"></a>
+            <a title="Bandar Kajang" href="#" style="position: absolute; top: 341px; left: 1176px; height: 15px; width: 50px;"></a>
+            <a title="Kajang" href="#" style="position: absolute; top: 366px; left: 1220px; height: 15px; width: 50px;"></a>
+            <a title="Sungai Buloh Depot" href="#" style="position: absolute; top: 390px; left: 15px; height: 35px; width: 95px;"></a>
+            <a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
+
+            <!-- icon href -->
+            <a title="Sungai Buloh" href="#" style="position: absolute; top: 295px; left: 73px; height: 15px; width: 15px;"></a>
+            <a title="Kg Selamat" href="#" style="position: absolute; top: 327px; left: 84px; height: 15px; width: 15px;"></a>
+            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 414px; left: 130px; height: 15px; width: 15px;"></a>
+            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 449px; left: 122px; height: 15px; width: 15px;"></a>
+            <a title="Kota Damansara" href="#" style="position: absolute; top: 472px; left: 215px; height: 15px; width: 15px;"></a>
+            <a title="Surian" href="#" style="position: absolute; top: 419px; left: 268px; height: 15px; width: 15px;"></a>
+            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 362px; left: 288px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Utama" href="#" style="position: absolute; top: 370px; left: 348px; height: 15px; width: 15px;"></a>
+            <a title="TTDI" href="#" style="position: absolute; top: 366px; left: 396px; height: 15px; width: 15px;"></a>
+            <a title="Phileo Damansara" href="#" style="position: absolute; top: 348px; left: 433px; height: 15px; width: 15px;"></a>
+            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 272px; left: 447px; height: 15px; width: 15px;"></a>
+            <a title="Semantan" href="#" style="position: absolute; top: 224px; left: 436px; height: 15px; width: 15px;"></a>
+            <a title="Muzium Negara" href="#" style="position: absolute; top: 186px; left: 534px; height: 15px; width: 15px;"></a>
+            <a title="Pasar Seni" href="#" style="position: absolute; top: 152px; left: 530px; height: 15px; width: 15px;"></a>
+            <a title="Merdeka" href="#" style="position: absolute; top: 129px; left: 559px; height: 15px; width: 15px;"></a>
+            <a title="Bukit Bintang" href="#" style="position: absolute; top: 95px; left: 569px; height: 15px; width: 15px;"></a>
+            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 99px; left: 613px; height: 15px; width: 15px;"></a>
+            <a title="Cochrane" href="#" style="position: absolute; top: 113px; left: 638px; height: 15px; width: 15px;"></a>
+            <a title="Maluri" href="#" style="position: absolute; top: 126px; left: 660px; height: 15px; width: 15px;"></a>
+            <a title="Taman Pertama" href="#" style="position: absolute; top: 154px; left: 698px; height: 15px; width: 15px;"></a>
+            <a title="Taman Midah" href="#" style="position: absolute; top: 173px; left: 740px; height: 15px; width: 15px;"></a>
+            <a title="Taman Mutiara" href="#" style="position: absolute; top: 179px; left: 783px; height: 15px; width: 15px;"></a>
+            <a title="Taman Connaught" href="#" style="position: absolute; top: 207px; left: 828px; height: 15px; width: 15px;"></a>
+            <a title="Taman Suntex" href="#" style="position: absolute; top: 176px; left: 905px; height: 15px; width: 15px;"></a>
+            <a title="Sri Raya" href="#" style="position: absolute; top: 180px; left: 935px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 207px; left: 988px; height: 15px; width: 15px;"></a>
+            <a title="Bukit Dukung" href="#" style="position: absolute; top: 249px; left: 1009px; height: 15px; width: 15px;"></a>
+            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 287px; left: 1039px; height: 15px; width: 15px;"></a>
+            <a title="Sungai Kantan" href="#" style="position: absolute; top: 330px; left: 1137px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Kajang" href="#" style="position: absolute; top: 346px; left: 1170px; height: 15px; width: 15px;"></a>
+            <a title="Kajang" href="#" style="position: absolute; top: 374px; left: 1213px; height: 15px; width: 15px;"></a>
+            <a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1147px; height: 19px; width: 20px;"></a>
+            <a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 30px; height: 40px; width: 40px;"></a>
+            <a title="MSPR4" href="#" style="position: absolute; top: 366px; left: 435px; height: 40px; width: 60px;"></a>
+            <a title="MSPR6" href="#" style="position: absolute; top: 197px; left: 720px; height: 30px; width: 40px;"></a>
+            <a title="MSPR8" href="#" style="position: absolute; top: 196px; left: 900px; height: 40px; width: 45px;"></a>
+            <a title="MSPR9" href="#" style="position: absolute; top: 397px; left: 1203px; height: 40px; width: 40px;"></a>
+            <a title="MSPR11" href="#" style="position: absolute; top: 349px; left: 1070px; height: 18px; width: 70px;"></a>
+
+        </div>
+
+        <div class="fwfs" style="position:absolute; z-index:2; top: 331px;left: 40px;">
+            <a href="#" class="pkg_title">R1</a>
+        </div>
+        <div class="fwfs" style="position:absolute; z-index:2; top: 500px;left: 160px;">
+            <a href="#" class="pkg_title">R2</a>
+        </div>
+        <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
+            <a href="#" class="pkg_title">R3</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 232px; left: 555px;">
+            <a href="#" class="pkg_title">R4</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 178px; left: 647px;">
+            <a href="#" class="pkg_title">R5</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 270px; left: 835px;">
+            <a href="#" class="pkg_title">R6</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 410px; left: 1087px;">
+            <a href="#" class="pkg_title">R7</a>
+        </div>
+
+        <div class="fwfs" style="position:absolute; z-index:2; top: 357px;left: 23px;">
+            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+        </div>
+        <div class="fwfs" style="position:absolute; z-index:2; top: 504px;left: 195px;">
+            <a href="#" class="pkg_title_sub text-red">[ 56% ]</a>
+        </div>
+        <div class="fwfs" style="position:absolute; z-index:2; top: 423px;left: 413px;">
+            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 259px; left: 555px;">
+            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 204px; left: 647px;">
+            <a href="#" class="pkg_title_sub text-yellow">[ 80% ]</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 295px; left: 835px;">
+            <a href="#" class="pkg_title_sub text-yellow">[ 70% ]</a>
+        </div>
+        <div class="fwfs" style="position: absolute; z-index: 2; top: 436px; left: 1087px;">
+            <a href="#" class="pkg_title_sub text-yellow">[ 95% ]</a>
+        </div>
+        <div style="position:absolute; z-index:2; top: 248px;left: 219px;">
+            <a href="#" class="pkg_title2">North</a>
+        </div>
+        <div style="position:absolute; z-index:2; top: 183px;left: 1110px;">
+            <a href="#" class="pkg_title2">South</a>
+        </div>
+
+        <div style="position:absolute; z-index:2; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
+            <div class="fim-dropdown">
+                <a href="#" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
+                <div class="inner">
+                    <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
+                    <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
+                    <!--                         <img style="width: 100%;" src="--><?php //echo $this->config->base_url(); ?><!--assets/img/demo.png" />-->
+                    <table id="nav_drop">
+                        <thead>
+                        <tr>
+                            <th>Activities</th>
+                            <th colspan="2">Percentage</th>
+                        </tr>
+                        </thead>
+                        <tbody id="status_container">
+                                                     <tr>
+                                                         <td>Overall Installation PS&DS</td>
+                                                         <td colspan="2">79.50%</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td rowspan="2">Installation & Termination for TRIP cable Northern</td>
+                                                         <td style="background-color: #f79b3b"><b>33KV AC</b></td>
+                                                         <td style="background-color: #f79b3b"><b>750V DC</b></td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>100%</td>
+                                                         <td>96.40%</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td rowspan="2">Installation & Termination for TRIP cable Southern</td>
+                                                         <td style="background-color: #f79b3b"><b>33KV AC</b></td>
+                                                         <td style="background-color: #f79b3b"><b>750V DC</b></td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>95.02%</td>
+                                                         <td>23.13%</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>Overall T&C for PS&DS</td>
+                                                         <td colspan="2">42.44%</td>
+                                                     </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>
         </div>
     </div>
-</div>-->
+</div>
+<script>
+</script>
