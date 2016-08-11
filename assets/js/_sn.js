@@ -1011,7 +1011,6 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             else if (v == 5) groupGoGreen(g);
             else groupGoGrey(g);
         }
-
         if($(window).width() > 1900){
             $("#svg-container").css({
                 "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(1.34545, 1.34545)",
