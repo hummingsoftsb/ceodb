@@ -629,13 +629,13 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
          }*/
 
 //Create SVG element
-        svg = d3.select("#container")
+        svg = d3.select("#svg-container")
             .append("svg")
             .attr("width", w)
             .attr("height", h)
             .style("position","absolute")
-            .style("top","53px")
-            .style("left","33px");
+            .style("top","-103px")
+            .style("left","-1px");
 
         var v1 = svg.selectAll("path")
             .data(paths)
@@ -1010,6 +1010,39 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             else if (v == 4) groupGoKavi(g);
             else if (v == 5) groupGoGreen(g);
             else groupGoGrey(g);
+        }
+
+        if($(window).width() > 1900){
+            $("#svg-container").css({
+                "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(1.34545, 1.34545)",
+                "transform-origin": "705px 0px 0px"
+
+            });
+        } else if($(window).width() > 1700){
+            $("#svg-container").css({
+                "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(1.2545, 1.2545)",
+                "transform-origin": "666px 0px 0px"
+
+            });
+        } else if($(window).width() > 1600){
+            $("#svg-container").css({
+                "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(1.2145, 1.2145)",
+                "transform-origin": "666px 0px 0px"
+
+            });
+
+        } else if($(window).width() > 1500){
+            $("#svg-container").css({
+                "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(1.07145, 1.07145)",
+                "transform-origin": "805px 0px 0px"
+
+            });
+        } else if($(window).width() > 1300){
+            $("#svg-container").css({
+                "transform": "translate(0px, 10.003px) rotate(0rad) skewX(0rad) scale(0.98, 0.98)",
+                "transform-origin": "805px 0px 0px"
+
+            });
         }
     }
 

@@ -12,6 +12,12 @@
    .text-yellow{
        color: rgb(255, 170, 66);
    }
+
+   #svg-container {
+       width: 1280px;
+       height: 800px;
+       overflow: hidden;
+   }
    .pkg_title{
        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
        font-size: 25px;
@@ -204,8 +210,8 @@
 <div class="header bg-dot30 excel-normal">
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
-<div id="container" class="content" style="background: none;/*#1d2a34*/ margin-top: 0px;">
-    <div class="col-sm-12">
+<div class="content" style="background: none;/*#1d2a34*/">
+    <div id="svg-container" style="position:relative; margin:auto;">
         <img src="../assets/img/systems/stcs/stcs_cleaned_map.jpg" alt="" id="mapimg" style="width: 1280px; height:600px; position:absolute;"/>
         <div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
 
