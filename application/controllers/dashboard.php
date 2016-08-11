@@ -928,5 +928,27 @@ class Dashboard extends CI_Controller {
         }
         $this->load->view('dashboard/api', $data);
     }
-
+//    Author: ANCY MATHEW
+//    Usage : Add Comments
+//    Created: 28/04/2016
+    public function addCommentSTCS(){
+        if ($this->input->get()) {
+            $date=date_create($this->input->get('date'));
+            $data = array(
+                'station_code' => $this->input->get('station_code'),
+                'comment' => $this->input->get('comment'),
+                'time_stamp' =>date('Y-m-d h:i:s'),
+                'date_selected' =>date_format($date,'Y/m/d')
+            );
+            $result = $this->dashboard_model->setComment($data);
+            if($result>0){
+                $data['item'] = 1;
+            }else{
+                $data['item'] = 0;
+            }
+        } else {
+            return show_404();
+        }
+        $this->load->view('dashboard/api', $data);
+    }
 }
