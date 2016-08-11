@@ -44,29 +44,7 @@
         margin-bottom: 9px;
         text-align: right;
     }
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-    }
 
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
 </style>
 
 <div class="header bg-dot30 excel-normal">
@@ -78,7 +56,7 @@
             <i class="fa fa-square" style="color:#f9f55c"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
             <i class="fa fa-square" style="color:#FF360E"></i><span style="color: #efefef">&nbsp;Not Completed&nbsp;&nbsp;</span>
         </div>
-        <div class="row" style="display: none">
+        <div class="row">
             <table align="center" class="table table-bordered " style="background-color:transparent;width: 15% ">
                 <thead>
                 <tr>
@@ -125,7 +103,7 @@
 
             <div class="col-2 menu">
                 <ul>
-                    <li style="background-color: #C0C0C0"><a class="tooltip">1</a></li>
+                    <li style="background-color: #C0C0C0"><a href="#">1</a></li>
                     <li style="background-color: #C0C0C0"><a href="#">8</a></li>
                     <li style="background-color: #FF360E"><a href="#">15</a></li>
                     <li style="background-color: #6BDD5A"><a href="#">22</a></li>
