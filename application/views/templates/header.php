@@ -13,6 +13,7 @@
 
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
         <!--<link rel=icon type=image/ico href="<?php echo $this->config->base_url(); ?>assets/favicon.html"/>-->
+        <link href="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.css" rel="stylesheet" type="text/css" />
         <link media="screen, print" href=<?php echo $this->config->base_url(); ?>assets/css/stylesheets.css rel=stylesheet type=text/css />
         <link media="screen, print" href=<?php echo $this->config->base_url(); ?>assets/css/simple-sidebar.css rel=stylesheet type=text/css />
         <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/slippry.css">
@@ -26,6 +27,7 @@
 		<link media="screen, print" rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/flick/jquery-ui.css" />
 		<link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/plugin/wb-popover/jquery.webui-popover.css" />
         <link media="screen, print" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/css/font-awesome-animation.min.css" rel="stylesheet" type="text/css" />
+
         <!--<link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>assets/MultiLevelPushMenu/css/pushmenu.css">-->
 		<script>
                         var permission = <?php echo json_encode($permission); ?>;
@@ -175,6 +177,7 @@
 		<!-- Moment js for dates-->
 <!--		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>-->
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/moment/moment.min.js"></script>
+        <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/plugin/drop-popup/main.js"></script>
 		
 		 <!-- Gallery src-->
 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">

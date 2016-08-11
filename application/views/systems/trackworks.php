@@ -1010,7 +1010,6 @@
 		window.scrollTo(0,1);
 		$(window).load(function(){
 			data = <?php echo json_encode($data); ?>;
-            console.log(data);
             $("#design_p").text((typeof data['design_percentage']=='undefined')?'0.0%':data['design_percentage']+'%');
             $("#proc_p").text((typeof data['proc_percentage']=='undefined')?'0.0%':data['proc_percentage']+'%');
             $("#install_p").text((typeof data['install_percentage']=='undefined')?'0.0%':data['install_percentage']+'%');

@@ -1131,7 +1131,6 @@
 		window.scrollTo(0,1);
 		$(window).load(function(){
 			data = <?php echo json_encode($data); ?>;
-            console.log(data);
             if((Object.keys(data.i_pscada).length)>0) {
                 $(".stn1").append(tooltip(data.i_pscada['STN 01'],'SUNGAI BULOH',true));
                 $(".stn2").append(tooltip(data.i_pscada['STN 02'],'KG SELAMAT',true));
