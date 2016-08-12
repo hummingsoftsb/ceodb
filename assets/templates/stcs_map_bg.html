@@ -15,7 +15,7 @@
 
    #svg-container {
        width: 1280px;
-       height: 600px;
+       height: 700px;
        overflow: hidden;
    }
    .pkg_title{
@@ -207,6 +207,45 @@
     }
 
 </style>
+<script>
+    $(document).ready(function(){
+
+        $(".fim-dropdown > a").mouseover(function(){
+            $(".fim-dropdown").not($(this).parent()[0]).removeClass('active');
+            $(this).parent().toggleClass('active');
+            return false;
+        });
+
+        $(document).click(function(e){
+            that = e.target;
+            if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown") && !$(that).hasClass("inner")) $(".fim-dropdown").removeClass('active');
+        });
+
+
+        $(window).on("load resize",function(){
+            $(".fim-dropdown > .inner").each(function(){
+                var pos = $(this).attr("data-arrange");
+                    $(this).css(
+                        pos , $(this).attr("data-value")+'px',
+                        "top", top
+                    );
+
+//                    var src = $(this).parent().children("a");
+                    // Position
+//                    var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
+//                    if (left + $(this).outerWidth() > $(window).width()) {
+//                        left = $(window).width() - $(this).outerWidth();
+//                    }
+//                    if (left < 0) left = 0;
+//                    $(this).css({
+//                        left: (left-89),
+//                        top: top
+//                    });
+            });
+        });
+    });
+
+</script>
 <div class="header bg-dot30 excel-normal">
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
@@ -251,44 +290,44 @@
             <a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
 
             <!-- icon href -->
-            <a title="Sungai Buloh" href="#" style="position: absolute; top: 295px; left: 73px; height: 15px; width: 15px;"></a>
-            <a title="Kg Selamat" href="#" style="position: absolute; top: 327px; left: 84px; height: 15px; width: 15px;"></a>
-            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 414px; left: 130px; height: 15px; width: 15px;"></a>
-            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 449px; left: 122px; height: 15px; width: 15px;"></a>
-            <a title="Kota Damansara" href="#" style="position: absolute; top: 472px; left: 215px; height: 15px; width: 15px;"></a>
-            <a title="Surian" href="#" style="position: absolute; top: 419px; left: 268px; height: 15px; width: 15px;"></a>
-            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 362px; left: 288px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Utama" href="#" style="position: absolute; top: 370px; left: 348px; height: 15px; width: 15px;"></a>
-            <a title="TTDI" href="#" style="position: absolute; top: 366px; left: 396px; height: 15px; width: 15px;"></a>
-            <a title="Phileo Damansara" href="#" style="position: absolute; top: 348px; left: 433px; height: 15px; width: 15px;"></a>
-            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 272px; left: 447px; height: 15px; width: 15px;"></a>
-            <a title="Semantan" href="#" style="position: absolute; top: 224px; left: 436px; height: 15px; width: 15px;"></a>
-            <a title="Muzium Negara" href="#" style="position: absolute; top: 186px; left: 534px; height: 15px; width: 15px;"></a>
-            <a title="Pasar Seni" href="#" style="position: absolute; top: 152px; left: 530px; height: 15px; width: 15px;"></a>
-            <a title="Merdeka" href="#" style="position: absolute; top: 129px; left: 559px; height: 15px; width: 15px;"></a>
-            <a title="Bukit Bintang" href="#" style="position: absolute; top: 95px; left: 569px; height: 15px; width: 15px;"></a>
-            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 99px; left: 613px; height: 15px; width: 15px;"></a>
-            <a title="Cochrane" href="#" style="position: absolute; top: 113px; left: 638px; height: 15px; width: 15px;"></a>
-            <a title="Maluri" href="#" style="position: absolute; top: 126px; left: 660px; height: 15px; width: 15px;"></a>
-            <a title="Taman Pertama" href="#" style="position: absolute; top: 154px; left: 698px; height: 15px; width: 15px;"></a>
-            <a title="Taman Midah" href="#" style="position: absolute; top: 173px; left: 740px; height: 15px; width: 15px;"></a>
-            <a title="Taman Mutiara" href="#" style="position: absolute; top: 179px; left: 783px; height: 15px; width: 15px;"></a>
-            <a title="Taman Connaught" href="#" style="position: absolute; top: 207px; left: 828px; height: 15px; width: 15px;"></a>
-            <a title="Taman Suntex" href="#" style="position: absolute; top: 176px; left: 905px; height: 15px; width: 15px;"></a>
-            <a title="Sri Raya" href="#" style="position: absolute; top: 180px; left: 935px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 207px; left: 988px; height: 15px; width: 15px;"></a>
-            <a title="Bukit Dukung" href="#" style="position: absolute; top: 249px; left: 1009px; height: 15px; width: 15px;"></a>
-            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 287px; left: 1039px; height: 15px; width: 15px;"></a>
-            <a title="Sungai Kantan" href="#" style="position: absolute; top: 330px; left: 1137px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Kajang" href="#" style="position: absolute; top: 346px; left: 1170px; height: 15px; width: 15px;"></a>
-            <a title="Kajang" href="#" style="position: absolute; top: 374px; left: 1213px; height: 15px; width: 15px;"></a>
-            <a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1147px; height: 19px; width: 20px;"></a>
-            <a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 30px; height: 40px; width: 40px;"></a>
-            <a title="MSPR4" href="#" style="position: absolute; top: 366px; left: 435px; height: 40px; width: 60px;"></a>
+            <a title="Sungai Buloh" href="#" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
+            <a title="Kg Selamat" href="#" style="position: absolute; top: 327px; left: 74px; height: 15px; width: 15px;"></a>
+            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 414px; left: 120px; height: 15px; width: 15px;"></a>
+            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 449px; left: 112px; height: 15px; width: 15px;"></a>
+            <a title="Kota Damansara" href="#" style="position: absolute; top: 474px; left: 206px; height: 15px; width: 15px;"></a>
+            <a title="Surian" href="#" style="position: absolute; top: 419px; left: 258px; height: 15px; width: 15px;"></a>
+            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 362px; left: 278px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Utama" href="#" style="position: absolute; top: 370px; left: 338px; height: 15px; width: 15px;"></a>
+            <a title="TTDI" href="#" style="position: absolute; top: 366px; left: 386px; height: 15px; width: 15px;"></a>
+            <a title="Phileo Damansara" href="#" style="position: absolute; top: 347px; left: 423px; height: 15px; width: 15px;"></a>
+            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 272px; left: 437px; height: 15px; width: 15px;"></a>
+            <a title="Semantan" href="#" style="position: absolute; top: 224px; left: 426px; height: 15px; width: 15px;"></a>
+            <a title="Muzium Negara" href="#" style="position: absolute; top: 186px; left: 524px; height: 15px; width: 15px;"></a>
+            <a title="Pasar Seni" href="#" style="position: absolute; top: 152px; left: 520px; height: 15px; width: 15px;"></a>
+            <a title="Merdeka" href="#" style="position: absolute; top: 129px; left: 549px; height: 15px; width: 15px;"></a>
+            <a title="Bukit Bintang" href="#" style="position: absolute; top: 95px; left: 559px; height: 15px; width: 15px;"></a>
+            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 99px; left: 603px; height: 15px; width: 15px;"></a>
+            <a title="Cochrane" href="#" style="position: absolute; top: 113px; left: 628px; height: 15px; width: 15px;"></a>
+            <a title="Maluri" href="#" style="position: absolute; top: 126px; left: 650px; height: 15px; width: 15px;"></a>
+            <a title="Taman Pertama" href="#" style="position: absolute; top: 154px; left: 688px; height: 15px; width: 15px;"></a>
+            <a title="Taman Midah" href="#" style="position: absolute; top: 173px; left: 730px; height: 15px; width: 15px;"></a>
+            <a title="Taman Mutiara" href="#" style="position: absolute; top: 179px; left: 773px; height: 15px; width: 15px;"></a>
+            <a title="Taman Connaught" href="#" style="position: absolute; top: 207px; left: 818px; height: 15px; width: 15px;"></a>
+            <a title="Taman Suntex" href="#" style="position: absolute; top: 176px; left: 895px; height: 15px; width: 15px;"></a>
+            <a title="Sri Raya" href="#" style="position: absolute; top: 180px; left: 925px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 207px; left: 978px; height: 15px; width: 15px;"></a>
+            <a title="Bukit Dukung" href="#" style="position: absolute; top: 249px; left: 999px; height: 15px; width: 15px;"></a>
+            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 287px; left: 1029px; height: 15px; width: 15px;"></a>
+            <a title="Sungai Kantan" href="#" style="position: absolute; top: 330px; left: 1127px; height: 15px; width: 15px;"></a>
+            <a title="Bandar Kajang" href="#" style="position: absolute; top: 346px; left: 1160px; height: 15px; width: 15px;"></a>
+            <a title="Kajang" href="#" style="position: absolute; top: 374px; left: 1203px; height: 15px; width: 15px;"></a>
+            <a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1137px; height: 19px; width: 20px;"></a>
+            <a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 20px; height: 40px; width: 40px;"></a>
+            <a title="MSPR4" href="#" style="position: absolute; top: 370px; left: 424px; height: 40px; width: 60px;"></a>
             <a title="MSPR6" href="#" style="position: absolute; top: 197px; left: 720px; height: 30px; width: 40px;"></a>
-            <a title="MSPR8" href="#" style="position: absolute; top: 196px; left: 900px; height: 40px; width: 45px;"></a>
-            <a title="MSPR9" href="#" style="position: absolute; top: 397px; left: 1203px; height: 40px; width: 40px;"></a>
-            <a title="MSPR11" href="#" style="position: absolute; top: 349px; left: 1070px; height: 18px; width: 70px;"></a>
+            <a title="MSPR8" href="#" style="position: absolute; top: 196px; left: 895px; height: 40px; width: 45px;"></a>
+            <a title="MSPR9" href="#" style="position: absolute; top: 397px; left: 1196px; height: 40px; width: 40px;"></a>
+            <a title="MSPR11" href="#" style="position: absolute; top: 349px; left: 1062px; height: 18px; width: 70px;"></a>
 
         </div>
 
@@ -301,17 +340,269 @@
         <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
             <a href="#" class="pkg_title">R3</a>
         </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 232px; left: 555px;">
-            <a href="#" class="pkg_title">R4</a>
+        <div class="fwfs" style="position: absolute; z-index: 5; top: 232px; left: 555px;">
+            <div class="fim-dropdown">
+                <a href="#" class="pkg_title">R4</a>
+                <div class="inner" data-arrange="left" data-value="132" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 178px; left: 647px;">
-            <a href="#" class="pkg_title">R5</a>
+        <div class="fwfs" style="position: absolute; z-index: 6; top: 178px; left: 647px;">
+            <div class="fim-dropdown">
+                <a href="#" class="pkg_title">R5</a>
+                <div class="inner" data-arrange="right" data-value="132" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 270px; left: 835px;">
-            <a href="#" class="pkg_title">R6</a>
+        <div class="fwfs" style="position: absolute; z-index: 4; top: 270px; left: 835px;">
+            <div class="fim-dropdown">
+                <a href="#" class="pkg_title">R6</a>
+                <div class="inner" data-arrange="right" data-value="12" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 410px; left: 1087px;">
-            <a href="#" class="pkg_title">R7</a>
+        <div class="fwfs" style="position: absolute; z-index: 3; top: 410px; left: 1087px;">
+            <div class="fim-dropdown">
+                <a href="#" class="pkg_title">R7</a>
+                <div class="inner" data-arrange="right" data-value="12" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>STN 08</td>
+                                <td>88%</td>
+                                <td>85%</td>
+                                <td>90%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>STN 08</td>
+                                <td>88%</td>
+                                <td>85%</td>
+                                <td>90%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>STN 08</td>
+                                <td>88%</td>
+                                <td>85%</td>
+                                <td>90%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>STN 08</td>
+                                <td>88%</td>
+                                <td>85%</td>
+                                <td>90%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>STN 08</td>
+                                <td>88%</td>
+                                <td>85%</td>
+                                <td>90%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div class="fwfs" style="position:absolute; z-index:2; top: 357px;left: 23px;">
@@ -342,53 +633,34 @@
             <a href="#" class="pkg_title2">South</a>
         </div>
 
-        <div style="position:absolute; z-index:2; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
+        <div style="position:absolute; z-index:3; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
             <div class="fim-dropdown">
-                <a href="#" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
-                <div class="inner">
-                    <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
-                    <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
-                    <!--                         <img style="width: 100%;" src="--><?php //echo $this->config->base_url(); ?><!--assets/img/demo.png" />-->
-                    <table id="nav_drop">
+                <a href="javascript:;" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
+                <div class="inner" data-arrange="right" data-value="12" style="background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 456px;">
+                    <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
-                            <th>Activities</th>
-                            <th colspan="2">Percentage</th>
+                            <th style="text-align: center; color: rgb(255, 175, 120);">STATION</th>
+                            <th style="text-align: center; color: rgb(0, 158, 140);">ISSUES</th>
                         </tr>
-                        </thead>
-                        <tbody id="status_container">
+                            </thead>
+                                <tbody id="status_container">
                                                      <tr>
-                                                         <td>Overall Installation PS&DS</td>
-                                                         <td colspan="2">79.50%</td>
+                                                         <td>STN 20</td>
+                                                         <td>Civil work delayes with rooms anot handed over</td>
                                                      </tr>
                                                      <tr>
-                                                         <td rowspan="2">Installation & Termination for TRIP cable Northern</td>
-                                                         <td style="background-color: #f79b3b"><b>33KV AC</b></td>
-                                                         <td style="background-color: #f79b3b"><b>750V DC</b></td>
+                                                         <td>STN 21</td>
+                                                         <td>All Emergency stop Plungers-mockup rejected</td>
                                                      </tr>
                                                      <tr>
-                                                         <td>100%</td>
-                                                         <td>96.40%</td>
+                                                         <td>STN 06</td>
+                                                         <td>Late Civil Handover</td>
                                                      </tr>
-                                                     <tr>
-                                                         <td rowspan="2">Installation & Termination for TRIP cable Southern</td>
-                                                         <td style="background-color: #f79b3b"><b>33KV AC</b></td>
-                                                         <td style="background-color: #f79b3b"><b>750V DC</b></td>
-                                                     </tr>
-                                                     <tr>
-                                                         <td>95.02%</td>
-                                                         <td>23.13%</td>
-                                                     </tr>
-                                                     <tr>
-                                                         <td>Overall T&C for PS&DS</td>
-                                                         <td colspan="2">42.44%</td>
-                                                     </tr>
-                        </tbody>
+                                </tbody>
                     </table>
                 </div>
              </div>
         </div>
     </div>
 </div>
-<script>
-</script>

@@ -510,11 +510,11 @@ mpxd.modules.signal_train_control_system.map = Backbone.View.extend({
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        console.log($(window).width());
+/*        console.log($(window).width());*/
         if($(window).width() > 1900) {
             that.$el.find('.text-content').css({"height":426})
         }else if($(window).width() > 1700) {
-            that.$el.find('.text-content').css({"height":372})
+            that.$el.find('.text-content').css({"height":377})
         }else if($(window).width() > 1600) {
             that.$el.find('.text-content').css({"height":350})
         }else if($(window).width() > 1500) {
@@ -646,8 +646,8 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             .attr("width", w)
             .attr("height", h)
             .style("position","absolute")
-            .style("top","-103px")
-            .style("left","-1px");
+            .style("top","-104px")
+            .style("left","-2px");
 
         var v1 = svg.selectAll("path")
             .data(paths)
