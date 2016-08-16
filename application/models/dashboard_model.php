@@ -1677,7 +1677,11 @@ class Dashboard_model extends CI_Model
         $query = $this->db->query($query);
         $result = $query->result_array();
         foreach ($result as $val) {
-            $tem_array[$i] = array(
+           /* $tem_array[$val['train_number']]=$val['train_number'];
+            $tem_array[$val['train_number']]["status"]=$val['overall_stat_perc'];
+            $tem_array[$val['train_number']]["static"]=$val['static_test_perc'];
+            $tem_array[$val['train_number']]["dynamic"]=$val['dynamic_test_perc'];*/
+            $tem_array[$val['train_number']] = array(
                 "train_number" => $val['train_number'],
                 "status" => $val['overall_stat_perc'],
                 "static" => $val['static_test_perc'],
@@ -1731,40 +1735,31 @@ class Dashboard_model extends CI_Model
             "value" => array()
         );
         if ($date) { // if date selected
-            $query = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where data_date='2016-04-03' ";
+            $query1 = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where data_date='$date' and stat_install_type=1 ";
+            $query2 = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where data_date='$date'  and stat_install_type=2 ";
         } else {
-            $query = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status ";
+            $query1 = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where stat_install_type=1  ";
+            $query2 = "SELECT station_name, stat_status, stat_progress_perc, equip_name, equip_progress,\"PAT_status\", \"SAT_status\", data_date, stat_install_type FROM tbl_stcs_station_status where stat_install_type=2 ";
         }
-        $query = $this->db->query($query);
-        $result = $query->result_array();
-        foreach ($result as $val) {
-            if ($val['stat_install_type'] == 1) {
+        $query1 = $this->db->query($query1);
+        $result1 = $query1->result_array();
+        $query2 = $this->db->query($query2);
+        $result2 = $query2->result_array();
+        foreach ($result1 as $val) {
                 $tem_array[$i] = array(
                     "roomside" => array(
-                        "station_name" => $val['station_name'],
-                        "stat_status" => $val['stat_status'],
-                        "stat_progress_perc" => $val['stat_progress_perc'],
-                        "equip_name" => $val['equip_name'],
-                        "equip_progress" => $val['equip_progress'],
-                        "PAT_status" => $val['PAT_status'],
-                        "SAT_status" => $val['SAT_status']
-                    ));
-                $i++;
-            } else {
-                $tem_array[$i] = array(
-                    "wayside" => array(
-                        "station_name" => $val['station_name'],
-                        "stat_status" => $val['stat_status'],
-                        "stat_progress_perc" => $val['stat_progress_perc'],
-                        "equip_name" => $val['equip_name'],
-                        "equip_progress" => $val['equip_progress'],
-                        "PAT_status" => $val['PAT_status'],
-                        "SAT_status" => $val['SAT_status']
-                    ));
-                $i++;
-            }
+                        $val['station_name']=>array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']')));
+            $i++;
+        }
+        foreach ($result2 as $val) {
+            $tem_array[$i] = array(
+                "wayside" => array(
+                    $val['station_name']=>array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']')));
+            $i++;
         }
         $station_stcs_progress['value'] = json_encode($tem_array);
+        print_r($station_stcs_progress['value']);
+        exit;
         return $station_stcs_progress;
     }
     //    Author:ANCY MATHEW 10/08/2016
@@ -1815,7 +1810,7 @@ class Dashboard_model extends CI_Model
         $query = $this->db->query($query);
         $result = $query->result_array();
         foreach ($result as $val) {
-            $tem_array[$i] = array(
+            $tem_array[$val['region_no']] = array(
                 "region_no" => $val['region_no'],
                 "station_no" => $val['station_no'],
                 "station_progress" => $val['station_progress'],
@@ -1825,10 +1820,10 @@ class Dashboard_model extends CI_Model
                 "SAT_progress" => $val['SAT_progress'],
                 "data_date" => $val['data_date']
             );
-
             $i++;
         }
         $region_progress['value'] = json_encode($tem_array);
+
         return $region_progress;
     }
 }

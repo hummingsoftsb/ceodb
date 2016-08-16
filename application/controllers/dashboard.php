@@ -368,6 +368,11 @@ class Dashboard extends CI_Controller {
                                 array_push($data_source,$trdata,$redata,$commentdata);
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;
+                            case "progress":
+                                $trdata = $this->dashboard_model->get_stcs_trian_progree($date);
+                                array_push($data_source,$trdata);
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
                             default:
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;

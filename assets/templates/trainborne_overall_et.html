@@ -46,143 +46,1585 @@
     }
 
 </style>
+ <script>
+    $(document).ready(function(){
 
+    $(".fim-dropdown > a").mouseover(function(){
+    $(".fim-dropdown").not($(this).parent()[0]).removeClass('active');
+    $(this).parent().toggleClass('active');
+    return false;
+    });
+
+    $(document).click(function(e){
+    that = e.target;
+    if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown") && !$(that).hasClass("inner")) $(".fim-dropdown").removeClass('active');
+    });
+
+
+    $(window).on("load resize",function(){
+        $(".fim-dropdown > .inner").each(function(){
+        var pos = $(this).attr("data-arrange");
+        $(this).css(
+        pos , $(this).attr("data-value")+'px',
+        "top", top
+        );
+
+        //                    var src = $(this).parent().children("a");
+        // Position
+        //                    var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
+        //                    if (left + $(this).outerWidth() > $(window).width()) {
+        //                        left = $(window).width() - $(this).outerWidth();
+        //                    }
+        //                    if (left < 0) left = 0;
+        //                    $(this).css({
+        //                        left: (left-89),
+        //                        top: top
+        //                    });
+        });
+    });
+});
+
+</script>
 <div class="header bg-dot30 excel-normal">
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
+
 <div class="content" style="background: none;/*#1d2a34*/">
     <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
         <div class="legend"> <i class="fa fa-square" style="color:#6BDD5A"></i><span style="color: #efefef">&nbsp;Completed&nbsp;&nbsp;</span>
             <i class="fa fa-square" style="color:#f9f55c"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
             <i class="fa fa-square" style="color:#FF360E"></i><span style="color: #efefef">&nbsp;Not Completed&nbsp;&nbsp;</span>
         </div>
-        <div class="row" style="display: none">
-            <table align="center" class="table table-bordered " style="background-color:transparent;width: 15% ">
-                <thead>
-                <tr>
-                    <th rowspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Summary progress</th>
-                    <th colspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Installation</th>
-                    <th colspan="2" style="text-align: center; vertical-align: middle;color: #FFFFFF;">Testing & Commission</th>
-                </tr>
-                <tr>
-                    <th style="text-align: center; color: #FFFFFF;">Room</th>
-                    <th style="text-align: center; color: #FFFFFF;">Wayside</th>
-                    <th style="text-align: center; color: #FFFFFF;">PAT Status</th>
-                    <th style="text-align: center; color: #FFFFFF;">SAT Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
         <div class="row">
             <div class="col-1 menu">
             </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">1</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[1]['train_number']%> Status:100%</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[1]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[1]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[1]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">8</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[8]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[8]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[8]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[8]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href=" javascript:;" class="pkg_title"> <li style="background-color: #FF360E">15</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[15]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[15]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[15]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[15]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">22</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[22]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[22]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[22]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[22]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">29</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[29]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[29]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[29]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[29]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #f9f55c">36</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[36]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[36]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[36]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[36]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">43</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[43]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[43]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[43]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[43]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="#" class="pkg_title"><li style="background-color: #6BDD5A">50</li></a>
+                        <div class="inner" data-arrange="left" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[50]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[50]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[50]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[50]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">2</li></a>
+                        <div class="inner" data-arrange="left" data-value="281" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[2]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[2]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[2]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[2]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">9</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[9]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[9]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[9]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[9]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">16</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[16]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[16]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[16]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[16]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                    <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">23</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[23]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[23]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[23]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[23]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">30</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[30]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[30]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[30]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[30]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">37</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[37]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[37]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[37]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[37]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="#" class="pkg_title"> <li style="background-color: #6BDD5A">44</li></a>
+                    <div class="inner" data-arrange="left" data-value="281" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[44]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[44]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[44]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[44]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">51</li></a>
+                        <div class="inner" data-arrange="left" data-value="281" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[51]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[51]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[51]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[51]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">3</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[3]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[3]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[3]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[3]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">10</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[10]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[10]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[10]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[10]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="#" class="pkg_title"><li style="background-color: #6BDD5A">17</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[17]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[17]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[17]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[17]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">24</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[24]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[24]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[24]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[24]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">31</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[31]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[31]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[31]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[31]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">38</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[38]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[38]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[38]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[38]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="#" class="pkg_title"> <li style="background-color: #6BDD5A">45</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[45]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[45]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[45]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[45]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">52</li></a>
+                        <div class="inner" data-arrange="left" data-value="470" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[52]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[52]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[52]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[52]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title">  <li style="background-color: #C0C0C0">4</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[4]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[4]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[4]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[4]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">11</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[11]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[11]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[11]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[11]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">18</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[18]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[18]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[18]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[18]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">25</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[25]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[25]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[25]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[25]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">32</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[32]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[32]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[32]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[32]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">39</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[39]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[39]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[39]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[39]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">46</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[46]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[46]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[46]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[46]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">53</li></a>
+                        <div class="inner" data-arrange="center" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[53]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[53]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[53]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[53]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">5</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[5]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[5]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[5]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[5]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">12</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[12]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[12]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[12]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[12]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">19</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[19]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[19]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[19]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[19]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">26</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[26]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[26]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[26]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[26]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">33</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[33]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[33]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[33]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[33]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">40</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[40]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[40]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[40]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[40]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">47</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[47]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[47]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[47]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[47]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">54</li></a>
+                        <div class="inner" data-arrange="right" data-value="364" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[54]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[54]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[54]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[54]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">6</li></a>
+                        <div class="inner" data-arrange="right" data-value="182" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[6]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[6]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[6]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[6]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">13</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[13]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[13]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[13]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[13]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">20</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[20]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[20]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[20]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[20]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">27</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[27]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[27]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[27]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[27]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">34</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[34]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[34]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[34]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[34]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">41</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[41]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[41]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[41]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[41]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                    <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">48</li></a>
+                    <div class="inner" data-arrange="right" data-value="182" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[48]['train_number']%></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                            </tr>
+                            <tr>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[48]['status']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[48]['static']%>%</td>
+                                <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[48]['dynamic']%>%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">55</li></a>
+                        <div class="inner" data-arrange="right" data-value="182" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[55]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[55]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[55]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[55]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-2 menu">
+                <ul>
 
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"> <li style="background-color: #C0C0C0">1</li></a>
-                    <a href="#"> <li style="background-color: #C0C0C0">8</li></a>
-                    <a href="#"> <li style="background-color: #FF360E">15</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">22</li></a>
-                    <a href="#"><li style="background-color: #f9f55c">29</li></a>
-                    <a href="#"><li style="background-color: #f9f55c">36</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">43</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">50</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"><li style="background-color: #C0C0C0">2</li></a>
-                    <a href="#"> <li style="background-color: #C0C0C0">9</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">16</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">23</li></a>
-                    <a href="#"><li style="background-color: #f9f55c">30</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">37</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">44</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">51</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"> <li style="background-color: #C0C0C0">3</li></a>
-                    <a href="#"><li style="background-color: #C0C0C0">10</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">17</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">24</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">31</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">38</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">45</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">52</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"> <li style="background-color: #C0C0C0">4</li></a>
-                    <a href="#"> <li style="background-color: #C0C0C0">11</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">18</li></a>
-                    <a href="#"><li style="background-color: #f9f55c">25</li></a>
-                    <a href="#"> <li style="background-color: #f9f55c">32</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">39</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">46</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">53</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"><li style="background-color: #C0C0C0">5</li></a>
-                    <a href="#"><li style="background-color: #C0C0C0">12</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">19</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">26</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">33</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">40</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">47</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">54</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#"> <li style="background-color: #C0C0C0">6</li></a>
-                    <a href="#"> <li style="background-color: #C0C0C0">1</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">20</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">2</li></a>
-                    <a href="#"> <li style="background-color: #f9f55c">34</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">41</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">48</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">55</li></a>
-                </ul>
-            </div>
-            <div class="col-2 menu">
-                <ul>
-                    <a href="#">  <li style="background-color: #C0C0C0">7</li></a>
-                    <a href="#"><li style="background-color: #FF360E">14</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">21</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">28</li></a>
-                    <a href="#"><li style="background-color :#f9f55c">35</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">42</li></a>
-                    <a href="#"> <li style="background-color: #6BDD5A">49</li></a>
-                    <a href="#"><li style="background-color: #6BDD5A">56</li></a>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">7</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:322px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[7]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[7]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[7]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[7]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #FF360E">14</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[14]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[14]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[14]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[14]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">21</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[21]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[21]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[21]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[21]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">28</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style=" top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[28]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[28]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[28]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[28]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color :#f9f55c">35</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[35]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[35]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[35]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[35]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">42</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[42]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[42]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[42]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[42]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">49</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[49]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[49]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[49]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[49]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fim-dropdown" style="display: block">
+                        <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">56</li></a>
+                        <div class="inner" data-arrange="right" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" style="color: rgb(0, 162, 221);text-align: center">Electric Train No:<%=data.data[0].data[56]['train_number']%></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2" style="color: rgb(0, 162, 221);text-align: center">Installation</th>
+                                    <th colspan="2" style="color:rgb(0, 162, 221);text-align: center">Testing & Commission</th>
+                                </tr>
+                                <tr>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Static</th>
+                                    <th style="color: rgb(129, 184, 71);text-align: center">Dynamic</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255);font-weight: 600"><%=data.data[0].data[56]['status']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[56]['static']%>%</td>
+                                    <td style="color: rgb(260, 0, 0);font-weight: 600"><%=data.data[0].data[56]['dynamic']%>%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </ul>
             </div>
 </div>
