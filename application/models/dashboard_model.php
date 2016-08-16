@@ -1758,8 +1758,7 @@ class Dashboard_model extends CI_Model
             $i++;
         }
         $station_stcs_progress['value'] = json_encode($tem_array);
-        print_r($station_stcs_progress['value']);
-        exit;
+       
         return $station_stcs_progress;
     }
     //    Author:ANCY MATHEW 10/08/2016
