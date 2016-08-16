@@ -210,6 +210,56 @@
 <script>
     $(document).ready(function(){
 
+        $(".lk-room").click(function(){
+            $('#idex_stcs').html('');
+            var val = JSON.parse(JSON.stringify($(this).data("value")));
+            $("#idex_stcs_title").text(" "+$(this).data("name"))
+            var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+            var $thead= $('<thead><tr> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Installation</th> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Testing & Commission</th></tr> <tr> <th colspan="2" style="text-align: center; color: rgb(255, 175, 120);">Room Progress</th> <th style="text-align: center; color: rgb(255, 175, 120);">PAT Status</th> <th style="text-align: center; color: rgb(255, 175, 120);">SAT Status</th> </tr> </thead>');
+            var $tbody = $('<tbody>');
+            $.each(val, function(k,v) {
+                var $tr = $('<tr>');
+                var $td = $('<td>');
+                $td.html(k);
+                $tr.append($td);
+                $.each(val[k], function(i,idx) {
+                    var $td = $('<td>');
+                    $td.html(idx+"%");
+                    $tr.append($td);
+                });
+                $tbody.append($tr);
+            });
+            $table.append($thead);
+            $table.append($tbody);
+            $('#idex_stcs').append($table);
+            $("#modal_room").modal("show");
+        });
+
+        $(".lk-wayside").click(function(){
+            $('#idex_stcs').html('');
+            var val = JSON.parse(JSON.stringify($(this).data("value")));
+            $("#idex_stcs_title").text(" "+$(this).data("name"))
+            var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+            var $thead= $('<thead><tr> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Installation</th> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Testing & Commission</th></tr> <tr> <th colspan="2" style="color: rgb(255, 175, 120); text-align: center;">Wayside Progress</th> <th style="color: rgb(255, 175, 120); text-align: center;">PAT Status</th> <th style="color: rgb(255, 175, 120);text-align: center;">SAT Status</th> </tr> </thead>');
+            var $tbody = $('<tbody>');
+            $.each(val, function(k,v) {
+                var $tr = $('<tr>');
+                var $td = $('<td>');
+                $td.html(k);
+                $tr.append($td);
+                $.each(val[k], function(i,idx) {
+                    var $td = $('<td>');
+                    $td.html(idx+"%");
+                    $tr.append($td);
+                });
+                $tbody.append($tr);
+            });
+            $table.append($thead);
+            $table.append($tbody);
+            $('#idex_stcs').append($table);
+            $("#modal_room").modal("show");
+        });
+
         $(".fim-dropdown > a").mouseover(function(){
             $(".fim-dropdown").not($(this).parent()[0]).removeClass('active');
             $(this).parent().toggleClass('active');
@@ -222,27 +272,16 @@
         });
 
 
-        $(window).on("load resize",function(){
+/*        $(window).on("load resize",function(){
             $(".fim-dropdown > .inner").each(function(){
                 var pos = $(this).attr("data-arrange");
                     $(this).css(
                         pos , $(this).attr("data-value")+'px',
                         "top", top
                     );
-
-//                    var src = $(this).parent().children("a");
-                    // Position
-//                    var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
-//                    if (left + $(this).outerWidth() > $(window).width()) {
-//                        left = $(window).width() - $(this).outerWidth();
-//                    }
-//                    if (left < 0) left = 0;
-//                    $(this).css({
-//                        left: (left-89),
-//                        top: top
-//                    });
             });
-        });
+        });*/
+
     });
 
 </script>
@@ -290,37 +329,688 @@
             <a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
 
             <!-- icon href -->
-            <a title="Sungai Buloh" href="#" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
-            <a title="Kg Selamat" href="#" style="position: absolute; top: 327px; left: 74px; height: 15px; width: 15px;"></a>
-            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 414px; left: 120px; height: 15px; width: 15px;"></a>
-            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 449px; left: 112px; height: 15px; width: 15px;"></a>
-            <a title="Kota Damansara" href="#" style="position: absolute; top: 474px; left: 206px; height: 15px; width: 15px;"></a>
-            <a title="Surian" href="#" style="position: absolute; top: 419px; left: 258px; height: 15px; width: 15px;"></a>
-            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 362px; left: 278px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Utama" href="#" style="position: absolute; top: 370px; left: 338px; height: 15px; width: 15px;"></a>
-            <a title="TTDI" href="#" style="position: absolute; top: 366px; left: 386px; height: 15px; width: 15px;"></a>
-            <a title="Phileo Damansara" href="#" style="position: absolute; top: 347px; left: 423px; height: 15px; width: 15px;"></a>
-            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 272px; left: 437px; height: 15px; width: 15px;"></a>
-            <a title="Semantan" href="#" style="position: absolute; top: 224px; left: 426px; height: 15px; width: 15px;"></a>
-            <a title="Muzium Negara" href="#" style="position: absolute; top: 186px; left: 524px; height: 15px; width: 15px;"></a>
-            <a title="Pasar Seni" href="#" style="position: absolute; top: 152px; left: 520px; height: 15px; width: 15px;"></a>
-            <a title="Merdeka" href="#" style="position: absolute; top: 129px; left: 549px; height: 15px; width: 15px;"></a>
-            <a title="Bukit Bintang" href="#" style="position: absolute; top: 95px; left: 559px; height: 15px; width: 15px;"></a>
-            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 99px; left: 603px; height: 15px; width: 15px;"></a>
-            <a title="Cochrane" href="#" style="position: absolute; top: 113px; left: 628px; height: 15px; width: 15px;"></a>
-            <a title="Maluri" href="#" style="position: absolute; top: 126px; left: 650px; height: 15px; width: 15px;"></a>
-            <a title="Taman Pertama" href="#" style="position: absolute; top: 154px; left: 688px; height: 15px; width: 15px;"></a>
-            <a title="Taman Midah" href="#" style="position: absolute; top: 173px; left: 730px; height: 15px; width: 15px;"></a>
-            <a title="Taman Mutiara" href="#" style="position: absolute; top: 179px; left: 773px; height: 15px; width: 15px;"></a>
-            <a title="Taman Connaught" href="#" style="position: absolute; top: 207px; left: 818px; height: 15px; width: 15px;"></a>
-            <a title="Taman Suntex" href="#" style="position: absolute; top: 176px; left: 895px; height: 15px; width: 15px;"></a>
-            <a title="Sri Raya" href="#" style="position: absolute; top: 180px; left: 925px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 207px; left: 978px; height: 15px; width: 15px;"></a>
-            <a title="Bukit Dukung" href="#" style="position: absolute; top: 249px; left: 999px; height: 15px; width: 15px;"></a>
-            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 287px; left: 1029px; height: 15px; width: 15px;"></a>
-            <a title="Sungai Kantan" href="#" style="position: absolute; top: 330px; left: 1127px; height: 15px; width: 15px;"></a>
-            <a title="Bandar Kajang" href="#" style="position: absolute; top: 346px; left: 1160px; height: 15px; width: 15px;"></a>
-            <a title="Kajang" href="#" style="position: absolute; top: 374px; left: 1203px; height: 15px; width: 15px;"></a>
+            <div class="fim-dropdown">
+            <a title="Sungai Buloh" href="javascript:;" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 60px;padding: 0; top: 214px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                            <tr>
+                                <td>
+                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Kg Selamat" href="javascript:;" style="position: absolute; top: 327px; left: 74px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 76px; padding: 0; top: 246px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Kg Selamat Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Kwasa Damansara" href="javascript:;" style="position: absolute; top: 414px; left: 120px; height: 15px; width: 15px;"></a>
+            <div class="inner" style="left : 118px; padding: 0; top: 330px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                <table style="margin: 5px 23px;">
+                    <tbody>
+                    <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                    <tr>
+                        <td>
+                            <a class="lk-room" href="javascript:;" data-name="Kwasa Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="lk-wayside" href="javascript:;" data-name="Kwasa Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Kwasa Sentral" href="javascript:;" style="position: absolute; top: 449px; left: 112px; height: 15px; width: 15px;"></a>
+            <div class="inner" style="left : 108px; padding: 0; top: 364px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                <table style="margin: 5px 23px;">
+                    <tbody>
+                    <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                    <tr>
+                        <td>
+                            <a class="lk-room" href="javascript:;" data-name="Kwasa Sentral Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="lk-wayside" href="javascript:;" data-name="Kwasa Sentral Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            <div class="fim-dropdown">
+            <a title="Kota Damansara" href="javascript:;" style="position: absolute; top: 474px; left: 206px; height: 15px; width: 15px;"></a>
+            <div class="inner" style="left : 200px; padding: 0; top: 387px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Kota Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Kota Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Surian" href="javascript:;" style="position: absolute; top: 419px; left: 258px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 135px; padding: 0; top: 337px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Surian Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Surian Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Mutiara Damansara" href="javascript:;" style="position: absolute; top: 362px; left: 278px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 153px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Mutiara Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Mutiara Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Bandar Utama" href="javascript:;" style="position: absolute; top: 370px; left: 338px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 328px; padding: 0; top: 285px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Bandar Utama Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Utama Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="TTDI" href="javascript:;" style="position: absolute; top: 366px; left: 386px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 374px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="TTDI Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="TTDI Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Phileo Damansara" href="javascript:;" style="position: absolute; top: 347px; left: 423px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 414px; padding: 0; top: 262px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Phileo Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Phileo Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Pusat Bandar Damansara" href="javascript:;" style="position: absolute; top: 272px; left: 437px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 295px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Semantan" href="javascript:;" style="position: absolute; top: 224px; left: 426px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 292px; padding: 0; top: 138px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Semantan Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Semantan Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Muzium Negara" href="javascript:;" style="position: absolute; top: 186px; left: 524px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 525px; padding: 0; top: 105px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Muzium Negara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Muzium Negara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Pasar Seni" href="javascript:;" style="position: absolute; top: 152px; left: 520px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 390px; padding: 0; top: 67px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Pasar Seni Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Pasar Seni Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Merdeka" href="javascript:;" style="position: absolute; top: 129px; left: 549px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 413px; padding: 0; top: 46px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Merdeka Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Merdeka Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Bukit Bintang" href="javascript:;" style="position: absolute; top: 95px; left: 559px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 420px; padding: 0; top: 16px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Bukit Bintang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Bukit Bintang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Tun Razak Exchange" href="javascript:;" style="position: absolute; top: 99px; left: 603px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="left : 611px; padding: 0; top: 17px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Cochrane" href="javascript:;" style="position: absolute; top: 113px; left: 628px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 522px; padding: 0; top: 27px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Cochrane Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Cochrane Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Maluri" href="javascript:;" style="position: absolute; top: 126px; left: 650px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 500px; padding: 0; top: 42px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Maluri Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Maluri Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Pertama" href="javascript:;" style="position: absolute; top: 154px; left: 688px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 466px; padding: 0; top: 65px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Pertama Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Pertama Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Midah" href="javascript:;" style="position: absolute; top: 173px; left: 730px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 420px; padding: 0; top: 85px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Midah Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Midah Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Mutiara" href="javascript:;" style="position: absolute; top: 179px; left: 773px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 378px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Mutiara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Mutiara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Connaught" href="javascript:;" style="position: absolute; top: 207px; left: 818px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 340px; padding: 0; top: 204px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Connaught Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Connaught Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Suntex" href="javascript:;" style="position: absolute; top: 176px; left: 895px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 264px; padding: 0; top: 90px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Suntex Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Suntex Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Sri Raya" href="javascript:;" style="position: absolute; top: 180px; left: 925px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 234px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Sri Raya Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Sri Raya Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Bandar Tun Hussein Onn" href="javascript:;" style="position: absolute; top: 207px; left: 978px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 177px; padding: 0; top: 122px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Bukit Dukung" href="javascript:;" style="position: absolute; top: 249px; left: 999px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 152px; padding: 0; top: 162px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Bukit Dukung Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Bukit Dukung Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Taman Koperasi Cuepacs " href="javascript:;" style="position: absolute; top: 287px; left: 1029px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 122px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Sungai Kantan" href="javascript:;" style="position: absolute; top: 330px; left: 1127px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 32px; padding: 0; top: 244px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Sungai Kantan Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Sungai Kantan Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Bandar Kajang" href="javascript:;" style="position: absolute; top: 346px; left: 1160px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 120px; padding: 0; top: 340px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Bandar Kajang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Kajang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fim-dropdown">
+            <a title="Kajang" href="javascript:;" style="position: absolute; top: 374px; left: 1203px; height: 15px; width: 15px;"></a>
+                <div class="inner" style="right : 62px; padding: 0; top: 372px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+                    <table style="margin: 5px 23px;">
+                        <tbody>
+                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
+                        <tr>
+                            <td>
+                                <a class="lk-room" href="javascript:;" data-name="Kajang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="lk-wayside" href="javascript:;" data-name="Kajang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1137px; height: 19px; width: 20px;"></a>
             <a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 20px; height: 40px; width: 40px;"></a>
             <a title="MSPR4" href="#" style="position: absolute; top: 370px; left: 424px; height: 40px; width: 60px;"></a>
@@ -331,19 +1021,170 @@
 
         </div>
 
-        <div class="fwfs" style="position:absolute; z-index:2; top: 331px;left: 40px;">
-            <a href="#" class="pkg_title">R1</a>
+        <div class="fwfs" style="position:absolute; z-index:6; top: 331px;left: 40px;">
+            <div class="fim-dropdown">
+                <a href="javascript:;" class="pkg_title">R1</a>
+                <div class="inner" style="left: 23px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="fwfs" style="position:absolute; z-index:2; top: 500px;left: 160px;">
-            <a href="#" class="pkg_title">R2</a>
+        <div class="fwfs" style="position:absolute; z-index:5; top: 500px;left: 160px;">
+            <div class="fim-dropdown">
+                <a href="javascript:;" class="pkg_title">R2</a>
+                <div class="inner" style="left: 200px; top:320px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
-            <a href="#" class="pkg_title">R3</a>
+            <div class="fim-dropdown">
+                <a href="javascript:;" class="pkg_title">R3</a>
+                <div class="inner" style="left: 404px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>STN 08</td>
+                            <td>88%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>92%</td>
+                            <td>85%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="fwfs" style="position: absolute; z-index: 5; top: 232px; left: 555px;">
             <div class="fim-dropdown">
-                <a href="#" class="pkg_title">R4</a>
-                <div class="inner" data-arrange="left" data-value="132" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <a href="javascript:;" class="pkg_title">R4</a>
+                <div class="inner" style="left: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -414,8 +1255,8 @@
         </div>
         <div class="fwfs" style="position: absolute; z-index: 6; top: 178px; left: 647px;">
             <div class="fim-dropdown">
-                <a href="#" class="pkg_title">R5</a>
-                <div class="inner" data-arrange="right" data-value="132" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <a href="javascript:;" class="pkg_title">R5</a>
+                <div class="inner" style="right: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -470,8 +1311,8 @@
         </div>
         <div class="fwfs" style="position: absolute; z-index: 4; top: 270px; left: 835px;">
             <div class="fim-dropdown">
-                <a href="#" class="pkg_title">R6</a>
-                <div class="inner" data-arrange="right" data-value="12" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <a href="javascript:;" class="pkg_title">R6</a>
+                <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -542,8 +1383,8 @@
         </div>
         <div class="fwfs" style="position: absolute; z-index: 3; top: 410px; left: 1087px;">
             <div class="fim-dropdown">
-                <a href="#" class="pkg_title">R7</a>
-                <div class="inner" data-arrange="right" data-value="12" style="font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <a href="javascript:;" class="pkg_title">R7</a>
+                <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -636,7 +1477,7 @@
         <div style="position:absolute; z-index:3; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
             <div class="fim-dropdown">
                 <a href="javascript:;" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
-                <div class="inner" data-arrange="right" data-value="12" style="background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 456px;">
+                <div class="inner" style="right: 12px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 456px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -661,6 +1502,21 @@
                     </table>
                 </div>
              </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal_room" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><i class="fa fa-bars"></i> <span id="idex_stcs_title"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div id="idex_stcs" style="max-width: 500px; text-align: center; margin: auto; padding:5px 0px;">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
