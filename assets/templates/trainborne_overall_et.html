@@ -61,27 +61,18 @@
     });
 
 
-    $(window).on("load resize",function(){
-        $(".fim-dropdown > .inner").each(function(){
-        var pos = $(this).attr("data-arrange");
-        $(this).css(
-        pos , $(this).attr("data-value")+'px',
-        "top", top
-        );
-
-        //                    var src = $(this).parent().children("a");
-        // Position
-        //                    var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
-        //                    if (left + $(this).outerWidth() > $(window).width()) {
-        //                        left = $(window).width() - $(this).outerWidth();
-        //                    }
-        //                    if (left < 0) left = 0;
-        //                    $(this).css({
-        //                        left: (left-89),
-        //                        top: top
-        //                    });
-        });
-    });
+//    $(window).on("load resize",function(){
+//        var src = $(this).parent().children("a");
+//        // Position of the popup
+//        var left = src.offset().left + src.outerHeight()/2 - $(this).outerWidth()/2;
+//        if (left + $(this).outerWidth() > $(window).width()) {
+//            left = $(window).width() - $(this).outerWidth();
+//        }
+//        if (left < 0) left = 0;
+//        $(this).css({
+//            left: left
+//        });
+//    });
 });
 
 </script>
@@ -95,14 +86,15 @@
             <i class="fa fa-square" style="color:#f9f55c"></i><span style="color: #efefef">&nbsp;In Progress&nbsp;&nbsp;</span>
             <i class="fa fa-square" style="color:#FF360E"></i><span style="color: #efefef">&nbsp;Not Completed&nbsp;&nbsp;</span>
         </div>
-        <div class="row">
+        <div class="row" style="max-height:550px; height: 533px;">
             <div class="col-1 menu">
             </div>
             <div class="col-2 menu">
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">1</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left : 132px; top:65px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px; position: absolute;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -129,7 +121,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">8</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top: 111px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -156,7 +149,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href=" javascript:;" class="pkg_title"> <li style="background-color: #FF360E">15</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -183,7 +177,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">22</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -210,7 +205,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">29</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px;  position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -237,7 +233,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #f9f55c">36</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top: 302px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -264,7 +261,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">43</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top:350px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -291,7 +289,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="#" class="pkg_title"><li style="background-color: #6BDD5A">50</li></a>
-                        <div class="inner" data-arrange="left" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 132px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -322,7 +321,8 @@
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">2</li></a>
-                        <div class="inner" data-arrange="left" data-value="281" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 281px; position: absolute; top:65px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -348,7 +348,8 @@
                         </div>
                     </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">9</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px; position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -374,7 +375,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">16</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px;  position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -401,7 +403,8 @@
                 </div>
                     <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">23</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -427,7 +430,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">30</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px; position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -453,7 +457,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">37</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px; position: absolute; top:302px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -479,7 +484,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="#" class="pkg_title"> <li style="background-color: #6BDD5A">44</li></a>
-                    <div class="inner" data-arrange="left" data-value="281" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="left: 281px; position: absolute; top:350px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -506,7 +512,8 @@
                 </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">51</li></a>
-                        <div class="inner" data-arrange="left" data-value="281" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 281px; position: absolute; top:398px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -537,7 +544,8 @@
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">3</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:65px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -564,7 +572,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">10</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -591,7 +600,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="#" class="pkg_title"><li style="background-color: #6BDD5A">17</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -618,7 +628,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">24</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -645,7 +656,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">31</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -672,7 +684,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">38</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:302px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -699,7 +712,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="#" class="pkg_title"> <li style="background-color: #6BDD5A">45</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:350px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -726,7 +740,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">52</li></a>
-                        <div class="inner" data-arrange="left" data-value="470" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 470px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -757,7 +772,8 @@
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title">  <li style="background-color: #C0C0C0">4</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:65px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -784,7 +800,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">11</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px;  position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -811,7 +828,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">18</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px;  position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -838,7 +856,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">25</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -865,7 +884,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">32</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -892,7 +912,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">39</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:302px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -919,7 +940,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">46</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:350px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -946,7 +968,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">53</li></a>
-                        <div class="inner" data-arrange="center" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 644px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -977,7 +1000,8 @@
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">5</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:65px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1004,7 +1028,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">12</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1031,7 +1056,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">19</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1058,7 +1084,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">26</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1085,7 +1112,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">33</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1112,7 +1140,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">40</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:302px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1139,7 +1168,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">47</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:350px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1166,7 +1196,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">54</li></a>
-                        <div class="inner" data-arrange="right" data-value="364" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="left: 800px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1197,7 +1228,8 @@
                 <ul>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #C0C0C0">6</li></a>
-                        <div class="inner" data-arrange="right" data-value="182" style="top:322px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 320px; position: absolute; top:65px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1223,7 +1255,8 @@
                         </div>
                     </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">13</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1249,7 +1282,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">20</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1275,7 +1309,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">27</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1301,7 +1336,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #f9f55c">34</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:254px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1327,7 +1363,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"> <li style="background-color: #6BDD5A">41</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:302px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1353,7 +1390,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                     <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">48</li></a>
-                    <div class="inner" data-arrange="right" data-value="182" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                    <div class="inner" style="right: 320px; position: absolute; top:350px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
@@ -1379,7 +1417,8 @@
                     </div>
                 </div> <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">55</li></a>
-                        <div class="inner" data-arrange="right" data-value="182" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 320px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1411,7 +1450,8 @@
 
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"> <li style="background-color: #C0C0C0">7</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:322px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:65px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1438,7 +1478,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #FF360E">14</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:369px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:111px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1465,7 +1506,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">21</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:407px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:158px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1492,7 +1534,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">28</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style=" top:450px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:206px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1519,7 +1562,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color :#f9f55c">35</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:491px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:245px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1546,7 +1590,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">42</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:534px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:302px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1573,7 +1618,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">49</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:582px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:350px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
@@ -1600,7 +1646,8 @@
                     </div>
                     <div class="fim-dropdown" style="display: block">
                         <a href="javascript:;" class="pkg_title"><li style="background-color: #6BDD5A">56</li></a>
-                        <div class="inner" data-arrange="right" data-value="132" style="top:628px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                        <div class="inner" style="right: 155px; position: absolute; top:398px;background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 300; width: 300px;">
+                            <div style="padding-bottom: 5px;"><img src="../assets/img/systems/stcs/t1.png" alt="" style="width: 100px;"><img src="../assets/img/systems/stcs/t2.png" alt="" style="width: 100px;"></div>
                             <table class="table table-bordered table-condensed table-hover">
                                 <thead>
                                 <tr>
