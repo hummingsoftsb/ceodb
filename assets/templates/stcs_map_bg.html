@@ -334,22 +334,19 @@
                 <div class="inner" style="left : 60px;padding: 0; top: 214px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
                     <table style="margin: 5px 23px;">
                         <tbody>
-                            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
-                            <tr><%console.log(data.data[0].data);%>
-                                <%if((data.data[0].data["Pasar Seni"].roomside).length >0){%>
+                            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+                            <tr>
+
                                 <td>
-                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value='{<%=data.data[0].data["Pasar Seni"].roomside[0]%>,<%=data.data[0].data["Pasar Seni"].roomside[1]%>,<%=data.data[0].data["Pasar Seni"].roomside[2]%>}'>
+                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value=''>
                                         <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
                                     </a>
                                 </td>
-                                <%}%>
-                                <%if((data.data[0].data["Pasar Seni"].wayside).length >0){%>
                                 <td>
-                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value='{<%=data.data[0].data["Pasar Seni"].wayside[0]%>,<%=data.data[0].data["Pasar Seni"].wayside[1]%>,<%=data.data[0].data["Pasar Seni"].wayside[2]%>,<%=data.data[0].data["Pasar Seni"].wayside[3]%>,<%=data.data[0].data["Pasar Seni"].wayside[4]%>,<%=data.data[0].data["Pasar Seni"].wayside[5]%>,<%=data.data[0].data["Pasar Seni"].wayside[6]%>,<%=data.data[0].data["Pasar Seni"].wayside[7]%>}'>
+                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value=''>
                                         <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
                                     </a>
                                 </td>
-                                <%}%>
                             </tr>
                         </tbody>
                     </table>
@@ -1348,6 +1345,68 @@
                 <div id="idex_stcs" style="max-width: 500px; text-align: center; margin: auto; padding:5px 0px;">
 
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal_insllation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><i class="fa fa-bars"></i> <span id="idex_stcs_title">Installation</span></h4>
+            </div>
+            <div class="modal-body" style="max-height: 700; height: 300px;">
+                <div class="row" style="margin-top: 35px;">
+                    <div class="col-sm-12">
+                        <div class="col-sm-5">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center; color: rgb(255, 175, 120);">IN ROOM</th>
+                                    <th style="text-align: center; color: rgb(0, 158, 140);">ON WAYSIDE</th>
+                                </tr>
+                                </thead>
+                                <tbody id="status_container">
+                                <tr>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample2</div></td>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample2</div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample3</div></td>
+                                    <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample3</div></td>
+                                </tr>
+                                <tr>
+                                    <td>Total :  80%</td>
+                                    <td>Total :  40%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row" style="padding: 14px;">
+                                <div style="padding: 30px 30px 6px; font-size: 24px; border-bottom: 2px solid rgb(15, 118, 126); color: #fff; text-align: center;">
+                                    Installation Progression
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="font-size: 25px; text-align: center; color: rgb(246, 216, 89);">
+                                    Signaling and Train Control System
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div style="height: 40%; margin-top: -35px; left: auto; right: auto;" id="chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-clean" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
