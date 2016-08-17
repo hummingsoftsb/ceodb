@@ -20,7 +20,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div id="header_datetime">
-								<span class="hd_label hd_label_today"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today: 22 JUN 2016</span>
+								<span class="hd_label hd_label_today"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today: <span id="current_date">22 JUN 2016</span></span>
 								<span class="hd_label hd_label_data"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Data Date : 14 MAY 2016</span>
 								<span class="hd_button">Change</span>
 							</div>
