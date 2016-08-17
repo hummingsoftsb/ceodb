@@ -185,9 +185,9 @@ $(document).ready(function(){
 	
 	
 	var json = [ 
-		{"chart_title":"System Overall","chart_name":"","chart_id":"db_donut_0","chart_value":"80","set_donut":"1","url":"#"},
-		{"chart_title":"S&TC/PSD/APG","chart_name":"Signalling & Train Control, Automatic Platform Gate / Platform Screen Door","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index"},
-		{"chart_title":"ICSS&CMMS","chart_name":"Integrated Control Supervisory System & Computerised Maintenance Management System","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
+		{"chart_title":"System Overall","chart_name":"","chart_id":"db_donut_0","chart_value":"100","set_donut":"1","url":"#"},
+		{"chart_title":"S&TC /PSD /APG","chart_name":"Signalling & Train Control, Automatic Platform Gate / Platform Screen Door","chart_id":"db_donut_1","chart_value":"41","set_donut":"2","url":"/mpxd2/sbk-s-03/index"},
+		{"chart_title":"ICSS& CMMS","chart_name":"Integrated Control Supervisory System & Computerised Maintenance Management System","chart_id":"db_donut_2","chart_value":"75","set_donut":"2","url":"/mpxd2/sbk-s-13/index"},
 		{"chart_title":"ET&DE","chart_name":"Electric Train & Depot Equipment","chart_id":"db_donut_3","chart_value":"15","set_donut":"2","url":"/mpxd2/sbk-s-01/index"},
 		{"chart_title":"TW&MV","chart_name":"Trackworks & Maintenance Vehicle / Works Train","chart_id":"db_donut_4","chart_value":"49","set_donut":"2","url":"#"},
 		{"chart_title":"PS&DS","chart_name":"Power Supply & Distribution System","chart_id":"db_donut_5","chart_value":"50","set_donut":"2","url":"/mpxd2/sbk-s-05/index"},
@@ -219,16 +219,16 @@ $(document).ready(function(){
 				use_chart_donut_color = '#ff0055';
 			};
 			use_chart_circle_border = 'border:1px solid '+use_chart_donut_color+';'
-			use_chart_svg_width = 97;
-			use_chart_svg_height = 97;
-			use_chart_circle_r = 43;
-			use_chart_circle_cx = 48;
-			use_chart_circle_cy = 48;
-			use_chart_circle_data_total = 271;
+			use_chart_svg_width = 165;
+			use_chart_svg_height = 165;
+			use_chart_circle_r = 80;
+			use_chart_circle_cx = 81.5;
+			use_chart_circle_cy = 81.5;
+			use_chart_circle_data_total = 503;
 			use_chart_circle_data_used = use_chart_value / 100 * use_chart_circle_data_total;
 
 			
-			donut_body = '<div><a class="url_donut_system" style="text-decoration: none; color: #fff;" href="'+use_chart_url+'" title="'+use_chart_name+'"><span class="donut_title1_name">'+use_chart_title+'</span></a><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="25" y="-40">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
+			donut_body = '<div><a class="url_donut_system" style="text-decoration: none; color: #fff;" href="'+use_chart_url+'" title="'+use_chart_name+'"><span class="donut_title1_name">'+use_chart_title+'</span></a><svg class="svg_donut_system" width="'+use_chart_svg_width+'" height="'+use_chart_svg_height+'" style="border:1px solid '+use_chart_donut_color+';"><text style="font-style:normal;font-weight:bold;font-size:'+use_chart_font_size+';fill:'+use_chart_font_color+';" transform="matrix(0,1,-1,0,0,0)"><tspan sodipodi:role="line" x="50" y="-65">'+use_chart_value+'%</tspan></text><circle class="svg_donut_system_circle" r="'+use_chart_circle_r+'" cx="'+use_chart_circle_cx+'" cy="'+use_chart_circle_cy+'" class="pie" style="stroke: '+use_chart_donut_color+';stroke-dasharray: '+use_chart_circle_data_used+','+use_chart_circle_data_total+';"></circle></svg></div>';
 			
 				
 			$('.dp_top').append(donut_body);
@@ -258,6 +258,29 @@ $(document).ready(function(){
 			$('#dp_'+use_chart_id+'').append(donut_body);
 			
 		};
+		
+		
+		
+		
+		
 	}
 	
+	// current date
+	var fullDate = new Date()
+	var month = new Array();
+	month[0] = "JAN";
+	month[1] = "FEB";
+	month[2] = "MAR";
+	month[3] = "APR";
+	month[4] = "MAY";
+	month[5] = "JUN";
+	month[6] = "JUL";
+	month[7] = "AUG";
+	month[8] = "SEP";
+	month[9] = "OCT";
+	month[10] = "NOV";
+	month[11] = "DEC";
+	var n = month[fullDate.getMonth()];
+	var currentDate = fullDate.getDate() + " " + n + " " + fullDate.getFullYear();
+	$('#current_date').text(currentDate);
 });	

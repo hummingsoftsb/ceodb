@@ -105,7 +105,7 @@
 			<span class="set16">Kg. Baru North</span>
 			<span class="set17">Ampang Park</span>
 			<span class="set18">KLCC East</span>
-			<span class="set19">Conley</span>
+			<span class="set19">Conlay</span>
 			<span class="set20">TRX</span>
 			<span class="set21">Chan Sow Lin</span>
 			<span class="set22">Bdr. Malaysia North</span>
