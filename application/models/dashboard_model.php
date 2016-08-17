@@ -1873,11 +1873,11 @@ class Dashboard_model extends CI_Model
 
         foreach ($result1 as $val) {
 //            if($val['station_name']=='Sungai Buloh'){
-                if($val['stat_install_type']==1) {
-                    array_push($tem_array[$val['station_name']]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
-                }else {
-                   array_push($tem_array[$val['station_name']]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
-               }
+//                if($val['stat_install_type']==1) {
+//                    array_push($tem_array[$val['station_name']]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
+//                }else {
+//                   array_push($tem_array[$val['station_name']]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
+//               }
 
 //            if($val['station_name']=='Kg Selamat'){
 //                if($val['stat_install_type']==1)
