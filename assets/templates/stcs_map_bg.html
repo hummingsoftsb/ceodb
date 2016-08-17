@@ -327,7 +327,6 @@
             <a title="Kajang" href="#" style="position: absolute; top: 366px; left: 1220px; height: 15px; width: 50px;"></a>
             <a title="Sungai Buloh Depot" href="#" style="position: absolute; top: 390px; left: 15px; height: 35px; width: 95px;"></a>
             <a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
-
             <!-- icon href -->
             <div class="fim-dropdown">
             <a title="Sungai Buloh" href="javascript:;" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
@@ -338,12 +337,12 @@
                             <tr>
 
                                 <td>
-                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value=''>
+                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=data.data[0].data["sungai buloh"].roomside%>'>
                                         <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value=''>
+                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=data.data[0].data["sungai buloh"].wayside%>'>
                                         <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
                                     </a>
                                 </td>
@@ -360,12 +359,12 @@
                         <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
                         <tr>
                             <td>
-                                <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=data.data[0].data["kg selamat"].roomside%>'>
                                     <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
                                 </a>
                             </td>
                             <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Kg Selamat Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                <a class="lk-wayside" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=data.data[0].data["kg selamat"].wayside%>'>
                                     <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
                                 </a>
                             </td>
@@ -624,12 +623,12 @@
                         <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;">Progress 80%</td></tr>
                         <tr>
                             <td>
-                                <a class="lk-room" href="javascript:;" data-name="Pasar Seni Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
+                                <a class="lk-room" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=data.data[0].data["pasar seni"].roomside%>'>
                                     <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
                                 </a>
                             </td>
                             <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Pasar Seni Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
+                                <a class="lk-wayside" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=data.data[0].data["pasar seni"].wayside%>'>
                                     <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
                                 </a>
                             </td>
@@ -1318,7 +1317,7 @@
                             <th style="text-align: center; color: rgb(255, 175, 120);">STATION</th>
                             <th style="text-align: center; color: rgb(0, 158, 140);">ISSUES</th>
                         </tr>
-                            </thead><%console.log(data.data[0].data);%>
+                            </thead>
                                 <tbody id="status_container">
                                 <%if((data.data[2].data.comment).length >0){%>
                                 <%_.each(data.data[2].data.comment, function(i) {%>

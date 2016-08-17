@@ -1729,135 +1729,7 @@ class Dashboard_model extends CI_Model
     public function get_stcs_station_progres($date = FALSE)
     {
         $i = 0;
-        $tem_array = array(
-
-//           "Sungai Buloh" =>array(
-//
-//               "roomside"=>array(),
-//               "wayside"=>array()
-//           ),
-//            "Kg Selamat" =>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Kwasa Damansara"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Kwasa Sentral"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Kota Damansara" =>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Surian"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Mutiara Damansara"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Bandar Utama"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "TTDI"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Phileo Damansara"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Pusat Bandar Damansara"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Semantan"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//            "Muzium Negara"=>array(
-//
-//                "roomside"=>array(),
-//                "wayside"=>array()
-//            ),
-//           "Pasar Seni" =>array(
-//               "roomside"=>array(),
-//               "wayside"=>array()
-//           ),
-//            "Merdeka" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Bukit Bintang"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//          "Tun Razak Exchange"=>array(
-//              "roomside"=>array(),
-//              "wayside"=>array()),
-//           "Cochrane"=>array(
-//               "roomside"=>array(),
-//               "wayside"=>array()),
-//            "Maluri" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Taman Pertama"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Taman Midah" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Taman Mutiara"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//           "Taman Connaught"=>array(
-//               "roomside"=>array(),
-//               "wayside"=>array()),
-//            "Taman Suntex"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Sri Raya" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Bandar Tun Hussein Onn"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Bukit Dukung" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Taman Koperasi Cuepacs" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//           "Sungai Kantan" =>array(
-//               "roomside"=>array(),
-//               "wayside"=>array()),
-//           "Bandar Kajang" =>array(
-//               "roomside"=>array(),
-//               "wayside"=>array()),
-//            "Kajang"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Sungai Buloh Depot" =>array(
-//                "roomside"=>array(),
-//                "wayside"=>array()),
-//            "Kajang Depot"=>array(
-//                "roomside"=>array(),
-//                "wayside"=>array())
-        );
+        $tem_array = array();
         $station_stcs_progress = array(
             "value" => array()
         );
@@ -1872,226 +1744,42 @@ class Dashboard_model extends CI_Model
         $result1 = $query1->result_array();
 
         foreach ($result1 as $val) {
-//            if($val['station_name']=='Sungai Buloh'){
-//                if($val['stat_install_type']==1) {
-//                    array_push($tem_array[$val['station_name']]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
-//                }else {
-//                   array_push($tem_array[$val['station_name']]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));
-//               }
-
-//            if($val['station_name']=='Kg Selamat'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Kg Selamat"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Kg Selamat"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Kwasa Damansara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Kwasa Damansara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Kwasa Damansara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Kwasa Sentral'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Kwasa Sentral"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Kwasa Sentral"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Kota Damansara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Kota Damansara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Kota Damansara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Surian'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Surian"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Surian"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Mutiara Damansara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Mutiara Damansara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Mutiara Damansara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Bandar Utama'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Bandar Utama"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Bandar Utama"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='TTDI'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["TTDI"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["TTDI"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Phileo Damansara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Phileo Damansara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Phileo Damansara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Pusat Bandar Damansara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Pusat Bandar Damansara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Pusat Bandar Damansara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Semantan'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Semantan"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Semantan"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Muzium Negara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Muzium Negara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Muzium Negara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='PASAR SENI'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Pasar Seni"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Pasar Seni"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Merdeka'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Merdeka"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Merdeka"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Bukit Bintang'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Bukit Bintang"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Bukit Bintang"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Tun Razak Exchange'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Tun Razak Exchange"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Tun Razak Exchange"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Cochrane'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Cochrane"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Cochrane"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Maluri'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Maluri"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Maluri"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Pertama'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Pertama"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Pertama"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Midah'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Midah"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Midah"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Mutiara'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Mutiara"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Mutiara"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Connaught'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Connaught"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Connaught"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Suntex'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Suntex"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Suntex"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Sri Raya'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Sri Raya"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Sri Raya"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Bandar Tun Hussein Onn'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Bandar Tun Hussein Onn"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Bandar Tun Hussein Onn"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Bukit Dukung'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Bukit Dukung"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Bukit Dukung"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Taman Koperasi Cuepacs'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Taman Koperasi Cuepacs"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Taman Koperasi Cuepacs"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Sungai Kantan'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Sungai Kantan"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Sungai Kantan"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Bandar Kajang'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Bandar Kajang"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Bandar Kajang"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//            }
-//            if($val['station_name']=='Kajang'){
-//                if($val['stat_install_type']==1)
-//                {
-//                    array_push($tem_array["Kajang"]["roomside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-//                else {
-//                    array_push($tem_array["Kajang"]["wayside"],array('"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'));}
-         //   }
+            if($val['stat_install_type']==1) {
+                $tem_array[$val['station_name']][$i]=array(
+                    "roomside" =>'"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'
+                );
+            }else{
+                $tem_array[$val['station_name']][$i]=array(
+                    "wayside" =>'"'.$val['equip_name'].'": ['.$val['equip_progress'].','.$val['PAT_status'].','.$val['SAT_status'].']'
+                );
+            }
             $i++;
         }
-        $station_stcs_progress['value'] = json_encode($tem_array);
+        $newArray=array();
+        foreach($tem_array as $key_outer => $value_outer){
+            $roomside='{';
+            $wayside='{';
+            foreach($value_outer as $key_inner => $value_inner) {
+                foreach ($value_inner as $k => $v) {
+                    if($k=="roomside"){
+                        $roomside.=$v.',';
+                    }else{
+                        $wayside.=$v.',';
+                    }
+                }
+            }
+            $roomside = substr_replace($roomside, '}',strlen($roomside)-1,1);
+            $wayside = substr_replace($wayside, '}',strlen($wayside)-1,1);
+            $newArray[strtolower($key_outer)]=array(
+                "roomside"=>$roomside,
+                "wayside"=>$wayside
+            );
+        }
+
+//        $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($tem_array));
+//        $list = iterator_to_array($it,false);
+//        $list = call_user_func_array('array_merge', $tem_array);
+        $station_stcs_progress['value'] = json_encode($newArray);
         return $station_stcs_progress;
     }
     //    Author:ANCY MATHEW 10/08/2016
