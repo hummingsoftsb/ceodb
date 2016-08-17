@@ -1100,7 +1100,7 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             },
             series: [{
                 type: 'pie',
-                innerSize: '80%',
+                innerSize: '90%',
                 data: [
                     {
                         name: 'Completed',
