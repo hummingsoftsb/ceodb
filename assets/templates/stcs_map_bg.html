@@ -240,7 +240,7 @@
             var val = JSON.parse(JSON.stringify($(this).data("value")));
             $("#idex_stcs_title").text(" "+$(this).data("name"))
             var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
-            var $thead= $('<thead><tr> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Installation</th> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Testing & Commission</th></tr> <tr> <th colspan="2" style="color: rgb(255, 175, 120); text-align: center;">Wayside Progress</th> <th style="color: rgb(255, 175, 120); text-align: center;">PAT Status</th> <th style="color: rgb(255, 175, 120);text-align: center;">SAT Status</th> </tr> </thead>');
+            var $thead= $('<thead><tr> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Installation</th> <th colspan="2" style="color: rgb(0, 158, 140); text-align: center;">Testing & Commission</th></tr> <tr> <th colspan="2" style="color: rgb(255, 175, 120); text-align: center;">Wayside Progress: <span style="color:#ff0000">80%</span></th> <th style="color: rgb(255, 175, 120); text-align: center;">PAT Status</th> <th style="color: rgb(255, 175, 120);text-align: center;">SAT Status</th> </tr> </thead>');
             var $tbody = $('<tbody>');
             $.each(val, function(k,v) {
                 var $tr = $('<tr>');
@@ -1029,6 +1029,9 @@
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 1 Status</th>
+                        </tr>
+                        <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
@@ -1051,7 +1054,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })} %>
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1063,6 +1070,9 @@
                 <div class="inner" style="left: 200px; top:320px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 2 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1086,9 +1096,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1100,6 +1112,9 @@
                 <div class="inner" style="left: 404px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 3 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1124,8 +1139,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1137,6 +1155,9 @@
                 <div class="inner" style="left: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 4 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1161,8 +1182,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1174,6 +1198,9 @@
                 <div class="inner" style="right: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 5 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1198,8 +1225,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1211,6 +1241,9 @@
                 <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 6 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1235,8 +1268,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -1248,6 +1284,9 @@
                 <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 7 Status</th>
+                        </tr>
                         <tr>
                             <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
                             <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
@@ -1272,8 +1311,11 @@
                             <td><%=i['PAT_progress']%>%</td>
                             <td><%=i['SAT_progress']%>%</td>
                         </tr>
-                        <% })}%>
-
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
