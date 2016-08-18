@@ -289,9 +289,51 @@ animation-name: glow-red;
          });
          });*/
 
-        $('#modal_insllation').on('shown.bs.modal', function() {
+        $('#modal_insllation').on('shown.bs.modal', function(e) {
             var $modal = $(this);
+            dataName = $(e.relatedTarget).data('name');
+            dataRoom = $(e.relatedTarget).data('roomside');
+            dataWay = $(e.relatedTarget).data('wayside');
+            $(e.currentTarget).find('#station_name').text(dataName);
+            if((Object.keys(dataRoom).length)>0) {
+                var j = gen_tab(dataRoom);
+                $(e.currentTarget).find('#data_room').html('').append(j.table);
+                $(e.currentTarget).find('#data_room_avg').text("Total Progress : " + j.avg + "%");
+            }else{
+                $(e.currentTarget).find('#data_room').html('').append("No data Found");
+                $(e.currentTarget).find('#data_room_avg').text("Total Progress : 0% ");
+            }
+            if((Object.keys(dataWay).length)>0) {
+                var j = gen_tab(dataWay);
+                $(e.currentTarget).find('#data_way').html('').append(j.table);
+                $(e.currentTarget).find('#data_way_avg').text("Total Progress : " + j.avg + "%");
+            }else{
+                $(e.currentTarget).find('#data_way').html('').append("No data Found");
+                $(e.currentTarget).find('#data_way_avg').text("Total Progress : 0%");
+            }
         })
+
+        var gen_tab = function(d){
+            var e = new Object();
+            var $table = $('<table class="table-condensed table-hover" style="width: 100%">');
+            var $tbody = $('<tbody>');
+            var g=0;
+            $.each(d, function(k,v) {
+                var t=0;
+                $.each(v, function(x,z) {
+                    t=t+parseInt(z);
+                })
+                var $tr = $('<tr>');
+                var $td = $('<td style="border-color: transparent"><div class="col-sm-2"><div class="checkbox" style="padding-left: 10px;"><input type="checkbox" value="'+((t/ v.length).toFixed(2))+'"></div></div><div class="col-sm-10">'+k+'</div></td>')
+                $tr.append($td);
+                $tbody.append($tr)
+                g+=parseInt(t)/ v.length;
+            })
+            $table.append($tbody)
+            e['table'] = $table;
+            e['avg'] = (g/ Object.keys(d).length).toFixed(2);
+            return e;
+        }
 
     });
 
@@ -344,7 +386,7 @@ animation-name: glow-red;
     <div class="inner" style="left : 60px;padding: 0; top: 214px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
         <table style="margin: 5px 23px;">
             <tbody>
-            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-name="Sungai Buloh Station" data-roomside='<%=data.data[0].data["sungai buloh"].roomside%>' data-wayside='<%=data.data[0].data["sungai buloh"].wayside%>' data-target="#modal_insllation"> Progress 80% </a></td></tr>
             <tr>
 
                 <td>
@@ -367,7 +409,7 @@ animation-name: glow-red;
     <div class="inner" style="left : 76px; padding: 0; top: 246px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
         <table style="margin: 5px 23px;">
             <tbody>
-            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-name="Kg Selamat Station" data-roomside='<%=(_.isUndefined(data.data[0].data["kg selamat"]))? "{}" :data.data[0].data["kg selamat"].roomside%>' data-wayside='<%=(_.isUndefined(data.data[0].data["kg selamat"]))? "{}" :data.data[0].data["kg selamat"].wayside%>' data-target="#modal_insllation"> Progress 80% </a></td></tr>
             <tr>
                 <td>
                     <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=(_.isUndefined(data.data[0].data["kg selamat"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kg selamat"].roomside%>'>
@@ -389,15 +431,15 @@ animation-name: glow-red;
     <div class="inner" style="left : 118px; padding: 0; top: 330px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
         <table style="margin: 5px 23px;">
             <tbody>
-            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-name="Kwasa Damansara Station" data-roomside='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{}" :data.data[0].data["kwasa damansara"].roomside%>' data-wayside='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{}" :data.data[0].data["kwasa damansara"].wayside%>' data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
             <tr>
                 <td>
-                    <a class="lk-room" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["Kwasa Damansara"].roomside%>'>
+                    <a class="lk-room" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["kwasa damansara"].roomside%>'>
                         <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
                     </a>
                 </td>
                 <td>
-                    <a class="lk-wayside" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["Kwasa Damansara"].wayside%>'>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["kwasa damansara"].wayside%>'>
                         <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
                     </a>
                 </td>
@@ -1400,9 +1442,9 @@ animation-name: glow-red;
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title"><i class="fa fa-bars"></i> <span id="idex_stcs_title">Installation</span></h4>
+                <h4 class="modal-title"><i class="fa fa-bars"></i> Installation Prigress : <span id="station_name" style="color: rgb(243, 122, 122)"></span></h4>
             </div>
-            <div class="modal-body" style="max-height: 700; height: 330px;">
+            <div class="modal-body" style="max-height:940px;">
                 <div class="row" style="margin-top: 35px;">
                     <div class="col-sm-12">
                         <div class="col-sm-5">
@@ -1413,8 +1455,40 @@ animation-name: glow-red;
                                     <th style="text-align: center; color: rgb(0, 158, 140);">ON WAYSIDE</th>
                                 </tr>
                                 </thead>
-                                <tbody id="status_container">
-                                <tr>
+                                <tbody id="install_container">
+                                    <tr>
+                                        <td id="data_room" style="text-align: center">
+<!--                                            <table class="table-condensed table-hover" style="width: 100%">
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
+                                                </tr>
+                                            </table>-->
+                                        </td>
+                                        <td id="data_way" style="text-align: center">
+<!--                                            <table class="table-condensed table-hover" style="width: 100%">
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample2</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample2</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-color: transparent"><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample2</div></td>
+                                                </tr>
+                                            </table>-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="data_room_avg" style="text-align: center; color: #fff; font-weight:600"></td>
+                                        <td id="data_way_avg" style="text-align: center; color: #fff; font-weight:600"></td>
+                                    </tr>
+<!--                                <tr>
                                     <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
                                     <td><div class="col-sm-2"><input type="checkbox"></div><div class="col-sm-10">Sample1</div></td>
                                 </tr>
@@ -1429,7 +1503,7 @@ animation-name: glow-red;
                                 <tr>
                                     <td>Total :  80%</td>
                                     <td>Total :  40%</td>
-                                </tr>
+                                </tr>-->
                                 </tbody>
                             </table>
                         </div>
