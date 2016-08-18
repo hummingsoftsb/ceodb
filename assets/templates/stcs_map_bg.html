@@ -1,18 +1,17 @@
 <style>
-   .fwfs{
-       font-size: 20px;
-       font-weight: 600;
-   }
-   .text-red{
-       color: hsl(0, 100%, 43%);
-   }
-   .text-green{
-       color: hsl(134, 60%, 53%);
-   }
-   .text-yellow{
-       color: rgb(255, 170, 66);
-   }
-
+.fwfs{
+    font-size: 20px;
+    font-weight: 600;
+}
+.text-red{
+    color: hsl(0, 100%, 43%);
+}
+.text-green{
+    color: hsl(134, 60%, 53%);
+}
+.text-yellow{
+    color: rgb(255, 170, 66);
+}
    #svg-container {
        width: 1280px;
        height: 740px;
@@ -42,169 +41,169 @@
         fill: #cccccc;
     }
 
-    svg .bigcircle {
-        fill: hsl(0, 3%, 30%);
-    }
+svg .bigcircle {
+    fill: hsl(0, 3%, 30%);
+}
 
-    svg .bigparking {
-        fill: hsl(0, 3%, 30%);
-    }
+svg .bigparking {
+    fill: hsl(0, 3%, 30%);
+}
 
-    svg .smallparking {
-        fill: #cccccc;
-    }
+svg .smallparking {
+    fill: #cccccc;
+}
 
-    svg .glow-red.on {
-        fill: hsl(0, 100%, 43%);
-    }
+svg .glow-red.on {
+    fill: hsl(0, 100%, 43%);
+}
 
-    svg .glow-green.on {
-        fill: hsl(134, 82%, 30%);
-    }
+svg .glow-green.on {
+    fill: hsl(134, 82%, 30%);
+}
 
-    svg .glow-yellow.on {
-        fill: rgb(255, 170, 66);
-    }
+svg .glow-yellow.on {
+    fill: rgb(255, 170, 66);
+}
 
-    svg .glow-grey.on {
-        /*fill: #fff;*/
-        fill: rgb(131, 123, 123);
-    }
-    svg .glow-darkgray.on {
-        fill: #837b7b;
-    }
-    svg .glow-kavi.on {
-        fill: rgb(212, 76, 1);
-    }
-    svg .parkingletter {
-        fill: #000;
-        font-family: "Century Gothic";
-        font-size: 10px;
-        font-weight: bold;
-    }
+svg .glow-grey.on {
+    /*fill: #fff;*/
+    fill: rgb(131, 123, 123);
+}
+svg .glow-darkgray.on {
+    fill: #837b7b;
+}
+svg .glow-kavi.on {
+    fill: rgb(212, 76, 1);
+}
+svg .parkingletter {
+    fill: #000;
+    font-family: "Century Gothic";
+    font-size: 10px;
+    font-weight: bold;
+}
 
-    svg .blurred {
-        opacity: 0.2;
-    }
+svg .blurred {
+    opacity: 0.2;
+}
 
-    .glow-red-blinking.on {
-        -webkit-animation-name: glow-red;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-direction: alternate;
-        -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5))
+.glow-red-blinking.on {
+    -webkit-animation-name: glow-red;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5))
 
-    animation-name: glow-red;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-        filter: url(#drop-shadow);
-    }
+animation-name: glow-red;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    filter: url(#drop-shadow);
+}
 
-    @-webkit-keyframes glow-red {
-        0% { fill: hsl(0, 100%, 10%); }
-        100% { fill: hsl(0, 100%, 63%); }
-    }
+@-webkit-keyframes glow-red {
+    0% { fill: hsl(0, 100%, 10%); }
+    100% { fill: hsl(0, 100%, 63%); }
+}
 
-    @keyframes glow-red {
-        0% { fill: hsl(0, 100%, 10%); }
-        100% { fill: hsl(0, 100%, 63%); }
-    }
+@keyframes glow-red {
+    0% { fill: hsl(0, 100%, 10%); }
+    100% { fill: hsl(0, 100%, 63%); }
+}
 
-    .glow-yellow-blinking.on {
-        -webkit-animation-name: glow-yellow;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-direction: alternate;
+.glow-yellow-blinking.on {
+    -webkit-animation-name: glow-yellow;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
 
-        animation-name: glow-yellow;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-    }
+    animation-name: glow-yellow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 
-    @-webkit-keyframes glow-yellow {
-        0% { fill: hsl(33, 100%, 30%); }
-        100% { fill: hsl(33, 100%, 63%); }
-    }
+@-webkit-keyframes glow-yellow {
+    0% { fill: hsl(33, 100%, 30%); }
+    100% { fill: hsl(33, 100%, 63%); }
+}
 
-    @keyframes glow-yellow {
-        0% { fill: hsl(33, 100%, 30%); }
-        100% { fill: hsl(33, 100%, 63%); }
-    }
-    .glow-gray-blinking.on {
-        -webkit-animation-name: glow-gray;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-direction: alternate;
+@keyframes glow-yellow {
+    0% { fill: hsl(33, 100%, 30%); }
+    100% { fill: hsl(33, 100%, 63%); }
+}
+.glow-gray-blinking.on {
+    -webkit-animation-name: glow-gray;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
 
-        animation-name: glow-gray;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-    }
+    animation-name: glow-gray;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 
-    @-webkit-keyframes glow-gray {
-        0% { fill: hsl(0, 3%, 30%); }
-        100% { fill: hsl(0, 3%, 63%); }
-    }
+@-webkit-keyframes glow-gray {
+    0% { fill: hsl(0, 3%, 30%); }
+    100% { fill: hsl(0, 3%, 63%); }
+}
 
-    @keyframes glow-gray {
-        0% { fill: hsl(0, 3%, 30%); }
-        100% { fill: hsl(0, 3%, 63%); }
-    }
-    .glow-kavi-blinking.on {
-        -webkit-animation-name: glow-kavi;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-direction: alternate;
+@keyframes glow-gray {
+    0% { fill: hsl(0, 3%, 30%); }
+    100% { fill: hsl(0, 3%, 63%); }
+}
+.glow-kavi-blinking.on {
+    -webkit-animation-name: glow-kavi;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
 
-        animation-name: glow-kavi;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-    }
+    animation-name: glow-kavi;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 
-    @-webkit-keyframes glow-kavi {
-        0% { fill: hsl(21, 99%, 30%); }
-        100% { fill: hsl(21, 99%, 63%); }
-    }
+@-webkit-keyframes glow-kavi {
+    0% { fill: hsl(21, 99%, 30%); }
+    100% { fill: hsl(21, 99%, 63%); }
+}
 
-    @keyframes glow-kavi {
-        0% { fill: hsl(21, 99%, 30%); }
-        100% { fill: hsl(21, 99%, 63%); }
-    }
-    .glow-green-blinking.on {
-        -webkit-animation-name: glow-green;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-direction: alternate;
+@keyframes glow-kavi {
+    0% { fill: hsl(21, 99%, 30%); }
+    100% { fill: hsl(21, 99%, 63%); }
+}
+.glow-green-blinking.on {
+    -webkit-animation-name: glow-green;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
 
-        animation-name: glow-green;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-    }
+    animation-name: glow-green;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 
-    @-webkit-keyframes glow-green {
-        0% { fill: hsl(134, 82%, 20%); }
-        100% { fill: hsl134, 82%, 53%); }
-    }
+@-webkit-keyframes glow-green {
+    0% { fill: hsl(134, 82%, 20%); }
+    100% { fill: hsl134, 82%, 53%); }
+}
 
-    @keyframes glow-green {
-        0% { fill: hsl(134, 82%, 20%); }
-        100% { fill: hsl(134, 82%, 53%); }
-    }
+@keyframes glow-green {
+    0% { fill: hsl(134, 82%, 20%); }
+    100% { fill: hsl(134, 82%, 53%); }
+}
 
 </style>
 <script>
@@ -224,7 +223,11 @@
                 $tr.append($td);
                 $.each(val[k], function(i,idx) {
                     var $td = $('<td>');
-                    $td.html(idx+"%");
+                    if(isNaN(parseInt(idx))){
+                        $td.html(idx);
+                    }else {
+                        $td.html(idx + "%");
+                    }
                     $tr.append($td);
                 });
                 $tbody.append($tr);
@@ -249,7 +252,11 @@
                 $tr.append($td);
                 $.each(val[k], function(i,idx) {
                     var $td = $('<td>');
-                    $td.html(idx+"%");
+                    if(isNaN(parseInt(idx))){
+                        $td.html(idx);
+                    }else {
+                        $td.html(idx + "%");
+                    }
                     $tr.append($td);
                 });
                 $tbody.append($tr);
@@ -272,15 +279,15 @@
         });
 
 
-/*        $(window).on("load resize",function(){
-            $(".fim-dropdown > .inner").each(function(){
-                var pos = $(this).attr("data-arrange");
-                    $(this).css(
-                        pos , $(this).attr("data-value")+'px',
-                        "top", top
-                    );
-            });
-        });*/
+        /*        $(window).on("load resize",function(){
+         $(".fim-dropdown > .inner").each(function(){
+         var pos = $(this).attr("data-arrange");
+         $(this).css(
+         pos , $(this).attr("data-value")+'px',
+         "top", top
+         );
+         });
+         });*/
 
         $('#modal_insllation').on('shown.bs.modal', function() {
             var $modal = $(this);
@@ -293,781 +300,781 @@
     <i class="header-icon fa fa-check-square-o"></i>
 </div>
 <div class="content" style="background: none;/*#1d2a34*/">
-    <div id="svg-container" style="position:relative; margin:auto;">
-        <img src="../assets/img/systems/stcs/stcs_cleaned_map.jpg" alt="" id="mapimg" style="width: 1280px; height:600px; position:absolute;"/>
-        <div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
+<div id="svg-container" style="position:relative; margin:auto;">
+<img src="../assets/img/systems/stcs/stcs_cleaned_map.jpg" alt="" id="mapimg" style="width: 1280px; height:600px; position:absolute;"/>
+<div style="position: absolute; z-index: 99;top: -7px;left: -8px;">
 
-            <!-- text href -->
-            <a title="Sungai Buloh" href="#" style="position: absolute; top: 294px; left: 87px; height: 15px; width: 72px;"></a>
-            <a title="Kg Selamat" href="#" style="position: absolute; top: 324px; left: 93px; height: 15px; width: 72px;"></a>
-            <a title="Kwasa Damansara" href="#" style="position: absolute; top: 412px; left: 140px; height: 23px; width: 72px;"></a>
-            <a title="Kwasa Sentral" href="#" style="position: absolute; top: 453px; left: 121px; height: 15px; width: 72px;"></a>
-            <a title="Kota Damansara" href="#" style="position: absolute; top: 484px; left: 219px; height: 15px; width: 72px;"></a>
-            <a title="Surian" href="#" style="position: absolute; top: 423px; left: 215px; height: 15px; width: 46px;"></a>
-            <a title="Mutiara Damansara" href="#" style="position: absolute; top: 363px; left: 217px; height: 15px; width: 72px;"></a>
-            <a title="Bandar Utama" href="#" style="position: absolute; top: 352px; left: 296px; height: 15px; width: 72px;"></a>
-            <a title="TTDI" href="#" style="position: absolute; top: 352px; left: 367px; height: 15px; width: 32px;"></a>
-            <a title="Phileo Damansara" href="#" style="position: absolute; top: 329px; left: 373px; height: 15px; width: 72px;"></a>
-            <a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 274px; left: 365px; height: 15px; width: 72px;"></a>
-            <a title="Semantan" href="#" style="position: absolute; top: 227px; left: 362px; height: 15px; width: 72px;"></a>
-            <a title="Muzium Negara" href="#" style="position: absolute; top: 189px; left: 437px; height: 15px; width: 90px;"></a>
-            <a title="Pasar Seni" href="#" style="position: absolute; top: 160px; left: 458px; height: 15px; width: 61px;"></a>
-            <a title="Merdeka" href="#" style="position: absolute; top: 131px; left: 497px; height: 15px; width: 60px;"></a>
-            <a title="Bukit Bintang" href="#" style="position: absolute; top: 98px; left: 514px; height: 15px; width: 60px;"></a>
-            <a title="Tun Razak Exchange" href="#" style="position: absolute; top: 83px; left: 611px; height: 15px; width: 60px;"></a>
-            <a title="Cochrane" href="#" style="position: absolute; top: 106px; left: 646px; height: 15px; width: 60px;"></a>
-            <a title="Maluri" href="#" style="position: absolute; top: 140px; left: 609px; height: 15px; width: 47px;"></a>
-            <a title="Taman Pertama" href="#" style="position: absolute; top: 135px; left: 668px; height: 15px; width: 60px;"></a>
-            <a title="Taman Midah" href="#" style="position: absolute; top: 157px; left: 716px; height: 15px; width: 60px;"></a>
-            <a title="Taman Mutiara" href="#" style="position: absolute; top: 171px; left: 786px; height: 15px; width: 60px;"></a>
-            <a title="Taman Connaught" href="#" style="position: absolute; top: 234px; left: 767px; height: 15px; width: 60px;"></a>
-            <a title="Taman Suntex" href="#" style="position: absolute; top: 168px; left: 845px; height: 15px; width: 48px;"></a>
-            <a title="Sri Raya" href="#" style="position: absolute; top: 167px; left: 919px; height: 15px; width: 60px;"></a>
-            <a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 208px; left: 998px; height: 15px; width: 71px;"></a>
-            <a title="Bukit Dukung" href="#" style="position: absolute; top: 250px; left: 1017px; height: 15px; width: 55px;"></a>
-            <a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 285px; left: 1053px; height: 15px; width: 85px;"></a>
-            <a title="Sungai Kantan" href="#" style="position: absolute; top: 316px; left: 1119px; height: 15px; width: 50px;"></a>
-            <a title="Bandar Kajang" href="#" style="position: absolute; top: 341px; left: 1176px; height: 15px; width: 50px;"></a>
-            <a title="Kajang" href="#" style="position: absolute; top: 366px; left: 1220px; height: 15px; width: 50px;"></a>
-            <a title="Sungai Buloh Depot" href="#" style="position: absolute; top: 390px; left: 15px; height: 35px; width: 95px;"></a>
-            <a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
-            <!-- icon href -->
-            <div class="fim-dropdown">
-            <a title="Sungai Buloh" href="javascript:;" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 60px;padding: 0; top: 214px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                            <tr>
+<!-- text href -->
+<a title="Sungai Buloh" href="#" style="position: absolute; top: 294px; left: 87px; height: 15px; width: 72px;"></a>
+<a title="Kg Selamat" href="#" style="position: absolute; top: 324px; left: 93px; height: 15px; width: 72px;"></a>
+<a title="Kwasa Damansara" href="#" style="position: absolute; top: 412px; left: 140px; height: 23px; width: 72px;"></a>
+<a title="Kwasa Sentral" href="#" style="position: absolute; top: 453px; left: 121px; height: 15px; width: 72px;"></a>
+<a title="Kota Damansara" href="#" style="position: absolute; top: 484px; left: 219px; height: 15px; width: 72px;"></a>
+<a title="Surian" href="#" style="position: absolute; top: 423px; left: 215px; height: 15px; width: 46px;"></a>
+<a title="Mutiara Damansara" href="#" style="position: absolute; top: 363px; left: 217px; height: 15px; width: 72px;"></a>
+<a title="Bandar Utama" href="#" style="position: absolute; top: 352px; left: 296px; height: 15px; width: 72px;"></a>
+<a title="TTDI" href="#" style="position: absolute; top: 352px; left: 367px; height: 15px; width: 32px;"></a>
+<a title="Phileo Damansara" href="#" style="position: absolute; top: 329px; left: 373px; height: 15px; width: 72px;"></a>
+<a title="Pusat Bandar Damansara" href="#" style="position: absolute; top: 274px; left: 365px; height: 15px; width: 72px;"></a>
+<a title="Semantan" href="#" style="position: absolute; top: 227px; left: 362px; height: 15px; width: 72px;"></a>
+<a title="Muzium Negara" href="#" style="position: absolute; top: 189px; left: 437px; height: 15px; width: 90px;"></a>
+<a title="Pasar Seni" href="#" style="position: absolute; top: 160px; left: 458px; height: 15px; width: 61px;"></a>
+<a title="Merdeka" href="#" style="position: absolute; top: 131px; left: 497px; height: 15px; width: 60px;"></a>
+<a title="Bukit Bintang" href="#" style="position: absolute; top: 98px; left: 514px; height: 15px; width: 60px;"></a>
+<a title="Tun Razak Exchange" href="#" style="position: absolute; top: 83px; left: 611px; height: 15px; width: 60px;"></a>
+<a title="Cochrane" href="#" style="position: absolute; top: 106px; left: 646px; height: 15px; width: 60px;"></a>
+<a title="Maluri" href="#" style="position: absolute; top: 140px; left: 609px; height: 15px; width: 47px;"></a>
+<a title="Taman Pertama" href="#" style="position: absolute; top: 135px; left: 668px; height: 15px; width: 60px;"></a>
+<a title="Taman Midah" href="#" style="position: absolute; top: 157px; left: 716px; height: 15px; width: 60px;"></a>
+<a title="Taman Mutiara" href="#" style="position: absolute; top: 171px; left: 786px; height: 15px; width: 60px;"></a>
+<a title="Taman Connaught" href="#" style="position: absolute; top: 234px; left: 767px; height: 15px; width: 60px;"></a>
+<a title="Taman Suntex" href="#" style="position: absolute; top: 168px; left: 845px; height: 15px; width: 48px;"></a>
+<a title="Sri Raya" href="#" style="position: absolute; top: 167px; left: 919px; height: 15px; width: 60px;"></a>
+<a title="Bandar Tun Hussein Onn" href="#" style="position: absolute; top: 208px; left: 998px; height: 15px; width: 71px;"></a>
+<a title="Bukit Dukung" href="#" style="position: absolute; top: 250px; left: 1017px; height: 15px; width: 55px;"></a>
+<a title="Taman Koperasi Cuepacs " href="#" style="position: absolute; top: 285px; left: 1053px; height: 15px; width: 85px;"></a>
+<a title="Sungai Kantan" href="#" style="position: absolute; top: 316px; left: 1119px; height: 15px; width: 50px;"></a>
+<a title="Bandar Kajang" href="#" style="position: absolute; top: 341px; left: 1176px; height: 15px; width: 50px;"></a>
+<a title="Kajang" href="#" style="position: absolute; top: 366px; left: 1220px; height: 15px; width: 50px;"></a>
+<a title="Sungai Buloh Depot" href="#" style="position: absolute; top: 390px; left: 15px; height: 35px; width: 95px;"></a>
+<a title="Kajang Depot" href="#" style="position: absolute; top: 375px; left: 1128px; height: 30px; width: 45px;"></a>
+<!-- icon href -->
+<div class="fim-dropdown">
+    <a title="Sungai Buloh" href="javascript:;" style="position: absolute; top: 295px; left: 63px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 60px;padding: 0; top: 214px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
 
-                                <td>
-                                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=data.data[0].data["sungai buloh"].roomside%>'>
-                                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=data.data[0].data["sungai buloh"].wayside%>'>
-                                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Kg Selamat" href="javascript:;" style="position: absolute; top: 327px; left: 74px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 76px; padding: 0; top: 246px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=data.data[0].data["kg selamat"].roomside%>'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=data.data[0].data["kg selamat"].wayside%>'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Kwasa Damansara" href="javascript:;" style="position: absolute; top: 414px; left: 120px; height: 15px; width: 15px;"></a>
-            <div class="inner" style="left : 118px; padding: 0; top: 330px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                <table style="margin: 5px 23px;">
-                    <tbody>
-                    <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                    <tr>
-                        <td>
-                            <a class="lk-room" href="javascript:;" data-name="Kwasa Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="lk-wayside" href="javascript:;" data-name="Kwasa Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Kwasa Sentral" href="javascript:;" style="position: absolute; top: 449px; left: 112px; height: 15px; width: 15px;"></a>
-            <div class="inner" style="left : 108px; padding: 0; top: 364px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                <table style="margin: 5px 23px;">
-                    <tbody>
-                    <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                    <tr>
-                        <td>
-                            <a class="lk-room" href="javascript:;" data-name="Kwasa Sentral Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="lk-wayside" href="javascript:;" data-name="Kwasa Sentral Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=(_.isUndefined(data.data[0].data["sungai buloh"]))?  "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sungai buloh"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Buloh Station" data-value='<%=(_.isUndefined(data.data[0].data["sungai buloh"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sungai buloh"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Kg Selamat" href="javascript:;" style="position: absolute; top: 327px; left: 74px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 76px; padding: 0; top: 246px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=(_.isUndefined(data.data[0].data["kg selamat"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kg selamat"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kg Selamat Station" data-value='<%=(_.isUndefined(data.data[0].data["kg selamat"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kg selamat"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Kwasa Damansara" href="javascript:;" style="position: absolute; top: 414px; left: 120px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 118px; padding: 0; top: 330px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["Kwasa Damansara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kwasa Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" : data.data[0].data["Kwasa Damansara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Kwasa Sentral" href="javascript:;" style="position: absolute; top: 449px; left: 112px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 108px; padding: 0; top: 364px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Kwasa Sentral Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa sentral"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kwasa sentral"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kwasa Sentral Station" data-value='<%=(_.isUndefined(data.data[0].data["kwasa sentral"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kwasa sentral"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Kota Damansara" href="javascript:;" style="position: absolute; top: 474px; left: 206px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 200px; padding: 0; top: 387px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Kota Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kota damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kota damansara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kota Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["kota damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kota damansara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Surian" href="javascript:;" style="position: absolute; top: 419px; left: 258px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 135px; padding: 0; top: 337px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Surian Station" data-value='<%=(_.isUndefined(data.data[0].data["surian"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["surian"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Surian Station" data-value='<%=(_.isUndefined(data.data[0].data["surian"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["surian"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Mutiara Damansara" href="javascript:;" style="position: absolute; top: 362px; left: 278px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 153px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Mutiara Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["mutiara damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["mutiara damansara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Mutiara Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["mutiara damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["mutiara damansara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Bandar Utama" href="javascript:;" style="position: absolute; top: 370px; left: 338px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 328px; padding: 0; top: 285px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Bandar Utama Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar utama"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar utama"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Bandar Utama Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar utama"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar utama"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="TTDI" href="javascript:;" style="position: absolute; top: 366px; left: 386px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 374px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="TTDI Station" data-value='<%=(_.isUndefined(data.data[0].data["ttdi"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["ttdi"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="TTDI Station" data-value='<%=(_.isUndefined(data.data[0].data["ttdi"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["ttdi"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Phileo Damansara" href="javascript:;" style="position: absolute; top: 347px; left: 423px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 414px; padding: 0; top: 262px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Phileo Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["phileo damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["phileo damansara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Phileo Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["phileo damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["phileo damansara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Pusat Bandar Damansara" href="javascript:;" style="position: absolute; top: 272px; left: 437px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 295px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["pusat bandar damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["pusat bandar damansara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='<%=(_.isUndefined(data.data[0].data["pusat bandar damansara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["pusat bandar damansara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Semantan" href="javascript:;" style="position: absolute; top: 224px; left: 426px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 292px; padding: 0; top: 138px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Semantan Station" data-value='<%=(_.isUndefined(data.data[0].data["semantan"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["semantan"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Semantan Station" data-value='<%=(_.isUndefined(data.data[0].data["semantan"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["semantan"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Muzium Negara" href="javascript:;" style="position: absolute; top: 186px; left: 524px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 525px; padding: 0; top: 105px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Muzium Negara Station" data-value='<%=(_.isUndefined(data.data[0].data["muzium negara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["muzium negara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Muzium Negara Station" data-value='<%=(_.isUndefined(data.data[0].data["muzium negara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["muzium negara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Pasar Seni" href="javascript:;" style="position: absolute; top: 152px; left: 520px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 390px; padding: 0; top: 67px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=(_.isUndefined(data.data[0].data["pasar seni"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["pasar seni"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=(_.isUndefined(data.data[0].data["pasar seni"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["pasar seni"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Merdeka" href="javascript:;" style="position: absolute; top: 129px; left: 549px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 413px; padding: 0; top: 46px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Merdeka Station" data-value='<%=(_.isUndefined(data.data[0].data["merdeka"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["merdeka"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Merdeka Station" data-value='<%=(_.isUndefined(data.data[0].data["merdeka"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["merdeka"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Bukit Bintang" href="javascript:;" style="position: absolute; top: 95px; left: 559px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 420px; padding: 0; top: 16px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Bukit Bintang Station" data-value='<%=(_.isUndefined(data.data[0].data["bukit bintang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bukit bintang"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Bukit Bintang Station" data-value='<%=(_.isUndefined(data.data[0].data["bukit bintang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bukit bintang"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Tun Razak Exchange" href="javascript:;" style="position: absolute; top: 99px; left: 603px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="left : 611px; padding: 0; top: 17px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='<%=(_.isUndefined(data.data[0].data["tun razak exchange"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["tun razak exchange"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='<%=(_.isUndefined(data.data[0].data["tun razak exchange"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["tun razak exchange"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Cochrane" href="javascript:;" style="position: absolute; top: 113px; left: 628px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 522px; padding: 0; top: 27px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Cochrane Station" data-value='<%=(_.isUndefined(data.data[0].data["cochrane"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["cochrane"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Cochrane Station"data-value='<%=(_.isUndefined(data.data[0].data["cochrane"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["cochrane"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Maluri" href="javascript:;" style="position: absolute; top: 126px; left: 650px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 500px; padding: 0; top: 42px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Maluri Station" data-value='<%=(_.isUndefined(data.data[0].data["maluri"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["maluri"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Maluri Station" data-value='<%=(_.isUndefined(data.data[0].data["maluri"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["maluri"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Pertama" href="javascript:;" style="position: absolute; top: 154px; left: 688px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 466px; padding: 0; top: 65px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Pertama Station" data-value='<%=(_.isUndefined(data.data[0].data["taman pertama"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman pertama"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Pertama Station" data-value='<%=(_.isUndefined(data.data[0].data["taman pertama"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman pertama"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Midah" href="javascript:;" style="position: absolute; top: 173px; left: 730px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 420px; padding: 0; top: 85px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Midah Station" data-value='<%=(_.isUndefined(data.data[0].data["taman midah"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman midah"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Midah Station" data-value='<%=(_.isUndefined(data.data[0].data["taman midah"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman midah"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Mutiara" href="javascript:;" style="position: absolute; top: 179px; left: 773px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 378px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Mutiara Station" data-value='<%=(_.isUndefined(data.data[0].data["taman mutiara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman mutiara"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Mutiara Station" data-value='<%=(_.isUndefined(data.data[0].data["taman mutiara"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman mutiara"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Connaught" href="javascript:;" style="position: absolute; top: 207px; left: 818px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 340px; padding: 0; top: 204px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Connaught Station" data-value='<%=(_.isUndefined(data.data[0].data["taman connaught"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman connaught"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Connaught Station" data-value='<%=(_.isUndefined(data.data[0].data["taman connaught"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman connaught"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Suntex" href="javascript:;" style="position: absolute; top: 176px; left: 895px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 264px; padding: 0; top: 90px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Suntex Station" data-value='<%=(_.isUndefined(data.data[0].data["taman suntex"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman suntex"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Suntex Station" data-value='<%=(_.isUndefined(data.data[0].data["taman suntex"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman suntex"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Sri Raya" href="javascript:;" style="position: absolute; top: 180px; left: 925px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 234px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Sri Raya Station" data-value='<%=(_.isUndefined(data.data[0].data["sri raya"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sri raya"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Sri Raya Station" data-value='<%=(_.isUndefined(data.data[0].data["sri raya"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sri raya"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Bandar Tun Hussein Onn" href="javascript:;" style="position: absolute; top: 207px; left: 978px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 177px; padding: 0; top: 122px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar tun hussein onn"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar tun hussein onn"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar tun hussein onn"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar tun hussein onn"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Bukit Dukung" href="javascript:;" style="position: absolute; top: 249px; left: 999px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 152px; padding: 0; top: 162px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Bukit Dukung Station" data-value='<%=(_.isUndefined(data.data[0].data["bukit dukung"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bukit dukung"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Bukit Dukung Station" data-value='<%=(_.isUndefined(data.data[0].data["bukit dukung"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bukit dukung"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Taman Koperasi Cuepacs " href="javascript:;" style="position: absolute; top: 287px; left: 1029px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 122px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='<%=(_.isUndefined(data.data[0].data["taman koperasi cuepacs"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman koperasi cuepacs"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='<%=(_.isUndefined(data.data[0].data["taman koperasi cuepacs"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["taman koperasi cuepacs"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Sungai Kantan" href="javascript:;" style="position: absolute; top: 330px; left: 1127px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 32px; padding: 0; top: 244px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Sungai Kantan Station" data-value='<%=(_.isUndefined(data.data[0].data["sungai kantan"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sungai kantan"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Sungai Kantan Station" data-value='<%=(_.isUndefined(data.data[0].data["sungai kantan"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["sungai kantan"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Bandar Kajang" href="javascript:;" style="position: absolute; top: 346px; left: 1160px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 120px; padding: 0; top: 340px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Bandar Kajang Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar kajang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar kajang"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Bandar Kajang Station" data-value='<%=(_.isUndefined(data.data[0].data["bandar kajang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["bandar kajang"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="fim-dropdown">
+    <a title="Kajang" href="javascript:;" style="position: absolute; top: 374px; left: 1203px; height: 15px; width: 15px;"></a>
+    <div class="inner" style="right : 62px; padding: 0; top: 372px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
+        <table style="margin: 5px 23px;">
+            <tbody>
+            <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
+            <tr>
+                <td>
+                    <a class="lk-room" href="javascript:;" data-name="Kajang Station" data-value='<%=(_.isUndefined(data.data[0].data["kajang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kajang"].roomside%>'>
+                        <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="lk-wayside" href="javascript:;" data-name="Kajang Station" data-value='<%=(_.isUndefined(data.data[0].data["kajang"]))? "{\"N/A\":[\"N/A\",\"N/A\",\"N/A\"]}" :data.data[0].data["kajang"].wayside%>'>
+                        <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1137px; height: 19px; width: 20px;"></a>
+<a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 20px; height: 40px; width: 40px;"></a>
+<a title="MSPR4" href="#" style="position: absolute; top: 370px; left: 424px; height: 40px; width: 60px;"></a>
+<a title="MSPR6" href="#" style="position: absolute; top: 197px; left: 720px; height: 30px; width: 40px;"></a>
+<a title="MSPR8" href="#" style="position: absolute; top: 196px; left: 895px; height: 40px; width: 45px;"></a>
+<a title="MSPR9" href="#" style="position: absolute; top: 397px; left: 1196px; height: 40px; width: 40px;"></a>
+<a title="MSPR11" href="#" style="position: absolute; top: 349px; left: 1062px; height: 18px; width: 70px;"></a>
+
+</div>
+
+<div class="fwfs" style="position:absolute; z-index:6; top: 331px;left: 40px;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R1</a>
+        <div class="inner" style="left: 23px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 1 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%if((data.data[1].data.R1).length >0) {%>
+                <%_.each(data.data[1].data.R1, function(i) {%>
+                <tr>
+                    <td><%=i['station_no']%></td>
+                    <td><%=i['station_progress']%>%</td>
+                    <td><%=i['roomside_progress']%>%</td>
+                    <td><%=i['wayside_progress']%>%</td>
+                    <td><%=i['PAT_progress']%>%</td>
+                    <td><%=i['SAT_progress']%>%</td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
         </div>
-            <div class="fim-dropdown">
-            <a title="Kota Damansara" href="javascript:;" style="position: absolute; top: 474px; left: 206px; height: 15px; width: 15px;"></a>
-            <div class="inner" style="left : 200px; padding: 0; top: 387px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Kota Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Kota Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Surian" href="javascript:;" style="position: absolute; top: 419px; left: 258px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 135px; padding: 0; top: 337px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Surian Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Surian Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Mutiara Damansara" href="javascript:;" style="position: absolute; top: 362px; left: 278px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 153px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Mutiara Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Mutiara Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Bandar Utama" href="javascript:;" style="position: absolute; top: 370px; left: 338px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 328px; padding: 0; top: 285px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Bandar Utama Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Utama Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="TTDI" href="javascript:;" style="position: absolute; top: 366px; left: 386px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 374px; padding: 0; top: 278px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="TTDI Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="TTDI Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Phileo Damansara" href="javascript:;" style="position: absolute; top: 347px; left: 423px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 414px; padding: 0; top: 262px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Phileo Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Phileo Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Pusat Bandar Damansara" href="javascript:;" style="position: absolute; top: 272px; left: 437px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 295px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Pusat Bandar Damansara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Semantan" href="javascript:;" style="position: absolute; top: 224px; left: 426px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 292px; padding: 0; top: 138px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Semantan Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Semantan Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Muzium Negara" href="javascript:;" style="position: absolute; top: 186px; left: 524px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 525px; padding: 0; top: 105px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Muzium Negara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Muzium Negara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Pasar Seni" href="javascript:;" style="position: absolute; top: 152px; left: 520px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 390px; padding: 0; top: 67px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=data.data[0].data["pasar seni"].roomside%>'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Pasar Seni Station" data-value='<%=data.data[0].data["pasar seni"].wayside%>'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Merdeka" href="javascript:;" style="position: absolute; top: 129px; left: 549px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 413px; padding: 0; top: 46px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Merdeka Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Merdeka Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Bukit Bintang" href="javascript:;" style="position: absolute; top: 95px; left: 559px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 420px; padding: 0; top: 16px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Bukit Bintang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Bukit Bintang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Tun Razak Exchange" href="javascript:;" style="position: absolute; top: 99px; left: 603px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="left : 611px; padding: 0; top: 17px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Tun Razak Exchange Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Cochrane" href="javascript:;" style="position: absolute; top: 113px; left: 628px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 522px; padding: 0; top: 27px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Cochrane Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Cochrane Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Maluri" href="javascript:;" style="position: absolute; top: 126px; left: 650px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 500px; padding: 0; top: 42px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Maluri Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Maluri Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Pertama" href="javascript:;" style="position: absolute; top: 154px; left: 688px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 466px; padding: 0; top: 65px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Pertama Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Pertama Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Midah" href="javascript:;" style="position: absolute; top: 173px; left: 730px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 420px; padding: 0; top: 85px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Midah Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Midah Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Mutiara" href="javascript:;" style="position: absolute; top: 179px; left: 773px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 378px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Mutiara Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Mutiara Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Connaught" href="javascript:;" style="position: absolute; top: 207px; left: 818px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 340px; padding: 0; top: 204px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Connaught Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Connaught Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Suntex" href="javascript:;" style="position: absolute; top: 176px; left: 895px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 264px; padding: 0; top: 90px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Suntex Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Suntex Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Sri Raya" href="javascript:;" style="position: absolute; top: 180px; left: 925px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 234px; padding: 0; top: 92px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Sri Raya Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Sri Raya Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Bandar Tun Hussein Onn" href="javascript:;" style="position: absolute; top: 207px; left: 978px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 177px; padding: 0; top: 122px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Tun Hussein Onn Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Bukit Dukung" href="javascript:;" style="position: absolute; top: 249px; left: 999px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 152px; padding: 0; top: 162px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Bukit Dukung Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Bukit Dukung Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Taman Koperasi Cuepacs " href="javascript:;" style="position: absolute; top: 287px; left: 1029px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 122px; padding: 0; top: 200px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Taman Koperasi Cuepacs Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Sungai Kantan" href="javascript:;" style="position: absolute; top: 330px; left: 1127px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 32px; padding: 0; top: 244px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Sungai Kantan Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Sungai Kantan Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Bandar Kajang" href="javascript:;" style="position: absolute; top: 346px; left: 1160px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 120px; padding: 0; top: 340px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Bandar Kajang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Bandar Kajang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="fim-dropdown">
-            <a title="Kajang" href="javascript:;" style="position: absolute; top: 374px; left: 1203px; height: 15px; width: 15px;"></a>
-                <div class="inner" style="right : 62px; padding: 0; top: 372px; font-size: 12px; font-weight: normal; background-color: rgb(36, 66, 101); border: 1px solid rgb(151, 161, 161); box-shadow: 0px 0px 2px 1px rgb(68, 73, 75); max-width: 200; width: 128px;">
-                    <table style="margin: 5px 23px;">
-                        <tbody>
-                        <tr><td colspan="2" style="color: #fff; font-weight: 600; font-size: 11px;"><a href="javascript:;" data-toggle="modal" data-target="#modal_insllation"> Progress 80% </a></td></tr>
-                        <tr>
-                            <td>
-                                <a class="lk-room" href="javascript:;" data-name="Kajang Station" data-value='{"SER":[60,80,50],"MO":[80,100,30],"SCR":[100,70,80]}'>
-                                    <img src="../assets/img/systems/stcs/room.png" alt="" style="width: 40px;"/>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="lk-wayside" href="javascript:;" data-name="Kajang Station" data-value='{"WNRA":[80,80,80],"RAP":[80,80,80],"AX":[80,80,80],"JB":[80,80,80],"ESP":[80,80,80],"NP":[80,80,80],"CABLE SB":[80,80,80],"CABLE NB":[80,80,80]}'>
-                                    <img src="../assets/img/systems/stcs/wayside.png" alt="" style="width: 40px"/>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <a title="Kajang Depot" href="#" style="position: absolute; top: 351px; left: 1137px; height: 19px; width: 20px;"></a>
-            <a title="MSPR1" href="#" style="position: absolute; top: 295px; left: 20px; height: 40px; width: 40px;"></a>
-            <a title="MSPR4" href="#" style="position: absolute; top: 370px; left: 424px; height: 40px; width: 60px;"></a>
-            <a title="MSPR6" href="#" style="position: absolute; top: 197px; left: 720px; height: 30px; width: 40px;"></a>
-            <a title="MSPR8" href="#" style="position: absolute; top: 196px; left: 895px; height: 40px; width: 45px;"></a>
-            <a title="MSPR9" href="#" style="position: absolute; top: 397px; left: 1196px; height: 40px; width: 40px;"></a>
-            <a title="MSPR11" href="#" style="position: absolute; top: 349px; left: 1062px; height: 18px; width: 70px;"></a>
-
-        </div>
-
-        <div class="fwfs" style="position:absolute; z-index:6; top: 331px;left: 40px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R1</a>
-                <div class="inner" style="left: 23px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 1 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <%if((data.data[1].data.R1).length >0) {%>
-                        <%_.each(data.data[1].data.R1, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="fwfs" style="position:absolute; z-index:5; top: 500px;left: 160px;">
+ </div>
+</div>
+<div class="fwfs" style="position:absolute; z-index:5; top: 500px;left: 160px;">
             <div class="fim-dropdown">
                 <a href="javascript:;" class="pkg_title">R2</a>
                 <div class="inner" style="left: 242px; top:408px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
@@ -1109,7 +1116,7 @@
                 </div>
             </div>
         </div>
-        <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
+<div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
             <div class="fim-dropdown">
                 <a href="javascript:;" class="pkg_title">R3</a>
                 <div class="inner" style="left: 470px; top: 415px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
@@ -1131,7 +1138,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         <%if((data.data[1].data.R3).length >0) {%>
                         <%_.each(data.data[1].data.R3, function(i) {%>
                         <tr>
@@ -1147,237 +1153,237 @@
                             <td colspan="6">No Data Available</td>
                         </tr>
                         <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 5; top: 232px; left: 555px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R4</a>
-                <div class="inner" style="left: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 4 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <%if((data.data[1].data.R4).length >0) {%>
-                        <%_.each(data.data[1].data.R4, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 6; top: 178px; left: 647px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R5</a>
-                <div class="inner" style="right: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 5 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <%if((data.data[1].data.R5).length >0) {%>
-                        <%_.each(data.data[1].data.R5, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 4; top: 270px; left: 835px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R6</a>
-                <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 6 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <%if((data.data[1].data.R6).length >0) {%>
-                        <%_.each(data.data[1].data.R6, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 3; top: 410px; left: 1087px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R7</a>
-                <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 7 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <%if((data.data[1].data.R7).length >0) {%>
-                        <%_.each(data.data[1].data.R7, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="fwfs" style="position:absolute; z-index:2; top: 357px;left: 23px;">
-            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
-        </div>
-        <div class="fwfs" style="position:absolute; z-index:2; top: 504px;left: 195px;">
-            <a href="#" class="pkg_title_sub text-red">[ 56% ]</a>
-        </div>
-        <div class="fwfs" style="position:absolute; z-index:2; top: 423px;left: 413px;">
-            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 259px; left: 555px;">
-            <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 204px; left: 647px;">
-            <a href="#" class="pkg_title_sub text-yellow">[ 80% ]</a>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 295px; left: 835px;">
-            <a href="#" class="pkg_title_sub text-yellow">[ 70% ]</a>
-        </div>
-        <div class="fwfs" style="position: absolute; z-index: 2; top: 436px; left: 1087px;">
-            <a href="#" class="pkg_title_sub text-yellow">[ 95% ]</a>
-        </div>
-        <div style="position:absolute; z-index:2; top: 248px;left: 219px;">
-            <a href="#" class="pkg_title2">North</a>
-        </div>
-        <div style="position:absolute; z-index:2; top: 183px;left: 1110px;">
-            <a href="#" class="pkg_title2">South</a>
-        </div>
-
-        <div style="position:absolute; z-index:3; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
-                <div class="inner" style="right: 12px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 456px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th style="text-align: center; color: rgb(255, 175, 120);">STATION</th>
-                            <th style="text-align: center; color: rgb(0, 158, 140);">ISSUES</th>
-                        </tr>
-                            </thead>
-                                <tbody id="status_container">
-                                <%if((data.data[2].data.comment).length >0){%>
-                                <%_.each(data.data[2].data.comment, function(i) {%>
-                                                     <tr>
-                                                         <td><%=i['station_code']%></td>
-                                                         <td><%=i['comment']%></td>
-                                                     </tr>
-                                <%})}%>
-                                </tbody>
-                    </table>
-                </div>
-             </div>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 5; top: 232px; left: 555px;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R4</a>
+        <div class="inner" style="left: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 4 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%if((data.data[1].data.R4).length >0) {%>
+                <%_.each(data.data[1].data.R4, function(i) {%>
+                <tr>
+                    <td><%=i['station_no']%></td>
+                    <td><%=i['station_progress']%>%</td>
+                    <td><%=i['roomside_progress']%>%</td>
+                    <td><%=i['wayside_progress']%>%</td>
+                    <td><%=i['PAT_progress']%>%</td>
+                    <td><%=i['SAT_progress']%>%</td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 6; top: 178px; left: 647px;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R5</a>
+        <div class="inner" style="right: 132px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 5 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%if((data.data[1].data.R5).length >0) {%>
+                <%_.each(data.data[1].data.R5, function(i) {%>
+                <tr>
+                    <td><%=i['station_no']%></td>
+                    <td><%=i['station_progress']%>%</td>
+                    <td><%=i['roomside_progress']%>%</td>
+                    <td><%=i['wayside_progress']%>%</td>
+                    <td><%=i['PAT_progress']%>%</td>
+                    <td><%=i['SAT_progress']%>%</td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 4; top: 270px; left: 835px;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R6</a>
+        <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 6 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%if((data.data[1].data.R6).length >0) {%>
+                <%_.each(data.data[1].data.R6, function(i) {%>
+                <tr>
+                    <td><%=i['station_no']%></td>
+                    <td><%=i['station_progress']%>%</td>
+                    <td><%=i['roomside_progress']%>%</td>
+                    <td><%=i['wayside_progress']%>%</td>
+                    <td><%=i['PAT_progress']%>%</td>
+                    <td><%=i['SAT_progress']%>%</td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 3; top: 410px; left: 1087px;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R7</a>
+        <div class="inner" style="right: 12px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 7 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%if((data.data[1].data.R7).length >0) {%>
+                <%_.each(data.data[1].data.R7, function(i) {%>
+                <tr>
+                    <td><%=i['station_no']%></td>
+                    <td><%=i['station_progress']%>%</td>
+                    <td><%=i['roomside_progress']%>%</td>
+                    <td><%=i['wayside_progress']%>%</td>
+                    <td><%=i['PAT_progress']%>%</td>
+                    <td><%=i['SAT_progress']%>%</td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="fwfs" style="position:absolute; z-index:2; top: 357px;left: 23px;">
+    <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+</div>
+<div class="fwfs" style="position:absolute; z-index:2; top: 504px;left: 195px;">
+    <a href="#" class="pkg_title_sub text-red">[ 56% ]</a>
+</div>
+<div class="fwfs" style="position:absolute; z-index:2; top: 423px;left: 413px;">
+    <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 2; top: 259px; left: 555px;">
+    <a href="#" class="pkg_title_sub text-green">[ 100% ]</a>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 2; top: 204px; left: 647px;">
+    <a href="#" class="pkg_title_sub text-yellow">[ 80% ]</a>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 2; top: 295px; left: 835px;">
+    <a href="#" class="pkg_title_sub text-yellow">[ 70% ]</a>
+</div>
+<div class="fwfs" style="position: absolute; z-index: 2; top: 436px; left: 1087px;">
+    <a href="#" class="pkg_title_sub text-yellow">[ 95% ]</a>
+</div>
+<div style="position:absolute; z-index:2; top: 248px;left: 219px;">
+    <a href="#" class="pkg_title2">North</a>
+</div>
+<div style="position:absolute; z-index:2; top: 183px;left: 1110px;">
+    <a href="#" class="pkg_title2">South</a>
+</div>
+
+<div style="position:absolute; z-index:3; top: 38px;left: 1185px; background-color: rgba(138, 135, 129, 0.52); border-radius: 3px; border: 2px solid white;">
+    <div class="fim-dropdown">
+        <a href="javascript:;" style="font-weight: 600;font-size: 18px; color: rgb(255, 137, 137); padding: 12px;">Issues</a>
+        <div class="inner" style="right: 12px; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 456px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th style="text-align: center; color: rgb(255, 175, 120);">STATION</th>
+                    <th style="text-align: center; color: rgb(0, 158, 140);">ISSUES</th>
+                </tr>
+                </thead>
+                <tbody id="status_container">
+                <%if((data.data[2].data.comment).length >0){%>
+                <%_.each(data.data[2].data.comment, function(i) {%>
+                <tr>
+                    <td><%=i['station_code']%></td>
+                    <td><%=i['comment']%></td>
+                </tr>
+                <%})}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 <div class="modal" id="modal_room" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

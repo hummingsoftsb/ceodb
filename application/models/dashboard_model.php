@@ -1934,34 +1934,4 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
-    public function get_stcs_installation_data($date = FALSE)
-    {
-        $i = 0;
-        $tem_array = array();
-        $train_stcs_progress = array(
-            "value" => array()
-        );
-        if ($date) { // if date selected
-            $query = "SELECT train_number, static_test_perc, dynamic_test_perc, overall_stat_perc FROM tbl_stcs_train_status where data_date=$date";
-        } else {
-            $query = "SELECT train_number, static_test_perc, dynamic_test_perc, overall_stat_perc FROM tbl_stcs_train_status";
-        }
-        $query = $this->db->query($query);
-        $result = $query->result_array();
-        foreach ($result as $val) {
-            /* $tem_array[$val['train_number']]=$val['train_number'];
-             $tem_array[$val['train_number']]["status"]=$val['overall_stat_perc'];
-             $tem_array[$val['train_number']]["static"]=$val['static_test_perc'];
-             $tem_array[$val['train_number']]["dynamic"]=$val['dynamic_test_perc'];*/
-            $tem_array[$val['train_number']] = array(
-                "train_number" => $val['train_number'],
-                "status" => $val['overall_stat_perc'],
-                "static" => $val['static_test_perc'],
-                "dynamic" => $val['dynamic_test_perc']
-            );
-            $i++;
-        }
-        $train_stcs_progress['value'] = json_encode($tem_array);
-        return $train_stcs_progress;
-    }
 }
