@@ -12,35 +12,34 @@
 .text-yellow{
     color: rgb(255, 170, 66);
 }
-
-#svg-container {
-    width: 1280px;
-    height: 700px;
-    overflow: hidden;
-}
-.pkg_title{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 25px;
-    font-weight: 500;
-    text-decoration: none;
-    color: #FFF;
-}
-.pkg_title_sub{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-}
-.pkg_title2{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    text-decoration: none;
-    color: #a6c3ff;
-}
-svg .smallcircle {
-    fill: #cccccc;
-}
+   #svg-container {
+       width: 1280px;
+       height: 740px;
+       overflow: hidden;
+   }
+   .pkg_title{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 25px;
+       font-weight: 500;
+       text-decoration: none;
+       color: #FFF;
+   }
+   .pkg_title_sub{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 14px;
+       font-weight: 600;
+       text-decoration: none;
+   }
+   .pkg_title2{
+       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+       font-size: 40px;
+       font-weight: 500;
+       text-decoration: none;
+       color: #a6c3ff;
+   }
+    svg .smallcircle {
+        fill: #cccccc;
+    }
 
 svg .bigcircle {
     fill: hsl(0, 3%, 30%);
@@ -289,6 +288,10 @@ animation-name: glow-red;
          );
          });
          });*/
+
+        $('#modal_insllation').on('shown.bs.modal', function() {
+            var $modal = $(this);
+        })
 
     });
 
@@ -1069,50 +1072,50 @@ animation-name: glow-red;
                 </tbody>
             </table>
         </div>
-    </div>
+ </div>
 </div>
 <div class="fwfs" style="position:absolute; z-index:5; top: 500px;left: 160px;">
-    <div class="fim-dropdown">
-        <a href="javascript:;" class="pkg_title">R2</a>
-        <div class="inner" style="left: 200px; top:320px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-            <table class="table table-bordered table-condensed table-hover">
-                <thead>
-                <tr>
-                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 2 Status</th>
-                </tr>
-                <tr>
-                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                </tr>
-                <tr>
-                    <th style="color: rgb(255, 175, 120);">Room</th>
-                    <th style="color: rgb(255, 175, 120);">Wayside</th>
-                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%if((data.data[1].data.R2).length >0) {%>
-                <%_.each(data.data[1].data.R2, function(i) {%>
-                <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
-                </tr>
-                <% })} else {%>
-                <tr>
-                    <td colspan="6">No Data Available</td>
-                </tr>
-                <%}%>
-                </tbody>
-            </table>
+            <div class="fim-dropdown">
+                <a href="javascript:;" class="pkg_title">R2</a>
+                <div class="inner" style="left: 242px; top:408px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 2 Status</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                        </tr>
+                        <tr>
+                            <th style="color: rgb(255, 175, 120);">Room</th>
+                            <th style="color: rgb(255, 175, 120);">Wayside</th>
+                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%if((data.data[1].data.R2).length >0) {%>
+                        <%_.each(data.data[1].data.R2, function(i) {%>
+                        <tr>
+                            <td><%=i['station_no']%></td>
+                            <td><%=i['station_progress']%>%</td>
+                            <td><%=i['roomside_progress']%>%</td>
+                            <td><%=i['wayside_progress']%>%</td>
+                            <td><%=i['PAT_progress']%>%</td>
+                            <td><%=i['SAT_progress']%>%</td>
+                        </tr>
+                        <% })} else {%>
+                        <tr>
+                            <td colspan="6">No Data Available</td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
     <div class="fim-dropdown">
         <a href="javascript:;" class="pkg_title">R3</a>
@@ -1431,20 +1434,22 @@ animation-name: glow-red;
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="row" style="padding: 14px;">
-                                <div style="padding: 30px 30px 6px; font-size: 24px; border-bottom: 2px solid rgb(15, 118, 126); color: #fff; text-align: center;">
-                                    Installation Progression
+                        <div class="col-sm-7">
+                            <div class="col-sm-5">
+                                <div class="row" style="padding: 14px;">
+                                    <div style="padding: 30px 30px 6px; font-size: 22px; border-bottom: 2px solid rgb(15, 118, 126); color: #fff; text-align: center;">
+                                        Installation Progression
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="font-size: 23px; text-align: center; color: rgb(246, 216, 89);">
+                                        Signaling and Train Control System
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div style="font-size: 25px; text-align: center; color: rgb(246, 216, 89);">
-                                    Signaling and Train Control System
-                                </div>
+                            <div class="col-sm-6">
+                                <div style="height: 30%;" id="chart"></div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div style="height: 30%;" id="chart"></div>
                         </div>
                     </div>
                 </div>
