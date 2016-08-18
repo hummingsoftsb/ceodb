@@ -15,7 +15,7 @@
 
    #svg-container {
        width: 1280px;
-       height: 700px;
+       height: 740px;
        overflow: hidden;
    }
    .pkg_title{
@@ -281,6 +281,10 @@
                     );
             });
         });*/
+
+        $('#modal_insllation').on('shown.bs.modal', function() {
+            var $modal = $(this);
+        })
 
     });
 
@@ -1066,7 +1070,7 @@
         <div class="fwfs" style="position:absolute; z-index:5; top: 500px;left: 160px;">
             <div class="fim-dropdown">
                 <a href="javascript:;" class="pkg_title">R2</a>
-                <div class="inner" style="left: 200px; top:320px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <div class="inner" style="left: 242px; top:408px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -1108,7 +1112,7 @@
         <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
             <div class="fim-dropdown">
                 <a href="javascript:;" class="pkg_title">R3</a>
-                <div class="inner" style="left: 404px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+                <div class="inner" style="left: 470px; top: 415px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
                     <table class="table table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
@@ -1428,20 +1432,22 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="row" style="padding: 14px;">
-                                <div style="padding: 30px 30px 6px; font-size: 24px; border-bottom: 2px solid rgb(15, 118, 126); color: #fff; text-align: center;">
-                                    Installation Progression
+                        <div class="col-sm-7">
+                            <div class="col-sm-5">
+                                <div class="row" style="padding: 14px;">
+                                    <div style="padding: 30px 30px 6px; font-size: 22px; border-bottom: 2px solid rgb(15, 118, 126); color: #fff; text-align: center;">
+                                        Installation Progression
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="font-size: 23px; text-align: center; color: rgb(246, 216, 89);">
+                                        Signaling and Train Control System
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div style="font-size: 25px; text-align: center; color: rgb(246, 216, 89);">
-                                    Signaling and Train Control System
-                                </div>
+                            <div class="col-sm-6">
+                                <div style="height: 30%;" id="chart"></div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div style="height: 30%;" id="chart"></div>
                         </div>
                     </div>
                 </div>
