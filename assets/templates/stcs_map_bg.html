@@ -1057,12 +1057,12 @@ animation-name: glow-red;
                 <%if((data.data[1].data.R1).length >0) {%>
                 <%_.each(data.data[1].data.R1, function(i) {%>
                 <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                 </tr>
                 <% })} else {%>
                 <tr>
@@ -1099,12 +1099,12 @@ animation-name: glow-red;
                         <%if((data.data[1].data.R2).length >0) {%>
                         <%_.each(data.data[1].data.R2, function(i) {%>
                         <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
+                            <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                            <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                            <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                            <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                            <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                            <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                         </tr>
                         <% })} else {%>
                         <tr>
@@ -1117,42 +1117,42 @@ animation-name: glow-red;
             </div>
         </div>
 <div class="fwfs" style="position:absolute; z-index:2; top: 398px;left: 443px;">
-            <div class="fim-dropdown">
-                <a href="javascript:;" class="pkg_title">R3</a>
-                <div class="inner" style="left: 470px; top: 415px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
-                    <table class="table table-bordered table-condensed table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 3 Status</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
-                            <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
-                        </tr>
-                        <tr>
-                            <th style="color: rgb(255, 175, 120);">Room</th>
-                            <th style="color: rgb(255, 175, 120);">Wayside</th>
-                            <th style="color: rgb(255, 175, 120);">PAT Status</th>
-                            <th style="color: rgb(255, 175, 120);">SAT Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <%if((data.data[1].data.R3).length >0) {%>
-                        <%_.each(data.data[1].data.R3, function(i) {%>
-                        <tr>
-                            <td><%=i['station_no']%></td>
-                            <td><%=i['station_progress']%>%</td>
-                            <td><%=i['roomside_progress']%>%</td>
-                            <td><%=i['wayside_progress']%>%</td>
-                            <td><%=i['PAT_progress']%>%</td>
-                            <td><%=i['SAT_progress']%>%</td>
-                        </tr>
-                        <% })} else {%>
-                        <tr>
-                            <td colspan="6">No Data Available</td>
-                        </tr>
-                        <%}%>
+    <div class="fim-dropdown">
+        <a href="javascript:;" class="pkg_title">R3</a>
+        <div class="inner" style="left: 404px; font-size: 12px; font-weight: normal; background-color: rgb(50, 51, 51); border: 1px solid #090909; box-shadow: 0px 0px 2px 1px #0f1014; max-width: 500; width: 500px;">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th colspan="6" style="text-align: center;font-size: 13px; color: #fff; font-weight: 600; text-transform: uppercase;">Region 3 Status</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="2" style="color: rgb(0, 158, 140);">Summary Progress</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Installation</th>
+                    <th colspan="2" style="color: rgb(0, 158, 140);">Testing & Commission</th>
+                </tr>
+                <tr>
+                    <th style="color: rgb(255, 175, 120);">Room</th>
+                    <th style="color: rgb(255, 175, 120);">Wayside</th>
+                    <th style="color: rgb(255, 175, 120);">PAT Status</th>
+                    <th style="color: rgb(255, 175, 120);">SAT Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%if((data.data[1].data.R3).length >0) {%>
+                <%_.each(data.data[1].data.R3, function(i) {%>
+                <tr>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
+                </tr>
+                <% })} else {%>
+                <tr>
+                    <td colspan="6">No Data Available</td>
+                </tr>
+                <%}%>
                 </tbody>
             </table>
         </div>
@@ -1180,16 +1180,15 @@ animation-name: glow-red;
                 </tr>
                 </thead>
                 <tbody>
-
                 <%if((data.data[1].data.R4).length >0) {%>
                 <%_.each(data.data[1].data.R4, function(i) {%>
                 <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                 </tr>
                 <% })} else {%>
                 <tr>
@@ -1223,16 +1222,15 @@ animation-name: glow-red;
                 </tr>
                 </thead>
                 <tbody>
-
                 <%if((data.data[1].data.R5).length >0) {%>
                 <%_.each(data.data[1].data.R5, function(i) {%>
                 <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                 </tr>
                 <% })} else {%>
                 <tr>
@@ -1266,16 +1264,15 @@ animation-name: glow-red;
                 </tr>
                 </thead>
                 <tbody>
-
                 <%if((data.data[1].data.R6).length >0) {%>
                 <%_.each(data.data[1].data.R6, function(i) {%>
                 <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                 </tr>
                 <% })} else {%>
                 <tr>
@@ -1309,16 +1306,15 @@ animation-name: glow-red;
                 </tr>
                 </thead>
                 <tbody>
-
                 <%if((data.data[1].data.R7).length >0) {%>
                 <%_.each(data.data[1].data.R7, function(i) {%>
                 <tr>
-                    <td><%=i['station_no']%></td>
-                    <td><%=i['station_progress']%>%</td>
-                    <td><%=i['roomside_progress']%>%</td>
-                    <td><%=i['wayside_progress']%>%</td>
-                    <td><%=i['PAT_progress']%>%</td>
-                    <td><%=i['SAT_progress']%>%</td>
+                    <td><%=(i['station_no']==null)?"-":i['station_no']%></td>
+                    <td><%=isNaN(parseInt(i['station_progress']))?"-":i['station_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['roomside_progress']))?"-":i['roomside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['wayside_progress']))?"-":i['wayside_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['PAT_progress']))?"-":i['PAT_progress']+"%"%></td>
+                    <td><%=isNaN(parseInt(i['SAT_progress']))?"-":i['SAT_progress']+"%"%></td>
                 </tr>
                 <% })} else {%>
                 <tr>
