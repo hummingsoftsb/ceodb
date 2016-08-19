@@ -278,53 +278,53 @@ animation-name: glow-red;
             if ($(that).closest(".fim-dropdown").length < 1 && !$(that).hasClass("fim-dropdown") && !$(that).hasClass("inner")) $(".fim-dropdown").removeClass('active');
         });
 
-
-        /*        $(window).on("load resize",function(){
-         $(".fim-dropdown > .inner").each(function(){
-         var pos = $(this).attr("data-arrange");
-         $(this).css(
-         pos , $(this).attr("data-value")+'px',
-         "top", top
-         );
-         });
-         });*/
-
         $('#modal_insllation').on('shown.bs.modal', function(e) {
+            var p1=0,p2=0;
             var $modal = $(this);
             dataName = $(e.relatedTarget).data('name');
             dataRoom = $(e.relatedTarget).data('roomside');
             dataWay = $(e.relatedTarget).data('wayside');
             $(e.currentTarget).find('#station_name').text(dataName);
             if((Object.keys(dataRoom).length)>0) {
-                var j = gen_tab(dataRoom);
+                var j = gen_tab(dataRoom,true);
+                p1= j.avg;
                 $(e.currentTarget).find('#data_room').html('').append(j.table);
-                $(e.currentTarget).find('#data_room_avg').text("Total Progress : " + j.avg + "%");
+                $(e.currentTarget).find('#data_room_avg').text("Total Progress : " + p1+ "%");
+
             }else{
                 $(e.currentTarget).find('#data_room').html('').append("No data Found");
                 $(e.currentTarget).find('#data_room_avg').text("Total Progress : 0% ");
             }
             if((Object.keys(dataWay).length)>0) {
-                var j = gen_tab(dataWay);
+                var j = gen_tab(dataWay,false);
+                p2= j.avg;
                 $(e.currentTarget).find('#data_way').html('').append(j.table);
-                $(e.currentTarget).find('#data_way_avg').text("Total Progress : " + j.avg + "%");
+                $(e.currentTarget).find('#data_way_avg').text("Total Progress : " + p2 + "%");
             }else{
                 $(e.currentTarget).find('#data_way').html('').append("No data Found");
                 $(e.currentTarget).find('#data_way_avg').text("Total Progress : 0%");
             }
+            RenderPieChart($("#chart")[0],parseFloat(((parseFloat(p1)+parseFloat(p2))/2).toFixed(2)));
         })
 
-        var gen_tab = function(d){
+        var gen_tab = function(d,t){
             var e = new Object();
             var $table = $('<table class="table-condensed table-hover" style="width: 100%">');
             var $tbody = $('<tbody>');
             var g=0;
+            var cs;
+            if(t){
+                cs="check-room"
+            }else{
+                cs="check-way"
+            }
             $.each(d, function(k,v) {
                 var t=0;
                 $.each(v, function(x,z) {
                     t=t+parseInt(z);
                 })
                 var $tr = $('<tr>');
-                var $td = $('<td style="border-color: transparent"><div class="col-sm-2"><div class="checkbox" style="padding-left: 10px;"><input type="checkbox" value="'+((t/ v.length).toFixed(2))+'"></div></div><div class="col-sm-10">'+k+'</div></td>')
+                var $td = $('<td style="border-color: transparent"><div class="col-sm-2"><div class="checkbox" style="padding-left: 0px"><input type="checkbox" class="'+cs+'" checked="checked" value="'+((t/ v.length).toFixed(2))+'"></div></div><div class="col-sm-10" style="text-align: left">'+k+'</div></td>')
                 $tr.append($td);
                 $tbody.append($tr)
                 g+=parseInt(t)/ v.length;
@@ -334,6 +334,29 @@ animation-name: glow-red;
             e['avg'] = (g/ Object.keys(d).length).toFixed(2);
             return e;
         }
+        var togglePercentage = function(t) {
+            var c = 0;
+            var v = 0;
+                t.each(function () {
+                    if ($(this).is(':checked')) {
+                        v += parseFloat($(this).val());
+                        c++;
+                    }
+                })
+            return (v==0 && c==0)? "0.00" :(v / c).toFixed(2);
+        }
+        $(document).on("change",".check-room", function () {
+            var pr = togglePercentage($(".check-room"))
+            var pw = togglePercentage($(".check-way"))
+            $('#data_room_avg').text("Total Progress : " + pr + "%");
+            RenderPieChart($("#chart")[0],parseFloat(((parseFloat(pr)+parseFloat(pw))/2).toFixed(2)));
+        })
+        $(document).on("change", ".check-way", function(){
+            var pr = togglePercentage($(".check-room"))
+            var pw = togglePercentage($(".check-way"))
+            $('#data_way_avg').text("Total Progress : "+ pw +"%");
+            RenderPieChart($("#chart")[0],parseFloat(((parseFloat(pr)+parseFloat(pw))/2).toFixed(2)));
+        })
 
     });
 
@@ -1521,7 +1544,7 @@ animation-name: glow-red;
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div style="height: 30%;" id="chart"></div>
+                                <div style="min-width: 300px; height: 250px; margin: 0 auto" id="chart"></div>
                             </div>
                         </div>
                     </div>
