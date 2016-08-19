@@ -488,15 +488,29 @@ mpxd.modules.signal_train_control_system.detail_progress = Backbone.View.extend(
         var d = $.Deferred();
         var y = ['rgb(255, 221, 32)','rgb(240, 178, 15)'];
         var g = ['rgb(77, 180, 77)','green'];
+        var r = ['rgb(255, 56, 32)','rgb(255, 17, 8)'];
         d3.xml("/mpxd/assets/img/systems/stcs/mrt_train_diagram_3.svg", "image/svg+xml", function (error, xml) {
 
             if (error) throw console.log("error")
             document.getElementById('tc1').appendChild(xml.documentElement);
             var a = document.getElementById('svg4265');
-            d3.select("#path4836").style("fill", y[0]);
-            d3.select("#path5007").style("fill", y[1]);
-            d3.select("#path5009").style("fill", y[1]);
-            d3.select("#path4981").style("fill", y[1]);
+            var overall=parseFloat((parseFloat(that.data.data[1].data[0]['overall'])+parseFloat(that.data.data[1].data[0]['static'])+parseFloat(that.data.data[1].data[0]['dynamic']))/Object.keys(that.data.data[1].data[0]).length).toFixed(2);
+            if(overall==100) {
+                d3.select("#path4836").style("fill", g[0]);
+                d3.select("#path5007").style("fill", g[1]);
+                d3.select("#path5009").style("fill", g[1]);
+                d3.select("#path4981").style("fill", g[1]);
+            }else if(overall >=1){
+                d3.select("#path4836").style("fill", y[0]);
+                d3.select("#path5007").style("fill", y[1]);
+                d3.select("#path5009").style("fill", y[1]);
+                d3.select("#path4981").style("fill", y[1]);
+            }else{
+                d3.select("#path4836").style("fill", r[0]);
+                d3.select("#path5007").style("fill", r[1]);
+                d3.select("#path5009").style("fill", r[1]);
+                d3.select("#path4981").style("fill", r[1]);
+            }
         });
     }
 });
@@ -534,7 +548,7 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
         var html = mpxd.getTemplate(that.data.type);
         template = _.template(html, {data: that.data});
         that.$el.html(template);
-
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         $i = that.$el.find('#mapimg');
         //Width and height
         var w = $i.width();
@@ -903,18 +917,21 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             .attr("in", "offsetBlur")
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
-
-        for (var i = 1; i < 36; i++){
-            var d;
-            if(i<10){
-                d = parseFloat(data['STN0' + i]);
-                processVariance('STN0'+i, d);
-            }else {
-                d = parseFloat(data['STN' + i]);
-                processVariance('STN'+i, d);
+        //console.log(that.data.data[1].data);
+        _.each(that.data.data[1].data, function(v,k) {
+            var t= 0, c = 0,tt=0.00,cl='text-white';
+            if(v.length>0) {
+                _.each(v, function (i, x) {
+                    t += (i['station_progress']==null || i['station_progress']=="")?0:parseFloat(i['station_progress']);
+                    d = parseFloat(i['station_progress']);
+                    processVariance(i['station_no'], d);
+                    c++;
+                })
+                tt=parseFloat(t/c).toFixed(2);
             }
-
-        }
+            if(tt==100){cl='text-green';}else if(tt>=1){cl='text-yellow';}else if(tt==0){cl='text-red';}
+            $('.'+ k.toLowerCase()).text(tt+"%").addClass(cl);
+        });
         processVariance('dpt1', parseFloat(data['SUBD']));
         processVariance('dpt2', parseFloat(data['KAJD']));
         processVariance('sbk-s-01', parseFloat(data['SBK-S-01']));
@@ -1016,11 +1033,9 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
         }
 
         function processVariance(g, v) {
-            if (v == 1) groupGoGrey(g);
-            else if (v == 2) groupGoYellow(g);
-            else if (v == 3) groupGoRed(g);
-            else if (v == 4) groupGoKavi(g);
-            else if (v == 5) groupGoGreen(g);
+            if (v == 100) groupGoGreen(g);
+            else if (v >=1) groupGoYellow(g);
+            else if (v ==0) groupGoRed(g);
             else groupGoGrey(g);
         }
         if($(window).width() > 1900){
