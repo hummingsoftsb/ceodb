@@ -1055,69 +1055,8 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
 
             });
         }
+        //RenderPieChart(that.$el.find("#chart")[0],0)
 
-        var currentProgress = 50;
-        var remainingProgress = 100 - currentProgress;
-        that.$el.find("#chart").highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: 0,
-                plotShadow: false,
-                margin: [0, 0, 0, 0],
-                spacingTop: 0,
-                spacingBottom: 0,
-                spacingLeft: 0,
-                spacingRight: 0
-            },
-            title: {
-                text: currentProgress + '%',
-                style: {
-                    color: '#9EDD2E',
-                    fontSize: '250%',
-                    fontWeight: 'bold'
-                },
-                align: 'center',
-                verticalAlign: 'middle',
-                y: 10
-            },
-            tooltip: {
-                pointFormat: '{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: false,
-                        distance: -50,
-                        style: {
-                            fontWeight: 'bold',
-                            color: 'white',
-                            textShadow: '0px 1px 2px black'
-                        }
-                    },
-                    startAngle: 0,
-                    endAngle: 360
-                }
-            },
-            series: [{
-                type: 'pie',
-                innerSize: '90%',
-                data: [
-                    {
-                        name: 'Completed',
-                        y: currentProgress,
-                        color: '#15A6E9'
-                    },
-                    {
-                        name: 'Remaining',
-                        y: remainingProgress,
-                        color: 'rgba(0,0,0,0.2)'
-                    },
-                ]
-            }],
-            credits: {
-                enabled: false
-            }
-        });
     }
 
 });
@@ -1163,3 +1102,68 @@ mpxd.modules.signal_train_control_system.overall_progress = Backbone.View.extend
 
     }
 });
+function RenderPieChart(elementId, dataList) {
+    var currentProgress = dataList;
+    var remainingProgress = 100 - currentProgress;
+    new Highcharts.Chart({
+        chart: {
+            renderTo: elementId,
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false,
+            margin: [0, 0, 0, 0],
+            spacingTop: 0,
+            spacingBottom: 0,
+            spacingLeft: 0,
+            spacingRight: 0
+        },
+        title: {
+            text: currentProgress + '%',
+            style: {
+                color: '#9EDD2E',
+                fontSize: '250%',
+                fontWeight: 'bold'
+            },
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 10
+        },
+        tooltip: {
+            pointFormat: '{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textShadow: '0px 1px 2px black'
+                    }
+                },
+                startAngle: 0,
+                endAngle: 360
+            }
+        },
+        series: [{
+            type: 'pie',
+            innerSize: '90%',
+            data: [
+                {
+                    name: 'Completed',
+                    y: currentProgress,
+                    color: '#15A6E9'
+                },
+                {
+                    name: 'Remaining',
+                    y: remainingProgress,
+                    color: 'rgba(0,0,0,0.2)'
+                },
+            ]
+        }],
+        credits: {
+            enabled: false
+        }
+    });
+}
