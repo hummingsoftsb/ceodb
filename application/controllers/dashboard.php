@@ -252,7 +252,7 @@ class Dashboard extends CI_Controller {
 			unset($gets['item_id']);
 			unset($gets['date']);
 			unset($gets['_']);
-			
+
             $query = array_keys($gets);
             $itemID = $this->input->get('item_id');
 
