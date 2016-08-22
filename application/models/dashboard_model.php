@@ -1651,6 +1651,61 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
+    public function get_tw_area_data($depotname="dept1",$date = FALSE)
+    {
+        $i = 0;
+        $tem_array = array();
+        $region_progress = array(
+            "value" => array()
+        );
+        if($depotname=='dept1'){
+            if ($date) { // if date selected
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
+                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
+            } else {
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot'";
+                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot'";
+            }
+        }
+        if($depotname=='dept2') {
+            if ($date) { // if date selected
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+            } else {
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot'";
+                $query2="SELECT count(area_percentage_completed) as c_count,sum(area_percentage_completed) as sum_area FROM tbl_tw_area where depot_name='kajang depot'";
+            }
+        }
+        $query = $this->db->query($query);
+        $result = $query->result_array();
+        $query2 = $this->db->query($query2);
+        $result2 = $query2->result_array();
+        foreach ($result as $val) {
+            $tem_array[$i] = array(
+                "depot_name" => $val['depot_name'],
+                "area_no" => $val['area_no'],
+                "area_master_propert" => $val['area_master_propert'],
+                "area_sub_property" => $val['area_sub_property'],
+                "area_plan" => $val['area_plan'],
+                "area_done" => $val['area_done'],
+                "area_percentage_completed" => $val['area_percentage_completed']
+            );
+            $i++;
+        }
+        foreach ($result2 as $val) {
+            $c_count=$val['c_count'];
+            $sum_area=$val['sum_area'];
+            $percentage=($sum_area*100)/$c_count;
+            $tem_array[$i] = array(
+                "total"=>$percentage
+            );
+            $i++;
+        }
+        $region_progress['value'] = json_encode($tem_array);
+        return $region_progress;
+    }
+
+
     public function get_tw_overall_percentage()
     {
         $query = 'SELECT * FROM "tbl_tw_overall_percentage" WHERE "data_date" = (SELECT MAX("data_date") FROM "tbl_tw_overall_percentage")';
