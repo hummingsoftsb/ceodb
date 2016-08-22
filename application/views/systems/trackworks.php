@@ -808,8 +808,8 @@
 		<a title="Sungai Kantan" href="<?php echo $this->config->base_url(); ?>sungai-kantan/index" style="position: absolute; top: 416px; left: 1119px; height: 15px; width: 50px;"></a>
 		<a title="Bandar Kajang" href="<?php echo $this->config->base_url(); ?>bandar-kajang/index" style="position: absolute; top: 441px; left: 1176px; height: 15px; width: 50px;"></a>
 		<a title="Kajang" href="<?php echo $this->config->base_url(); ?>kajang/index" style="position: absolute; top: 466px; left: 1220px; height: 15px; width: 50px;"></a>
-		<a title="Sungai Buloh Depot" href="<?php echo $this->config->base_url(); ?>dpt1/index" style="position: absolute; top: 490px; left: 15px; height: 35px; width: 95px;"></a>
-		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 475px; left: 1128px; height: 30px; width: 45px;"></a>
+		<a title="Sungai Buloh Depot" href="<?php echo $this->config->base_url(); ?>sbk-s-06/dpt1" style="position: absolute; top: 490px; left: 15px; height: 35px; width: 95px;"></a>
+		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>sbk-s-06/dpt2" style="position: absolute; top: 475px; left: 1128px; height: 30px; width: 45px;"></a>
 		
 		<!-- icon href -->
 		<a title="Sungai Buloh" href="<?php echo $this->config->base_url(); ?>sungai-buloh/index" style="position: absolute; top: 400px; left: 63px; height: 15px; width: 15px;"></a>

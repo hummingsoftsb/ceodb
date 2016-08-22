@@ -5,6 +5,11 @@ Date    : 14/07/2016*/
 mpxd.constructors.page_info_ring = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
+mpxd.constructors.progress_alt = function(data) {
+    var el = "#portlet_" + data.id;
+    if (typeof callback == "undefined") callback = function(){};
+    return new mpxd.modules.track_works.progress({data: data, el: el, callback: callback});
+}
 mpxd.constructors.it_cs_stations = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
@@ -18,6 +23,9 @@ mpxd.constructors.overall_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 mpxd.constructors.chainage_progress = function(data) {
+    mpxd.modules.general.GenerateGeneralview(data);
+}
+mpxd.constructors.area_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 mpxd.constructors.station_tracklist = function(data,callback) {
@@ -1125,6 +1133,80 @@ mpxd.modules.signal_train_control_system.overall_progress = Backbone.View.extend
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 
+    }
+});
+mpxd.modules.track_works.progress = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate("progress");
+        var currentProgress = 100;
+        var remainingProgress = 100 - currentProgress;
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('#chart_' + that.data.id).highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false,
+                margin: [0, 0, 0, 0],
+                spacingTop: 0,
+                spacingBottom: 0,
+                spacingLeft: 0,
+                spacingRight: 0
+            },
+            title: {
+                text: currentProgress + '%',
+                style: {
+                    color: '#9EDD2E',
+                    fontSize: '250%',
+                    fontWeight: 'bold'
+                },
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 10
+            },
+            tooltip: {
+                pointFormat: '{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: false,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px black'
+                        }
+                    },
+                    startAngle: 0,
+                    endAngle: 360,
+                }
+            },
+            series: [{
+                type: 'pie',
+                innerSize: '98%',
+                data: [
+                    {
+                        name: 'Completed',
+                        y: currentProgress,
+                        color: '#15A6E9'
+                    },
+                    {
+                        name: 'Remaining',
+                        y: remainingProgress,
+                        color: 'rgba(0,0,0,0.2)'
+                    },
+                ]
+            }]
+            ,
+            credits: {
+                enabled: false
+            },
+        });
     }
 });
 function RenderPieChart(elementId, dataList) {

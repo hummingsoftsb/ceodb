@@ -351,7 +351,10 @@ class Dashboard extends CI_Controller {
                                 array_push($data_source,$cdata);
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;
-                        }
+                            case "dpt1": case "dpt2":
+                                $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
+                                break;
+                            }
                         break;
                     case "sbk-s-03":
                         $page_name= $this->dashboard_model->get_page($itemID);
