@@ -1897,7 +1897,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R1"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1910,7 +1910,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R2"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1923,7 +1923,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R3"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1936,7 +1936,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R4"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1949,7 +1949,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R5"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1962,7 +1962,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R6"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],
@@ -1975,7 +1975,7 @@ class Dashboard_model extends CI_Model
             {
                 array_push($tem_array["R7"],array(
                         "region_no" => $val['region_no'],
-                        "station_no" => $val['station_no'],
+                        "station_no" => str_replace(' ', '', $val['station_no']),
                         "station_progress" => $val['station_progress'],
                         "roomside_progress" => $val['roomside_progress'],
                         "wayside_progress" => $val['wayside_progress'],

@@ -30,6 +30,7 @@ mpxd.templateURLs = {
     "page_info": {"templateURL": "assets/templates/page_info.html"},
     "page_info_ring": {"templateURL": "assets/templates/page_info_ring.html"},
     "progress": {"templateURL": "assets/templates/progress.html"},
+    "progress_alt": {"templateURL": "assets/templates/progress.html"},
     "commercial": {"templateURL": "assets/templates/commercial.html"},
     "hsse": {"templateURL": "assets/templates/hsse.html"},
     "kpi": {"templateURL": "assets/templates/kpi.html"},
@@ -95,7 +96,8 @@ mpxd.templateURLs = {
     "trainborne": {"templateURL": "assets/templates/trainborne.html"},
     "stcs_map": {"templateURL": "assets/templates/stcs_map.html"},
     "stcs_map_bg": {"templateURL": "assets/templates/stcs_map_bg.html"},
-    "trainborne_overall_et": {"templateURL": "assets/templates/trainborne_overall_et.html"}
+    "trainborne_overall_et": {"templateURL": "assets/templates/trainborne_overall_et.html"},
+    "area_progress": {"templateURL": "assets/templates/area_progress.html"}
 
 }
 

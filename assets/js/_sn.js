@@ -5,6 +5,11 @@ Date    : 14/07/2016*/
 mpxd.constructors.page_info_ring = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
+mpxd.constructors.progress_alt = function(data) {
+    var el = "#portlet_" + data.id;
+    if (typeof callback == "undefined") callback = function(){};
+    return new mpxd.modules.track_works.progress({data: data, el: el, callback: callback});
+}
 mpxd.constructors.it_cs_stations = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
@@ -18,6 +23,9 @@ mpxd.constructors.overall_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 mpxd.constructors.chainage_progress = function(data) {
+    mpxd.modules.general.GenerateGeneralview(data);
+}
+mpxd.constructors.area_progress = function(data) {
     mpxd.modules.general.GenerateGeneralview(data);
 }
 mpxd.constructors.station_tracklist = function(data,callback) {
@@ -488,15 +496,29 @@ mpxd.modules.signal_train_control_system.detail_progress = Backbone.View.extend(
         var d = $.Deferred();
         var y = ['rgb(255, 221, 32)','rgb(240, 178, 15)'];
         var g = ['rgb(77, 180, 77)','green'];
+        var r = ['rgb(255, 56, 32)','rgb(255, 17, 8)'];
         d3.xml("/mpxd/assets/img/systems/stcs/mrt_train_diagram_3.svg", "image/svg+xml", function (error, xml) {
 
             if (error) throw console.log("error")
             document.getElementById('tc1').appendChild(xml.documentElement);
             var a = document.getElementById('svg4265');
-            d3.select("#path4836").style("fill", y[0]);
-            d3.select("#path5007").style("fill", y[1]);
-            d3.select("#path5009").style("fill", y[1]);
-            d3.select("#path4981").style("fill", y[1]);
+            var overall=parseFloat((parseFloat(that.data.data[1].data[0]['overall'])+parseFloat(that.data.data[1].data[0]['static'])+parseFloat(that.data.data[1].data[0]['dynamic']))/Object.keys(that.data.data[1].data[0]).length).toFixed(2);
+            if(overall==100) {
+                d3.select("#path4836").style("fill", g[0]);
+                d3.select("#path5007").style("fill", g[1]);
+                d3.select("#path5009").style("fill", g[1]);
+                d3.select("#path4981").style("fill", g[1]);
+            }else if(overall >=1){
+                d3.select("#path4836").style("fill", y[0]);
+                d3.select("#path5007").style("fill", y[1]);
+                d3.select("#path5009").style("fill", y[1]);
+                d3.select("#path4981").style("fill", y[1]);
+            }else{
+                d3.select("#path4836").style("fill", r[0]);
+                d3.select("#path5007").style("fill", r[1]);
+                d3.select("#path5009").style("fill", r[1]);
+                d3.select("#path4981").style("fill", r[1]);
+            }
         });
     }
 });
@@ -534,11 +556,21 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
         var html = mpxd.getTemplate(that.data.type);
         template = _.template(html, {data: that.data});
         that.$el.html(template);
-
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
         $i = that.$el.find('#mapimg');
         //Width and height
         var w = $i.width();
         var h = $i.height()+200;
+        console.log($(window).width());
+        if($(window).width() > 1900) {
+            that.$el.find('#svg-container').css({"height":1055})
+        }else if($(window).width() > 1700) {
+            that.$el.find('#svg-container').css({"height":1030})
+        }else if($(window).width() > 1600) {
+            that.$el.find('#svg-container').css({"height":980})
+        }else if($(window).width() > 1500) {
+            that.$el.find('#svg-container').css({"height":850})
+        }
         var station_circle_size = 9;
         var parking_box_size = 15;
         data = {"overall_actual":80,"overall_early":82,"overall_late":81,"overall_variance":-3,"progress_date":"31-Jan-16","comdate":"31-Jan-16","comments":[{"message_id":"32","message":"sss","timestamp":"30 Jul 2016","ring":"3"},{"message_id":"31","message":"sebin","timestamp":"29 Jul 2016","ring":"2"},{"message_id":"30","message":"sebin","timestamp":"30 Jul 2016","ring":"2"},{"message_id":"29","message":"Checking...","timestamp":"29 Jul 2016","ring":"2"}],"summary":[{"summary":"Installation & Termination for TRIP Cable Northern","progress_completion":null,"progress_completion_ef":null,"ac_progress_completion":"100","ac_ef":"100","ac_lf":"100","dc_progress_completion":"96.40","dc_ef":"100","dc_lf":"100","data_date":"2016-04-01"},{"summary":"Installation & Termination for TRIP Cable Southern","progress_completion":null,"progress_completion_ef":null,"ac_progress_completion":"95.02","ac_ef":"100","ac_lf":"100","dc_progress_completion":"23.13","dc_ef":"20","dc_lf":"12.73","data_date":"2016-04-01"},{"summary":"Overall T&C for PS&DS","progress_completion":"42.44","progress_completion_ef":"76.45","ac_progress_completion":null,"ac_ef":null,"ac_lf":null,"dc_progress_completion":null,"dc_ef":null,"dc_lf":null,"data_date":"2016-04-01"},{"summary":"Overall Installation PS & DS (Station)","progress_completion":"79.50","progress_completion_ef":"86.00","ac_progress_completion":null,"ac_ef":null,"ac_lf":null,"dc_progress_completion":null,"dc_ef":null,"dc_lf":null,"data_date":"2016-04-01"}],"i_pscada":{"KAJD":["N\/A"],"KWDE2":["N\/A"],"Semantan Portal":["N\/A"],"STN 01":["In Progress"],"STN 02":["In Progress"],"STN 04":["In Progress"],"STN 05":["In Progress"],"STN 06":["In Progress"],"STN 07":["In Progress"],"STN 08":["In Progress"],"STN 09":["In Progress"],"STN 10":["In Progress"],"STN 12":["In Progress"],"STN 13":["In Progress"],"STN 14":["In Progress"],"STN 15":["N\/A"],"STN 16":["N\/A"],"STN 17":["N\/A"],"STN 18":["N\/A"],"STN 20":["N\/A"],"STN 21":["N\/A"],"STN 22":["N\/A"],"STN 23":["N\/A"],"STN 24":["N\/A"],"STN 25":["N\/A"],"STN 26":["N\/A"],"STN 27":["N\/A"],"STN 28":["N\/A"],"STN 29":["N\/A"],"STN 30":["N\/A"],"STN 31":["N\/A"],"STN 33":["N\/A"],"STN 34":["N\/A"],"STN 35":["N\/A"],"SUBD":["In Progress"]},"project_spend_to_date":15.50896,"awarded_packages":21.35293,"wpcs_payment":12.83955,"variation_orders":407.05,"pdp_reimbursables":1446.98,"retention_sum":398.4,"contingency_sum":548.16,"KAJD":"1","KWDE2":"2","SEMAN":"1","STN01":"2","STN02":"2","STN04":"3","STN05":"2","STN06":"2","STN07":"3","STN08":"2","STN09":"2","STN10":"2","STN12":"2","STN13":"2","STN14":"2","STN15":"1","STN16":"1","STN17":"1","STN18":"1","STN20":"1","STN21":"1","STN22":"1","STN23":"4","STN24":"4","STN25":"5","STN26":"5","STN27":"5","STN28":"5","STN29":"5","STN30":"1","STN31":"1","STN33":"1","STN34":"2","STN35":"2","SUBD":"1"};
@@ -903,18 +935,21 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
             .attr("in", "offsetBlur")
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
-
-        for (var i = 1; i < 36; i++){
-            var d;
-            if(i<10){
-                d = parseFloat(data['STN0' + i]);
-                processVariance('STN0'+i, d);
-            }else {
-                d = parseFloat(data['STN' + i]);
-                processVariance('STN'+i, d);
+        //console.log(that.data.data[1].data);
+        _.each(that.data.data[1].data, function(v,k) {
+            var t= 0, c = 0,tt=0.00,cl='text-white';
+            if(v.length>0) {
+                _.each(v, function (i, x) {
+                    t += (i['station_progress']==null || i['station_progress']=="")?0:parseFloat(i['station_progress']);
+                    d = parseFloat(i['station_progress']);
+                    processVariance(i['station_no'], d);
+                    c++;
+                })
+                tt=parseFloat(t/c).toFixed(2);
             }
-
-        }
+            if(tt==100){cl='text-green';}else if(tt>=1){cl='text-yellow';}else if(tt==0){cl='text-red';}
+            $('.'+ k.toLowerCase()).text(tt+"%").addClass(cl);
+        });
         processVariance('dpt1', parseFloat(data['SUBD']));
         processVariance('dpt2', parseFloat(data['KAJD']));
         processVariance('sbk-s-01', parseFloat(data['SBK-S-01']));
@@ -1016,11 +1051,9 @@ mpxd.modules.signal_train_control_system.map_bg = Backbone.View.extend({
         }
 
         function processVariance(g, v) {
-            if (v == 1) groupGoGrey(g);
-            else if (v == 2) groupGoYellow(g);
-            else if (v == 3) groupGoRed(g);
-            else if (v == 4) groupGoKavi(g);
-            else if (v == 5) groupGoGreen(g);
+            if (v == 100) groupGoGreen(g);
+            else if (v >=1) groupGoYellow(g);
+            else if (v ==0) groupGoRed(g);
             else groupGoGrey(g);
         }
         if($(window).width() > 1900){
@@ -1100,6 +1133,80 @@ mpxd.modules.signal_train_control_system.overall_progress = Backbone.View.extend
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
 
+    }
+});
+mpxd.modules.track_works.progress = Backbone.View.extend({
+    initialize: function (options) {
+        this.data = options.data;
+        this.render();
+    },render: function () {
+        var that = this;
+        var html = mpxd.getTemplate("progress");
+        var currentProgress = 100;
+        var remainingProgress = 100 - currentProgress;
+        template = _.template(html, {data: that.data});
+        that.$el.html(template);
+        that.$el.find('#chart_' + that.data.id).highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false,
+                margin: [0, 0, 0, 0],
+                spacingTop: 0,
+                spacingBottom: 0,
+                spacingLeft: 0,
+                spacingRight: 0
+            },
+            title: {
+                text: currentProgress + '%',
+                style: {
+                    color: '#9EDD2E',
+                    fontSize: '250%',
+                    fontWeight: 'bold'
+                },
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 10
+            },
+            tooltip: {
+                pointFormat: '{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: false,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px black'
+                        }
+                    },
+                    startAngle: 0,
+                    endAngle: 360,
+                }
+            },
+            series: [{
+                type: 'pie',
+                innerSize: '98%',
+                data: [
+                    {
+                        name: 'Completed',
+                        y: currentProgress,
+                        color: '#15A6E9'
+                    },
+                    {
+                        name: 'Remaining',
+                        y: remainingProgress,
+                        color: 'rgba(0,0,0,0.2)'
+                    },
+                ]
+            }]
+            ,
+            credits: {
+                enabled: false
+            },
+        });
     }
 });
 function RenderPieChart(elementId, dataList) {
