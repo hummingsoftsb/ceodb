@@ -352,6 +352,8 @@ class Dashboard extends CI_Controller {
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;
                             case "dpt1": case "dpt2":
+                                $tdata=$this->dashboard_model->get_tw_area_data($page_name[0]['page'], $date);
+                                array_push($data_source,$tdata);
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;
                             }

@@ -1651,14 +1651,14 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
-    public function get_tw_area_data($depotname="dept1",$date = FALSE)
+    public function get_tw_area_data($depotname,$date = FALSE)
     {
         $i = 0;
         $tem_array = array();
         $region_progress = array(
             "value" => array()
         );
-        if($depotname=='dept1'){
+        if($depotname=='dpt1'){
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
@@ -1667,7 +1667,7 @@ class Dashboard_model extends CI_Model
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot'";
             }
         }
-        if($depotname=='dept2') {
+        if($depotname=='dpt2') {
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
@@ -1692,7 +1692,7 @@ class Dashboard_model extends CI_Model
             );
             $i++;
         }
-        foreach ($result2 as $val) {
+       /* foreach ($result2 as $val) {
             $c_count=$val['c_count'];
             $sum_area=$val['sum_area'];
             $percentage=($sum_area*100)/$c_count;
@@ -1700,7 +1700,7 @@ class Dashboard_model extends CI_Model
                 "total"=>$percentage
             );
             $i++;
-        }
+        }*/
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
