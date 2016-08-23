@@ -553,7 +553,7 @@
 										top: +60
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1700){
 							$("body").css("visibility", "hidden");
@@ -563,7 +563,7 @@
 										top: +50
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1500){
 							$("body").css("visibility", "hidden");
@@ -573,7 +573,7 @@
 										top: +30
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1300){
 							$("body").css("visibility", "hidden");
@@ -582,7 +582,7 @@
 									$("#container").animate({
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						}
 						var allowedPage = allowedPageToString();
@@ -626,7 +626,7 @@
 											top: +60
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1700){
 								$("body").css("visibility", "hidden");
@@ -636,7 +636,7 @@
 											top: +50
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1500){
 								$("body").css("visibility", "hidden");
@@ -646,7 +646,7 @@
 											top: +30
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1300){
 								$("body").css("visibility", "hidden");
@@ -655,7 +655,7 @@
 										$("#container").animate({
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							}
 							var allowedPage = allowedPageToString();
@@ -843,7 +843,7 @@
 		<a title="Sungai Kantan" href="<?php echo $this->config->base_url(); ?>sungai-kantan/index" style="position: absolute; top: 434px; left: 1127px; height: 15px; width: 15px;"></a>
 		<a title="Bandar Kajang" href="<?php echo $this->config->base_url(); ?>bandar-kajang/index" style="position: absolute; top: 450px; left: 1160px; height: 15px; width: 15px;"></a>
 		<a title="Kajang" href="<?php echo $this->config->base_url(); ?>kajang/index" style="position: absolute; top: 478px; left: 1203px; height: 15px; width: 15px;"></a>
-		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>dpt2/index" style="position: absolute; top: 455px; left: 1137px; height: 19px; width: 20px;"></a>
+		<a title="Kajang Depot" href="<?php echo $this->config->base_url(); ?>sbk-s-06/dpt2" style="position: absolute; top: 455px; left: 1137px; height: 19px; width: 20px;"></a>
 		
 <!--		<a title="Electric Trains" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-01/index" style="position: absolute; top: 492px; left: 555px; height: 52px; width: 45px;"></a>-->
 <!--		<a title="Depot Equipment &amp; Maintenance Vehicle" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-02/index" style="position: absolute; top: 492px; left: 606px; height: 52px; width: 45px;"></a>-->

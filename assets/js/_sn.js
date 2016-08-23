@@ -1167,7 +1167,7 @@ mpxd.modules.track_works.area = Backbone.View.extend({
         var prev='';
         _.each(that.data.data[1].data[prlt], function(i) {
             var $tr = $('<tr>');
-            var $td = '<td>'+ ((prev=='')?i.area_master_property:((prev==i.area_master_property)?'':i.area_master_property))+'</td><td>'+ i.area_sub_property+'</td><td>'+ i.area_plan+'</td><td>'+ i.area_done+'</td><td>'+ i.area_percentage_completed+'%</td>';
+            var $td = '<td>'+ ((prev=='')?i.area_master_property:((prev==i.area_master_property)?'':i.area_master_property))+'</td><td>'+ i.area_sub_property+'</td><td>'+ (i.area_plan==null)?'-':i.area_plan+'</td><td>'+ (i.area_done==null)?'-':i.area_done+'</td><td>'+ (i.area_percentage_completed==null)?'-':i.area_percentage_completed+'%</td>';
             prev=i.area_master_property;
             $tr.append($td);
             $tbody.append($tr);
