@@ -1690,7 +1690,7 @@ class Dashboard_model extends CI_Model
                 $aver=$sum_area/$count_area;
             }
             if($val['area_no']==1) {
-                array_push($tem_array["A1"], array(
+                array_push($tem_array["area1"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
                     "area_master_property" => $val['area_master_property'],
@@ -1701,7 +1701,7 @@ class Dashboard_model extends CI_Model
                 ));
             }
             if($val['area_no']==2) {
-                array_push($tem_array["A2"], array(
+                array_push($tem_array["area2"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
                     "area_master_property" => $val['area_master_property'],
@@ -1712,7 +1712,7 @@ class Dashboard_model extends CI_Model
                 ));
             }
             if($val['area_no']==3) {
-                array_push($tem_array["A3"], array(
+                array_push($tem_array["area3"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
                     "area_master_property" => $val['area_master_property'],
@@ -1724,7 +1724,7 @@ class Dashboard_model extends CI_Model
                 ));
             }
             if($val['area_no']==4) {
-                array_push($tem_array["A4"], array(
+                array_push($tem_array["area4"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
                     "area_master_property" => $val['area_master_property'],
