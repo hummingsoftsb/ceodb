@@ -1664,8 +1664,7 @@ class Dashboard_model extends CI_Model
             "area1"=>array(),
             "area2"=>array(),
             "area3"=>array(),
-            "area4"=>array(),
-            "average"=>array()
+            "area4"=>array()
         );
         $region_progress = array(
             "value" => array()
@@ -1744,9 +1743,7 @@ class Dashboard_model extends CI_Model
 
            $i++;
         }
-        array_push($tem_array["average"], array(
-            "average" =>$aver
-        ));
+        $tem_array["average"]=$aver;
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
