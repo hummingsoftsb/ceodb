@@ -1651,6 +1651,9 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
+    //Done by :ANCY MATHEW
+    //to area data
+    //Created on : 23/08/2016
     public function get_tw_area_data($depotname,$date = FALSE)
     {
         $i = 0;
