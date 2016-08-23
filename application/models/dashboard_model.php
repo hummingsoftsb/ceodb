@@ -1651,6 +1651,9 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
+    //Done by :ANCY MATHEW
+    //to area data
+    //Created on : 23/08/2016
     public function get_tw_area_data($depotname,$date = FALSE)
     {
         $i = 0;
@@ -1667,18 +1670,21 @@ class Dashboard_model extends CI_Model
         $region_progress = array(
             "value" => array()
         );
-        if($depotname=='dpt1') {
+        if($depotname=='dpt1'){
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
             } else {
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
             }
         }
         if($depotname=='dpt2') {
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+
             } else {
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+
+                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+
             }
         }
         $query = $this->db->query($query);
