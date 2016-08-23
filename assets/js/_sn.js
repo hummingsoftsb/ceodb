@@ -1159,7 +1159,8 @@ mpxd.modules.track_works.area = Backbone.View.extend({
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        console.log(that.data.data[1])
+        console.log((that.data.title).replace(" ","").toLowerCase());
+        console.log(that.data.data[1].data);
         var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
         var $thead= $('<thead><tr><th></th> <th></th><th style="color: rgb(255, 212, 97);">Plan</th><th style="color: rgb(0, 158, 140);">Done</th><th style="color: rgb(255, 175, 120);">Completed(%)</th> </tr>');
         var $tbody = $('<tbody>');
