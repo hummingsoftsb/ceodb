@@ -1676,11 +1676,8 @@ class Dashboard_model extends CI_Model
         if($depotname=='dpt2') {
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
-
             } else {
-
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
-
             }
         }
         $query = $this->db->query($query);
@@ -1696,7 +1693,7 @@ class Dashboard_model extends CI_Model
                 array_push($tem_array["A1"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
-                    "area_master_propert" => $val['area_master_propert'],
+                    "area_master_property" => $val['area_master_property'],
                     "area_sub_property" => $val['area_sub_property'],
                     "area_plan" => $val['area_plan'],
                     "area_done" => $val['area_done'],
@@ -1707,7 +1704,7 @@ class Dashboard_model extends CI_Model
                 array_push($tem_array["A2"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
-                    "area_master_propert" => $val['area_master_propert'],
+                    "area_master_property" => $val['area_master_property'],
                     "area_sub_property" => $val['area_sub_property'],
                     "area_plan" => $val['area_plan'],
                     "area_done" => $val['area_done'],
@@ -1718,7 +1715,7 @@ class Dashboard_model extends CI_Model
                 array_push($tem_array["A3"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
-                    "area_master_propert" => $val['area_master_propert'],
+                    "area_master_property" => $val['area_master_property'],
                     "area_sub_property" => $val['area_sub_property'],
                     "area_plan" => $val['area_plan'],
                     "area_done" => $val['area_done'],
@@ -1730,7 +1727,7 @@ class Dashboard_model extends CI_Model
                 array_push($tem_array["A4"], array(
                     "depot_name" => $val['depot_name'],
                     "area_no" => $val['area_no'],
-                    "area_master_propert" => $val['area_master_propert'],
+                    "area_master_property" => $val['area_master_property'],
                     "area_sub_property" => $val['area_sub_property'],
                     "area_plan" => $val['area_plan'],
                     "area_done" => $val['area_done'],
