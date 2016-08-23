@@ -1158,6 +1158,18 @@ mpxd.modules.track_works.area = Backbone.View.extend({
         var html = mpxd.getTemplate(that.data.type);
         template = _.template(html, {data: that.data});
         that.$el.html(template);
+        that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
+        console.log(that.data.data[1])
+        var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
+        var $thead= $('<thead><tr><th></th> <th></th><th style="color: rgb(255, 212, 97);">Plan</th><th style="color: rgb(0, 158, 140);">Done</th><th style="color: rgb(255, 175, 120);">Completed(%)</th> </tr>');
+        var $tbody = $('<tbody>');
+        _.each(that.data.data[1].data, function(i) {
+            var $tr = $('<tr>');
+            var $td = $('<td>');
+        })
+        $table.append($thead);
+        $table.append($tbody);
+        //that.$el.find('.content').append($table);
     }
 });
 function RenderPieChart(elementId, dataList) {

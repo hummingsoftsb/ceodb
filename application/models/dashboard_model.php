@@ -1660,19 +1660,19 @@ class Dashboard_model extends CI_Model
         );
         if($depotname=='dpt1'){
             if ($date) { // if date selected
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
             } else {
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot'";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot'";
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot'";
             }
         }
         if($depotname=='dpt2') {
             if ($date) { // if date selected
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
                 $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
             } else {
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot'";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot'";
                 $query2="SELECT count(area_percentage_completed) as c_count,sum(area_percentage_completed) as sum_area FROM tbl_tw_area where depot_name='kajang depot'";
             }
         }
@@ -1684,7 +1684,7 @@ class Dashboard_model extends CI_Model
             $tem_array[$i] = array(
                 "depot_name" => $val['depot_name'],
                 "area_no" => $val['area_no'],
-                "area_master_propert" => $val['area_master_propert'],
+                "area_master_property" => $val['area_master_property'],
                 "area_sub_property" => $val['area_sub_property'],
                 "area_plan" => $val['area_plan'],
                 "area_done" => $val['area_done'],
