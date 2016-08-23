@@ -1671,7 +1671,7 @@ class Dashboard_model extends CI_Model
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
             } else {
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
             }
         }
         if($depotname=='dpt2') {
@@ -1680,7 +1680,7 @@ class Dashboard_model extends CI_Model
 
             } else {
 
-                $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
 
             }
         }
