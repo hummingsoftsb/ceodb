@@ -1654,53 +1654,95 @@ class Dashboard_model extends CI_Model
     public function get_tw_area_data($depotname,$date = FALSE)
     {
         $i = 0;
-        $tem_array = array();
+        $count_area=0;
+        $aver=0;
+        $sum_area=0;
+        $tem_array = array(
+            "A1"=>array(),
+            "A2"=>array(),
+            "A3"=>array(),
+            "A4"=>array(),
+            "average"=>array()
+        );
         $region_progress = array(
             "value" => array()
         );
         if($depotname=='dpt1'){
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
-                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
+
             } else {
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot'";
-                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='sungai buloh depot'";
             }
         }
         if($depotname=='dpt2') {
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
-                $query2="SELECT count(area_percentage_completed),sum(area_percentage_completed) FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+
             } else {
                 $query = "SELECT depot_name, area_no, area_master_propert, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot'";
-                $query2="SELECT count(area_percentage_completed) as c_count,sum(area_percentage_completed) as sum_area FROM tbl_tw_area where depot_name='kajang depot'";
             }
         }
         $query = $this->db->query($query);
         $result = $query->result_array();
-        $query2 = $this->db->query($query2);
-        $result2 = $query2->result_array();
         foreach ($result as $val) {
-            $tem_array[$i] = array(
-                "depot_name" => $val['depot_name'],
-                "area_no" => $val['area_no'],
-                "area_master_propert" => $val['area_master_propert'],
-                "area_sub_property" => $val['area_sub_property'],
-                "area_plan" => $val['area_plan'],
-                "area_done" => $val['area_done'],
-                "area_percentage_completed" => $val['area_percentage_completed']
-            );
-            $i++;
+            if($val['area_percentage_completed']!=null)
+            {
+                $count_area=$count_area+1;
+                $sum_area=$sum_area+$val['area_percentage_completed'];
+                $aver=$sum_area/$count_area;
+            }
+            if($val['area_no']==1) {
+                array_push($tem_array["A1"], array(
+                    "depot_name" => $val['depot_name'],
+                    "area_no" => $val['area_no'],
+                    "area_master_propert" => $val['area_master_propert'],
+                    "area_sub_property" => $val['area_sub_property'],
+                    "area_plan" => $val['area_plan'],
+                    "area_done" => $val['area_done'],
+                    "area_percentage_completed" => $val['area_percentage_completed']
+                ));
+            }
+            if($val['area_no']==2) {
+                array_push($tem_array["A2"], array(
+                    "depot_name" => $val['depot_name'],
+                    "area_no" => $val['area_no'],
+                    "area_master_propert" => $val['area_master_propert'],
+                    "area_sub_property" => $val['area_sub_property'],
+                    "area_plan" => $val['area_plan'],
+                    "area_done" => $val['area_done'],
+                    "area_percentage_completed" => $val['area_percentage_completed']
+                ));
+            }
+            if($val['area_no']==3) {
+                array_push($tem_array["A3"], array(
+                    "depot_name" => $val['depot_name'],
+                    "area_no" => $val['area_no'],
+                    "area_master_propert" => $val['area_master_propert'],
+                    "area_sub_property" => $val['area_sub_property'],
+                    "area_plan" => $val['area_plan'],
+                    "area_done" => $val['area_done'],
+                    "area_percentage_completed" => $val['area_percentage_completed']
+
+                ));
+            }
+            if($val['area_no']==4) {
+                array_push($tem_array["A4"], array(
+                    "depot_name" => $val['depot_name'],
+                    "area_no" => $val['area_no'],
+                    "area_master_propert" => $val['area_master_propert'],
+                    "area_sub_property" => $val['area_sub_property'],
+                    "area_plan" => $val['area_plan'],
+                    "area_done" => $val['area_done'],
+                    "area_percentage_completed" => $val['area_percentage_completed']
+                ));
+            }
+
+           $i++;
         }
-       /* foreach ($result2 as $val) {
-            $c_count=$val['c_count'];
-            $sum_area=$val['sum_area'];
-            $percentage=($sum_area*100)/$c_count;
-            $tem_array[$i] = array(
-                "total"=>$percentage
-            );
-            $i++;
-        }*/
+        array_push($tem_array["average"], array(
+            "average" =>$aver
+        ));
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
