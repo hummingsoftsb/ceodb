@@ -528,7 +528,6 @@ class Dashboard extends CI_Controller {
             $this->load->view('news/success');
         }
     }
-
     public function buildTree($ar, $pid = null) {
         $op = array();
         foreach ($ar as $item) {

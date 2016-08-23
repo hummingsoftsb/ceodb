@@ -1677,7 +1677,9 @@ class Dashboard_model extends CI_Model
             if ($date) { // if date selected
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
             } else {
+
                 $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+
             }
         }
         $query = $this->db->query($query);
