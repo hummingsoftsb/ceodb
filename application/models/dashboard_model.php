@@ -1661,10 +1661,10 @@ class Dashboard_model extends CI_Model
         $aver=0;
         $sum_area=0;
         $tem_array = array(
-            "A1"=>array(),
-            "A2"=>array(),
-            "A3"=>array(),
-            "A4"=>array(),
+            "area1"=>array(),
+            "area2"=>array(),
+            "area3"=>array(),
+            "area4"=>array(),
             "average"=>array()
         );
         $region_progress = array(
