@@ -1146,7 +1146,8 @@ mpxd.modules.track_works.progress = Backbone.View.extend({
         var html = mpxd.getTemplate("progress");
         template = _.template(html, {data: that.data});
         that.$el.html(template);
-        RenderPieChart(that.$el.find('#chart_' + that.data.id)[0], 100);
+        currentProgress=parseInt(that.data.data[1].data.average);
+        RenderPieChart(that.$el.find('#chart_' + that.data.id)[0], currentProgress);
     }
 });
 mpxd.modules.track_works.area = Backbone.View.extend({
@@ -1159,18 +1160,21 @@ mpxd.modules.track_works.area = Backbone.View.extend({
         template = _.template(html, {data: that.data});
         that.$el.html(template);
         that.$el.find('.content').mCustomScrollbar({theme: 'rounded'});
-        console.log((that.data.title).replace(" ","").toLowerCase());
-        console.log(that.data.data[1].data);
+        prlt=(that.data.title).replace(" ","").toLowerCase();
         var $table = $('<table>').addClass('table table-bordered table-condensed table-hover');
-        var $thead= $('<thead><tr><th></th> <th></th><th style="color: rgb(255, 212, 97);">Plan</th><th style="color: rgb(0, 158, 140);">Done</th><th style="color: rgb(255, 175, 120);">Completed(%)</th> </tr>');
+        var $thead= $('<thead><tr><th></th><th></th><th style="color: rgb(255, 212, 97);">Plan</th><th style="color: rgb(0, 158, 140);">Done</th><th style="color: rgb(255, 175, 120);">Completed(%)</th> </tr>');
         var $tbody = $('<tbody>');
-        _.each(that.data.data[1].data, function(i) {
+        var prev='';
+        _.each(that.data.data[1].data[prlt], function(i) {
             var $tr = $('<tr>');
-            var $td = $('<td>');
+            var $td = '<td>'+ ((prev=='')?i.area_master_property:((prev==i.area_master_property)?'':i.area_master_property))+'</td><td>'+ i.area_sub_property+'</td><td>'+ i.area_plan+'</td><td>'+ i.area_done+'</td><td>'+ i.area_percentage_completed+'%</td>';
+            prev=i.area_master_property;
+            $tr.append($td);
+            $tbody.append($tr);
         })
         $table.append($thead);
         $table.append($tbody);
-        //that.$el.find('.content').append($table);
+        that.$el.find('#data-portal').html('').append($table);
     }
 });
 function RenderPieChart(elementId, dataList) {
