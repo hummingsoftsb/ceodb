@@ -1453,6 +1453,32 @@ class Dashboard_model extends CI_Model
         }
         return $status_ps;
     }
+    //coded by :ANCY MATHEW
+    //used to get PS and DS trending and progress details
+    //Created on : 05/09/2016
+    /**
+     * @return array
+     */
+    public function get_trending_and_progress()
+    {
+        $trending = array();
+        $sql = "SELECT desingn_trending, design_progress, installation_trending, installation_progress,test_trending, test_progress, handover_trending, handover_progress FROM tbl_trending_and_progress";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $i = 0;
+        foreach ($result as $val) {
+            $trending[$i]["desingn_trending"] = $val['desingn_trending'];
+            $trending[$i]["design_progress"] = $val['design_progress'];
+            $trending[$i]["installation_trending"] = $val['installation_trending'];
+            $trending[$i]["installation_progress"] = $val['installation_progress'];
+            $trending[$i]["test_trending"] = $val['test_trending'];
+            $trending[$i]["test_progress"] = $val['test_progress'];
+            $trending[$i]["handover_trending"] = $val['handover_trending'];
+            $trending[$i]["handover_progress"] = $val['handover_progress'];
+            $i++;
+        }
+        return $trending;
+    }
     //TRACK WORKS CODE Starts Here//
     //    Author: ANCY MATHEW
     //    Usage : NORTH, SOUTH, and UG KEydate status

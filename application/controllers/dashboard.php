@@ -754,7 +754,7 @@ class Dashboard extends CI_Controller {
         $comments = $this->dashboard_model->get_comments_ps();
         $psds_summary=$this->dashboard_model->get_status_ps();
         $pscada_status=$this->dashboard_model->get_pscada_status();
-
+        $psdstrending=$this->dashboard_model->get_trending_and_progress();
         //var_dump($comdata);die();
         $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
         $data_packages = $this->dashboard_model->get_station_status();
@@ -811,7 +811,8 @@ class Dashboard extends CI_Controller {
             //used to get comments in PS AND DS
             'comments'=>$comments,
             'summary'=>$psds_summary,
-            'i_pscada'=>$pscada_status
+            'i_pscada'=>$pscada_status,
+            'trend'=>$psdstrending
 
             /*
               'project_value' => 36.6,
