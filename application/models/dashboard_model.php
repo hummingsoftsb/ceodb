@@ -1245,8 +1245,7 @@ class Dashboard_model extends CI_Model
         return $result;
     }
 
-    public function get_pscada_status()
-    {
+    public function get_pscada_status(){
         $pscada_status = array();
         $sql = 'SELECT "PSCADA_PAT","PSCADA_SAT","STATION_CODE" FROM  "tbl_testing_and_commission" where "DATA_DATE" IN (SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission") ORDER BY "STATION_CODE"';
         $query = $this->db->query($sql);
@@ -1266,10 +1265,16 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         if (sizeof($result) > 0) {
             foreach ($result as $val) {
-                if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
-                    $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
-                } else {
-                    $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                if (strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase1"){
+                    $station_status["STN14P1"] = $val['STATION_STATUS'];
+                }else if(strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase2"){
+                    $station_status["STN14P2"] = $val['STATION_STATUS'];
+                }else {
+                    if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
+                        $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
+                    } else {
+                        $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                    }
                 }
             }
         } else {
@@ -1427,8 +1432,7 @@ class Dashboard_model extends CI_Model
     /**
      * @return array
      */
-    public function get_status_ps()
-    {
+    public function get_status_ps(){
         $status_ps = array();
         $sql = 'SELECT * FROM "tbl_psds_summary" WHERE "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_psds_summary")';
         $query = $this->db->query($sql);
@@ -1537,7 +1541,7 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         foreach ($result as $val) {
             $a[$i] = array(
-                "kd" => $val['kd_number'],
+                "kd" => (strtolower($val['kd_number'])=='kd12')?((strtolower($val['region'])=="north")?"KD12-V4":((strtolower($val['region'])=="south")?"KD12-V5":"KD12-UG")):$val['kd_number'],
                 "kd_url" => (strtolower($val['kd_number']) != 'kd12') ? strtolower($val['kd_number']) : (strtolower($val['region']) == 'north' ? "kd12n" : (strtolower($val['region']) == 'ug' ? "kd12u" : (strtolower($val['region']) == 'south' ? "kd12s" : (strtolower($val['region']) == 'ugw' ? "kd12u" : "#")))),
                 "plan" => $val['tp_plan'],
                 "actual" => $val['tp_actual'],
