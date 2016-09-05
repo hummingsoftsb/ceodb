@@ -1257,7 +1257,6 @@ class Dashboard_model extends CI_Model
         }
         return $pscada_status;
     }
-
     public function get_station_status()
     {
         $station_status = array();
