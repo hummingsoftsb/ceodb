@@ -1245,8 +1245,7 @@ class Dashboard_model extends CI_Model
         return $result;
     }
 
-    public function get_pscada_status()
-    {
+    public function get_pscada_status(){
         $pscada_status = array();
         $sql = 'SELECT "PSCADA_PAT","PSCADA_SAT","STATION_CODE" FROM  "tbl_testing_and_commission" where "DATA_DATE" IN (SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission") ORDER BY "STATION_CODE"';
         $query = $this->db->query($sql);
@@ -1265,10 +1264,16 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         if (sizeof($result) > 0) {
             foreach ($result as $val) {
-                if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
-                    $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
-                } else {
-                    $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                if (strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase1"){
+                    $station_status["STN14P1"] = $val['STATION_STATUS'];
+                }else if(strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase2"){
+                    $station_status["STN14P2"] = $val['STATION_STATUS'];
+                }else {
+                    if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
+                        $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
+                    } else {
+                        $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                    }
                 }
             }
         } else {
@@ -1426,8 +1431,7 @@ class Dashboard_model extends CI_Model
     /**
      * @return array
      */
-    public function get_status_ps()
-    {
+    public function get_status_ps(){
         $status_ps = array();
         $sql = 'SELECT * FROM "tbl_psds_summary" WHERE "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_psds_summary")';
         $query = $this->db->query($sql);
@@ -1457,19 +1461,19 @@ class Dashboard_model extends CI_Model
     public function get_trending_and_progress()
     {
         $trending = array();
-        $sql = "SELECT desingn_trending, design_progress, installation_trending, installation_progress,test_trending, test_progress, handover_trending, handover_progress FROM tbl_trending_and_progress";
+        $sql = 'SELECT "design_trending", "design_progress", "installation_trending", "installation_progress","test_trending", "test_progress", "handover_trending", "handover_progress" FROM "tbl_psds_trending_and_progress"';
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i = 0;
         foreach ($result as $val) {
-            $trending[$i]["desingn_trending"] = $val['desingn_trending'];
-            $trending[$i]["design_progress"] = $val['design_progress'];
-            $trending[$i]["installation_trending"] = $val['installation_trending'];
-            $trending[$i]["installation_progress"] = $val['installation_progress'];
-            $trending[$i]["test_trending"] = $val['test_trending'];
-            $trending[$i]["test_progress"] = $val['test_progress'];
-            $trending[$i]["handover_trending"] = $val['handover_trending'];
-            $trending[$i]["handover_progress"] = $val['handover_progress'];
+            $trending['trending']["design_trending"] = $val['design_trending'];
+            $trending['progress']["design_progress"] = $val['design_progress'];
+            $trending['trending']["installation_trending"] = $val['installation_trending'];
+            $trending['progress']["installation_progress"] = $val['installation_progress'];
+            $trending['trending']["test_trending"] = $val['test_trending'];
+            $trending['progress']["test_progress"] = $val['test_progress'];
+            $trending['trending']["handover_trending"] = $val['handover_trending'];
+            $trending['progress']["handover_progress"] = $val['handover_progress'];
             $i++;
         }
         return $trending;
@@ -1562,7 +1566,7 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         foreach ($result as $val) {
             $a[$i] = array(
-                "kd" => $val['kd_number'],
+                "kd" => (strtolower($val['kd_number'])=='kd12')?((strtolower($val['region'])=="north")?"KD12-V4":((strtolower($val['region'])=="south")?"KD12-V5":"KD12-UG")):$val['kd_number'],
                 "kd_url" => (strtolower($val['kd_number']) != 'kd12') ? strtolower($val['kd_number']) : (strtolower($val['region']) == 'north' ? "kd12n" : (strtolower($val['region']) == 'ug' ? "kd12u" : (strtolower($val['region']) == 'south' ? "kd12s" : (strtolower($val['region']) == 'ugw' ? "kd12u" : "#")))),
                 "plan" => $val['tp_plan'],
                 "actual" => $val['tp_actual'],

@@ -605,7 +605,7 @@
 										top: +60
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1700){
 							$("body").css("visibility", "hidden");
@@ -615,7 +615,7 @@
 										top: +50
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1500){
 							$("body").css("visibility", "hidden");
@@ -625,7 +625,7 @@
 										top: +30
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						} else if($(window).width() > 1300){
 							$("body").css("visibility", "hidden");
@@ -634,7 +634,7 @@
 									$("#container").animate({
 									},100)
 									$("body").css("visibility", "visible");
-								},
+								}
 							});
 						}
 						var allowedPage = allowedPageToString();
@@ -678,7 +678,7 @@
 											top: +60
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1700){
 								$("body").css("visibility", "hidden");
@@ -688,7 +688,7 @@
 											top: +50
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1500){
 								$("body").css("visibility", "hidden");
@@ -698,7 +698,7 @@
 											top: +30
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							} else if($(window).width() > 1300){
 								$("body").css("visibility", "hidden");
@@ -707,7 +707,7 @@
 										$("#container").animate({
 										},100)
 										$("body").css("visibility", "visible");
-									},
+									}
 								});
 							}
 							var allowedPage = allowedPageToString();
@@ -794,10 +794,10 @@
 			</div>
 			 <div id="navbar">
 				<!--<a href="./graph_din.html"><img src="<?php echo $this->config->base_url(); ?>assets/img/construction.png" /></a>-->
-                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i id="design_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="design_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 				<!--<a href="#"><img src="<?php //echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i id="installation_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="installation_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                      <div class="inner">
                          <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
                          <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
@@ -841,7 +841,7 @@
                      </div>
                  </div>
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: rgb(229, 0, 0)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i id="test_trending" class="fa" style="color: rgb(229, 0, 0)"></i><br><span id="test_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                      <div class="inner">
                          <table id="table-comment" class="table table-bordered table-condensed table-hover" style="text-align: center">
                              <thead>
@@ -886,7 +886,7 @@
 
                      </div>
                  </div>
-				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
+				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i id="handover_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="handover_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 			</div> 
 			
 		</div>
@@ -1164,6 +1164,18 @@
                 $(".stn34").append(tooltip(data.i_pscada['STN 34'],'BANDAR KAJANG',false));
                 $(".stn35").append(tooltip(data.i_pscada['STN 35'],'KAJANG',false));
             }
+            for (var k in data['trend']['progress']) {
+                $('#'+k).text(data['trend']['progress'][k]+'%');
+            }
+            for (var k in data['trend']['trending']) {
+                if(data['trend']['trending'][k]==1) {
+                    $('#' + k).addClass('fa-arrow-up')
+                }else if(data['trend']['trending'][k]==2){
+                    $('#' + k).addClass('fa-arrow-right')
+                }else if(data['trend']['trending'][k]==3){
+                    $('#' + k).addClass('fa-arrow-down')
+                }
+            }
 			if (data['overall_actual'] > 99) $('#overall_actual').css({ "fontSize" : "59px", "marginTop" : "31px"});
 			if (data['overall_variance'] > 99) $('#overall_variance').css({ "fontSize" : "59px", "marginTop" : "10px", "marginLeft" : "-8px"});
 			if (data['overall_early'] > 99) $('#overall_early').css({ "fontSize" : "59px", "marginTop" : "6px", "marginLeft" : "-8px"});
@@ -1317,7 +1329,9 @@
                 ["m 392.02489,469.162 c 0.33545,-2.03455 -2.83331,-2.89272 4.9738,-3.7964 8.30157,-1.41174 12.03981,-3.55815 17.58254,-8.20425 3.61785,-3.03261 7.12358,-4.51075 8.75933,-2.90097 0.26271,2.20732 0.47798,3.61527 -2.36967,5.51499 -4.40499,2.93867 -9.15427,6.64645 -13.95272,8.71662 -5.05545,2.18105 -12.43409,3.23134 -13.70371,2.97184 -1.30615,-0.26697 -0.96735,-1.50556 -1.28957,-2.30183 z",80,false,"STN10"],
                 ["m 434.98344,437.56379 c -2.16364,-17.50926 -0.58966,-28.40735 3.32086,-36.90787 1.38453,-3.00963 4.03508,-9.37475 4.03508,-11.42305 0,-2.08072 -2.09173,-6.53555 -1.31048,-7.75765 0.80473,-1.25885 3.94118,-1.32357 4.90049,-0.36426 0.78189,0.78189 1.93914,6.61476 1.65791,9.60476 -0.37759,4.01466 -2.56798,9.71951 -4.31057,13.70523 -6.43744,13.83063 -2.26621,21.02175 -2.82452,38.79311 -0.40986,6.93753 -2.01757,11.38625 -9.28049,13.51943 -0.76201,0 -1.37195,0.51958 -1.37416,-5.96569 -4.4e-4,-1.3051 2.81609,-0.58688 4.03632,-2.56418 1.52843,-2.47673 1.50225,-7.78569 1.14956,-10.63983 z",80,false,"STN12"],
                 ["m 440.03197,371.96172 c -0.74563,-0.30087 -2.21721,-2.44226 -2.26378,-4.38071 -0.0586,-2.44079 1.41131,-7.76967 2.42639,-11.1158 2.23888,-7.38029 1.99151,-8.15689 -4.01082,-12.59107 -2.49825,-1.84556 -6.81259,-5.43477 -7.55931,-6.49652 -1.0136,-1.44122 0.16704,-2.48566 1.87687,-3.55345 1.59338,-0.99508 4.78988,1.80516 9.50245,5.26466 7.50907,5.51241 8.53037,8.19387 6.35467,16.68441 -1.80786,4.1933 -2.94363,8.6279 -2.92416,13.19194 0.21359,3.07238 -1.29187,3.84813 -3.40231,2.99654 z",80,false,"STN13"],
-                ["m 430.75538,325.1811 c -2.99358,-2.45045 -0.35412,-6.01319 3.21349,-6.01319 1.83098,0 3.70436,-2.5548 6.35537,-9.7632 3.43639,-9.34392 4.42537,-11.02249 11.8321,-8.98709 0.90072,0.24752 3.5945,1.91307 6.6925,2.15705 11.43086,-0.69218 14.83728,-1.60151 21.93226,4.09999 6.91004,5.69509 10.10451,7.61649 16.05219,6.93524 11.64912,-2.17722 17.17415,-7.4127 24.87977,-15.32325 2.07841,-1.39488 0.39718,0.81394 2.12532,0.76395 4.76814,-0.13793 4.75765,0.0488 -4.57591,8.78454 -7.46689,6.98863 -14.89241,10.36682 -23.40468,10.3678 -7.60809,8.8e-4 -9.63031,-0.41447 -16.37783,-6.00242 -4.80616,-3.98021 -8.0959,-5.62131 -14.49967,-4.70283 -4.46511,0.55474 -10.06266,0.98551 -13.11356,-0.85479 -7.45281,-8.05452 -6.62089,15.67324 -14.87491,17.70338 -0.87725,-0.0198 -4.70994,2.08437 -6.23644,0.83482 z",80,false,"STN14"],
+//                ["m 430.75538,325.1811 c -2.99358,-2.45045 -0.35412,-6.01319 3.21349,-6.01319 1.83098,0 3.70436,-2.5548 6.35537,-9.7632 3.43639,-9.34392 4.42537,-11.02249 11.8321,-8.98709 0.90072,0.24752 3.5945,1.91307 6.6925,2.15705 11.43086,-0.69218 14.83728,-1.60151 21.93226,4.09999 6.91004,5.69509 10.10451,7.61649 16.05219,6.93524 11.64912,-2.17722 17.17415,-7.4127 24.87977,-15.32325 2.07841,-1.39488 0.39718,0.81394 2.12532,0.76395 4.76814,-0.13793 4.75765,0.0488 -4.57591,8.78454 -7.46689,6.98863 -14.89241,10.36682 -23.40468,10.3678 -7.60809,8.8e-4 -9.63031,-0.41447 -16.37783,-6.00242 -4.80616,-3.98021 -8.0959,-5.62131 -14.49967,-4.70283 -4.46511,0.55474 -10.06266,0.98551 -13.11356,-0.85479 -7.45281,-8.05452 -6.62089,15.67324 -14.87491,17.70338 -0.87725,-0.0198 -4.70994,2.08437 -6.23644,0.83482 z",80,false,"STN14"],
+                ["m 431.01309,324.8891 c -2.99358,-2.45045 -0.35412,-6.01319 3.21349,-6.01319 1.83098,0 3.70436,-2.5548 6.35537,-9.7632 1.92844,-5.24364 3.08613,-8.07327 5.03981,-9.18721 0.77756,-0.44335 1.43476,2.58393 1.43476,2.58393 l 0.8729,2.81388 c -3.38596,3.16907 -4.41943,17.19116 -10.67989,18.73097 -0.87725,-0.0198 -4.70994,2.08437 -6.23644,0.83482 z",80,false,"STN14P1"],
+                ["m 446.84811,299.77489 c 1.274,-0.11532 2.86436,0.16308 4.97669,0.74356 0.90072,0.24752 3.5945,1.91307 6.6925,2.15705 11.43086,-0.69218 14.83728,-1.60151 21.93226,4.09999 6.91004,5.69509 10.10451,7.61649 16.05219,6.93524 11.64912,-2.17722 17.17415,-7.4127 24.87977,-15.32325 2.07841,-1.39488 0.39718,0.81394 2.12532,0.76395 4.76814,-0.13793 4.75765,0.0488 -4.57591,8.78454 -7.46689,6.98863 -14.89241,10.36682 -23.40468,10.3678 -7.60809,8.8e-4 -9.63031,-0.41447 -16.37783,-6.00242 -4.80616,-3.98021 -8.0959,-5.62131 -14.49967,-4.70283 -4.46511,0.55474 -10.06266,0.98551 -13.11356,-0.85479 -1.28544,-1.38922 -2.32442,-1.83297 -3.20608,-1.60565 z",80,false,"STN14P2"],
                 ["m 528.14961,286.86496 c -0.30769,-3.00493 -0.77414,-1.99723 -0.2015,-3.44221 2.25469,-5.68948 1.3582,-7.48869 -1.00953,-12.21897 -1.26297,-1.96552 -3.05382,-4.65359 -3.8555,-6.20936 -0.73366,-1.4238 -0.51391,-1.59774 0.32417,-2.21056 1.38896,-1.01562 1.92883,-2.30193 3.46321,-0.50326 1.48579,1.74172 3.79542,5.89154 4.88065,7.92612 1.69773,3.18289 2.65157,6.0442 2.09821,9.6156 -0.42741,2.75849 -1.94808,6.45338 -2.14622,7.45579 -0.27021,1.367 -1.80949,0.60082 -3.55349,-0.41315 z",70,true,"STN15"],
                 ["m 525.69888,253.85572 c -0.92596,-1.02319 -1.57057,-2.62918 -1.26691,-3.12357 0.33924,-0.55233 9.31134,-9.70184 13.35809,-11.6444 1.15257,-0.55327 5.96,-2.17112 6.55494,-2.32714 1.20155,-0.3151 4.75812,0.29778 3.52003,1.93375 l 0.29104,2.05573 -6.27177,2.92568 c -1.73444,0.80909 -5.27111,3.33236 -7.78264,5.78159 -1.68484,1.64304 -4.70201,4.68496 -5.47525,5.22767 -1.24849,0.87627 -1.92455,0.27896 -2.92753,-0.82931 z",70,true,"STN16"],
                 ["m 550.39107,227.59249 c -1.58987,-2.46971 1.06305,-16.43579 3.88752,-20.24705 0.4425,-0.59709 3.37067,-3.15631 3.75602,-3.15631 2.16956,0 2.40973,0.29378 1.27331,4.09508 -0.40508,1.35497 -1.70588,4.88319 -2.39044,7.05663 -0.74604,2.36861 -1.57759,9.5157 -1.5117,11.65892 0.0722,2.34794 -0.37252,3.70238 -2.48227,3.70238 -1.39227,0 -2.04191,-2.34766 -2.53244,-3.10965 z",70,true,"STN17"],
@@ -1668,7 +1682,7 @@
 			var v6 = parseFloat(data['V6']);
 			var v7 = parseFloat(data['V7']);
 			var v8 = parseFloat(data['V8']);*/
-			
+			console.log(data);
 			for (var i = 1; i < 36; i++){
                 var d;
                 if(i<10){
@@ -1680,6 +1694,10 @@
                 }
 
 			}
+            for (var i = 1; i < 3; i++){
+                d = parseFloat(data['STN14P' + i]);
+                processVariance('STN14P'+i, d);
+            }
 			processVariance('dpt1', parseFloat(data['SUBD']));
 			processVariance('dpt2', parseFloat(data['KAJD']));
 			processVariance('sbk-s-01', parseFloat(data['SBK-S-01']));
