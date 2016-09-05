@@ -1462,19 +1462,19 @@ class Dashboard_model extends CI_Model
     public function get_trending_and_progress()
     {
         $trending = array();
-        $sql = "SELECT desingn_trending, design_progress, installation_trending, installation_progress,test_trending, test_progress, handover_trending, handover_progress FROM tbl_trending_and_progress";
+        $sql = 'SELECT "design_trending", "design_progress", "installation_trending", "installation_progress","test_trending", "test_progress", "handover_trending", "handover_progress" FROM "tbl_psds_trending_and_progress"';
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i = 0;
         foreach ($result as $val) {
-            $trending[$i]["desingn_trending"] = $val['desingn_trending'];
-            $trending[$i]["design_progress"] = $val['design_progress'];
-            $trending[$i]["installation_trending"] = $val['installation_trending'];
-            $trending[$i]["installation_progress"] = $val['installation_progress'];
-            $trending[$i]["test_trending"] = $val['test_trending'];
-            $trending[$i]["test_progress"] = $val['test_progress'];
-            $trending[$i]["handover_trending"] = $val['handover_trending'];
-            $trending[$i]["handover_progress"] = $val['handover_progress'];
+            $trending['trending']["design_trending"] = $val['design_trending'];
+            $trending['progress']["design_progress"] = $val['design_progress'];
+            $trending['trending']["installation_trending"] = $val['installation_trending'];
+            $trending['progress']["installation_progress"] = $val['installation_progress'];
+            $trending['trending']["test_trending"] = $val['test_trending'];
+            $trending['progress']["test_progress"] = $val['test_progress'];
+            $trending['trending']["handover_trending"] = $val['handover_trending'];
+            $trending['progress']["handover_progress"] = $val['handover_progress'];
             $i++;
         }
         return $trending;

@@ -794,10 +794,10 @@
 			</div>
 			 <div id="navbar">
 				<!--<a href="./graph_din.html"><img src="<?php echo $this->config->base_url(); ?>assets/img/construction.png" /></a>-->
-                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+                 <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i id="design_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="design_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 				<!--<a href="#"><img src="<?php //echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i class="fa fa-arrow-right" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">100%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_intallation.png" /><i id="installation_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="installation_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                      <div class="inner">
                          <!--                         <i class="fa fa-bell fa-5x fim-gray"></i><br />-->
                          <!--                         <small class="fim-gray">There are no unread notifications for you.</small> -->
@@ -841,7 +841,7 @@
                      </div>
                  </div>
                  <div class="fim-dropdown">
-				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i class="fa fa-arrow-down" style="color: rgb(229, 0, 0)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">90.7%</span></a>
+				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_T_and_C.png" /><i id="test_trending" class="fa" style="color: rgb(229, 0, 0)"></i><br><span id="test_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
                      <div class="inner">
                          <table id="table-comment" class="table table-bordered table-condensed table-hover" style="text-align: center">
                              <thead>
@@ -886,7 +886,7 @@
 
                      </div>
                  </div>
-				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;">96.8%</span></a>
+				<a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_handover.png" /><i id="handover_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="handover_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 			</div> 
 			
 		</div>
@@ -1163,6 +1163,18 @@
                 $(".stn33").append(tooltip(data.i_pscada['STN 33'],'SUNGAI KANTAN',false));
                 $(".stn34").append(tooltip(data.i_pscada['STN 34'],'BANDAR KAJANG',false));
                 $(".stn35").append(tooltip(data.i_pscada['STN 35'],'KAJANG',false));
+            }
+            for (var k in data['trend']['progress']) {
+                $('#'+k).text(data['trend']['progress'][k]+'%');
+            }
+            for (var k in data['trend']['trending']) {
+                if(data['trend']['trending'][k]==1) {
+                    $('#' + k).addClass('fa-arrow-up')
+                }else if(data['trend']['trending'][k]==2){
+                    $('#' + k).addClass('fa-arrow-right')
+                }else if(data['trend']['trending'][k]==3){
+                    $('#' + k).addClass('fa-arrow-down')
+                }
             }
 			if (data['overall_actual'] > 99) $('#overall_actual').css({ "fontSize" : "59px", "marginTop" : "31px"});
 			if (data['overall_variance'] > 99) $('#overall_variance').css({ "fontSize" : "59px", "marginTop" : "10px", "marginLeft" : "-8px"});
