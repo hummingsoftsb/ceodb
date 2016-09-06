@@ -756,15 +756,13 @@ class Dashboard extends CI_Controller {
         $pscada_status=$this->dashboard_model->get_pscada_status();
         $psdstrending=$this->dashboard_model->get_trending_and_progress();
         //var_dump($comdata);die();
-        $date = $this->dashboard_model->get_date_list('programme')[0]['date'];
+        $overallperc=floor($psdstrending['progress']["design_progress"]+$psdstrending['progress']["installation_progress"]+$psdstrending['progress']["test_progress"]+$psdstrending['progress']["handover_progress"])/4;
+        $date = (sizeof($psdstrending)>0)? $psdstrending['data_date']:date("d-M-Y");
         $data_packages = $this->dashboard_model->get_station_status();
-
-
         //var_dump($date);die();
 //        $data_packages = $this->dashboard_model->get_source_archivable(88); //North
 //        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //South
 //        $data_packages = $this->dashboard_model->get_source_archivable(88); //SBK-S-05 North
-//        $data_packages2 = $this->dashboard_model->get_source_archivable(89); //SBK-S-05 South
 //        $data_packages3 = $this->dashboard_model->get_source_archivable(29); //South
 //        $data_packages = json_decode($data_packages[0]['value'], true);
 //        $data_packages2 = json_decode($data_packages2[0]['value'], true);
