@@ -1461,7 +1461,7 @@ class Dashboard_model extends CI_Model
     public function get_trending_and_progress()
     {
         $trending = array();
-        $sql = 'SELECT "design_trending", "design_progress", "installation_trending", "installation_progress","test_trending", "test_progress", "handover_trending", "handover_progress" FROM "tbl_psds_trending_and_progress"';
+        $sql = 'SELECT "design_trending", "design_progress", "installation_trending", "installation_progress","test_trending", "test_progress", "handover_trending", "handover_progress" FROM "tbl_psds_trending_and_progress"  where "data_date"=(select max("data_date") from "tbl_psds_trending_and_progress" )';
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $i = 0;
