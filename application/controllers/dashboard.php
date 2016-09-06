@@ -756,7 +756,7 @@ class Dashboard extends CI_Controller {
         $pscada_status=$this->dashboard_model->get_pscada_status();
         $psdstrending=$this->dashboard_model->get_trending_and_progress();
         //var_dump($comdata);die();
-        $overallperc=ceil($psdstrending['progress']["design_progress"]+$psdstrending['progress']["installation_progress"]+$psdstrending['progress']["test_progress"]+$psdstrending['progress']["handover_progress"])/4;
+        $overallperc=(sizeof($psdstrending)>0)?ceil($psdstrending['progress']["design_progress"]+$psdstrending['progress']["installation_progress"]+$psdstrending['progress']["test_progress"]+$psdstrending['progress']["handover_progress"])/4:'0';
         $date = (sizeof($psdstrending)>0)? $psdstrending['data_date']:date("d-M-Y");
         $data_packages = $this->dashboard_model->get_station_status();
         //var_dump($date);die();
