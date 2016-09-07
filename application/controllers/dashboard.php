@@ -440,7 +440,6 @@ class Dashboard extends CI_Controller {
         $pages = Array();
         foreach ($items as $idx => $i) {
             $items[$idx]['temp_pages'] = $this->dashboard_model->getPortletBySlug($i['slug']);
-
             //$pages[$i['id']] = $this->dashboard_model->getPortletBySlug($i['slug']);
         }
         //$pages = $this->dashboard_model->getPortletBySlug('programme');
