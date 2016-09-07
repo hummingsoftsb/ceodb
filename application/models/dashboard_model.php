@@ -1259,33 +1259,43 @@ class Dashboard_model extends CI_Model
     public function get_station_status()
     {
         $station_status = array();
-        $sql = 'SELECT "STATION_CODE","STATION_STATUS" FROM "tbl_psds_station_status" WHERE "DATA_DATE" = (SELECT MAX("DATA_DATE") FROM "tbl_psds_station_status") ORDER BY "STATION_CODE"';
+        $sql = 'SELECT "STATION_CODE","STATION_STATUS","LINE_STATUS" FROM "tbl_psds_station_status" WHERE "DATA_DATE" = (SELECT MAX("DATA_DATE") FROM "tbl_psds_station_status") ORDER BY "STATION_CODE"';
         $query = $this->db->query($sql);
         $result = $query->result_array();
         if (sizeof($result) > 0) {
             foreach ($result as $val) {
                 if (strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase1"){
-                    $station_status["STN14P1"] = $val['STATION_STATUS'];
+                    $station_status['station_status']["STN14P1"] = $val['STATION_STATUS'];
+                    $station_status['line_status']["STN14P1"] = $val['LINE_STATUS'];
                 }else if(strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase2"){
-                    $station_status["STN14P2"] = $val['STATION_STATUS'];
+                    $station_status['station_status']["STN14P2"] = $val['STATION_STATUS'];
+                    $station_status['line_status']["STN14P2"] = $val['LINE_STATUS'];
                 }else {
                     if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
-                        $station_status[strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
+                        $station_status['station_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
+                        $station_status['line_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['LINE_STATUS'];
                     } else {
-                        $station_status[strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                        $station_status['station_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
+                        $station_status['line_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['LINE_STATUS'];
                     }
                 }
             }
         } else {
-            $station_status['SUBD'] = 0;
-            $station_status['KAJD'] = 0;
-            $station_status['KWDE2'] = 0;
-            $station_status['SEMAN'] = 0;
+            $station_status['station_status']['SUBD'] = 0;
+            $station_status['line_status']['SUBD'] = 0;
+            $station_status['station_status']['KAJD'] = 0;
+            $station_status['line_status']['KAJD'] = 0;
+            $station_status['station_status']['KWDE2'] = 0;
+            $station_status['line_status']['KWDE2'] = 0;
+            $station_status['station_status']['SEMAN'] = 0;
+            $station_status['line_status']['SEMAN'] = 0;
             for ($i = 0; $i < 36; $i++) {
                 if ($i < 10) {
-                    $station_status['STN0' . $i] = 0;
+                    $station_status['station_status']['STN0' . $i] = 0;
+                    $station_status['line_status']['STN0' . $i] = 0;
                 } else {
-                    $station_status['STN' . $i] = 0;
+                    $station_status['station_status']['STN' . $i] = 0;
+                    $station_status['line_status']['STN' . $i] = 0;
                 }
 
             }
