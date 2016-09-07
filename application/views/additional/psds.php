@@ -1961,7 +1961,6 @@ $(".legend-stat").click(function(){
             $('.s_3').svgRemover('glow-red-blinking on');
             $('.s_4').svgRemover('glow-kavi-blinking on');
             $('.s_5').svgRemover('glow-green-blinking on');
-
         break;
         case 's_2':
             $("." + d + "").each(function () {
@@ -2003,7 +2002,6 @@ $(".legend-stat").click(function(){
             $('.s_3').svgRemover('glow-red-blinking on');
             $('.s_4').svgRemover('glow-kavi-blinking on');
         break;
-
     }
 });
 
