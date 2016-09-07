@@ -754,7 +754,10 @@ class Dashboard extends CI_Controller {
         $psds_summary=$this->dashboard_model->get_status_ps();
         $pscada_status=$this->dashboard_model->get_pscada_status();
         $psdstrending=$this->dashboard_model->get_trending_and_progress();
-        $overallperc=floor($psdstrending['progress']["design_progress"]+$psdstrending['progress']["installation_progress"]+$psdstrending['progress']["test_progress"]+$psdstrending['progress']["handover_progress"])/4;
+
+        //var_dump($comdata);die();
+        $overallperc=(sizeof($psdstrending)>0)?ceil($psdstrending['progress']["design_progress"]+$psdstrending['progress']["installation_progress"]+$psdstrending['progress']["test_progress"]+$psdstrending['progress']["handover_progress"])/4:'0';
+
         $date = (sizeof($psdstrending)>0)? $psdstrending['data_date']:date("d-M-Y");
         $data_packages = $this->dashboard_model->get_station_status();
         //var_dump($date);die();
@@ -788,7 +791,7 @@ class Dashboard extends CI_Controller {
 
         //print_r(array_keys(json_encode($data[0]['value'])));die();
         $data = Array('data' => Array(
-            'overall_actual' => $actual,
+            'overall_actual' => $overallperc,
             'overall_early' => $early,
             'overall_late' => $late,
             'overall_variance' => $var_early,
