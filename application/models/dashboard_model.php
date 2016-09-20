@@ -1251,8 +1251,8 @@ class Dashboard_model extends CI_Model
         $query = $this->db->query($sql);
         $result = $query->result_array();
         foreach ($result as $val) {
-            $status = ($val['PSCADA_SAT'] == 1 && $val['PSCADA_PAT'] == 1) ? 'Completed' : (($val['PSCADA_SAT'] == null && $val['PSCADA_PAT'] == null) ? 'N/A' : 'In Progress');
-            $pscada_status[$val['STATION_CODE']] = array($status);
+            $status = (intval($val['PSCADA_SAT']) == 1 && intval($val['PSCADA_PAT']) == 1) ? 'Completed' : ((intval($val['PSCADA_SAT']) == null && intval($val['PSCADA_PAT']) == null) ? 'N/A' : 'In Progress');
+            $pscada_status[intval($val['STATION_CODE'])] = array($status);
         }
         return $pscada_status;
     }
@@ -1265,18 +1265,18 @@ class Dashboard_model extends CI_Model
         if (sizeof($result) > 0) {
             foreach ($result as $val) {
                 if (strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase1"){
-                    $station_status['station_status']["STN14P1"] = $val['STATION_STATUS'];
-                    $station_status['line_status']["STN14P1"] = $val['LINE_STATUS'];
+                    $station_status['station_status']["STN14P1"] = intval($val['STATION_STATUS']);
+                    $station_status['line_status']["STN14P1"] = intval($val['LINE_STATUS']);
                 }else if(strtolower(str_replace(' ', '', $val['STATION_CODE']))=="stn14phase2"){
-                    $station_status['station_status']["STN14P2"] = $val['STATION_STATUS'];
-                    $station_status['line_status']["STN14P2"] = $val['LINE_STATUS'];
+                    $station_status['station_status']["STN14P2"] = intval($val['STATION_STATUS']);
+                    $station_status['line_status']["STN14P2"] = intval($val['LINE_STATUS']);
                 }else {
                     if (strlen(str_replace(' ', '', $val['STATION_CODE'])) > 5) {
-                        $station_status['station_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['STATION_STATUS'];
-                        $station_status['line_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = $val['LINE_STATUS'];
+                        $station_status['station_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = intval($val['STATION_STATUS']);
+                        $station_status['line_status'][strtoupper(substr(str_replace(' ', '', $val['STATION_CODE']), 0, 5))] = intval($val['LINE_STATUS']);
                     } else {
-                        $station_status['station_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['STATION_STATUS'];
-                        $station_status['line_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = $val['LINE_STATUS'];
+                        $station_status['station_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = intval($val['STATION_STATUS']);
+                        $station_status['line_status'][strtoupper(str_replace(' ', '', $val['STATION_CODE']))] = intval($val['LINE_STATUS']);
                     }
                 }
             }
@@ -1323,29 +1323,29 @@ class Dashboard_model extends CI_Model
         if ($date) { //If date is selected
             $sql = "SELECT * FROM \"tbl_testing_and_commission\" where \"RING_NUMBER\"='$ring_no' and \"DATA_DATE\"='$date'";
         } else {
-            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"=' . $ring_no . ' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
+            $sql = 'SELECT * FROM "tbl_testing_and_commission" where "RING_NUMBER"='."'".$ring_no."'".' and "DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_testing_and_commission")';
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
         foreach ($result as $val) {
             $a[$i] = array(
-                "ring_number" => $val['RING_NUMBER'],
+                "ring_number" => intval($val['RING_NUMBER']),
                 "station_name" => $val['STATION_NAME'],
                 "station_code" => $val['STATION_CODE'],
-                "install_status" => ($val['INSTALL_STATUS'] == 1) ? 'Completed' : (($val['INSTALL_STATUS'] == 2) ? 'In Progress' : (($val['INSTALL_STATUS'] == 3) ? 'Pending' : (($val['INSTALL_STATUS'] == -1) ? 'N/A' : (($val['INSTALL_STATUS'] == 4) ? 'Handed Over' : '-')))),
-                "33kv_pat" => ($val['33KV_PAT'] == 1) ? 'Completed' : ($val['33KV_PAT'] == 2 ? 'In Progress' : ($val['33KV_PAT'] == 3 ? 'Pending' : ($val['33KV_PAT'] == -1 ? 'N/A' : ($val['33KV_PAT'] == 4 ? 'Handed Over' : '-')))),
-                "750v_pat" => ($val['750V_PAT'] == 1) ? 'Completed' : ($val['750V_PAT'] == 2 ? 'In Progress' : ($val['750V_PAT'] == 3 ? 'Pending' : ($val['750V_PAT'] == -1 ? 'N/A' : ($val['750V_PAT'] == 4 ? 'Handed Over' : '-')))),
-                "pscada_pat" => ($val['PSCADA_PAT'] == 1) ? 'Completed' : ($val['PSCADA_PAT'] == 2 ? 'In Progress' : ($val['PSCADA_PAT'] == 3 ? 'Pending' : ($val['PSCADA_PAT'] == -1 ? 'N/A' : ($val['PSCADA_PAT'] == 4 ? 'Handed Over' : '-')))),
-                "33kv_sat" => ($val['33KV_SAT'] == 1) ? 'Completed' : ($val['33KV_SAT'] == 2 ? 'In Progress' : ($val['33KV_SAT'] == 3 ? 'Pending' : ($val['33KV_SAT'] == -1 ? 'N/A' : ($val['33KV_SAT'] == 4 ? 'Handed Over' : '-')))),
-                "750v_sat" => ($val['750V_SAT'] == 1) ? 'Completed' : ($val['750V_SAT'] == 2 ? 'In Progress' : ($val['750V_SAT'] == 3 ? 'Pending' : ($val['750V_SAT'] == -1 ? 'N/A' : ($val['750V_SAT'] == 4 ? 'Handed Over' : '-')))),
-                "pscada_sat" => ($val['PSCADA_SAT'] == 1) ? 'Completed' : ($val['PSCADA_SAT'] == 2 ? 'In Progress' : ($val['PSCADA_SAT'] == 3 ? 'Pending' : ($val['PSCADA_SAT'] == -1 ? 'N/A' : ($val['PSCADA_SAT'] == 4 ? 'Handed Over' : '-')))),
-                "33kv_forecast_date" => ($val['33KV_FORECAST_DATE'] == null || $val['33KV_FORECAST_DATE'] == "") ? ($val['33KV_PAT'] == -1 && $val['33KV_SAT'] == -1) ? 'N/A' : '-' : $val['33KV_FORECAST_DATE'],
-                "750v_forecast_date" => ($val['750V_FORECAST_DATE'] == null || $val['750V_FORECAST_DATE'] == "") ? ($val['750V_PAT'] == -1 && $val['750V_SAT'] == -1) ? 'N/A' : '-' : $val['750V_FORECAST_DATE'],
-                "pscada_forecast_date" => ($val['PSCADA_FORECAST_DATE'] == null || $val['PSCADA_FORECAST_DATE'] == "") ? ($val['PSCADA_PAT'] == -1 && $val['PSCADA_SAT'] == -1) ? 'N/A' : '-' : $val['PSCADA_FORECAST_DATE'],
-                "33kv_actual_date" => ($val['33KV_ACTUAL_DATE'] == null || $val['33KV_ACTUAL_DATE'] == "") ? ($val['33KV_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['33KV_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['33KV_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['33KV_ACTUAL_DATE'],
-                "750v_actual_date" => ($val['750V_ACTUAL_DATE'] == null || $val['750V_ACTUAL_DATE'] == "") ? ($val['750V_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['750V_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['750V_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['750V_ACTUAL_DATE'],
-                "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE'] == null || $val['PSCADA_ACTUAL_DATE'] == "") ? ($val['PSCADA_ACTUAL_STATUS'] == 1 ? 'Energized' : ($val['PSCADA_ACTUAL_STATUS'] == 2 ? 'Pending' : ($val['PSCADA_ACTUAL_STATUS'] == 3 ? 'N/A' : '-'))) : $val['PSCADA_ACTUAL_DATE'],
+                "install_status" => (intval($val['INSTALL_STATUS']) == 1) ? 'Completed' : ((intval($val['INSTALL_STATUS']) == 2) ? 'In Progress' : ((intval($val['INSTALL_STATUS']) == 3) ? 'Pending' : ((intval($val['INSTALL_STATUS']) == -1) ? 'N/A' : ((intval($val['INSTALL_STATUS']) == 4) ? 'Handed Over' : '-')))),
+                "33kv_pat" => (intval($val['33KV_PAT']) == 1) ? 'Completed' : (intval($val['33KV_PAT']) == 2 ? 'In Progress' : (intval($val['33KV_PAT']) == 3 ? 'Pending' : (intval($val['33KV_PAT']) == -1 ? 'N/A' : (intval($val['33KV_PAT']) == 4 ? 'Handed Over' : '-')))),
+                "750v_pat" => (intval($val['750V_PAT']) == 1) ? 'Completed' : (intval($val['750V_PAT']) == 2 ? 'In Progress' : (intval($val['750V_PAT']) == 3 ? 'Pending' : (intval($val['750V_PAT']) == -1 ? 'N/A' : (intval($val['750V_PAT']) == 4 ? 'Handed Over' : '-')))),
+                "pscada_pat" => (intval($val['PSCADA_PAT']) == 1) ? 'Completed' : (intval($val['PSCADA_PAT']) == 2 ? 'In Progress' : (intval($val['PSCADA_PAT']) == 3 ? 'Pending' : (intval($val['PSCADA_PAT']) == -1 ? 'N/A' : (intval($val['PSCADA_PAT']) == 4 ? 'Handed Over' : '-')))),
+                "33kv_sat" => (intval($val['33KV_SAT']) == 1) ? 'Completed' : (intval($val['33KV_SAT']) == 2 ? 'In Progress' : (intval($val['33KV_SAT']) == 3 ? 'Pending' : (intval($val['33KV_SAT']) == -1 ? 'N/A' : (intval($val['33KV_SAT']) == 4 ? 'Handed Over' : '-')))),
+                "750v_sat" => (intval($val['750V_SAT']) == 1) ? 'Completed' : (intval($val['750V_SAT']) == 2 ? 'In Progress' : (intval($val['750V_SAT']) == 3 ? 'Pending' : (intval($val['750V_SAT']) == -1 ? 'N/A' : (intval($val['750V_SAT']) == 4 ? 'Handed Over' : '-')))),
+                "pscada_sat" => (intval($val['PSCADA_SAT']) == 1) ? 'Completed' : (intval($val['PSCADA_SAT']) == 2 ? 'In Progress' : (intval($val['PSCADA_SAT']) == 3 ? 'Pending' : (intval($val['PSCADA_SAT']) == -1 ? 'N/A' : (intval($val['PSCADA_SAT']) == 4 ? 'Handed Over' : '-')))),
+                "33kv_forecast_date" => ($val['33KV_FORECAST_DATE'] == null || $val['33KV_FORECAST_DATE'] == "") ? (intval($val['33KV_PAT']) == -1 && intval($val['33KV_SAT']) == -1) ? 'N/A' : '-' : $val['33KV_FORECAST_DATE'],
+                "750v_forecast_date" => ($val['750V_FORECAST_DATE'] == null || $val['750V_FORECAST_DATE'] == "") ? (intval($val['750V_PAT']) == -1 && intval($val['750V_SAT']) == -1) ? 'N/A' : '-' : $val['750V_FORECAST_DATE'],
+                "pscada_forecast_date" => ($val['PSCADA_FORECAST_DATE'] == null || $val['PSCADA_FORECAST_DATE'] == "") ? (intval($val['PSCADA_PAT']) == -1 && intval($val['PSCADA_SAT']) == -1) ? 'N/A' : '-' : $val['PSCADA_FORECAST_DATE'],
+                "33kv_actual_date" => ($val['33KV_ACTUAL_DATE'] == null || $val['33KV_ACTUAL_DATE'] == "") ? (intval($val['33KV_ACTUAL_STATUS']) == 1 ? 'Energized' : (intval($val['33KV_ACTUAL_STATUS']) == 2 ? 'Pending' : (intval($val['33KV_ACTUAL_STATUS']) == 3 ? 'N/A' : '-'))) : $val['33KV_ACTUAL_DATE'],
+                "750v_actual_date" => ($val['750V_ACTUAL_DATE'] == null || $val['750V_ACTUAL_DATE'] == "") ? (intval($val['750V_ACTUAL_STATUS']) == 1 ? 'Energized' : (intval($val['750V_ACTUAL_STATUS']) == 2 ? 'Pending' : (intval($val['750V_ACTUAL_STATUS']) == 3 ? 'N/A' : '-'))) : $val['750V_ACTUAL_DATE'],
+                "pscada_actual_date" => ($val['PSCADA_ACTUAL_DATE'] == null || $val['PSCADA_ACTUAL_DATE'] == "") ? (intval($val['PSCADA_ACTUAL_STATUS']) == 1 ? 'Energized' : (intval($val['PSCADA_ACTUAL_STATUS']) == 2 ? 'Pending' : (intval($val['PSCADA_ACTUAL_STATUS']) == 3 ? 'N/A' : '-'))) : $val['PSCADA_ACTUAL_DATE'],
                 "ac_or_dc_one" => "33KV",
                 "ac_or_dc_two" => "750V",
                 "ac_or_dc_three" => (($val['PSCADA_PAT'] == null || $val['PSCADA_PAT'] == '') && ($val['PSCADA_SAT'] == null || $val['PSCADA_SAT'] == '') && ($val['PSCADA_FORECAST_DATE'] == null || $val['PSCADA_FORECAST_DATE'] == '') && ($val['PSCADA_ACTUAL_DATE'] == null || $val['PSCADA_ACTUAL_DATE'] == '') && ($val['PSCADA_ACTUAL_STATUS'] == null || $val['PSCADA_ACTUAL_STATUS'] == '')) ? 'PSCADA' : 'PSCADA'
@@ -1375,7 +1375,7 @@ class Dashboard_model extends CI_Model
             $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date'";
 //            $sql = 'select * from "tbl_trip_status" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
         } else {
-            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"=' . $ring_no . '  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
+            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='."'" . $ring_no ."'". '  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
         }
         $query = $this->db->query($sql);
         $result1 = $query->result_array();
@@ -1383,16 +1383,14 @@ class Dashboard_model extends CI_Model
             $a[$i] = array(
                 "station_from" => $val['STATION_FROM'],
                 "station_to" => $val['STATION_TO'],
-                "33kv_laying_status" => ($val['33KV_LAYING'] == 1) ? 'Completed' : ($val['33KV_LAYING'] == 2 ? 'In Progress' : ($val['33KV_LAYING'] == 3 ? 'Pending' : ($val['33KV_LAYING'] == -1 ? 'N/A' : '-'))),
-                "750v_laying_status" => ($val['750V_LAYING'] == 1) ? 'Completed' : ($val['750V_LAYING'] == 2 ? 'In Progress' : ($val['750V_LAYING'] == 3 ? 'Pending' : ($val['750V_LAYING'] == -1 ? 'N/A' : '-'))),
-                "33kv_termination_status" => ($val['33KV_TERMINATION'] == 1) ? 'Completed' : ($val['33KV_TERMINATION'] == 2 ? 'In Progress' : ($val['33KV_TERMINATION'] == 3 ? 'Pending' : ($val['33KV_TERMINATION'] == -1 ? 'N/A' : '-'))),
-                "750v_termination_status" => ($val['750V_TERMINATION'] == 1) ? 'Completed' : ($val['750V_TERMINATION'] == 2 ? 'In Progress' : ($val['750V_TERMINATION'] == 3 ? 'Pending' : ($val['750V_TERMINATION'] == -1 ? 'N/A' : '-'))),
-                "33kv_pat" => ($val['33KV_PAT'] == 1) ? 'Completed' : ($val['33KV_PAT'] == 2 ? 'In Progress' : ($val['33KV_PAT'] == 3 ? 'Pending' : ($val['33KV_PAT'] == -1 ? 'N/A' : '-'))),
-                "750v_pat" => ($val['750V_PAT'] == 1) ? 'Completed' : ($val['750V_PAT'] == 2 ? 'In Progress' : ($val['750V_PAT'] == 3 ? 'Pending' : ($val['750V_PAT'] == -1 ? 'N/A' : '-'))),
-                "33kv_sat" => ($val['33KV_SAT'] == 1) ? 'Completed' : ($val['33KV_SAT'] == 2 ? 'In Progress' : ($val['33KV_SAT'] == 3 ? 'Pending' : ($val['33KV_SAT'] == -1 ? 'N/A' : '-'))),
-                "750v_sat" => ($val['750V_SAT'] == 1) ? 'Completed' : ($val['750V_SAT'] == 2 ? 'In Progress' : ($val['750V_SAT'] == 3 ? 'Pending' : ($val['750V_SAT'] == -1 ? 'N/A' : '-'))),
-                "33kv_energized_date" => ($val['33KV_ENERGIZED_DATE'] == null || $val['33KV_ENERGIZED_DATE'] == "") ? ($val['33KV_ENERGIZED_STATUS'] == 1 ? 'Energized' : ($val['33KV_ENERGIZED_STATUS'] == 2 ? 'Pending' : ($val['33KV_ENERGIZED_STATUS'] == 3 ? 'N/A' : '-'))) : $val['33KV_ENERGIZED_DATE'],
-                "750v_energized_date" => ($val['750V_ENERGIZED_DATE'] == null || $val['750V_ENERGIZED_DATE'] == "") ? ($val['750V_ENERGIZED_STATUS'] == 1 ? 'Energized' : ($val['750V_ENERGIZED_STATUS'] == 2 ? 'Pending' : ($val['750V_ENERGIZED_STATUS'] == 3 ? 'N/A' : '-'))) : $val['750V_ENERGIZED_DATE']
+                "33kv_termination_status" => (intval($val['33KV_TERMINATION']) == 1) ? 'Completed' : (intval($val['33KV_TERMINATION']) == 2 ? 'In Progress' : (intval($val['33KV_TERMINATION']) == 3 ? 'Pending' : (intval($val['33KV_TERMINATION']) == -1 ? 'N/A' : '-'))),
+                "750v_termination_status" => (intval($val['750V_TERMINATION']) == 1) ? 'Completed' : (intval($val['750V_TERMINATION']) == 2 ? 'In Progress' : (intval($val['750V_TERMINATION']) == 3 ? 'Pending' : (intval($val['750V_TERMINATION']) == -1 ? 'N/A' : '-'))),
+                "33kv_pat" => (intval($val['33KV_PAT']) == 1) ? 'Completed' : (intval($val['33KV_PAT']) == 2 ? 'In Progress' : (intval($val['33KV_PAT']) == 3 ? 'Pending' : (intval($val['33KV_PAT']) == -1 ? 'N/A' : '-'))),
+                "750v_pat" => (intval($val['750V_PAT']) == 1) ? 'Completed' : (intval($val['750V_PAT']) == 2 ? 'In Progress' : (intval($val['750V_PAT']) == 3 ? 'Pending' : (intval($val['750V_PAT']) == -1 ? 'N/A' : '-'))),
+                "33kv_sat" => (intval($val['33KV_SAT']) == 1) ? 'Completed' : (intval($val['33KV_SAT']) == 2 ? 'In Progress' : (intval($val['33KV_SAT']) == 3 ? 'Pending' : (intval($val['33KV_SAT']) == -1 ? 'N/A' : '-'))),
+                "750v_sat" => (intval($val['750V_SAT']) == 1) ? 'Completed' : (intval($val['750V_SAT']) == 2 ? 'In Progress' : (intval($val['750V_SAT']) == 3 ? 'Pending' : (intval($val['750V_SAT']) == -1 ? 'N/A' : '-'))),
+                "33kv_energized_date" => ($val['33KV_ENERGIZED_DATE'] == null || $val['33KV_ENERGIZED_DATE'] == "") ? (intval($val['33KV_ENERGIZED_STATUS']) == 1 ? 'Energized' : (intval($val['33KV_ENERGIZED_STATUS']) == 2 ? 'Pending' : (intval($val['33KV_ENERGIZED_STATUS']) == 3 ? 'N/A' : '-'))) : $val['33KV_ENERGIZED_DATE'],
+                "750v_energized_date" => ($val['750V_ENERGIZED_DATE'] == null || $val['750V_ENERGIZED_DATE'] == "") ? (intval($val['750V_ENERGIZED_STATUS']) == 1 ? 'Energized' : (intval($val['750V_ENERGIZED_STATUS']) == 2 ? 'Pending' : (intval($val['750V_ENERGIZED_STATUS']) == 3 ? 'N/A' : '-'))) : $val['750V_ENERGIZED_DATE']
             );
             $i++;
         }
@@ -1476,13 +1474,13 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         $i = 0;
         foreach ($result as $val) {
-            $trending['trending']["design_trending"] = $val['design_trending'];
+            $trending['trending']["design_trending"] = intval($val['design_trending']);
             $trending['progress']["design_progress"] = $val['design_progress'];
-            $trending['trending']["installation_trending"] = $val['installation_trending'];
+            $trending['trending']["installation_trending"] = intval($val['installation_trending']);
             $trending['progress']["installation_progress"] = $val['installation_progress'];
-            $trending['trending']["test_trending"] = $val['test_trending'];
+            $trending['trending']["test_trending"] = intval($val['test_trending']);
             $trending['progress']["test_progress"] = $val['test_progress'];
-            $trending['trending']["handover_trending"] = $val['handover_trending'];
+            $trending['trending']["handover_trending"] = intval($val['handover_trending']);
             $trending['progress']["handover_progress"] = $val['handover_progress'];
             $trending["data_date"] = $val['data_date'];
             $i++;

@@ -831,7 +831,7 @@ function toExcel() {
 		var variance = $t.find('.excel-d3').text();
 		var forecast = $t.find('.excel-d4').text();
 		var contract = $t.find('.excel-d5').text();
-			html += "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td></tr>".format(name,daysleft,variance,forecast,contract);
+            html += "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td></tr>".format(name,daysleft,variance,forecast,contract);
 		});
 		html += "</tbody></table>";
 		qqq.push({"title":title,"html":html});
