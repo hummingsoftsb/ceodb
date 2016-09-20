@@ -1383,6 +1383,8 @@ class Dashboard_model extends CI_Model
             $a[$i] = array(
                 "station_from" => $val['STATION_FROM'],
                 "station_to" => $val['STATION_TO'],
+                "33kv_laying_status"=> (intval($val['33KV_LAYING']) == 1) ? 'Completed' : (intval($val['33KV_LAYING']) == 2 ? 'In Progress' : (intval($val['33KV_LAYING']) == 3 ? 'Pending' : (intval($val['33KV_LAYING']) == -1 ? 'N/A' : '-'))),
+                "750v_laying_status"=> (intval($val['750V_LAYING']) == 1) ? 'Completed' : (intval($val['750V_LAYING']) == 2 ? 'In Progress' : (intval($val['750V_LAYING']) == 3 ? 'Pending' : (intval($val['750V_LAYING']) == -1 ? 'N/A' : '-'))),
                 "33kv_termination_status" => (intval($val['33KV_TERMINATION']) == 1) ? 'Completed' : (intval($val['33KV_TERMINATION']) == 2 ? 'In Progress' : (intval($val['33KV_TERMINATION']) == 3 ? 'Pending' : (intval($val['33KV_TERMINATION']) == -1 ? 'N/A' : '-'))),
                 "750v_termination_status" => (intval($val['750V_TERMINATION']) == 1) ? 'Completed' : (intval($val['750V_TERMINATION']) == 2 ? 'In Progress' : (intval($val['750V_TERMINATION']) == 3 ? 'Pending' : (intval($val['750V_TERMINATION']) == -1 ? 'N/A' : '-'))),
                 "33kv_pat" => (intval($val['33KV_PAT']) == 1) ? 'Completed' : (intval($val['33KV_PAT']) == 2 ? 'In Progress' : (intval($val['33KV_PAT']) == 3 ? 'Pending' : (intval($val['33KV_PAT']) == -1 ? 'N/A' : '-'))),
