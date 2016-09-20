@@ -1590,12 +1590,6 @@ class Dashboard_model extends CI_Model
     //    Author: SEBIN THOMAS
     //    Usage : NORTH, SOUTH, and UG Overall Progress, Individual Summary of KD9 - KD16
     //    Created: 18/07/2016
-    /**
-     * @param $page
-     * @param bool $date
-     * @param $filter
-     * @return array
-     */
     public function get_tw_overall_progress($page, $date = FALSE, $filter)
     {
         $i = 0;
