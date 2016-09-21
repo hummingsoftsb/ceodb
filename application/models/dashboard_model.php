@@ -1649,13 +1649,6 @@ class Dashboard_model extends CI_Model
         $overall['value'] = json_encode($a);
         return $overall;
     }
-    //Done by :Jane Elizabeth Jose
-    //to retrieve track works region data
-    //Created on : 15/07/2016
-    /**
-     * @param bool $date
-     * @return array
-     */
     public function get_tw_region_data($date = FALSE)
     {
         $i = 0;
