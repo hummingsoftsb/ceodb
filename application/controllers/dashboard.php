@@ -66,7 +66,6 @@ class Dashboard extends CI_Controller {
 		$print = (isset($post['print']) && ($post['print'] == 1));
 		$id = $post["id"];
 		$fullslug = $this->dashboard_model->getSlugFromPageId($id);
-		
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$port = $_SERVER['SERVER_PORT'];
 		$tempfile = tempnam(sys_get_temp_dir(), "pdftemp");
@@ -75,7 +74,7 @@ class Dashboard extends CI_Controller {
 		$phantomscript = $phantomdir."topdf.js";
 		
 		$cmd = $phantomexec . " " . $phantomscript . " " .  $protocol . "localhost:" . $port . "/mpxd/" . $fullslug . ($print ? "?print=1" : "") . " " . $tempfile;
-		//echo $cmd;
+//		echo $cmd;
 		shell_exec($cmd);
 		if (file_exists($tempfile)) {
 		/* CURRENT WILL NOT UNLINK THE TEMP FILE, PLEASE DO SO IN THE FUTURE */
@@ -291,44 +290,44 @@ class Dashboard extends CI_Controller {
                 $slug_name= $this->dashboard_model->get_slug($itemID);
                 switch($slug_name[0]['slug']){
                     case "r1":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r2":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r3":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r4":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r5":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r6":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1),$date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00",$date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
                     case "r7":
-                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1), $date);
-                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1), $date);
+                        $pdata=$this->dashboard_model->get_psds_test_comm(substr($slug_name[0]['slug'],1).".00", $date);
+                        $tdata=$this->dashboard_model->get_psds_trip_status(substr($slug_name[0]['slug'],1).".00", $date);
                         array_push($data_source,$pdata,$tdata);
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
