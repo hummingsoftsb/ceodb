@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/zoomooz/jquery.zoomooz.min.js"></script>
         <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/plugin/basicmodal/js/jquery.simplemodal.js"></script>
+        <script type=text/javascript src="<?php echo $this->config->base_url(); ?>assets/plugin/progressbar/circle-progress.js"></script>
 
 		<style type="text/css">
 			/* No style rules here yet */	
@@ -43,8 +44,11 @@
 				height: 800px;
 				overflow: hidden;
 			}
-			
-			
+            #navbar-center {
+                position: absolute;
+                top: -30px;
+                left: 296px;
+            }
 			svg .smallcircle {
 				fill: #cccccc;
 			}
@@ -283,15 +287,19 @@
 			#navbar a.nopointer, #navbar-left a.nopointer {
 				cursor: default;
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
+            #project_progress_container strong {
+                position: absolute;
+                top: 54px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                line-height: 40px;
+                font-size: 30px;
+                color: rgb(243, 179, 8);
+            }
+            #project_progress_container strong i {
+                font-size: 17px;
+            }
 			.nav {
 			  list-style: none;
 			  text-align: center;
@@ -792,7 +800,10 @@
                 <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/home.png" onclick="location.href='/mpxd/front'"/></a>
                 <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/logout_de.png" onclick="location.href='/mpxd/logout'"/></a>
 			</div>
-			 <div id="navbar">
+            <div id="navbar-center">
+                <span style="font-size: 15px; color: #fff; font-weight: 600; text-transform: uppercase">Power Supply and Distribution System</span>
+            </div>
+            <div id="navbar">
 				<!--<a href="./graph_din.html"><img src="<?php echo $this->config->base_url(); ?>assets/img/construction.png" /></a>-->
                  <a class="nav-img-container nopointer" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i id="design_trending" class="fa" style="color: rgb(13, 139, 43)"></i><br><span id="design_progress" class="pull-left" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
 				<!--<a href="#"><img src="<?php //echo $this->config->base_url(); ?>assets/img/commercial2.png" /></a>-->
@@ -995,13 +1006,13 @@
         <a title="AC & DC Energized" class="legend-stat" data-value="s_5" href="javascript:void(0);" style="position: absolute; top: 581px; left: 720px; height: 18px; width: 112px;"></a>
 	</div>
 	
-	<div style="position:absolute; top: 258px;left: 129px;"><img src="<?php echo $this->config->base_url(); ?>assets/img/arrow2.png" style="width:20px;"/></div>
-	
-	<div id="project_progress_container" style="position:absolute; z-index:2; top: 119px;left: 30px;">
-		<span id="overall_actual" class="header-left" style="font-size:90px;"></span>
-		<!-- <span class="subheader-left" style="">%</span> -->
-	</div>
-	
+	<!--<div style="position:absolute; top: 258px;left: 129px;"><img src="<?php /*echo $this->config->base_url(); */?>assets/img/arrow2.png" style="width:20px;"/></div>-->
+
+    <div id="project_progress_container" style="position:absolute; z-index:2; top: 130px;left: 70px;">
+        <strong></strong>
+        <!--        <span id="overall_actual" class="header-left" style="font-size:90px;"></span>-->
+        <!-- <span class="subheader-left" style="">%</span> -->
+    </div>
 	
 	<div style="position:absolute; z-index:2; top: 125px;left: 179px;">
 <!--		<span class="header-left" style="font-size:72px;" id="overall_early"></span>-->
@@ -1077,9 +1088,9 @@
 		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
 	</div> -->
 	<!-- V1 -->
-<!--	<div style="position:absolute; z-index:2; top: 437px;left: 635px;">-->
-<!--		<a href="--><?php //echo $this->config->base_url(); ?><!--systems/summary" class="pkg_title">SBK-S</a>-->
-<!--	</div>-->
+	<div style="position:absolute; z-index:2; top: 445px; left: 622px; background-color: #3f6a7766; border-radius: 3px; padding: 6px;">
+        <a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title" style="font-size: 25px;">SBK-S-05</a>
+    </div>
 	<div style="position:absolute; z-index:2; top: 350px;left: 200px;">
 		<a href="<?php echo $this->config->base_url(); ?>north/index" class="pkg_title2">North</a>
 	</div>
@@ -1204,13 +1215,23 @@
             }
             $("#status_container").append(st);
             //Ends here
-			$('#overall_actual').text(data['overall_actual']);
+			/*$('#overall_actual').text(data['overall_actual']);*/
 			//$('#overall_variance').text(data['overall_variance'].toFixed(0));
 			$('#overall_variance').text(data['overall_variance']);
 			$('#overall_early').text(data['overall_late']);
 			$('#progress_date').text(prettyDate(data['progress_date']));
 			$('#financial_date').text(prettyDate(data['comdate']));
-		
+            $overall=(parseFloat((typeof data['overall_actual']=='undefined')?0:data['overall_actual']));
+            $('#project_progress_container').circleProgress({
+                value: ($overall/100),
+                fill: { gradient: ['#07c6c1','#0681c4'] },
+                size: 150,
+                emptyFill: 'rgb(199, 69, 58)',//'rgb(244, 67, 54)',
+                thickness: 20,
+                startAngle: -1.5
+            }).on('circle-animation-progress', function(event, progress) {
+                $(this).find('strong').html(($overall * progress).toFixed(2) + '<i>%</i>');
+            });
 			$i = $('#mapimg');
 			//Width and height
 			var w = $i.width();

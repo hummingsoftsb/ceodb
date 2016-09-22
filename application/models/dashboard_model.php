@@ -1252,7 +1252,7 @@ class Dashboard_model extends CI_Model
         $result = $query->result_array();
         foreach ($result as $val) {
             $status = (intval($val['PSCADA_SAT']) == 1 && intval($val['PSCADA_PAT']) == 1) ? 'Completed' : ((intval($val['PSCADA_SAT']) == null && intval($val['PSCADA_PAT']) == null) ? 'N/A' : 'In Progress');
-            $pscada_status[intval($val['STATION_CODE'])] = array($status);
+            $pscada_status[$val['STATION_CODE']] = array($status);
         }
         return $pscada_status;
     }
@@ -1327,13 +1327,13 @@ class Dashboard_model extends CI_Model
         }
         $query = $this->db->query($sql);
         $result = $query->result_array();
-
         foreach ($result as $val) {
             $a[$i] = array(
                 "ring_number" => intval($val['RING_NUMBER']),
                 "station_name" => $val['STATION_NAME'],
                 "station_code" => $val['STATION_CODE'],
                 "install_status" => (intval($val['INSTALL_STATUS']) == 1) ? 'Completed' : ((intval($val['INSTALL_STATUS']) == 2) ? 'In Progress' : ((intval($val['INSTALL_STATUS']) == 3) ? 'Pending' : ((intval($val['INSTALL_STATUS']) == -1) ? 'N/A' : ((intval($val['INSTALL_STATUS']) == 4) ? 'Handed Over' : '-')))),
+                "install_percentage"=>($val['INSTALL_PERCENTAGE'] == null || $val['INSTALL_PERCENTAGE'] == "") ? '' :  $val['INSTALL_PERCENTAGE']."%",
                 "33kv_pat" => (intval($val['33KV_PAT']) == 1) ? 'Completed' : (intval($val['33KV_PAT']) == 2 ? 'In Progress' : (intval($val['33KV_PAT']) == 3 ? 'Pending' : (intval($val['33KV_PAT']) == -1 ? 'N/A' : (intval($val['33KV_PAT']) == 4 ? 'Handed Over' : '-')))),
                 "750v_pat" => (intval($val['750V_PAT']) == 1) ? 'Completed' : (intval($val['750V_PAT']) == 2 ? 'In Progress' : (intval($val['750V_PAT']) == 3 ? 'Pending' : (intval($val['750V_PAT']) == -1 ? 'N/A' : (intval($val['750V_PAT']) == 4 ? 'Handed Over' : '-')))),
                 "pscada_pat" => (intval($val['PSCADA_PAT']) == 1) ? 'Completed' : (intval($val['PSCADA_PAT']) == 2 ? 'In Progress' : (intval($val['PSCADA_PAT']) == 3 ? 'Pending' : (intval($val['PSCADA_PAT']) == -1 ? 'N/A' : (intval($val['PSCADA_PAT']) == 4 ? 'Handed Over' : '-')))),
@@ -1372,10 +1372,10 @@ class Dashboard_model extends CI_Model
             "value" => array()
         );
         if ($date) { //If date is selected
-            $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date'";
+            $sql = "SELECT DISTINCT tts.*  FROM \"tbl_trip_status\" AS tts, \"tbl_testing_and_commission\" AS ttc WHERE ((tts.\"STATION_FROM\"= ttc.\"STATION_CODE\") OR (tts.\"STATION_TO\"= ttc.\"STATION_CODE\"))  AND ttc.\"RING_NUMBER\"='$ring_no'  AND tts.\"DATA_DATE\"='$date' ORDER  BY tts.\"STATION_FROM\" ";
 //            $sql = 'select * from "tbl_trip_status" where "RING_NUMBER"='.$ring_no.' and "DATA_DATE"='.$date.'';
         } else {
-            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='."'" . $ring_no ."'". '  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status")';
+            $sql = 'SELECT DISTINCT tts.*  FROM "tbl_trip_status" AS tts, "tbl_testing_and_commission" AS ttc WHERE ((tts."STATION_FROM"= ttc."STATION_CODE") OR (tts."STATION_TO"= ttc."STATION_CODE"))  AND ttc."RING_NUMBER"='."'" . $ring_no ."'". '  AND tts."DATA_DATE"=(SELECT MAX("DATA_DATE") FROM "tbl_trip_status") order by tts."STATION_FROM" ';
         }
         $query = $this->db->query($sql);
         $result1 = $query->result_array();

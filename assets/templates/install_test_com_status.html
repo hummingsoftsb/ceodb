@@ -83,7 +83,7 @@
             <%var rspan; if(i['ac_or_dc_three']!=null){rspan=3}else{rspan=2}%>
             <td rowspan="<%=rspan%>"><b><%=i['station_code']%></b><br><%=i['station_name']%></td>
             <!--<td rowspan="<%=rspan%>"><%=i['install_status']%></td>-->
-            <td rowspan="<%=rspan%>" style="text-align: center"><i class="fa fa-circle" style="color:<%if(i['install_status']=='Completed'){%>#2acd4a<%}else if(i['install_status']=='In Progress'){%>#efe24b<%}else if(i['install_status']=='Handed Over'){%>#0070C0<%}else{%>#E83737<%}%>;"></i></td>
+            <td rowspan="<%=rspan%>" style="text-align: center"><i class="fa fa-circle" style="color:<%if(i['install_status']=='Completed'){%>#2acd4a<%}else if(i['install_status']=='In Progress'){%>#efe24b<%}else if(i['install_status']=='Handed Over'){%>#0070C0<%}else{%>#E83737<%}%>;"></i><b><br><%=i['install_percentage']%></b></td>
             <td class="color-beige"><%=i['ac_or_dc_one']%></td>
             <td style="text-align: center;color:<%if(i['33kv_pat']=='N/A'){%>#ffd461<%}%>"><%if(i['33kv_pat']=='N/A'){%>N/A<%}else if(i['33kv_pat']=='-'){%>-<%}else{%><i class="fa fa-circle" style="color:<%if(i['33kv_pat']=='Completed'){%>#2acd4a<%}else if(i['33kv_pat']=='In Progress'){%>#efe24b<%}else{%>#E83737<%}%>;"></i><%}%></td>
             <!--<td><i class="fa fa-circle"></i></td>-->
