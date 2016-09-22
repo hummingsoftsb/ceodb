@@ -710,7 +710,6 @@ class Dashboard extends CI_Controller {
             }
             $this->load->view('dashboard/api', $data);
         }
-
     public function fullyCompletedTrain(){
         if ($this->input->get()) {
             $data_date=$this->input->get("date");
