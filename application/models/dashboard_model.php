@@ -1606,9 +1606,9 @@ class Dashboard_model extends CI_Model
                 $sub = "";
             }
             if ($date) {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " and \"data_date\"='$date'";
+                $sql = "SELECT sum(cast(ts_plan as int)) as ts_plan, sum(cast(ts_actual as int)) as ts_actual, sum(cast(sp_plan as int)) as sp_plan, sum(cast(sp_actual as int)) as sp_actual, sum(cast(lrd_plan as int)) as lrd_plan,sum(cast(lrd_actual as int)) as lrd_actual, sum(cast(rsa_plan as int)) as rsa_plan, sum(cast(rsa_actual as int)) as rsa_actual, sum(cast(rfs_plan as int)) as rfs_plan, sum(cast(rfs_actual as int)) as rfs_actual, sum(cast(con_plan as int)) as con_plan,sum(cast(con_actual as int)) as con_actual, sum(cast(dw_plan as int)) as dw_plan, sum(cast(dw_actual as int)) as dw_actual, sum(cast(wd_plan as int)) as wd_plan, sum(cast(wd_actual as int)) as wd_actual, sum(cast(ra_plan as int)) as ra_plan,sum(cast(ra_actual as int)) as ra_actual, sum(cast(prbi_plan as int)) as prbi_plan, sum(cast(prbi_actual as int)) as prbi_actual, sum(cast(pria_plan as int)) as pria_plan, sum(cast(pria_actual as int)) as pria_actual, sum(cast(prci_plan as int)) as prci_plan,sum(cast(prci_actual as int)) as prci_actual, sum(cast(ew_plan as int)) as ew_plan, sum(cast(ew_actual as int)) as ew_actual, sum(cast(ctc_plan as int)) as ctc_plan, sum(cast(ctc_actual as int)) as ctc_actual, sum(cast(comm_plan as int)) as comm_plan,sum(cast(comm_actual as int)) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " and \"data_date\"='$date'";
             } else {
-                $sql = "SELECT sum(ts_plan) as ts_plan, sum(ts_actual) as ts_actual, sum(sp_plan) as sp_plan, sum(sp_actual) as sp_actual, sum(lrd_plan) as lrd_plan,sum(lrd_actual) as lrd_actual, sum(rsa_plan) as rsa_plan, sum(rsa_actual) as rsa_actual, sum(rfs_plan) as rfs_plan, sum(rfs_actual) as rfs_actual, sum(con_plan) as con_plan,sum(con_actual) as con_actual, sum(dw_plan) as dw_plan, sum(dw_actual) as dw_actual, sum(wd_plan) as wd_plan, sum(wd_actual) as wd_actual, sum(ra_plan) as ra_plan,sum(ra_actual) as ra_actual, sum(prbi_plan) as prbi_plan, sum(prbi_actual) as prbi_actual, sum(pria_plan) as pria_plan, sum(pria_actual) as pria_actual, sum(prci_plan) as prci_plan,sum(prci_actual) as prci_actual, sum(ew_plan) as ew_plan, sum(ew_actual) as ew_actual, sum(ctc_plan) as ctc_plan, sum(ctc_actual) as ctc_actual, sum(comm_plan) as comm_plan,sum(comm_actual) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " group by \"data_date\" order by \"data_date\" desc limit 1";
+                $sql = "SELECT sum(cast(ts_plan as int)) as ts_plan, sum(cast(ts_actual as int)) as ts_actual, sum(cast(sp_plan as int)) as sp_plan, sum(cast(sp_actual as int)) as sp_actual, sum(cast(lrd_plan as int)) as lrd_plan,sum(cast(lrd_actual as int)) as lrd_actual, sum(cast(rsa_plan as int)) as rsa_plan, sum(cast(rsa_actual as int)) as rsa_actual, sum(cast(rfs_plan as int)) as rfs_plan, sum(cast(rfs_actual as int)) as rfs_actual, sum(cast(con_plan as int)) as con_plan,sum(cast(con_actual as int)) as con_actual, sum(cast(dw_plan as int)) as dw_plan, sum(cast(dw_actual as int)) as dw_actual, sum(cast(wd_plan as int)) as wd_plan, sum(cast(wd_actual as int)) as wd_actual, sum(cast(ra_plan as int)) as ra_plan,sum(cast(ra_actual as int)) as ra_actual, sum(cast(prbi_plan as int)) as prbi_plan, sum(cast(prbi_actual as int)) as prbi_actual, sum(cast(pria_plan as int)) as pria_plan, sum(cast(pria_actual as int)) as pria_actual, sum(cast(prci_plan as int)) as prci_plan,sum(cast(prci_actual as int)) as prci_actual, sum(cast(ew_plan as int)) as ew_plan, sum(cast(ew_actual as int)) as ew_actual, sum(cast(ctc_plan as int)) as ctc_plan, sum(cast(ctc_actual as int)) as ctc_actual, sum(cast(comm_plan as int)) as comm_plan,sum(cast(comm_actual as int)) as comm_actual FROM \"tbl_tw_progress\" WHERE region ~* '$page'" . $sub . " group by \"data_date\" order by \"data_date\" desc limit 1";
             }
         } else {
             if ($date) {
@@ -1633,6 +1633,7 @@ class Dashboard_model extends CI_Model
                 }
             }
         }
+//        echo $sql;
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $a['region'] = $page;
@@ -1678,8 +1679,7 @@ class Dashboard_model extends CI_Model
         $region_progress['value'] = json_encode($tem_array);
         return $region_progress;
     }
-    public function get_tw_area_data($depotname,$date = FALSE)
-    {
+    public function get_tw_area_data($depotname,$date = FALSE){
         $i = 0;
         $count_area=0;
         $aver=0;
@@ -1695,17 +1695,17 @@ class Dashboard_model extends CI_Model
         );
         if($depotname=='dpt1'){
             if ($date) { // if date selected
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date=$date";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name ~* 'sungai buloh depot' and data_date=$date";
             } else {
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name='sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed  FROM tbl_tw_area where depot_name ~* 'sungai buloh depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
             }
         }
         if($depotname=='dpt2') {
             if ($date) { // if date selected
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date=$date";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name ~* 'kajang depot' and data_date=$date";
             } else {
 
-                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name='kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
+                $query = "SELECT depot_name, area_no, area_master_property, area_sub_property,area_plan, area_done, area_percentage_completed FROM tbl_tw_area where depot_name ~* 'kajang depot' and data_date in (SELECT max(data_date) from tbl_tw_area)";
 
             }
         }
