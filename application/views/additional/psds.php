@@ -1088,7 +1088,7 @@
 		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
 	</div> -->
 	<!-- V1 -->
-	<div style="position:absolute; z-index:2; top: 445px; left: 622px; background-color: #3f6a7766; border-radius: 3px; padding: 6px;">
+	<div style="position:absolute; z-index:2; top: 445px; left: 622px; background-color: rgba(42, 79, 118, 0.46); border-radius: 3px; padding: 6px;">
         <a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title" style="font-size: 25px;">SBK-S-05</a>
     </div>
 	<div style="position:absolute; z-index:2; top: 350px;left: 200px;">

@@ -341,6 +341,11 @@
                 margin-left: 44px;
                 margin-bottom: 20px;
             }
+			#navbar-center {
+				position: absolute;
+				top: -30px;
+				left: 444px;
+			}
         #nav_drop{
             font-size: 16px;
             border-collapse: collapse;
@@ -733,6 +738,9 @@
                 <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/home.png" onclick="location.href='/mpxd/front'"/></a>
                 <a href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/logout_de.png" onclick="location.href='/mpxd/logout'"/></a>
 			</div>
+			<div id="navbar-center">
+				<span style="font-size: 17px; color: #fff; font-weight: 600; text-transform: uppercase">Track Works</span>
+			</div>
 			 <div id="navbar">
                  <div class="fim-dropdown">
 				    <a class="nav-img-container" href="#"><img src="<?php echo $this->config->base_url(); ?>assets/img/nav_design.png" /><i class="fa fa-arrow-up" style="color: rgb(13, 139, 43)"></i><br><span class="pull-left" id="design_p" style="color: #f3b308; font-size: 13px; font-weight:600;"></span></a>
@@ -968,9 +976,9 @@
 		<a href="<?php echo $this->config->base_url(); ?>systems/summary" class="pkg_title">SBK-S</a>
 	</div> -->
 	<!-- V1 -->
-<!--	<div style="position:absolute; z-index:2; top: 437px;left: 635px;">-->
-<!--		<a href="--><?php //echo $this->config->base_url(); ?><!--systems/summary" class="pkg_title">SBK-S</a>-->
-<!--	</div>-->
+	<div style="position:absolute; z-index:2; top: 445px; left: 619px; background-color: rgba(42, 79, 118, 0.46); border-radius: 3px; padding: 6px;">
+		<a class="pkg_title" style="font-size: 25px; font-weight: 500">SBK-S-06</a>
+	</div>
 	<div style="position:absolute; z-index:2; top: 350px;left: 200px;">
 		<a href="<?php echo $this->config->base_url(); ?>north/index" class="pkg_title2">North</a>
 	</div>
