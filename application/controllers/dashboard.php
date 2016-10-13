@@ -74,7 +74,7 @@ class Dashboard extends CI_Controller {
 		$phantomscript = $phantomdir."topdf.js";
 		
 		$cmd = $phantomexec . " " . $phantomscript . " " .  $protocol . "localhost:" . $port . "/mpxd/" . $fullslug . ($print ? "?print=1" : "") . " " . $tempfile;
-//		echo $cmd;
+
 		shell_exec($cmd);
 		if (file_exists($tempfile)) {
 		/* CURRENT WILL NOT UNLINK THE TEMP FILE, PLEASE DO SO IN THE FUTURE */
