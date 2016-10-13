@@ -188,6 +188,7 @@
         <script src="assets/temp/assets/js/pages/login.js"></script>
 
         <!-- end: JavaScript-->
+        <!-- test: comment added -->
 
     </body>
 </html>
