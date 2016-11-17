@@ -711,7 +711,8 @@
 		
 		<a title="Electric Trains" href="<?php echo $this->config->base_url(); ?>sbk-s-01/index" style="position: absolute; top: 492px; left: 555px; height: 52px; width: 45px;"></a>
 		<a title="Depot Equipment &amp; Maintenance Vehicle" href="<?php echo $this->config->base_url(); ?>sbk-s-02/index" style="position: absolute; top: 492px; left: 606px; height: 52px; width: 45px;"></a>
-		<a title="Signalling &amp; Train Control System" href="<?php echo $this->config->base_url(); ?>sbk-s-03/index" style="position: absolute; top: 492px; left: 657px; height: 52px; width: 45px;"></a>
+<!--		<a title="Signalling &amp; Train Control System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-03/index" style="position: absolute; top: 492px; left: 657px; height: 52px; width: 45px;"></a>-->
+		<a title="Signalling &amp; Train Control System" style="position: absolute; top: 492px; left: 657px; height: 52px; width: 45px;"></a>
 		<a title="Platform Screen Door" href="<?php echo $this->config->base_url(); ?>sbk-s-04/index" style="position: absolute; top: 492px; left: 708px; height: 52px; width: 45px;"></a>
 <!--		<a title="Power Supply and Distribution System" href="--><?php //echo $this->config->base_url(); ?><!--sbk-s-05/index" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>-->
         <a title="Power Supply and Distribution System" href="<?php echo $this->config->base_url(); ?>sbk-s-05/home" style="position: absolute; top: 492px; left: 759px; height: 52px; width: 45px;"></a>
