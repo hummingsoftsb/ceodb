@@ -181,10 +181,10 @@
 <!--        <script type=text/javascript src="--><?php //echo $this->config->base_url(); ?><!--assets/plugin/drop-popup/main.js"></script>-->
 		
 		 <!-- Gallery src-->
-<!-- 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script> -->
-		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nanoGALLERY-5.10.3/css/nanogallery.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nanoGALLERY-5.10.3/jquery.nanogallery.js"></script>
+		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/css/nanogallery.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nano-gallery2/jquery.nanogallery.min.js"></script>
+<!-- 		<link media="screen, print" href="<?php echo $this->config->base_url(); ?>assets/plugin/nanoGALLERY-5.10.3/css/nanogallery.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/nanoGALLERY-5.10.3/jquery.nanogallery.js"></script> -->
 
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/tablePagination/paging.js"></script>
         <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>assets/plugin/masonry/masonry.js"></script>
