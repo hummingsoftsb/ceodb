@@ -357,7 +357,7 @@ class Dashboard extends CI_Controller {
                                 break;
                             }
                         break;
-                    case "sbk-s-03":
+/*                    case "sbk-s-03":
                         $page_name= $this->dashboard_model->get_page($itemID);
                         switch($page_name[0]['page']) {
                             case "index":
@@ -381,7 +381,7 @@ class Dashboard extends CI_Controller {
                                 $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                                 break;
                         }
-                        break;
+                        break;*/
                     default:
                         $data['item'] = array('item' => $item_meta, 'data' => $data_source, 'static_data' => $data_source_static);
                         break;
